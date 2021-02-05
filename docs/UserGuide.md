@@ -1,3 +1,5 @@
+This is the NS men version address book.
+
 ---
 layout: page
 title: User Guide
