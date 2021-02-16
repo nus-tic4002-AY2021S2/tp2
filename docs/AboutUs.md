@@ -1,59 +1,16 @@
 ---
-layout: page
-title: About Us
+We are a team based in the [School of Computing, National University of Singapore](http://www.comp.nus.edu.sg) from **BTech Software Engineering**, AY2017/2018.
+
+# Project Team
+
+### About us
+
+Display | Name | Github Profile | Portfolio | Role
+--------|:----:|:--------------:|:---------:|:--------------:|
+![](https://upload.wikimedia.org/wikipedia/en/b/b1/Portrait_placeholder.png) | Adi-Kesava Das | [adi-kd0021](https://github.com/adi-kd0021) | [Portfolio](team/adi-kd0021.md) | Developer
+![](https://upload.wikimedia.org/wikipedia/en/b/b1/Portrait_placeholder.png) | Olivier Cheah | [skyventus](https://github.com/skyventus) | [Portfolio](team/skyventus.md) | Developer
+![](https://upload.wikimedia.org/wikipedia/en/b/b1/Portrait_placeholder.png) | Li Yi | [timmyly7](https://github.com/timmyly7) | [Portfolio](team/timmyly7.md) | Developer
+![](https://upload.wikimedia.org/wikipedia/en/b/b1/Portrait_placeholder.png) | Hngoi Zi Wen | [e0261618](https://github.com/e0261618) | [Portfolio](team/e0261618.md) | Developer
+![](https://upload.wikimedia.org/wikipedia/en/b/b1/Portrait_placeholder.png) | Chi Lai Ping  | [Chilaiping](https://github.com/Chilaiping) | [Portfolio](team/chilaiping.md) | Developer
+
 ---
-
-We are a team based in the [School of Computing, National University of Singapore](http://www.comp.nus.edu.sg).
-
-You can reach us at the email `seer[at]comp.nus.edu.sg`
-
-## Project team
-
-### John Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[homepage](http://www.comp.nus.edu.sg/~damithch)]
-[[github](https://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
-
-* Role: Project Advisor
-
-### Jane Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
-
-* Role: Team Lead
-* Responsibilities: UI
-
-### Johnny Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[github](http://github.com/johndoe)] [[portfolio](team/johndoe.md)]
-
-* Role: Developer
-* Responsibilities: Data
-
-### Jean Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
-
-* Role: Developer
-* Responsibilities: Dev Ops + Threading
-
-### James Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
-
-* Role: Developer
-* Responsibilities: UI
