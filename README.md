@@ -1,4 +1,4 @@
-![CI Status](https://github.com/tototto/tp2/workflows/Java%20CI/badge.svg)
+[![CI Status](https://github.com/tototto/tp2/workflows/Java%20CI/badge.svg)](https://github.com/tototto/tp2/actions)
 
 ![Ui](docs/images/Ui.png)
 
