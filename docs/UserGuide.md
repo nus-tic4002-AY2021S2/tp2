@@ -72,6 +72,12 @@ Format: `add n/NAME e/EMAIL r/ROLE a/ADDRESS c/CONTACT_NUMBER s/SALARY d/DATE_OF
 Example of usage:
 * `add n/Rachel Lee e/rachel@f18solutions.com.sg r/Designer a/BLK 730 Woodlands Road #15-150 c/91648917 d/2020-09-01 b/1988-01-02`
 
+### Listing all employee records：`list`
+
+Lists all the employee records in the Human Resource Management System.
+
+Format: `list`
+
 ### Deleting an employee record : `delete`
 
 Deletes the specified person from the address book.
@@ -151,6 +157,7 @@ Action | Format, Examples
 --------|------------------
 **Help** | `help`
 **Add** | `add n/NAME e/EMAIL r/ROLE a/ADDRESS c/CONTACT_NUMBER s/SALARY d/DATE_OF_EMPLOYMENT b/DATE_OF_BIRTH` <br> E.g., `add n/Rachel Lee e/rachel@f18solutions.com.sg r/Designer a/BLK 730 Woodlands Road #15-150 c/91648917 d/2020-09-01 b/1988-01-02`
+**List** | `list`
 **Delete** | `delete INDEX`<br> E.g., `delete 2`
 **Sort** | `sort TYPE` <br> E.g., `sort d`
 **Find** | `find TYPE KEYWORD` <br> E.g.,`find n John Bernice Andy`
