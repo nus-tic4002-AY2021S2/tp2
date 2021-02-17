@@ -11,7 +11,7 @@ public class Ic {
     public static final String MESSAGE_NRIC_CONSTRAINTS =
             "Patient NRIC should follow the format of 1 alphabet, 7 digits, 1 alphabet, and it should not be blank";
 
-    /*
+    /**
      * The first character of the NRIC must not be a whitespace,
      * otherwise " " (a blank string) becomes a valid input.
      */
