@@ -12,5 +12,5 @@
   * Using ** Gradle** as automating build tool.
   * Use **GitHub Actions** to set up **Continuous Integration (CI)**.
 * It is named `Army Management System`.
-* For the detailed documentation of this project, see the **[Army Management System Website](https://ay2021s2-tic4002-team3.github.io/tp2)**.
+* For the detailed documentation of this project, see the **[Army Management System Website](https://ay2021s2-tic4002-f18-3.github.io/tp2)**.
 * This project is based on the AddressBook-Level3 project created by the [SE-EDU initiative](https://se-education.org).
