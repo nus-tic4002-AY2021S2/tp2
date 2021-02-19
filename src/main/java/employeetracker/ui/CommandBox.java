@@ -1,12 +1,12 @@
 package employeetracker.ui;
 
+import employeetracker.logic.commands.CommandResult;
+import employeetracker.logic.commands.exceptions.CommandException;
+import employeetracker.logic.parser.exceptions.ParseException;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
-import employeetracker.logic.commands.CommandResult;
-import employeetracker.logic.commands.exceptions.CommandException;
-import employeetracker.logic.parser.exceptions.ParseException;
 
 /**
  * The UI component that is responsible for receiving user command inputs.

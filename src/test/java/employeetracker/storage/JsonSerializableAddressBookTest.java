@@ -1,7 +1,7 @@
 package employeetracker.storage;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static employeetracker.testutil.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;

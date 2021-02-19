@@ -5,8 +5,6 @@ import java.nio.file.Path;
 import java.util.Optional;
 import java.util.logging.Logger;
 
-import javafx.application.Application;
-import javafx.stage.Stage;
 import employeetracker.commons.core.Config;
 import employeetracker.commons.core.LogsCenter;
 import employeetracker.commons.core.Version;
@@ -30,6 +28,8 @@ import employeetracker.storage.StorageManager;
 import employeetracker.storage.UserPrefsStorage;
 import employeetracker.ui.Ui;
 import employeetracker.ui.UiManager;
+import javafx.application.Application;
+import javafx.stage.Stage;
 
 /**
  * Runs the application.

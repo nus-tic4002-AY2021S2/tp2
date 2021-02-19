@@ -2,13 +2,13 @@ package employeetracker.logic;
 
 import java.nio.file.Path;
 
-import javafx.collections.ObservableList;
 import employeetracker.commons.core.GuiSettings;
 import employeetracker.logic.commands.CommandResult;
 import employeetracker.logic.commands.exceptions.CommandException;
 import employeetracker.logic.parser.exceptions.ParseException;
 import employeetracker.model.ReadOnlyAddressBook;
 import employeetracker.model.person.Person;
+import javafx.collections.ObservableList;
 
 /**
  * API of the Logic component

@@ -2,15 +2,15 @@ package employeetracker.ui;
 
 import java.util.logging.Logger;
 
+import employeetracker.MainApp;
+import employeetracker.commons.core.LogsCenter;
+import employeetracker.commons.util.StringUtil;
+import employeetracker.logic.Logic;
 import javafx.application.Platform;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import employeetracker.MainApp;
-import employeetracker.commons.core.LogsCenter;
-import employeetracker.commons.util.StringUtil;
-import employeetracker.logic.Logic;
 
 /**
  * The manager of the UI component.

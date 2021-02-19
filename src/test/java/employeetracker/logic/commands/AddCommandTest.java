@@ -1,10 +1,10 @@
 package employeetracker.logic.commands;
 
+import static employeetracker.testutil.Assert.assertThrows;
 import static java.util.Objects.requireNonNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static employeetracker.testutil.Assert.assertThrows;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -13,7 +13,6 @@ import java.util.function.Predicate;
 
 import org.junit.jupiter.api.Test;
 
-import javafx.collections.ObservableList;
 import employeetracker.commons.core.GuiSettings;
 import employeetracker.logic.commands.exceptions.CommandException;
 import employeetracker.model.AddressBook;
@@ -22,6 +21,7 @@ import employeetracker.model.ReadOnlyAddressBook;
 import employeetracker.model.ReadOnlyUserPrefs;
 import employeetracker.model.person.Person;
 import employeetracker.testutil.PersonBuilder;
+import javafx.collections.ObservableList;
 
 public class AddCommandTest {
 

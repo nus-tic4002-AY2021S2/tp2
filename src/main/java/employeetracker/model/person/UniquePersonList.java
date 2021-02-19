@@ -1,15 +1,15 @@
 package employeetracker.model.person;
 
-import static java.util.Objects.requireNonNull;
 import static employeetracker.commons.util.CollectionUtil.requireAllNonNull;
+import static java.util.Objects.requireNonNull;
 
 import java.util.Iterator;
 import java.util.List;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import employeetracker.model.person.exceptions.DuplicatePersonException;
 import employeetracker.model.person.exceptions.PersonNotFoundException;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  * A list of persons that enforces uniqueness between its elements and does not allow nulls.

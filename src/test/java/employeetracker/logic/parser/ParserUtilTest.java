@@ -1,10 +1,10 @@
 package employeetracker.logic.parser;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static employeetracker.logic.parser.ParserUtil.MESSAGE_INVALID_INDEX;
 import static employeetracker.testutil.Assert.assertThrows;
 import static employeetracker.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Arrays;
 import java.util.Collections;

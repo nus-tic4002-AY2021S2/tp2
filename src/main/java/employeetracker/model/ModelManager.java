@@ -1,17 +1,17 @@
 package employeetracker.model;
 
-import static java.util.Objects.requireNonNull;
 import static employeetracker.commons.util.CollectionUtil.requireAllNonNull;
+import static java.util.Objects.requireNonNull;
 
 import java.nio.file.Path;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
-import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
 import employeetracker.commons.core.GuiSettings;
 import employeetracker.commons.core.LogsCenter;
 import employeetracker.model.person.Person;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 
 /**
  * Represents the in-memory model of the address book data.

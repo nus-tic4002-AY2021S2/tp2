@@ -1,7 +1,7 @@
 package employeetracker.logic.commands;
 
-import static java.util.Objects.requireNonNull;
 import static employeetracker.model.Model.PREDICATE_SHOW_ALL_PERSONS;
+import static java.util.Objects.requireNonNull;
 
 import employeetracker.model.Model;
 

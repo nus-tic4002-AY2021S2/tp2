@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.util.logging.Logger;
 
-import javafx.collections.ObservableList;
 import employeetracker.commons.core.GuiSettings;
 import employeetracker.commons.core.LogsCenter;
 import employeetracker.logic.commands.Command;
@@ -16,6 +15,7 @@ import employeetracker.model.Model;
 import employeetracker.model.ReadOnlyAddressBook;
 import employeetracker.model.person.Person;
 import employeetracker.storage.Storage;
+import javafx.collections.ObservableList;
 
 /**
  * The main LogicManager of the app.
