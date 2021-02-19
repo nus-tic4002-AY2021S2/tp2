@@ -3,7 +3,7 @@ package employeetracker.logic.commands;
 import static employeetracker.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static employeetracker.logic.commands.CommandTestUtil.showPersonAtIndex;
 import static employeetracker.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
-import static employeetracker.testutil.TypicalPersons.getTypicalAddressBook;
+import static employeetracker.testutil.TypicalPersons.getTypicalEmployeeTracker;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -22,7 +22,7 @@ public class ListCommandTest {
 
     @BeforeEach
     public void setUp() {
-        model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
+        model = new ModelManager(getTypicalEmployeeTracker(), new UserPrefs());
         expectedModel = new ModelManager(model.getEmployeeTracker(), new UserPrefs());
     }
 

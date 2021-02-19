@@ -17,36 +17,36 @@ import employeetracker.model.ReadOnlyEmployeeTracker;
 /**
  * A class to access EmployeeTracker data stored as a json file on the hard disk.
  */
-public class JsonAddressBookStorage implements AddressBookStorage {
+public class JsonEmployeeTrackerStorage implements EmployeeTrackerStorage {
 
-    private static final Logger logger = LogsCenter.getLogger(JsonAddressBookStorage.class);
+    private static final Logger logger = LogsCenter.getLogger(JsonEmployeeTrackerStorage.class);
 
     private Path filePath;
 
-    public JsonAddressBookStorage(Path filePath) {
+    public JsonEmployeeTrackerStorage(Path filePath) {
         this.filePath = filePath;
     }
 
-    public Path getAddressBookFilePath() {
+    public Path getEmployeeTrackerFilePath() {
         return filePath;
     }
 
     @Override
-    public Optional<ReadOnlyEmployeeTracker> readAddressBook() throws DataConversionException {
-        return readAddressBook(filePath);
+    public Optional<ReadOnlyEmployeeTracker> readEmployeeTracker() throws DataConversionException {
+        return readEmployeeTracker(filePath);
     }
 
     /**
-     * Similar to {@link #readAddressBook()}.
+     * Similar to {@link #readEmployeeTracker()}.
      *
      * @param filePath location of the data. Cannot be null.
      * @throws DataConversionException if the file is not in the correct format.
      */
-    public Optional<ReadOnlyEmployeeTracker> readAddressBook(Path filePath) throws DataConversionException {
+    public Optional<ReadOnlyEmployeeTracker> readEmployeeTracker(Path filePath) throws DataConversionException {
         requireNonNull(filePath);
 
-        Optional<JsonSerializableAddressBook> jsonAddressBook = JsonUtil.readJsonFile(
-                filePath, JsonSerializableAddressBook.class);
+        Optional<JsonSerializableEmployeeTracker> jsonAddressBook = JsonUtil.readJsonFile(
+                filePath, JsonSerializableEmployeeTracker.class);
         if (!jsonAddressBook.isPresent()) {
             return Optional.empty();
         }
@@ -60,21 +60,21 @@ public class JsonAddressBookStorage implements AddressBookStorage {
     }
 
     @Override
-    public void saveAddressBook(ReadOnlyEmployeeTracker addressBook) throws IOException {
-        saveAddressBook(addressBook, filePath);
+    public void saveEmployeeTracker(ReadOnlyEmployeeTracker addressBook) throws IOException {
+        saveEmployeeTracker(addressBook, filePath);
     }
 
     /**
-     * Similar to {@link #saveAddressBook(ReadOnlyEmployeeTracker)}.
+     * Similar to {@link #saveEmployeeTracker(ReadOnlyEmployeeTracker)}.
      *
      * @param filePath location of the data. Cannot be null.
      */
-    public void saveAddressBook(ReadOnlyEmployeeTracker addressBook, Path filePath) throws IOException {
+    public void saveEmployeeTracker(ReadOnlyEmployeeTracker addressBook, Path filePath) throws IOException {
         requireNonNull(addressBook);
         requireNonNull(filePath);
 
         FileUtil.createIfMissing(filePath);
-        JsonUtil.saveJsonFile(new JsonSerializableAddressBook(addressBook), filePath);
+        JsonUtil.saveJsonFile(new JsonSerializableEmployeeTracker(addressBook), filePath);
     }
 
 }

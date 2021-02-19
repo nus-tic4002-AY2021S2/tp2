@@ -29,9 +29,9 @@ import employeetracker.testutil.EditPersonDescriptorBuilder;
 import employeetracker.testutil.PersonBuilder;
 import employeetracker.testutil.PersonUtil;
 
-public class AddressBookParserTest {
+public class EmployeeTrackerParserTest {
 
-    private final AddressBookParser parser = new AddressBookParser();
+    private final EmployeeTrackerParser parser = new EmployeeTrackerParser();
 
     @Test
     public void parseCommand_add() throws Exception {

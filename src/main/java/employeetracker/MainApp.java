@@ -20,8 +20,8 @@ import employeetracker.model.ReadOnlyEmployeeTracker;
 import employeetracker.model.ReadOnlyUserPrefs;
 import employeetracker.model.UserPrefs;
 import employeetracker.model.util.SampleDataUtil;
-import employeetracker.storage.AddressBookStorage;
-import employeetracker.storage.JsonAddressBookStorage;
+import employeetracker.storage.EmployeeTrackerStorage;
+import employeetracker.storage.JsonEmployeeTrackerStorage;
 import employeetracker.storage.JsonUserPrefsStorage;
 import employeetracker.storage.Storage;
 import employeetracker.storage.StorageManager;
@@ -56,8 +56,9 @@ public class MainApp extends Application {
 
         UserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(config.getUserPrefsFilePath());
         UserPrefs userPrefs = initPrefs(userPrefsStorage);
-        AddressBookStorage addressBookStorage = new JsonAddressBookStorage(userPrefs.getAddressBookFilePath());
-        storage = new StorageManager(addressBookStorage, userPrefsStorage);
+        EmployeeTrackerStorage employeeTrackerStorage =
+                new JsonEmployeeTrackerStorage(userPrefs.getEmployeeTrackerFilePath());
+        storage = new StorageManager(employeeTrackerStorage, userPrefsStorage);
 
         initLogging(config);
 
@@ -77,11 +78,11 @@ public class MainApp extends Application {
         Optional<ReadOnlyEmployeeTracker> addressBookOptional;
         ReadOnlyEmployeeTracker initialData;
         try {
-            addressBookOptional = storage.readAddressBook();
+            addressBookOptional = storage.readEmployeeTracker();
             if (!addressBookOptional.isPresent()) {
                 logger.info("Data file not found. Will be starting with a sample EmployeeTracker");
             }
-            initialData = addressBookOptional.orElseGet(SampleDataUtil::getSampleAddressBook);
+            initialData = addressBookOptional.orElseGet(SampleDataUtil::getSampleEmployeeTracker);
         } catch (DataConversionException e) {
             logger.warning("Data file not in the correct format. Will be starting with an empty EmployeeTracker");
             initialData = new EmployeeTracker();

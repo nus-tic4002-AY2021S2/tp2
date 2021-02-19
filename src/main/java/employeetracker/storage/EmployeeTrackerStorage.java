@@ -11,12 +11,12 @@ import employeetracker.model.ReadOnlyEmployeeTracker;
 /**
  * Represents a storage for {@link EmployeeTracker}.
  */
-public interface AddressBookStorage {
+public interface EmployeeTrackerStorage {
 
     /**
      * Returns the file path of the data file.
      */
-    Path getAddressBookFilePath();
+    Path getEmployeeTrackerFilePath();
 
     /**
      * Returns EmployeeTracker data as a {@link ReadOnlyEmployeeTracker}.
@@ -24,23 +24,23 @@ public interface AddressBookStorage {
      * @throws DataConversionException if the data in storage is not in the expected format.
      * @throws IOException if there was any problem when reading from the storage.
      */
-    Optional<ReadOnlyEmployeeTracker> readAddressBook() throws DataConversionException, IOException;
+    Optional<ReadOnlyEmployeeTracker> readEmployeeTracker() throws DataConversionException, IOException;
 
     /**
-     * @see #getAddressBookFilePath()
+     * @see #getEmployeeTrackerFilePath()
      */
-    Optional<ReadOnlyEmployeeTracker> readAddressBook(Path filePath) throws DataConversionException, IOException;
+    Optional<ReadOnlyEmployeeTracker> readEmployeeTracker(Path filePath) throws DataConversionException, IOException;
 
     /**
      * Saves the given {@link ReadOnlyEmployeeTracker} to the storage.
-     * @param addressBook cannot be null.
+     * @param employeeTracker cannot be null.
      * @throws IOException if there was any problem writing to the file.
      */
-    void saveAddressBook(ReadOnlyEmployeeTracker addressBook) throws IOException;
+    void saveEmployeeTracker(ReadOnlyEmployeeTracker employeeTracker) throws IOException;
 
     /**
-     * @see #saveAddressBook(ReadOnlyEmployeeTracker)
+     * @see #saveEmployeeTracker(ReadOnlyEmployeeTracker)
      */
-    void saveAddressBook(ReadOnlyEmployeeTracker addressBook, Path filePath) throws IOException;
+    void saveEmployeeTracker(ReadOnlyEmployeeTracker employeeTracker, Path filePath) throws IOException;
 
 }

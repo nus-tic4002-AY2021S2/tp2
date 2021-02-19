@@ -1,6 +1,6 @@
 package employeetracker.storage;
 
-import static employeetracker.testutil.TypicalPersons.getTypicalAddressBook;
+import static employeetracker.testutil.TypicalPersons.getTypicalEmployeeTracker;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -24,7 +24,7 @@ public class StorageManagerTest {
 
     @BeforeEach
     public void setUp() {
-        JsonAddressBookStorage addressBookStorage = new JsonAddressBookStorage(getTempFilePath("ab"));
+        JsonEmployeeTrackerStorage addressBookStorage = new JsonEmployeeTrackerStorage(getTempFilePath("ab"));
         JsonUserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(getTempFilePath("prefs"));
         storageManager = new StorageManager(addressBookStorage, userPrefsStorage);
     }
@@ -48,21 +48,21 @@ public class StorageManagerTest {
     }
 
     @Test
-    public void addressBookReadSave() throws Exception {
+    public void employeeTrackerReadSave() throws Exception {
         /*
          * Note: This is an integration test that verifies the StorageManager is properly wired to the
-         * {@link JsonAddressBookStorage} class.
-         * More extensive testing of UserPref saving/reading is done in {@link JsonAddressBookStorageTest} class.
+         * {@link JsonEmployeeTrackerStorage} class.
+         * More extensive testing of UserPref saving/reading is done in {@link JsonEmployeeTrackerStorageTest} class.
          */
-        EmployeeTracker original = getTypicalAddressBook();
-        storageManager.saveAddressBook(original);
-        ReadOnlyEmployeeTracker retrieved = storageManager.readAddressBook().get();
+        EmployeeTracker original = getTypicalEmployeeTracker();
+        storageManager.saveEmployeeTracker(original);
+        ReadOnlyEmployeeTracker retrieved = storageManager.readEmployeeTracker().get();
         assertEquals(original, new EmployeeTracker(retrieved));
     }
 
     @Test
-    public void getAddressBookFilePath() {
-        assertNotNull(storageManager.getAddressBookFilePath());
+    public void getEmployeeTrackerFilePath() {
+        assertNotNull(storageManager.getEmployeeTrackerFilePath());
     }
 
 }

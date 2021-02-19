@@ -17,15 +17,15 @@ import employeetracker.model.UserPrefs;
 public class StorageManager implements Storage {
 
     private static final Logger logger = LogsCenter.getLogger(StorageManager.class);
-    private AddressBookStorage addressBookStorage;
+    private EmployeeTrackerStorage employeeTrackerStorage;
     private UserPrefsStorage userPrefsStorage;
 
     /**
-     * Creates a {@code StorageManager} with the given {@code AddressBookStorage} and {@code UserPrefStorage}.
+     * Creates a {@code StorageManager} with the given {@code EmployeeTrackerStorage} and {@code UserPrefStorage}.
      */
-    public StorageManager(AddressBookStorage addressBookStorage, UserPrefsStorage userPrefsStorage) {
+    public StorageManager(EmployeeTrackerStorage employeeTrackerStorage, UserPrefsStorage userPrefsStorage) {
         super();
-        this.addressBookStorage = addressBookStorage;
+        this.employeeTrackerStorage = employeeTrackerStorage;
         this.userPrefsStorage = userPrefsStorage;
     }
 
@@ -50,31 +50,31 @@ public class StorageManager implements Storage {
     // ================ EmployeeTracker methods ==============================
 
     @Override
-    public Path getAddressBookFilePath() {
-        return addressBookStorage.getAddressBookFilePath();
+    public Path getEmployeeTrackerFilePath() {
+        return employeeTrackerStorage.getEmployeeTrackerFilePath();
     }
 
     @Override
-    public Optional<ReadOnlyEmployeeTracker> readAddressBook() throws DataConversionException, IOException {
-        return readAddressBook(addressBookStorage.getAddressBookFilePath());
+    public Optional<ReadOnlyEmployeeTracker> readEmployeeTracker() throws DataConversionException, IOException {
+        return readEmployeeTracker(employeeTrackerStorage.getEmployeeTrackerFilePath());
     }
 
     @Override
-    public Optional<ReadOnlyEmployeeTracker> readAddressBook(Path filePath)
+    public Optional<ReadOnlyEmployeeTracker> readEmployeeTracker(Path filePath)
             throws DataConversionException, IOException {
         logger.fine("Attempting to read data from file: " + filePath);
-        return addressBookStorage.readAddressBook(filePath);
+        return employeeTrackerStorage.readEmployeeTracker(filePath);
     }
 
     @Override
-    public void saveAddressBook(ReadOnlyEmployeeTracker addressBook) throws IOException {
-        saveAddressBook(addressBook, addressBookStorage.getAddressBookFilePath());
+    public void saveEmployeeTracker(ReadOnlyEmployeeTracker addressBook) throws IOException {
+        saveEmployeeTracker(addressBook, employeeTrackerStorage.getEmployeeTrackerFilePath());
     }
 
     @Override
-    public void saveAddressBook(ReadOnlyEmployeeTracker addressBook, Path filePath) throws IOException {
+    public void saveEmployeeTracker(ReadOnlyEmployeeTracker addressBook, Path filePath) throws IOException {
         logger.fine("Attempting to write to data file: " + filePath);
-        addressBookStorage.saveAddressBook(addressBook, filePath);
+        employeeTrackerStorage.saveEmployeeTracker(addressBook, filePath);
     }
 
 }

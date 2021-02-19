@@ -10,7 +10,7 @@ import static employeetracker.logic.commands.CommandTestUtil.assertCommandSucces
 import static employeetracker.logic.commands.CommandTestUtil.showPersonAtIndex;
 import static employeetracker.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 import static employeetracker.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
-import static employeetracker.testutil.TypicalPersons.getTypicalAddressBook;
+import static employeetracker.testutil.TypicalPersons.getTypicalEmployeeTracker;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -32,7 +32,7 @@ import employeetracker.testutil.PersonBuilder;
  */
 public class EditCommandTest {
 
-    private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
+    private Model model = new ModelManager(getTypicalEmployeeTracker(), new UserPrefs());
 
     @Test
     public void execute_allFieldsSpecifiedUnfilteredList_success() {

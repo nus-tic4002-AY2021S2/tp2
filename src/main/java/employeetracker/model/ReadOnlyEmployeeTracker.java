@@ -4,7 +4,7 @@ import employeetracker.model.person.Person;
 import javafx.collections.ObservableList;
 
 /**
- * Unmodifiable view of an address book
+ * Unmodifiable view of an employee tracker
  */
 public interface ReadOnlyEmployeeTracker {
 

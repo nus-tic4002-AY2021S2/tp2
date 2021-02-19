@@ -27,7 +27,7 @@ import employeetracker.model.ModelManager;
 import employeetracker.model.ReadOnlyEmployeeTracker;
 import employeetracker.model.UserPrefs;
 import employeetracker.model.person.Person;
-import employeetracker.storage.JsonAddressBookStorage;
+import employeetracker.storage.JsonEmployeeTrackerStorage;
 import employeetracker.storage.JsonUserPrefsStorage;
 import employeetracker.storage.StorageManager;
 import employeetracker.testutil.PersonBuilder;
@@ -43,8 +43,8 @@ public class LogicManagerTest {
 
     @BeforeEach
     public void setUp() {
-        JsonAddressBookStorage addressBookStorage =
-                new JsonAddressBookStorage(temporaryFolder.resolve("addressBook.json"));
+        JsonEmployeeTrackerStorage addressBookStorage =
+                new JsonEmployeeTrackerStorage(temporaryFolder.resolve("addressBook.json"));
         JsonUserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(temporaryFolder.resolve("userPrefs.json"));
         StorageManager storage = new StorageManager(addressBookStorage, userPrefsStorage);
         logic = new LogicManager(model, storage);
@@ -70,9 +70,9 @@ public class LogicManagerTest {
 
     @Test
     public void execute_storageThrowsIoException_throwsCommandException() {
-        // Setup LogicManager with JsonAddressBookIoExceptionThrowingStub
-        JsonAddressBookStorage addressBookStorage =
-                new JsonAddressBookIoExceptionThrowingStub(temporaryFolder.resolve("ioExceptionAddressBook.json"));
+        // Setup LogicManager with JsonEmployeeTrackerIoExceptionThrowingStub
+        JsonEmployeeTrackerStorage addressBookStorage =
+                new JsonEmployeeTrackerIoExceptionThrowingStub(temporaryFolder.resolve("ioExceptionAddressBook.json"));
         JsonUserPrefsStorage userPrefsStorage =
                 new JsonUserPrefsStorage(temporaryFolder.resolve("ioExceptionUserPrefs.json"));
         StorageManager storage = new StorageManager(addressBookStorage, userPrefsStorage);
@@ -149,13 +149,13 @@ public class LogicManagerTest {
     /**
      * A stub class to throw an {@code IOException} when the save method is called.
      */
-    private static class JsonAddressBookIoExceptionThrowingStub extends JsonAddressBookStorage {
-        private JsonAddressBookIoExceptionThrowingStub(Path filePath) {
+    private static class JsonEmployeeTrackerIoExceptionThrowingStub extends JsonEmployeeTrackerStorage {
+        private JsonEmployeeTrackerIoExceptionThrowingStub(Path filePath) {
             super(filePath);
         }
 
         @Override
-        public void saveAddressBook(ReadOnlyEmployeeTracker addressBook, Path filePath) throws IOException {
+        public void saveEmployeeTracker(ReadOnlyEmployeeTracker addressBook, Path filePath) throws IOException {
             throw DUMMY_IO_EXCEPTION;
         }
     }

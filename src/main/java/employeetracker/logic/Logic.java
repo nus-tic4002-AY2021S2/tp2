@@ -28,7 +28,7 @@ public interface Logic {
      *
      * @see employeetracker.model.Model#getEmployeeTracker()
      */
-    ReadOnlyEmployeeTracker getAddressBook();
+    ReadOnlyEmployeeTracker getEmployeeTracker();
 
     /** Returns an unmodifiable view of the filtered list of persons */
     ObservableList<Person> getFilteredPersonList();
@@ -36,7 +36,7 @@ public interface Logic {
     /**
      * Returns the user prefs' address book file path.
      */
-    Path getAddressBookFilePath();
+    Path getEmployeeTrackerFilePath();
 
     /**
      * Returns the user prefs' GUI settings.

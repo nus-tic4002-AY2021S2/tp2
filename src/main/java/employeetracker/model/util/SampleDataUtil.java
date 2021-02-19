@@ -40,7 +40,7 @@ public class SampleDataUtil {
         };
     }
 
-    public static ReadOnlyEmployeeTracker getSampleAddressBook() {
+    public static ReadOnlyEmployeeTracker getSampleEmployeeTracker() {
         EmployeeTracker sampleAb = new EmployeeTracker();
         for (Person samplePerson : getSamplePersons()) {
             sampleAb.addPerson(samplePerson);

@@ -62,7 +62,7 @@ public class TypicalPersons {
     /**
      * Returns an {@code EmployeeTracker} with all the typical persons.
      */
-    public static EmployeeTracker getTypicalAddressBook() {
+    public static EmployeeTracker getTypicalEmployeeTracker() {
         EmployeeTracker ab = new EmployeeTracker();
         for (Person person : getTypicalPersons()) {
             ab.addPerson(person);

@@ -20,7 +20,7 @@ import employeetracker.logic.parser.exceptions.ParseException;
 /**
  * Parses user input.
  */
-public class AddressBookParser {
+public class EmployeeTrackerParser {
 
     /**
      * Used for initial separation of command word and args.

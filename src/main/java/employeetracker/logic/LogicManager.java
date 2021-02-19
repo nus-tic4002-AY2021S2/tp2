@@ -9,7 +9,7 @@ import employeetracker.commons.core.LogsCenter;
 import employeetracker.logic.commands.Command;
 import employeetracker.logic.commands.CommandResult;
 import employeetracker.logic.commands.exceptions.CommandException;
-import employeetracker.logic.parser.AddressBookParser;
+import employeetracker.logic.parser.EmployeeTrackerParser;
 import employeetracker.logic.parser.exceptions.ParseException;
 import employeetracker.model.Model;
 import employeetracker.model.ReadOnlyEmployeeTracker;
@@ -26,7 +26,7 @@ public class LogicManager implements Logic {
 
     private final Model model;
     private final Storage storage;
-    private final AddressBookParser addressBookParser;
+    private final EmployeeTrackerParser employeeTrackerParser;
 
     /**
      * Constructs a {@code LogicManager} with the given {@code Model} and {@code Storage}.
@@ -34,7 +34,7 @@ public class LogicManager implements Logic {
     public LogicManager(Model model, Storage storage) {
         this.model = model;
         this.storage = storage;
-        addressBookParser = new AddressBookParser();
+        employeeTrackerParser = new EmployeeTrackerParser();
     }
 
     @Override
@@ -42,11 +42,11 @@ public class LogicManager implements Logic {
         logger.info("----------------[USER COMMAND][" + commandText + "]");
 
         CommandResult commandResult;
-        Command command = addressBookParser.parseCommand(commandText);
+        Command command = employeeTrackerParser.parseCommand(commandText);
         commandResult = command.execute(model);
 
         try {
-            storage.saveAddressBook(model.getEmployeeTracker());
+            storage.saveEmployeeTracker(model.getEmployeeTracker());
         } catch (IOException ioe) {
             throw new CommandException(FILE_OPS_ERROR_MESSAGE + ioe, ioe);
         }
@@ -55,7 +55,7 @@ public class LogicManager implements Logic {
     }
 
     @Override
-    public ReadOnlyEmployeeTracker getAddressBook() {
+    public ReadOnlyEmployeeTracker getEmployeeTracker() {
         return model.getEmployeeTracker();
     }
 
@@ -65,8 +65,8 @@ public class LogicManager implements Logic {
     }
 
     @Override
-    public Path getAddressBookFilePath() {
-        return model.getAddressBookFilePath();
+    public Path getEmployeeTrackerFilePath() {
+        return model.getEmployeeTrackerFilePath();
     }
 
     @Override
