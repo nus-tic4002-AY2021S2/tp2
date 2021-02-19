@@ -2,7 +2,7 @@ package employeetracker.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
-import employeetracker.model.AddressBook;
+import employeetracker.model.EmployeeTracker;
 import employeetracker.model.Model;
 
 /**
@@ -17,7 +17,7 @@ public class ClearCommand extends Command {
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);
-        model.setAddressBook(new AddressBook());
+        model.setEmployeeTracker(new EmployeeTracker());
         return new CommandResult(MESSAGE_SUCCESS);
     }
 }

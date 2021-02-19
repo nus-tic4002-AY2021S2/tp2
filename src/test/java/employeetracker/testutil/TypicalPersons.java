@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import employeetracker.model.AddressBook;
+import employeetracker.model.EmployeeTracker;
 import employeetracker.model.person.Person;
 
 /**
@@ -60,10 +60,10 @@ public class TypicalPersons {
     private TypicalPersons() {} // prevents instantiation
 
     /**
-     * Returns an {@code AddressBook} with all the typical persons.
+     * Returns an {@code EmployeeTracker} with all the typical persons.
      */
-    public static AddressBook getTypicalAddressBook() {
-        AddressBook ab = new AddressBook();
+    public static EmployeeTracker getTypicalAddressBook() {
+        EmployeeTracker ab = new EmployeeTracker();
         for (Person person : getTypicalPersons()) {
             ab.addPerson(person);
         }

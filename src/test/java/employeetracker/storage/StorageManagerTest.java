@@ -11,8 +11,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
 import employeetracker.commons.core.GuiSettings;
-import employeetracker.model.AddressBook;
-import employeetracker.model.ReadOnlyAddressBook;
+import employeetracker.model.EmployeeTracker;
+import employeetracker.model.ReadOnlyEmployeeTracker;
 import employeetracker.model.UserPrefs;
 
 public class StorageManagerTest {
@@ -54,10 +54,10 @@ public class StorageManagerTest {
          * {@link JsonAddressBookStorage} class.
          * More extensive testing of UserPref saving/reading is done in {@link JsonAddressBookStorageTest} class.
          */
-        AddressBook original = getTypicalAddressBook();
+        EmployeeTracker original = getTypicalAddressBook();
         storageManager.saveAddressBook(original);
-        ReadOnlyAddressBook retrieved = storageManager.readAddressBook().get();
-        assertEquals(original, new AddressBook(retrieved));
+        ReadOnlyEmployeeTracker retrieved = storageManager.readAddressBook().get();
+        assertEquals(original, new EmployeeTracker(retrieved));
     }
 
     @Test

@@ -15,9 +15,9 @@ import org.junit.jupiter.api.Test;
 
 import employeetracker.commons.core.GuiSettings;
 import employeetracker.logic.commands.exceptions.CommandException;
-import employeetracker.model.AddressBook;
+import employeetracker.model.EmployeeTracker;
 import employeetracker.model.Model;
-import employeetracker.model.ReadOnlyAddressBook;
+import employeetracker.model.ReadOnlyEmployeeTracker;
 import employeetracker.model.ReadOnlyUserPrefs;
 import employeetracker.model.person.Person;
 import employeetracker.testutil.PersonBuilder;
@@ -114,12 +114,12 @@ public class AddCommandTest {
         }
 
         @Override
-        public void setAddressBook(ReadOnlyAddressBook newData) {
+        public void setEmployeeTracker(ReadOnlyEmployeeTracker newData) {
             throw new AssertionError("This method should not be called.");
         }
 
         @Override
-        public ReadOnlyAddressBook getAddressBook() {
+        public ReadOnlyEmployeeTracker getEmployeeTracker() {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -186,8 +186,8 @@ public class AddCommandTest {
         }
 
         @Override
-        public ReadOnlyAddressBook getAddressBook() {
-            return new AddressBook();
+        public ReadOnlyEmployeeTracker getEmployeeTracker() {
+            return new EmployeeTracker();
         }
     }
 

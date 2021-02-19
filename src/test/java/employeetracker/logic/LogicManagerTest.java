@@ -24,7 +24,7 @@ import employeetracker.logic.commands.exceptions.CommandException;
 import employeetracker.logic.parser.exceptions.ParseException;
 import employeetracker.model.Model;
 import employeetracker.model.ModelManager;
-import employeetracker.model.ReadOnlyAddressBook;
+import employeetracker.model.ReadOnlyEmployeeTracker;
 import employeetracker.model.UserPrefs;
 import employeetracker.model.person.Person;
 import employeetracker.storage.JsonAddressBookStorage;
@@ -129,7 +129,7 @@ public class LogicManagerTest {
      */
     private void assertCommandFailure(String inputCommand, Class<? extends Throwable> expectedException,
             String expectedMessage) {
-        Model expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
+        Model expectedModel = new ModelManager(model.getEmployeeTracker(), new UserPrefs());
         assertCommandFailure(inputCommand, expectedException, expectedMessage, expectedModel);
     }
 
@@ -155,7 +155,7 @@ public class LogicManagerTest {
         }
 
         @Override
-        public void saveAddressBook(ReadOnlyAddressBook addressBook, Path filePath) throws IOException {
+        public void saveAddressBook(ReadOnlyEmployeeTracker addressBook, Path filePath) throws IOException {
             throw DUMMY_IO_EXCEPTION;
         }
     }

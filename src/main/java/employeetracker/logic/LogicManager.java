@@ -12,7 +12,7 @@ import employeetracker.logic.commands.exceptions.CommandException;
 import employeetracker.logic.parser.AddressBookParser;
 import employeetracker.logic.parser.exceptions.ParseException;
 import employeetracker.model.Model;
-import employeetracker.model.ReadOnlyAddressBook;
+import employeetracker.model.ReadOnlyEmployeeTracker;
 import employeetracker.model.person.Person;
 import employeetracker.storage.Storage;
 import javafx.collections.ObservableList;
@@ -46,7 +46,7 @@ public class LogicManager implements Logic {
         commandResult = command.execute(model);
 
         try {
-            storage.saveAddressBook(model.getAddressBook());
+            storage.saveAddressBook(model.getEmployeeTracker());
         } catch (IOException ioe) {
             throw new CommandException(FILE_OPS_ERROR_MESSAGE + ioe, ioe);
         }
@@ -55,8 +55,8 @@ public class LogicManager implements Logic {
     }
 
     @Override
-    public ReadOnlyAddressBook getAddressBook() {
-        return model.getAddressBook();
+    public ReadOnlyEmployeeTracker getAddressBook() {
+        return model.getEmployeeTracker();
     }
 
     @Override

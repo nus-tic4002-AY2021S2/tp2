@@ -15,7 +15,7 @@ import java.util.List;
 
 import employeetracker.commons.core.index.Index;
 import employeetracker.logic.commands.exceptions.CommandException;
-import employeetracker.model.AddressBook;
+import employeetracker.model.EmployeeTracker;
 import employeetracker.model.Model;
 import employeetracker.model.person.NameContainsKeywordsPredicate;
 import employeetracker.model.person.Person;
@@ -104,11 +104,11 @@ public class CommandTestUtil {
     public static void assertCommandFailure(Command command, Model actualModel, String expectedMessage) {
         // we are unable to defensively copy the model for comparison later, so we can
         // only do so by copying its components.
-        AddressBook expectedAddressBook = new AddressBook(actualModel.getAddressBook());
+        EmployeeTracker expectedAddressBook = new EmployeeTracker(actualModel.getEmployeeTracker());
         List<Person> expectedFilteredList = new ArrayList<>(actualModel.getFilteredPersonList());
 
         assertThrows(CommandException.class, expectedMessage, () -> command.execute(actualModel));
-        assertEquals(expectedAddressBook, actualModel.getAddressBook());
+        assertEquals(expectedAddressBook, actualModel.getEmployeeTracker());
         assertEquals(expectedFilteredList, actualModel.getFilteredPersonList());
     }
     /**

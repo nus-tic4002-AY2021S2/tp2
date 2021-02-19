@@ -6,7 +6,7 @@ import employeetracker.commons.core.GuiSettings;
 import employeetracker.logic.commands.CommandResult;
 import employeetracker.logic.commands.exceptions.CommandException;
 import employeetracker.logic.parser.exceptions.ParseException;
-import employeetracker.model.ReadOnlyAddressBook;
+import employeetracker.model.ReadOnlyEmployeeTracker;
 import employeetracker.model.person.Person;
 import javafx.collections.ObservableList;
 
@@ -24,11 +24,11 @@ public interface Logic {
     CommandResult execute(String commandText) throws CommandException, ParseException;
 
     /**
-     * Returns the AddressBook.
+     * Returns the EmployeeTracker.
      *
-     * @see employeetracker.model.Model#getAddressBook()
+     * @see employeetracker.model.Model#getEmployeeTracker()
      */
-    ReadOnlyAddressBook getAddressBook();
+    ReadOnlyEmployeeTracker getAddressBook();
 
     /** Returns an unmodifiable view of the filtered list of persons */
     ObservableList<Person> getFilteredPersonList();

@@ -4,8 +4,8 @@ import java.util.Arrays;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import employeetracker.model.AddressBook;
-import employeetracker.model.ReadOnlyAddressBook;
+import employeetracker.model.EmployeeTracker;
+import employeetracker.model.ReadOnlyEmployeeTracker;
 import employeetracker.model.person.Address;
 import employeetracker.model.person.Email;
 import employeetracker.model.person.Name;
@@ -14,7 +14,7 @@ import employeetracker.model.person.Phone;
 import employeetracker.model.tag.Tag;
 
 /**
- * Contains utility methods for populating {@code AddressBook} with sample data.
+ * Contains utility methods for populating {@code EmployeeTracker} with sample data.
  */
 public class SampleDataUtil {
     public static Person[] getSamplePersons() {
@@ -40,8 +40,8 @@ public class SampleDataUtil {
         };
     }
 
-    public static ReadOnlyAddressBook getSampleAddressBook() {
-        AddressBook sampleAb = new AddressBook();
+    public static ReadOnlyEmployeeTracker getSampleAddressBook() {
+        EmployeeTracker sampleAb = new EmployeeTracker();
         for (Person samplePerson : getSamplePersons()) {
             sampleAb.addPerson(samplePerson);
         }
