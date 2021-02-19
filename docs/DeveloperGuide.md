@@ -255,27 +255,27 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Use cases
 
-(For all use cases below, the **System** is the `Human Resource Management System` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is the `Employee Tracker` and the **Actor** is the `user`, unless specified otherwise)
 
 **Use case: Add an employee record**
 
 ***MSS*
 1. User enters new employee record.
-2. Human Resource Management System displays a success message together with the updated list of employee records.<br>
+2. Employee Tracker displays a success message together with the updated list of employee records.<br>
    Use case ends.
    
 **Extensions**
 * 1a. The command entered is in the wrong format.
-    * 1a1. Human Resource Management System shows an error message.<br>
+    * 1a1. Employee Tracker shows an error message.<br>
     Use case ends.
 
 **Use case: Delete an employee record**
 
 **MSS**
 1. User requests to list employee records.
-2. Human Resource Management System displays a list of all employee records.
+2. Employee Tracker displays a list of all employee records.
 3. User requests to delete a specific employee record in the list.
-4. Human Resource Management System deletes this employee record.<br>
+4. Employee Tracker deletes this employee record.<br>
    Use case ends.
 
 **Extensions**
@@ -283,7 +283,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
   Use case ends.
   
 * 3a. The given index is invalid.
-    * 3a1. Human Resource Management System shows an error message.<br>
+    * 3a1. Employee Tracker shows an error message.<br>
       Use case resumes at step 2.
       
 *{More to be added}*
