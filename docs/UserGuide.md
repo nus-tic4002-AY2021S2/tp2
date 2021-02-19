@@ -114,15 +114,15 @@ Examples:
 
 Finds all fields contain any of the given keywords.
 
-Format: `find KEYWORD [MORE_KEYWORDS]`
+Format: `find KEYWORD [n/MORE_KEYWORDS][p/PHONE] [e/EMAIL] [a/ADDRESS] [r/REMARK] [d/DATE] [i/NRIC] [t/TAG]…`
 
-* The search is case-insensitive. e.g `hans` will match `Hans`
-* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
+* The search is case-insensitive. e.g `n/hans` will match `Hans`
+* The order of the keywords does not matter. e.g. `n\Hans` will match `Bo Hans`
 * The search apply on all the fields.
 
 Examples:
-* `find John` returns `john` and `John Doe`
-* `find alex david` returns `Alex Yeoh`, `David Li`<br>
+* `find n\John` returns `john` and `John Doe`
+* `find n\alex david` returns `Alex Yeoh`, `David Li`<br>
   ![result for 'find alex david'](images/findAlexDavidResult.png)
 
 ### Deleting a person : `delete`
