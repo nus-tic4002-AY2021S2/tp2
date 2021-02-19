@@ -48,17 +48,18 @@ public class JsonEmployeeTrackerStorageTest {
 
     @Test
     public void read_notJsonFormat_exceptionThrown() {
-        assertThrows(DataConversionException.class, () -> readEmployeeTracker("notJsonFormatAddressBook.json"));
+        assertThrows(DataConversionException.class, () -> readEmployeeTracker("notJsonFormatEmployeeTracker.json"));
     }
 
     @Test
     public void readEmployeeTracker_invalidPersonEmployeeTracker_throwDataConversionException() {
-        assertThrows(DataConversionException.class, () -> readEmployeeTracker("invalidPersonAddressBook.json"));
+        assertThrows(DataConversionException.class, () -> readEmployeeTracker("invalidPersonEmployeeTracker.json"));
     }
 
     @Test
     public void readEmployeeTracker_invalidAndValidPersonEmployeeTracker_throwDataConversionException() {
-        assertThrows(DataConversionException.class, () -> readEmployeeTracker("invalidAndValidPersonEmployeeTracker.json"));
+        assertThrows(DataConversionException.class, () ->
+                readEmployeeTracker("invalidAndValidPersonEmployeeTracker.json"));
     }
 
     @Test
