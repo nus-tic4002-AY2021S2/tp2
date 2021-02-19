@@ -2,45 +2,59 @@
   "_comment": "AddressBook save file which contains the same Person values as in TypicalPersons#getTypicalAddressBook()",
   "persons" : [ {
     "name" : "Alice Pauline",
+    "ic" : "S1234567B",
     "phone" : "94351253",
     "email" : "alice@example.com",
     "address" : "123, Jurong West Ave 6, #08-111",
+    "remark" : "",
     "tagged" : [ "friends" ]
   }, {
     "name" : "Benson Meier",
+    "ic" : "S1234569B",
     "phone" : "98765432",
     "email" : "johnd@example.com",
     "address" : "311, Clementi Ave 2, #02-25",
+    "remark" : "",
     "tagged" : [ "owesMoney", "friends" ]
   }, {
     "name" : "Carl Kurz",
+    "ic" : "S1234567C",
     "phone" : "95352563",
     "email" : "heinz@example.com",
     "address" : "wall street",
+    "remark" : "",
     "tagged" : [ ]
   }, {
     "name" : "Daniel Meier",
+    "ic" : "S1234565E",
     "phone" : "87652533",
     "email" : "cornelia@example.com",
     "address" : "10th street",
+    "remark" : "",
     "tagged" : [ "friends" ]
   }, {
     "name" : "Elle Meyer",
+    "ic" : "S2234567B",
     "phone" : "9482224",
     "email" : "werner@example.com",
     "address" : "michegan ave",
+    "remark" : "",
     "tagged" : [ ]
   }, {
     "name" : "Fiona Kunz",
+    "ic" : "S3234567B",
     "phone" : "9482427",
     "email" : "lydia@example.com",
     "address" : "little tokyo",
+    "remark" : "",
     "tagged" : [ ]
   }, {
     "name" : "George Best",
+    "ic" : "S1234567F",
     "phone" : "9482442",
     "email" : "anna@example.com",
     "address" : "4th street",
+    "remark" : "",
     "tagged" : [ ]
   } ]
 }
