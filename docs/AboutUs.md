@@ -5,8 +5,6 @@ title: About Us
 
 We are a team based in the [School of Computing, National University of Singapore](http://www.comp.nus.edu.sg).
 
-You can reach us at the email `seer[at]comp.nus.edu.sg`
-
 ## Project team
 
 ### Lin Qing
@@ -23,9 +21,10 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 <img src="images/zhenquan.png" width="200px">
 
-[[github](http://github.com/impala36/tp2)] [[portfolio](team/zhenquan.md)]
+[[github](http://github.com/impala36/tp2)]
+[[portfolio](team/zhenquan.md)]
 
-* Role: Developer
+* Role: Team member
 * Responsibilities: Data
 
 ### Jean Doe

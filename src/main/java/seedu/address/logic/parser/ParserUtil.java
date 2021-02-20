@@ -4,13 +4,16 @@ import static java.util.Objects.requireNonNull;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 import seedu.address.commons.core.index.Index;
+import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Ic;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
 import seedu.address.model.tag.Tag;
@@ -48,6 +51,31 @@ public class ParserUtil {
             throw new ParseException(Name.MESSAGE_CONSTRAINTS);
         }
         return new Name(trimmedName);
+    }
+
+
+    /**
+     * Parses a {@code String nric} into a {@code Nric}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws IllegalValueException if the given {@code nric} is invalid.
+     */
+    public static Ic parseIc(String ic) throws IllegalValueException {
+        requireNonNull(ic);
+        String trimmedIc = ic.trim();
+        if (!Ic.isValidIc(trimmedIc)) {
+            throw new IllegalValueException(Ic.MESSAGE_NRIC_CONSTRAINTS);
+        }
+        return new Ic(trimmedIc);
+    }
+
+    /**
+     * Parses a {@code Optional<String> nric} into an {@code Optional<Nric>} if {@code nric} is present.
+     * See header comment of this class regarding the use of {@code Optional} parameters.
+     */
+    public static Optional<Ic> parseIc(Optional<String> ic) throws IllegalValueException {
+        requireNonNull(ic);
+        return ic.isPresent() ? Optional.of(parseIc(ic.get())) : Optional.empty();
     }
 
     /**
@@ -121,4 +149,5 @@ public class ParserUtil {
         }
         return tagSet;
     }
+
 }
