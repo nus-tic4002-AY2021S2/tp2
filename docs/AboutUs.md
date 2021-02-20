@@ -9,31 +9,21 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ## Project team
 
-### John Doe
+### Lin Qing
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/linqing42.png" width="200px">
 
-[[homepage](http://www.comp.nus.edu.sg/~damithch)]
-[[github](https://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](https://github.com/linqing42/tp2)]
+[[portfolio](team/linqing.md)]
 
-* Role: Project Advisor
-
-### Jane Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
-
-* Role: Team Lead
+* Role: Team member
 * Responsibilities: UI
 
-### Johnny Doe
+### Wang Zhenquan
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/zhenquan.png" width="200px">
 
-[[github](http://github.com/johndoe)] [[portfolio](team/johndoe.md)]
+[[github](http://github.com/impala36/tp2)] [[portfolio](team/zhenquan.md)]
 
 * Role: Developer
 * Responsibilities: Data
