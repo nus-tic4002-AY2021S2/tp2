@@ -19,14 +19,14 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 * Role: Project Advisor
 
-### Jane Doe
+### Lin Qing
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/linqing42.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](https://github.com/linqing42/tp2)]
+[[portfolio](team/linqing.md)]
 
-* Role: Team Lead
+* Role: Team member
 * Responsibilities: UI
 
 ### Johnny Doe
