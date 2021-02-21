@@ -6,7 +6,7 @@ title: User Guide
 Police Address Book (PAB) is a **desktop app for managing contacts, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, PAB can get your contact management tasks done faster than traditional GUI apps.
 
 * Table of Contents
-{:toc}
+  {:toc}
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -24,15 +24,15 @@ Police Address Book (PAB) is a **desktop app for managing contacts, optimized fo
 1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
 
-   * **`list`** : Lists all contacts.
+    * **`list`** : Lists all contacts.
 
-   * **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 r/shop theft d/12-20-2012 i/S12345678A` : Adds a contact named `John Doe` to the Police Address Book.
+    * **`add`**`n/John Doe i/S1111111B p/98765432 e/johnd@example.com a/John street, block 123, #01-01 r/shop theft d/12-20-2012` : Adds a contact named `John Doe` to the Police Address Book.
 
-   * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
+    * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
 
-   * **`clear`** : Deletes all contacts.
+    * **`clear`** : Deletes all contacts.
 
-   * **`exit`** : Exits the app.
+    * **`exit`** : Exits the app.
 
 1. Refer to the [Features](#features) below for details of each command.
 
@@ -77,15 +77,16 @@ Format: `help`
 
 Adds a person to the address book.
 
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS r/REMARK d/DATE i/NRIC [t/TAG]…​`
+Format: `add n/NAME i/IC p/PHONE_NUMBER e/EMAIL a/ADDRESS r/REMARK d/DATE  [t/TAG]…​`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 A person can have any number of tags (including 0)
 </div>
 
 Examples:
-* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 r/shop theft d/12-20-2012 i/S12345678A`
-* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 r/shop theft d/12-20-2012 i/S12345678A t/close`
+
+* `add n/John Doe i/S1111111B p/98765432 e/johnd@example.com a/John street, block 123, #01-01 r/shop theft d/12-20-2012 `
+* `add n/Betsy Crowe i/S1234567A t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 r/shop theft d/12-20-2012 t/close`
 
 ### Listing all persons : `list`
 
@@ -97,32 +98,33 @@ Format: `list`
 
 Edits an existing person in the address book.
 
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [r/REMARK] [d/DATE] [i/NRIC] [t/TAG]…​`
+Format: `edit INDEX [n/NAME] [i/IC] [p/PHONE] [e/EMAIL] [a/ADDRESS] [r/REMARK] [d/DATE] [t/TAG]…​`
 
 * Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
 * When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
 * You can remove all the person’s tags by typing `t/` without
-    specifying any tags after it.
+  specifying any tags after it.
 
 Examples:
-*  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
+*  `edit 1 p/91234567 i/S1111112B e/johndoe@example.com` Edits the phone number,IC, email address of the 1st person to be `91234567`, ` i/S1111112B` and johndoe@example.com` respectively.
 *  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
-
 ### Locating persons by name: `find`
 
 Finds all fields contain any of the given keywords.
 
-Format: `find KEYWORD [MORE_KEYWORDS]`
 
-* The search is case-insensitive. e.g `hans` will match `Hans`
-* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
+Format: `find KEYWORD [n/MORE_KEYWORDS] [i/IC] [p/PHONE] [e/EMAIL] [a/ADDRESS] [r/REMARK] [d/DATE] [i/NRIC] [t/TAG]…`
+
+
+* The search is case-insensitive. e.g `n/hans` will match `Hans`
+* The order of the keywords does not matter. e.g. `n\Hans` will match `Bo Hans`
 * The search apply on all the fields.
 
 Examples:
-* `find John` returns `john` and `John Doe`
-* `find alex david` returns `Alex Yeoh`, `David Li`<br>
+* `find n\John` returns `john` and `John Doe`
+* `find n\alex david` returns `Alex Yeoh`, `David Li`<br>
   ![result for 'find alex david'](images/findAlexDavidResult.png)
 
 ### Deleting a person : `delete`
@@ -180,7 +182,7 @@ Action | Format, Examples
 **Clear** | `clear`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
 **Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [r/REMARK] [d/DATE] [i/NRIC] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
-**Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
+**Find** | `find KEYWORD [n/MORE_KEYWORDS] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [r/REMARK] [d/DATE] [i/NRIC] [t/TAG]…`<br> e.g., `find n/James`
 **List** | `list`
 **Help** | `help`
 **Remark** | `remark INDEX r/REMARK`<br> e.g., `remark 1 r/shop theft`
