@@ -61,6 +61,10 @@ Police Address Book (PAB) is a **desktop app for managing contacts, optimized fo
 
 * Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
+ 
+* Date format should be `mm-dd-yyyy`, other date format will not be accepted.
+  e.g. `02-23-2021` is a valid date format, `Feb-23-2021` or `23-02-2021` is a invalid date format. 
+  
 
 </div>
 
@@ -114,7 +118,9 @@ Examples:
 
 Finds all fields contain any of the given keywords.
 
+
 Format: `find KEYWORD [n/MORE_KEYWORDS] [i/IC] [p/PHONE] [e/EMAIL] [a/ADDRESS] [r/REMARK] [d/DATE] [i/NRIC] [t/TAG]…`
+
 
 * The search is case-insensitive. e.g `n/hans` will match `Hans`
 * The order of the keywords does not matter. e.g. `n\Hans` will match `Bo Hans`
@@ -180,7 +186,7 @@ Action | Format, Examples
 **Clear** | `clear`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
 **Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [r/REMARK] [d/DATE] [i/NRIC] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
-**Find** | `find KEYWORD [n/MORE_KEYWORDS] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [r/REMARK] [d/DATE] [i/NRIC] [t/TAG]…`<br> e.g., `find n/James Jake`
+**Find** | `find KEYWORD [n/MORE_KEYWORDS] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [r/REMARK] [d/DATE] [i/NRIC] [t/TAG]…`<br> e.g., `find n/James`
 **List** | `list`
 **Help** | `help`
 **Remark** | `remark INDEX r/REMARK`<br> e.g., `remark 1 r/shop theft`
