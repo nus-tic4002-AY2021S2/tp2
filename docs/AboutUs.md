@@ -37,12 +37,12 @@ We are a team based in the [School of Computing, National University of Singapor
 * Role: Team member
 * Responsibilities: Dev Ops + Threading
 
-### James Doe
+### Zheng Yiheng
 
 <img src="images/johndoe.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](https://github.com/Yiheng0410/tp2)]
+[[portfolio](team/yiheng.md)]
 
-* Role: Developer
+* Role: Team member
 * Responsibilities: UI
