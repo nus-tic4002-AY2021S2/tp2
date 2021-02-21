@@ -61,6 +61,10 @@ Police Address Book (PAB) is a **desktop app for managing contacts, optimized fo
 
 * Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
+ 
+* Date format should be `mm-dd-yyyy`, other date format will not be accepted.
+  e.g. `02-23-2021` is a valid date format, `Feb-23-2021` or `23-02-2021` is a invalid date format. 
+  
 
 </div>
 
