@@ -182,7 +182,7 @@ Action | Format, Examples
 **Clear** | `clear`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
 **Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [r/REMARK] [d/DATE] [i/NRIC] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
-**Find** | `find KEYWORD [n/MORE_KEYWORDS] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [r/REMARK] [d/DATE] [i/NRIC] [t/TAG]…`<br> e.g., `find n/James Jake`
+**Find** | `find KEYWORD [n/MORE_KEYWORDS] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [r/REMARK] [d/DATE] [i/NRIC] [t/TAG]…`<br> e.g., `find n/James`
 **List** | `list`
 **Help** | `help`
 **Remark** | `remark INDEX r/REMARK`<br> e.g., `remark 1 r/shop theft`
