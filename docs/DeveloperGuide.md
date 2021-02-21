@@ -255,11 +255,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user | add a new person               | record new cases                                                                       |
 | `* * *`  | user | delete a person                | remove entries that I no longer need                                   |
 | `* * *`  | police officer | have an NRIC field         | easily find the unique person |
-| `* * *`  | police officer | add remarks to a case         | record my own notes after a call
-|
+| `* * *`  | police officer | add remarks to a case         | record my own notes after a call |
 | `* * *`  | police officer | find a person by field         | easily locate details of persons with any bit of information I can remember |
-| `* * *`  | police officer | have a date for each case         | know when the case occurred                                                 |
-| `* * *`  | police officer | have a description for each case      | see the details of the person and the case for follow up in future                    |
+| `* * *`  | police officer | have a date for each case         | know when the case occurred |
+| `* * *`  | police officer | have a description for each case      | see the details of the person and the case for follow up in future |
 | `* * *`  | police officer | set time intervals           | be reminded to give a follow up call |
 | `* *`  | police officer | have no repeated data           | avoid duplicate entries (check by phone number or NRIC) |
 | `* *`  | police officer | have an email field           | still contact the person in another way in case no one answers the phone |
