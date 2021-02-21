@@ -2,11 +2,9 @@ package seedu.address.model.group;
 
 import java.util.ArrayList;
 
-import static java.util.Objects.requireNonNull;
-import static seedu.address.commons.util.AppUtil.checkArgument;
 
 public class GroupList {
-    private ArrayList<Group> listOfGroup= new ArrayList<>();
+    private ArrayList<Group> listOfGroup = new ArrayList<>();
 
     public void addGroup (Group group) {
         listOfGroup.add(group);
@@ -30,8 +28,13 @@ public class GroupList {
         return listOfGroup.get(index - 1);
     }
 
+    /**
+     * List all {@code Groups} as String.
+     *
+     */
     public String listGroups () {
         StringBuffer output = new StringBuffer();
+
         for (int i = 0; i < listOfGroup.size(); i++) {
             output.append(i + 1);
             output.append(". " + listOfGroup.get(i).toString());

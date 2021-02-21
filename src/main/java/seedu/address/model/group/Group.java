@@ -6,7 +6,6 @@ package seedu.address.model.group;
 public class Group {
     private String groupName;
 
-
     @Override
     public String toString() {
         return groupName;
@@ -29,7 +28,8 @@ public class Group {
      *
      * @param newGroupName A valid groupName.
      */
-    public void setGroupName(String newGroupName) {
+    public Group setGroupName(String newGroupName) {
         this.groupName = newGroupName;
+        return this;
     }
 }
