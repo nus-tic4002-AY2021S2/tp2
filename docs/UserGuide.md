@@ -64,7 +64,8 @@ Police Address Book (PAB) is a **desktop app for managing contacts, optimized fo
  
 * Date format should be `mm-dd-yyyy`, other date format will not be accepted.
   e.g. `02-23-2021` is a valid date format, `Feb-23-2021` or `23-02-2021` is a invalid date format. 
-  
+* IC format should be `1 alphabet, 7 digits, 1 alphabet, and it should not be blank`, other IC format will not be accepted.
+    e.g. `S1234567B` is a valid IC format, `s2222b` or `s11111111` is a invalid IC format. 
 
 </div>
 
@@ -182,10 +183,10 @@ If your changes to the data file makes its format invalid, Police Address Book w
 
 Action | Format, Examples
 --------|------------------
-**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS r/REMARK d/DATE i/NRIC [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 r/shop theft d/12-20-2012 i/S12345678A t/friend t/colleague`
+**Add** | `add n/NAME i/IC p/PHONE_NUMBER e/EMAIL a/ADDRESS r/REMARK d/DATE i/NRIC [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 r/shop theft d/12-20-2012 i/S12345678A t/friend t/colleague`
 **Clear** | `clear`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
-**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [r/REMARK] [d/DATE] [i/NRIC] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
+**Edit** | `edit INDEX [n/NAME] [i/IC] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [r/REMARK] [d/DATE] [i/NRIC] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
 **Find** | `find KEYWORD [n/MORE_KEYWORDS] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [r/REMARK] [d/DATE] [i/NRIC] [t/TAG]…`<br> e.g., `find n/James`
 **List** | `list`
 **Help** | `help`
