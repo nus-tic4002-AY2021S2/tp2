@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+import seedu.address.model.group.Group;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -23,17 +24,19 @@ public class Person {
     // Data fields
     private final Address address;
     private final Set<Tag> tags = new HashSet<>();
+    private final Group group = new Group();
 
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
-        requireAllNonNull(name, phone, email, address, tags);
+    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags, Group group) {
+        requireAllNonNull(name, phone, email, address, tags, group);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
         this.tags.addAll(tags);
+        this.group.setGroupName(group.toString());
     }
 
     public Name getName() {
@@ -50,6 +53,10 @@ public class Person {
 
     public Address getAddress() {
         return address;
+    }
+
+    public Group getGroup() {
+        return group;
     }
 
     /**
