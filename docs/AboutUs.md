@@ -22,7 +22,7 @@ We are a team based in the [School of Computing, National University of Singapor
 <img src="images/zhenquan.png" width="200px">
 
 [[github](http://github.com/impala36/tp2)]
-[[portfolio](team/zhenquan.md)]
+[[portfolio](team/impala36.md)]
 
 * Role: Team member
 * Responsibilities: Data
