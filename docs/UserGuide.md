@@ -114,7 +114,9 @@ Examples:
 
 Finds all fields contain any of the given keywords.
 
+
 Format: `find KEYWORD [n/MORE_KEYWORDS] [i/IC] [p/PHONE] [e/EMAIL] [a/ADDRESS] [r/REMARK] [d/DATE] [i/NRIC] [t/TAG]…`
+
 
 * The search is case-insensitive. e.g `n/hans` will match `Hans`
 * The order of the keywords does not matter. e.g. `n\Hans` will match `Bo Hans`
