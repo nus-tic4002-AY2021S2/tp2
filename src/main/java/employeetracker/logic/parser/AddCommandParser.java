@@ -1,22 +1,14 @@
 package employeetracker.logic.parser;
 
 import static employeetracker.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static employeetracker.logic.parser.CliSyntax.PREFIX_ADDRESS;
-import static employeetracker.logic.parser.CliSyntax.PREFIX_EMAIL;
-import static employeetracker.logic.parser.CliSyntax.PREFIX_NAME;
-import static employeetracker.logic.parser.CliSyntax.PREFIX_PHONE;
-import static employeetracker.logic.parser.CliSyntax.PREFIX_TAG;
+import static employeetracker.logic.parser.CliSyntax.*;
 
 import java.util.Set;
 import java.util.stream.Stream;
 
 import employeetracker.logic.commands.AddCommand;
 import employeetracker.logic.parser.exceptions.ParseException;
-import employeetracker.model.person.Address;
-import employeetracker.model.person.Email;
-import employeetracker.model.person.Name;
-import employeetracker.model.person.Person;
-import employeetracker.model.person.Phone;
+import employeetracker.model.person.*;
 import employeetracker.model.tag.Tag;
 
 /**
@@ -31,7 +23,8 @@ public class AddCommandParser implements Parser<AddCommand> {
      */
     public AddCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_TAG);
+                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS,
+                        PREFIX_DATE_OF_BIRTH, PREFIX_TAG);
 
         if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_ADDRESS, PREFIX_PHONE, PREFIX_EMAIL)
                 || !argMultimap.getPreamble().isEmpty()) {
@@ -42,9 +35,10 @@ public class AddCommandParser implements Parser<AddCommand> {
         Phone phone = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
         Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
         Address address = ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get());
+        DateOfBirth dateOfBirth = ParserUtil.parseDateOfBirth(argMultimap.getValue(PREFIX_DATE_OF_BIRTH).get());
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
-        Person person = new Person(name, phone, email, address, tagList);
+        Person person = new Person(name, phone, email, address, dateOfBirth, tagList);
 
         return new AddCommand(person);
     }

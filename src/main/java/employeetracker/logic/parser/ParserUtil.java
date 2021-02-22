@@ -9,10 +9,7 @@ import java.util.Set;
 import employeetracker.commons.core.index.Index;
 import employeetracker.commons.util.StringUtil;
 import employeetracker.logic.parser.exceptions.ParseException;
-import employeetracker.model.person.Address;
-import employeetracker.model.person.Email;
-import employeetracker.model.person.Name;
-import employeetracker.model.person.Phone;
+import employeetracker.model.person.*;
 import employeetracker.model.tag.Tag;
 
 /**
@@ -93,6 +90,21 @@ public class ParserUtil {
             throw new ParseException(Email.MESSAGE_CONSTRAINTS);
         }
         return new Email(trimmedEmail);
+    }
+
+    /**
+     * Parses a {@code String dateOfBirth} into an {@code DateOfBirth}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code dateOfBirth} is invalid.
+     */
+    public static DateOfBirth parseDateOfBirth(String dateOfBirth) throws ParseException {
+        requireNonNull(dateOfBirth);
+        String trimmedDateOfBirth = dateOfBirth.trim();
+        if (!DateOfBirth.isValidDateOfBirth(trimmedDateOfBirth)) {
+            throw new ParseException(Email.MESSAGE_CONSTRAINTS);
+        }
+        return new DateOfBirth(trimmedDateOfBirth);
     }
 
     /**

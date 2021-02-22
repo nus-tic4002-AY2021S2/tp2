@@ -19,11 +19,7 @@ import employeetracker.commons.core.index.Index;
 import employeetracker.commons.util.CollectionUtil;
 import employeetracker.logic.commands.exceptions.CommandException;
 import employeetracker.model.Model;
-import employeetracker.model.person.Address;
-import employeetracker.model.person.Email;
-import employeetracker.model.person.Name;
-import employeetracker.model.person.Person;
-import employeetracker.model.person.Phone;
+import employeetracker.model.person.*;
 import employeetracker.model.tag.Tag;
 
 /**
@@ -97,9 +93,10 @@ public class EditCommand extends Command {
         Phone updatedPhone = editPersonDescriptor.getPhone().orElse(personToEdit.getPhone());
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
+        DateOfBirth updatedDateOfBirth = editPersonDescriptor.getDateOfBirth().orElse(personToEdit.getDateOfBirth());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags);
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedDateOfBirth, updatedTags);
     }
 
     @Override
@@ -128,6 +125,7 @@ public class EditCommand extends Command {
         private Name name;
         private Phone phone;
         private Email email;
+        private DateOfBirth dateOfBirth;
         private Address address;
         private Set<Tag> tags;
 
@@ -142,6 +140,7 @@ public class EditCommand extends Command {
             setPhone(toCopy.phone);
             setEmail(toCopy.email);
             setAddress(toCopy.address);
+            setDateOfBirth(toCopy.dateOfBirth);
             setTags(toCopy.tags);
         }
 
@@ -182,6 +181,14 @@ public class EditCommand extends Command {
 
         public Optional<Address> getAddress() {
             return Optional.ofNullable(address);
+        }
+
+        public void setDateOfBirth(DateOfBirth dateOfBirth) {
+            this.dateOfBirth = dateOfBirth;
+        }
+
+        public Optional<DateOfBirth> getDateOfBirth() {
+            return Optional.ofNullable(dateOfBirth);
         }
 
         /**
