@@ -183,7 +183,7 @@ If your changes to the data file makes its format invalid, Police Address Book w
 
 Action | Format, Examples
 --------|------------------
-**Add** | `add n/NAME i/NRIC p/PHONE_NUMBER e/EMAIL a/ADDRESS r/REMARK d/DATE [t/TAG]…​` <br> e.g., `add n/James Ho i/S12345678A p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 r/shop theft d/12-20-2012  t/friend t/colleague`
+**Add** | `add n/NAME i/NRIC p/PHONE_NUMBER e/EMAIL a/ADDRESS r/REMARK d/DATE [t/TAG]…​` <br> e.g., `add n/James Ho i/S1234567A p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 r/shop theft d/12-20-2012  t/friend t/colleague`
 **Clear** | `clear`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
 **Edit** | `edit INDEX [n/NAME] [i/NRIC] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [r/REMARK] [d/DATE] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
