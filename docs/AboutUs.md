@@ -29,7 +29,7 @@ We are a team based in the [School of Computing, National University of Singapor
 
 ### Lin Binhui
 
-<img src="images/binhui.png" width="200px">
+<img src="images/binbinhui.png" width="200px">
 
 [[github](http://github.com/binbinhui/tp2)]
 [[portfolio](team/binhui.md)]
