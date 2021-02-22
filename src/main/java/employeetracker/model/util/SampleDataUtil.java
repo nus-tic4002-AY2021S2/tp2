@@ -6,7 +6,12 @@ import java.util.stream.Collectors;
 
 import employeetracker.model.EmployeeTracker;
 import employeetracker.model.ReadOnlyEmployeeTracker;
-import employeetracker.model.person.*;
+import employeetracker.model.person.Address;
+import employeetracker.model.person.DateOfBirth;
+import employeetracker.model.person.Email;
+import employeetracker.model.person.Name;
+import employeetracker.model.person.Person;
+import employeetracker.model.person.Phone;
 import employeetracker.model.tag.Tag;
 
 /**

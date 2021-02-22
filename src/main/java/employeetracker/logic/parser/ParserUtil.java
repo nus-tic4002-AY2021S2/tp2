@@ -9,7 +9,11 @@ import java.util.Set;
 import employeetracker.commons.core.index.Index;
 import employeetracker.commons.util.StringUtil;
 import employeetracker.logic.parser.exceptions.ParseException;
-import employeetracker.model.person.*;
+import employeetracker.model.person.Address;
+import employeetracker.model.person.DateOfBirth;
+import employeetracker.model.person.Email;
+import employeetracker.model.person.Name;
+import employeetracker.model.person.Phone;
 import employeetracker.model.tag.Tag;
 
 /**
@@ -102,7 +106,7 @@ public class ParserUtil {
         requireNonNull(dateOfBirth);
         String trimmedDateOfBirth = dateOfBirth.trim();
         if (!DateOfBirth.isValidDateOfBirth(trimmedDateOfBirth)) {
-            throw new ParseException(Email.MESSAGE_CONSTRAINTS);
+            throw new ParseException(DateOfBirth.MESSAGE_CONSTRAINTS);
         }
         return new DateOfBirth(trimmedDateOfBirth);
     }

@@ -13,7 +13,7 @@ import employeetracker.model.Model;
 import employeetracker.model.person.Person;
 
 /**
- * Adds a person to the address book.
+ * Adds a person to the Employee Tracker.
  */
 public class AddCommand extends Command {
 

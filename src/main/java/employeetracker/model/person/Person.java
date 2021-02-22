@@ -29,7 +29,7 @@ public class Person {
      * Every field must be present and not null.
      */
     public Person(Name name, Phone phone, Email email, Address address, DateOfBirth dateOfBirth, Set<Tag> tags) {
-        requireAllNonNull(name, phone, email, address, tags);
+        requireAllNonNull(name, phone, email, address, dateOfBirth, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -98,6 +98,7 @@ public class Person {
                 && otherPerson.getPhone().equals(getPhone())
                 && otherPerson.getEmail().equals(getEmail())
                 && otherPerson.getAddress().equals(getAddress())
+                && otherPerson.getDateOfBirth().equals(getDateOfBirth())
                 && otherPerson.getTags().equals(getTags());
     }
 

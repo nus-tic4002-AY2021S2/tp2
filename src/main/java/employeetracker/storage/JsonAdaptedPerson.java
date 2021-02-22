@@ -10,7 +10,12 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import employeetracker.commons.exceptions.IllegalValueException;
-import employeetracker.model.person.*;
+import employeetracker.model.person.Address;
+import employeetracker.model.person.DateOfBirth;
+import employeetracker.model.person.Email;
+import employeetracker.model.person.Name;
+import employeetracker.model.person.Person;
+import employeetracker.model.person.Phone;
 import employeetracker.model.tag.Tag;
 
 /**
@@ -103,7 +108,8 @@ class JsonAdaptedPerson {
         final Address modelAddress = new Address(address);
 
         if (dateOfBirth == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, DateOfBirth.class.getSimpleName()));
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    DateOfBirth.class.getSimpleName()));
         }
         if (!DateOfBirth.isValidDateOfBirth(dateOfBirth)) {
             throw new IllegalValueException(DateOfBirth.MESSAGE_CONSTRAINTS);

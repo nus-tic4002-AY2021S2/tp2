@@ -1,6 +1,7 @@
 package employeetracker.testutil;
 
 import static employeetracker.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static employeetracker.logic.parser.CliSyntax.PREFIX_DATE_OF_BIRTH;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_NAME;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_PHONE;
@@ -34,6 +35,7 @@ public class PersonUtil {
         sb.append(PREFIX_PHONE + person.getPhone().value + " ");
         sb.append(PREFIX_EMAIL + person.getEmail().value + " ");
         sb.append(PREFIX_ADDRESS + person.getAddress().value + " ");
+        sb.append(PREFIX_DATE_OF_BIRTH + person.getDateOfBirth().value + " ");
         person.getTags().stream().forEach(
             s -> sb.append(PREFIX_TAG + s.tagName + " ")
         );

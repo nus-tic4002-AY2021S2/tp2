@@ -16,7 +16,7 @@ import employeetracker.model.person.Person;
 /**
  * An Immutable EmployeeTracker that is serializable to JSON format.
  */
-@JsonRootName(value = "addressbook")
+@JsonRootName(value = "employeetracker")
 class JsonSerializableEmployeeTracker {
 
     public static final String MESSAGE_DUPLICATE_PERSON = "Persons list contains duplicate person(s).";
