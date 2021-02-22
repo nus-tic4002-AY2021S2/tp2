@@ -4,10 +4,22 @@ import java.util.ArrayList;
 
 
 public class GroupList {
-    private ArrayList<Group> listOfGroup = new ArrayList<>();
+    private static ArrayList<Group> listOfGroup = new ArrayList<>();
 
-    public void addGroup (Group group) {
+    public static void addGroup (Group group) {
         listOfGroup.add(group);
+    }
+    public static boolean hasGroup (Group group) {
+
+        boolean result = false;
+
+        for(int i = 0; i < listOfGroup.size(); i++) {
+            if(listOfGroup.get(i).equals(group)) {
+                result = true;
+            }
+        }
+
+        return result;
     }
 
     /**
@@ -15,7 +27,7 @@ public class GroupList {
      *
      * @param index is the index number starting from 1.
      */
-    public void deleteGroup (int index) {
+    public static void deleteGroup (int index) {
         listOfGroup.remove(index - 1);
     }
 
@@ -24,7 +36,7 @@ public class GroupList {
      *
      * @param index is the index number starting from 1.
      */
-    public Group getGroup (int index) {
+    public static Group getGroup (int index) {
         return listOfGroup.get(index - 1);
     }
 
@@ -32,7 +44,7 @@ public class GroupList {
      * List all {@code Groups} as String.
      *
      */
-    public String listGroups () {
+    public static String listGroups () {
         StringBuffer output = new StringBuffer();
 
         for (int i = 0; i < listOfGroup.size(); i++) {

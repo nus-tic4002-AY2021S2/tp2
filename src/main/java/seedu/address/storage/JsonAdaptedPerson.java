@@ -30,7 +30,7 @@ class JsonAdaptedPerson {
     private final String email;
     private final String address;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
-    private final Group group = new Group();
+    private final String group;
 
     /**
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
@@ -46,7 +46,7 @@ class JsonAdaptedPerson {
         if (tagged != null) {
             this.tagged.addAll(tagged);
         }
-        this.group.setGroupName(group);
+        this.group = group;
     }
 
     /**
@@ -60,7 +60,7 @@ class JsonAdaptedPerson {
         tagged.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
-        group.setGroupName(source.getGroup().toString());
+        group = source.getGroup().toString();
     }
 
     /**
@@ -108,7 +108,8 @@ class JsonAdaptedPerson {
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
 
-        final Group modelGroup = new Group().setGroupName(group.toString());
+        final Group modelGroup = new Group().setGroupName(group);
+
         return new Person(modelName, modelPhone, modelEmail, modelAddress, modelTags, modelGroup);
     }
 

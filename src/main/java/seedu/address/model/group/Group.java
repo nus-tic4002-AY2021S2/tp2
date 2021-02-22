@@ -1,5 +1,7 @@
 package seedu.address.model.group;
 
+import seedu.address.model.Model;
+
 /**
  * Represents a Person's group in the address book.
  */
