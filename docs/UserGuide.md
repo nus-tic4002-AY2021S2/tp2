@@ -1,9 +1,9 @@
 ---
 layout: page
-title: User Guide
+title: Addressbook NS Edition (ABNS) 
 ---
 
-AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB3 can get your contact management tasks done faster than traditional GUI apps.
+Addressbook NS Edition (ABNS) is a **desktop app for managing contacts, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, ABNS can get your contact management tasks done faster than traditional GUI apps.
 
 * Table of Contents
 {:toc}
@@ -14,7 +14,7 @@ AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized fo
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-1. Download the latest `addressbook.jar` from [here](https://github.com/se-edu/addressbook-level3/releases).
+1. Download the latest `ABNS.jar` from [here](https://github.com/se-edu/addressbook-level3/releases).
 
 1. Copy the file to the folder you want to use as the _home folder_ for your AddressBook.
 
@@ -23,6 +23,17 @@ AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized fo
 
 1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
+
+  
+   * **`help`** : Shows a message explaining how to access the help page.
+   
+   * **`listGroup all`** : Shows a list of all groups  in the address book.
+
+   * **`create -g`** : Creates a new group to the address book.
+
+   * **`list -g [group name]`** : Lists all persons in a particular group.
+
+   * **`delete -g`** : Deletes the specified group from the address book.
 
    * **`list`** : Lists all contacts.
 
@@ -165,6 +176,67 @@ AddressBook data are saved as a JSON file `[JAR file location]/data/addressbook.
 <div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
 If your changes to the data file makes its format invalid, AddressBook will discard all data and start with an empty data file at the next run.
 </div>
+
+### Creating a group: `create g/`
+
+Creates a new group to the Address book NS Edition
+
+Format: `create g/<group name>`
+
+Examples:
+*  `create g/FITNESS` Creates a group called Fitness
+*  `create g/COMBAT` Creates a group called COMBAT
+
+### Listing all groups: `show`
+
+Lists all groups in the Address book NS Edition
+
+Format: `show`
+
+Examples:
+*  `show` Lists all groups
+
+
+### Rename the group: `rename -g`
+
+Rename an existing group to another name.
+
+Format: `rename INDEX [n/NAME]`
+
+* Rename the group at the specified INDEX
+* The index refers to the index number shown in the displayed group list.
+* The index must be a positive integer 1, 2, 3, …
+* Existing values will be updated to the input values.
+
+Examples:
+*  `rename 1 n/PERFORMANCE ` Rename the group with index 1 into  PERFORMANCE.
+
+### List all persons in a group: `list -g [group name]`
+
+Lists all persons in a particular group.
+
+Format: `list -g [group_name]`
+
+* The group name  is case-insensitive. e.g IPPT will match ippt
+
+Examples:
+*  `list -g PERFORMANCE ` Lists all persons in PERFORMANCE.
+
+
+### Deleting a group: `delete -g`
+
+Deletes the specified group from the address book.
+
+Format: `delete INDEX`
+
+* Deletes the group at the specified INDEX.
+* The index refers to the index number shown in the displayed person list.
+* The index **must be a positive integer** 1, 2, 3, …
+
+Examples:
+*  `list` followed by `delete 2` deletes the 2nd group in the address book.
+*  `List all` followed by `delete 1` deletes the 1st group in the results of the `find` command.
+
 
 ### Archiving data files `[coming in v2.0]`
 
