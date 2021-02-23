@@ -2,8 +2,10 @@ package seedu.address.model.person;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -23,6 +25,7 @@ public class Person {
     // Data fields
     private final Address address;
     private final Set<Tag> tags = new HashSet<>();
+    private List<Appointment> appointments =  new ArrayList<>();
 
     /**
      * Every field must be present and not null.
@@ -34,6 +37,7 @@ public class Person {
         this.email = email;
         this.address = address;
         this.tags.addAll(tags);
+//        this.appointments.addAll(appointments);
     }
 
     public Name getName() {
@@ -51,6 +55,15 @@ public class Person {
     public Address getAddress() {
         return address;
     }
+
+    public List<Appointment> getAppointments() {
+        return appointments;
+    }
+
+    public void setAppointments(List<Appointment> appointments) {
+        this.appointments = appointments;
+    }
+
 
     /**
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
