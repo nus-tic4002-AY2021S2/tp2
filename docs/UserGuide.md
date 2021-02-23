@@ -27,6 +27,7 @@ Police Address Book (PAB) is a **desktop app for managing contacts, optimized fo
     * **`list`** : Lists all contacts.
 
     * **`add`**`n/John Doe i/S1111111B p/98765432 e/johnd@example.com a/John street, block 123, #01-01 r/shop theft d/12-20-2012` : Adds a contact named `John Doe` to the Police Address Book.
+    * **`find`** `n/John`:Find the person with the specific name in the current list.
 
     * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
 
