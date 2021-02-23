@@ -9,12 +9,18 @@ public class GroupList {
     public static void addGroup (Group group) {
         listOfGroup.add(group);
     }
+
+    /**
+     * Check if group already exist in the listOfGroup
+     * @param group name to be checked
+     * @return true if exist, false otherwise
+     */
     public static boolean hasGroup (Group group) {
 
         boolean result = false;
 
-        for(int i = 0; i < listOfGroup.size(); i++) {
-            if(listOfGroup.get(i).equals(group)) {
+        for (int i = 0; i < listOfGroup.size(); i++) {
+            if (listOfGroup.get(i).equals(group)) {
                 result = true;
             }
         }
