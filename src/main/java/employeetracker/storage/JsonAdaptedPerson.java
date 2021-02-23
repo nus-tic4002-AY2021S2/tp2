@@ -17,6 +17,7 @@ import employeetracker.model.person.Email;
 import employeetracker.model.person.Name;
 import employeetracker.model.person.Person;
 import employeetracker.model.person.Phone;
+import employeetracker.model.person.Role;
 import employeetracker.model.tag.Tag;
 
 /**
@@ -27,6 +28,7 @@ class JsonAdaptedPerson {
     public static final String MISSING_FIELD_MESSAGE_FORMAT = "Person's %s field is missing!";
 
     private final String name;
+    private final String role;
     private final String phone;
     private final String email;
     private final String address;
@@ -38,11 +40,12 @@ class JsonAdaptedPerson {
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
      */
     @JsonCreator
-    public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
-            @JsonProperty("email") String email, @JsonProperty("address") String address,
-            @JsonProperty("dateOfBirth") String dateOfBirth, @JsonProperty("dateOfJoining") String dateOfJoining,
-            @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
+    public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("role") String role,
+            @JsonProperty("phone") String phone, @JsonProperty("email") String email,
+            @JsonProperty("address") String address, @JsonProperty("dateOfBirth") String dateOfBirth,
+            @JsonProperty("dateOfJoining") String dateOfJoining, @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
         this.name = name;
+        this.role = role;
         this.phone = phone;
         this.email = email;
         this.address = address;
@@ -58,6 +61,7 @@ class JsonAdaptedPerson {
      */
     public JsonAdaptedPerson(Person source) {
         name = source.getName().fullName;
+        role = source.getRole().value;
         phone = source.getPhone().value;
         email = source.getEmail().value;
         address = source.getAddress().value;
@@ -86,6 +90,14 @@ class JsonAdaptedPerson {
             throw new IllegalValueException(Name.MESSAGE_CONSTRAINTS);
         }
         final Name modelName = new Name(name);
+
+        if (role == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Role.class.getSimpleName()));
+        }
+        if (!Role.isValidRole(role)) {
+            throw new IllegalValueException(Phone.MESSAGE_CONSTRAINTS);
+        }
+        final Role modelRole = new Role(role);
 
         if (phone == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Phone.class.getSimpleName()));
@@ -130,8 +142,8 @@ class JsonAdaptedPerson {
         final DateOfJoining modelDateOfJoining = new DateOfJoining(dateOfJoining);
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
-        return new Person(modelName, modelPhone, modelEmail, modelAddress, modelDateOfBirth, modelDateOfJoining,
-                modelTags);
+        return new Person(modelName, modelRole, modelPhone, modelEmail, modelAddress, modelDateOfBirth,
+                modelDateOfJoining, modelTags);
     }
 
 }

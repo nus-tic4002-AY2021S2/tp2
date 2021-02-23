@@ -15,6 +15,7 @@ import employeetracker.model.person.DateOfJoining;
 import employeetracker.model.person.Email;
 import employeetracker.model.person.Name;
 import employeetracker.model.person.Phone;
+import employeetracker.model.person.Role;
 import employeetracker.model.tag.Tag;
 
 /**
@@ -50,6 +51,21 @@ public class ParserUtil {
             throw new ParseException(Name.MESSAGE_CONSTRAINTS);
         }
         return new Name(trimmedName);
+    }
+
+    /**
+     * Parses a {@code String role} into a {@code ROle}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code role} is invalid.
+     */
+    public static Role parseRole(String role) throws ParseException {
+        requireNonNull(role);
+        String trimmedRole = role.trim();
+        if (!Name.isValidName(trimmedRole)) {
+            throw new ParseException(Name.MESSAGE_CONSTRAINTS);
+        }
+        return new Role(trimmedRole);
     }
 
     /**

@@ -6,6 +6,7 @@ import static employeetracker.logic.parser.CliSyntax.PREFIX_DATE_OF_JOINING;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_NAME;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_PHONE;
+import static employeetracker.logic.parser.CliSyntax.PREFIX_ROLE;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_TAG;
 import static employeetracker.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 import static java.util.Objects.requireNonNull;
@@ -28,6 +29,7 @@ import employeetracker.model.person.Email;
 import employeetracker.model.person.Name;
 import employeetracker.model.person.Person;
 import employeetracker.model.person.Phone;
+import employeetracker.model.person.Role;
 import employeetracker.model.tag.Tag;
 
 /**
@@ -37,11 +39,12 @@ public class EditCommand extends Command {
 
     public static final String COMMAND_WORD = "edit";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the person identified "
-            + "by the index number used in the displayed person list. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the employee identified "
+            + "by the index number used in the displayed employee list. "
             + "Existing values will be overwritten by the input values.\n"
             + "Parameters: INDEX (must be a positive integer) "
             + "[" + PREFIX_NAME + "NAME] "
+            + "[" + PREFIX_ROLE + "ROLE] "
             + "[" + PREFIX_PHONE + "PHONE] "
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_ADDRESS + "ADDRESS] "
@@ -52,7 +55,7 @@ public class EditCommand extends Command {
             + PREFIX_PHONE + "91234567 "
             + PREFIX_EMAIL + "johndoe@example.com";
 
-    public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Person: %1$s";
+    public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited EMployee: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_PERSON = "This employee already exists in the Employee Tracker.";
 
@@ -100,6 +103,7 @@ public class EditCommand extends Command {
         assert personToEdit != null;
 
         Name updatedName = editPersonDescriptor.getName().orElse(personToEdit.getName());
+        Role updatedRole = editPersonDescriptor.getRole().orElse(personToEdit.getRole());
         Phone updatedPhone = editPersonDescriptor.getPhone().orElse(personToEdit.getPhone());
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
@@ -108,7 +112,7 @@ public class EditCommand extends Command {
                 editPersonDescriptor.getDateOfJoining().orElse(personToEdit.getDateOfJoining());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedDateOfBirth,
+        return new Person(updatedName, updatedRole, updatedPhone, updatedEmail, updatedAddress, updatedDateOfBirth,
                 updatedDateOfJoining, updatedTags);
     }
 
@@ -136,6 +140,7 @@ public class EditCommand extends Command {
      */
     public static class EditPersonDescriptor {
         private Name name;
+        private Role role;
         private Phone phone;
         private Email email;
         private Address address;
@@ -151,6 +156,7 @@ public class EditCommand extends Command {
          */
         public EditPersonDescriptor(EditPersonDescriptor toCopy) {
             setName(toCopy.name);
+            setRole(toCopy.role);
             setPhone(toCopy.phone);
             setEmail(toCopy.email);
             setAddress(toCopy.address);
@@ -163,7 +169,7 @@ public class EditCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, address, dateOfBirth, dateOfJoining, tags);
+            return CollectionUtil.isAnyNonNull(name, role, phone, email, address, dateOfBirth, dateOfJoining, tags);
         }
 
         public void setName(Name name) {
@@ -172,6 +178,14 @@ public class EditCommand extends Command {
 
         public Optional<Name> getName() {
             return Optional.ofNullable(name);
+        }
+
+        public void setRole(Role role) {
+            this.role = role;
+        }
+
+        public Optional<Role> getRole() {
+            return Optional.ofNullable(role);
         }
 
         public void setPhone(Phone phone) {

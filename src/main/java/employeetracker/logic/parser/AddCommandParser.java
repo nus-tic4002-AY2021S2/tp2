@@ -7,6 +7,7 @@ import static employeetracker.logic.parser.CliSyntax.PREFIX_DATE_OF_JOINING;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_NAME;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_PHONE;
+import static employeetracker.logic.parser.CliSyntax.PREFIX_ROLE;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_TAG;
 
 import java.util.Set;
@@ -21,6 +22,7 @@ import employeetracker.model.person.Email;
 import employeetracker.model.person.Name;
 import employeetracker.model.person.Person;
 import employeetracker.model.person.Phone;
+import employeetracker.model.person.Role;
 import employeetracker.model.tag.Tag;
 
 /**
@@ -34,15 +36,16 @@ public class AddCommandParser implements Parser<AddCommand> {
      * @throws ParseException if the user input does not conform the expected format
      */
     public AddCommand parse(String args) throws ParseException {
-        ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL,
-                PREFIX_ADDRESS, PREFIX_DATE_OF_BIRTH, PREFIX_DATE_OF_JOINING, PREFIX_TAG);
+        ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_ROLE, PREFIX_PHONE,
+                PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_DATE_OF_BIRTH, PREFIX_DATE_OF_JOINING, PREFIX_TAG);
 
-        if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_ADDRESS, PREFIX_PHONE, PREFIX_EMAIL,
+        if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_ROLE, PREFIX_ADDRESS, PREFIX_PHONE, PREFIX_EMAIL,
                 PREFIX_DATE_OF_BIRTH, PREFIX_DATE_OF_JOINING) || !argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
         }
 
         Name name = ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get());
+        Role role = ParserUtil.parseRole(argMultimap.getValue(PREFIX_ROLE).get());
         Phone phone = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
         Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
         Address address = ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get());
@@ -50,7 +53,7 @@ public class AddCommandParser implements Parser<AddCommand> {
         DateOfJoining dateOfJoining = ParserUtil.parseDateOfJoining(argMultimap.getValue(PREFIX_DATE_OF_JOINING).get());
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
-        Person person = new Person(name, phone, email, address, dateOfBirth, dateOfJoining, tagList);
+        Person person = new Person(name, role, phone, email, address, dateOfBirth, dateOfJoining, tagList);
 
         return new AddCommand(person);
     }

@@ -10,6 +10,7 @@ import employeetracker.model.person.Email;
 import employeetracker.model.person.Name;
 import employeetracker.model.person.Person;
 import employeetracker.model.person.Phone;
+import employeetracker.model.person.Role;
 import employeetracker.model.tag.Tag;
 import employeetracker.model.util.SampleDataUtil;
 
@@ -19,13 +20,15 @@ import employeetracker.model.util.SampleDataUtil;
 public class PersonBuilder {
 
     public static final String DEFAULT_NAME = "Amy Bee";
+    public static final String DEFAULT_ROLE = "Developer";
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
-    public static final String DEFAULT_DATE_OF_BIRTH = "1998-01-05";
+    public static final String DEFAULT_DATE_OF_BIRTH = "1990-10-12";
     public static final String DEFAULT_DATE_OF_JOINING = "2020-01-01";
 
     private Name name;
+    private Role role;
     private Phone phone;
     private Email email;
     private Address address;
@@ -38,6 +41,7 @@ public class PersonBuilder {
      */
     public PersonBuilder() {
         name = new Name(DEFAULT_NAME);
+        role = new Role(DEFAULT_ROLE);
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
         address = new Address(DEFAULT_ADDRESS);
@@ -51,6 +55,7 @@ public class PersonBuilder {
      */
     public PersonBuilder(Person personToCopy) {
         name = personToCopy.getName();
+        role = personToCopy.getRole();
         phone = personToCopy.getPhone();
         email = personToCopy.getEmail();
         address = personToCopy.getAddress();
@@ -64,6 +69,14 @@ public class PersonBuilder {
      */
     public PersonBuilder withName(String name) {
         this.name = new Name(name);
+        return this;
+    }
+
+    /**
+     * Sets the {@code Role} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withRole(String role) {
+        this.role = new Role(role);
         return this;
     }
 
@@ -116,7 +129,7 @@ public class PersonBuilder {
     }
 
     public Person build() {
-        return new Person(name, phone, email, address, dateOfBirth, dateOfJoining, tags);
+        return new Person(name, role, phone, email, address, dateOfBirth, dateOfJoining, tags);
     }
 
 }

@@ -6,6 +6,7 @@ import static employeetracker.logic.parser.CliSyntax.PREFIX_DATE_OF_JOINING;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_NAME;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_PHONE;
+import static employeetracker.logic.parser.CliSyntax.PREFIX_ROLE;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_TAG;
 import static java.util.Objects.requireNonNull;
 
@@ -23,6 +24,7 @@ public class AddCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds an employee to Employee Tracker. "
             + "Parameters: "
             + PREFIX_NAME + "NAME "
+            + PREFIX_ROLE + "ROLE "
             + PREFIX_PHONE + "PHONE "
             + PREFIX_EMAIL + "EMAIL "
             + PREFIX_ADDRESS + "ADDRESS "
