@@ -11,7 +11,7 @@ public class ShowCommand extends Command {
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);
-        CommandResult commandResult = new CommandResult(GroupList.listGroups(),false, false);
+        CommandResult commandResult = new CommandResult(GroupList.listGroups(), false, false);
         return commandResult;
     }
 }
