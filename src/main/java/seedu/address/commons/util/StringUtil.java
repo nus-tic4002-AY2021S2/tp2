@@ -24,18 +24,23 @@ public class StringUtil {
      * @param word cannot be null, cannot be empty, must be a single word
      */
     public static boolean containsWordIgnoreCase(String sentence, String word) {
+
         requireNonNull(sentence);
         requireNonNull(word);
+        String[] obj;
+        String preppedWord = word.trim().toLowerCase();
 
-        String preppedWord = word.trim();
+        if (preppedWord.contains("/")) {
+            obj = preppedWord.split("/", 2);
+            preppedWord = obj[1];
+        }
+
         checkArgument(!preppedWord.isEmpty(), "Word parameter cannot be empty");
         checkArgument(preppedWord.split("\\s+").length == 1, "Word parameter should be a single word");
-
-        String preppedSentence = sentence;
+        String preppedSentence = sentence.toLowerCase();
         String[] wordsInPreppedSentence = preppedSentence.split("\\s+");
 
-        return Arrays.stream(wordsInPreppedSentence)
-                .anyMatch(preppedWord::equalsIgnoreCase);
+        return Arrays.asList(wordsInPreppedSentence).contains(preppedWord);
     }
 
     /**
