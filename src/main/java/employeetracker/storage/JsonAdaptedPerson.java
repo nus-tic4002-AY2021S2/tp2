@@ -12,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import employeetracker.commons.exceptions.IllegalValueException;
 import employeetracker.model.person.Address;
 import employeetracker.model.person.DateOfBirth;
+import employeetracker.model.person.DateOfJoining;
 import employeetracker.model.person.Email;
 import employeetracker.model.person.Name;
 import employeetracker.model.person.Person;
@@ -30,6 +31,7 @@ class JsonAdaptedPerson {
     private final String email;
     private final String address;
     private final String dateOfBirth;
+    private final String dateOfJoining;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
 
     /**
@@ -38,13 +40,14 @@ class JsonAdaptedPerson {
     @JsonCreator
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
             @JsonProperty("email") String email, @JsonProperty("address") String address,
-            @JsonProperty("dateOfBirth") String dateOfBirth,
+            @JsonProperty("dateOfBirth") String dateOfBirth, @JsonProperty("dateOfJoining") String dateOfJoining,
             @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
         this.dateOfBirth = dateOfBirth;
+        this.dateOfJoining = dateOfJoining;
         if (tagged != null) {
             this.tagged.addAll(tagged);
         }
@@ -59,6 +62,7 @@ class JsonAdaptedPerson {
         email = source.getEmail().value;
         address = source.getAddress().value;
         dateOfBirth = source.getDateOfBirth().value;
+        dateOfJoining = source.getDateOfJoining().value;
         tagged.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
@@ -116,8 +120,18 @@ class JsonAdaptedPerson {
         }
         final DateOfBirth modelDateOfBirth = new DateOfBirth(dateOfBirth);
 
+        if (dateOfJoining == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    DateOfJoining.class.getSimpleName()));
+        }
+        if (!DateOfJoining.isValidDateOfJoining(dateOfJoining)) {
+            throw new IllegalValueException(DateOfJoining.MESSAGE_CONSTRAINTS);
+        }
+        final DateOfJoining modelDateOfJoining = new DateOfJoining(dateOfJoining);
+
         final Set<Tag> modelTags = new HashSet<>(personTags);
-        return new Person(modelName, modelPhone, modelEmail, modelAddress, modelDateOfBirth, modelTags);
+        return new Person(modelName, modelPhone, modelEmail, modelAddress, modelDateOfBirth, modelDateOfJoining,
+                modelTags);
     }
 
 }

@@ -4,13 +4,15 @@
     "phone": "94351253",
     "email": "alice@example.com",
     "address": "123, Jurong West Ave 6, #08-111",
-    "dateOfBirth": "1992-04-17",
+    "dateOfBirth": "1988-09-14",
+    "dateOfJoining": "2020-02-01",
     "tagged": [ "friends" ]
   }, {
     "name": "Alice Pauline",
     "phone": "94351253",
     "email": "pauline@example.com",
-    "dateOfBirth": "1992-04-17",
+    "dateOfBirth": "1988-09-14",
+    "dateOfJoining": "2020-02-01",
     "address": "4th street"
   } ]
 }

@@ -11,6 +11,7 @@ import employeetracker.commons.util.StringUtil;
 import employeetracker.logic.parser.exceptions.ParseException;
 import employeetracker.model.person.Address;
 import employeetracker.model.person.DateOfBirth;
+import employeetracker.model.person.DateOfJoining;
 import employeetracker.model.person.Email;
 import employeetracker.model.person.Name;
 import employeetracker.model.person.Phone;
@@ -109,6 +110,21 @@ public class ParserUtil {
             throw new ParseException(DateOfBirth.MESSAGE_CONSTRAINTS);
         }
         return new DateOfBirth(trimmedDateOfBirth);
+    }
+
+    /**
+     * Parses a {@code String dateOfJoining} into an {@code DateOfJoining}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code dateOfJoining} is invalid.
+     */
+    public static DateOfJoining parseDateOfJoining(String dateOfJoining) throws ParseException {
+        requireNonNull(dateOfJoining);
+        String trimmedDateOfJoining = dateOfJoining.trim();
+        if (!DateOfBirth.isValidDateOfBirth(trimmedDateOfJoining)) {
+            throw new ParseException(DateOfJoining.MESSAGE_CONSTRAINTS);
+        }
+        return new DateOfJoining(trimmedDateOfJoining);
     }
 
     /**

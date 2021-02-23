@@ -1,6 +1,8 @@
 package employeetracker.logic.commands;
 
 import static employeetracker.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static employeetracker.logic.parser.CliSyntax.PREFIX_DATE_OF_BIRTH;
+import static employeetracker.logic.parser.CliSyntax.PREFIX_DATE_OF_JOINING;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_NAME;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_PHONE;
@@ -21,6 +23,7 @@ import employeetracker.logic.commands.exceptions.CommandException;
 import employeetracker.model.Model;
 import employeetracker.model.person.Address;
 import employeetracker.model.person.DateOfBirth;
+import employeetracker.model.person.DateOfJoining;
 import employeetracker.model.person.Email;
 import employeetracker.model.person.Name;
 import employeetracker.model.person.Person;
@@ -42,6 +45,8 @@ public class EditCommand extends Command {
             + "[" + PREFIX_PHONE + "PHONE] "
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_ADDRESS + "ADDRESS] "
+            + "[" + PREFIX_DATE_OF_BIRTH + "DATE_OF_BIRTH] "
+            + "[" + PREFIX_DATE_OF_JOINING + "DATE_OF_JOINING] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
@@ -49,7 +54,7 @@ public class EditCommand extends Command {
 
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Person: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book.";
+    public static final String MESSAGE_DUPLICATE_PERSON = "This employee already exists in the Employee Tracker.";
 
     private final Index index;
     private final EditPersonDescriptor editPersonDescriptor;
@@ -99,9 +104,12 @@ public class EditCommand extends Command {
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
         DateOfBirth updatedDateOfBirth = editPersonDescriptor.getDateOfBirth().orElse(personToEdit.getDateOfBirth());
+        DateOfJoining updatedDateOfJoining =
+                editPersonDescriptor.getDateOfJoining().orElse(personToEdit.getDateOfJoining());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedDateOfBirth, updatedTags);
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedDateOfBirth,
+                updatedDateOfJoining, updatedTags);
     }
 
     @Override
@@ -130,8 +138,9 @@ public class EditCommand extends Command {
         private Name name;
         private Phone phone;
         private Email email;
-        private DateOfBirth dateOfBirth;
         private Address address;
+        private DateOfBirth dateOfBirth;
+        private DateOfJoining dateOfJoining;
         private Set<Tag> tags;
 
         public EditPersonDescriptor() {}
@@ -146,6 +155,7 @@ public class EditCommand extends Command {
             setEmail(toCopy.email);
             setAddress(toCopy.address);
             setDateOfBirth(toCopy.dateOfBirth);
+            setDateOfJoining(toCopy.dateOfJoining);
             setTags(toCopy.tags);
         }
 
@@ -153,7 +163,7 @@ public class EditCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, address, tags);
+            return CollectionUtil.isAnyNonNull(name, phone, email, address, dateOfBirth, dateOfJoining, tags);
         }
 
         public void setName(Name name) {
@@ -196,6 +206,14 @@ public class EditCommand extends Command {
             return Optional.ofNullable(dateOfBirth);
         }
 
+        public void setDateOfJoining(DateOfJoining dateOfJoining) {
+            this.dateOfJoining = dateOfJoining;
+        }
+
+        public Optional<DateOfJoining> getDateOfJoining() {
+            return Optional.ofNullable(dateOfJoining);
+        }
+
         /**
          * Sets {@code tags} to this object's {@code tags}.
          * A defensive copy of {@code tags} is used internally.
@@ -232,6 +250,8 @@ public class EditCommand extends Command {
                     && getPhone().equals(e.getPhone())
                     && getEmail().equals(e.getEmail())
                     && getAddress().equals(e.getAddress())
+                    && getDateOfBirth().equals(e.getDateOfBirth())
+                    && getDateOfJoining().equals(e.getDateOfJoining())
                     && getTags().equals(e.getTags());
         }
     }

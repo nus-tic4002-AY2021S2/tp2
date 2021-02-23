@@ -7,6 +7,7 @@ import java.util.stream.Stream;
 import employeetracker.logic.commands.EditCommand.EditPersonDescriptor;
 import employeetracker.model.person.Address;
 import employeetracker.model.person.DateOfBirth;
+import employeetracker.model.person.DateOfJoining;
 import employeetracker.model.person.Email;
 import employeetracker.model.person.Name;
 import employeetracker.model.person.Person;
@@ -38,6 +39,7 @@ public class EditPersonDescriptorBuilder {
         descriptor.setEmail(person.getEmail());
         descriptor.setAddress(person.getAddress());
         descriptor.setDateOfBirth(person.getDateOfBirth());
+        descriptor.setDateOfJoining(person.getDateOfJoining());
         descriptor.setTags(person.getTags());
     }
 
@@ -78,6 +80,14 @@ public class EditPersonDescriptorBuilder {
      */
     public EditPersonDescriptorBuilder withDateOfBirth(String dateOfBirth) {
         descriptor.setDateOfBirth(new DateOfBirth(dateOfBirth));
+        return this;
+    }
+
+    /**
+     * Sets the {@code DateOfJoining} of the {@code EditPersonDescriptor} that we are building.
+     */
+    public EditPersonDescriptorBuilder withDateOfJoining(String dateOfJoining) {
+        descriptor.setDateOfJoining(new DateOfJoining(dateOfJoining));
         return this;
     }
 

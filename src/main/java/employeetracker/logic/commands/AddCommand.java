@@ -2,6 +2,7 @@ package employeetracker.logic.commands;
 
 import static employeetracker.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_DATE_OF_BIRTH;
+import static employeetracker.logic.parser.CliSyntax.PREFIX_DATE_OF_JOINING;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_NAME;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_PHONE;
@@ -25,7 +26,8 @@ public class AddCommand extends Command {
             + PREFIX_PHONE + "PHONE "
             + PREFIX_EMAIL + "EMAIL "
             + PREFIX_ADDRESS + "ADDRESS "
-            + PREFIX_DATE_OF_BIRTH + "DATE OF BIRTH "
+            + PREFIX_DATE_OF_BIRTH + "DATE_OF_BIRTH "
+            + PREFIX_DATE_OF_JOINING + "DATE_OF_JOINING "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_NAME + "John Doe "
@@ -33,6 +35,7 @@ public class AddCommand extends Command {
             + PREFIX_EMAIL + "johnd@example.com "
             + PREFIX_ADDRESS + "311, Clementi Ave 2, #02-25 "
             + PREFIX_DATE_OF_BIRTH + "1990-12-25 "
+            + PREFIX_DATE_OF_JOINING + "2020-07-01 "
             + PREFIX_TAG + "friends "
             + PREFIX_TAG + "owesMoney";
 

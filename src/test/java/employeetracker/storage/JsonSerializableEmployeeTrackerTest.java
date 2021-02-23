@@ -26,8 +26,8 @@ public class JsonSerializableEmployeeTrackerTest {
         JsonSerializableEmployeeTracker dataFromFile = JsonUtil.readJsonFile(TYPICAL_PERSONS_FILE,
                 JsonSerializableEmployeeTracker.class).get();
         EmployeeTracker employeeTrackerFromFile = dataFromFile.toModelType();
-        EmployeeTracker typicalPersonsAddressBook = TypicalPersons.getTypicalEmployeeTracker();
-        assertEquals(employeeTrackerFromFile, typicalPersonsAddressBook);
+        EmployeeTracker typicalPersonsEmployeeTracker = TypicalPersons.getTypicalEmployeeTracker();
+        assertEquals(employeeTrackerFromFile, typicalPersonsEmployeeTracker);
     }
 
     @Test

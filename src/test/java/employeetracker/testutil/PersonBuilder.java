@@ -5,6 +5,7 @@ import java.util.Set;
 
 import employeetracker.model.person.Address;
 import employeetracker.model.person.DateOfBirth;
+import employeetracker.model.person.DateOfJoining;
 import employeetracker.model.person.Email;
 import employeetracker.model.person.Name;
 import employeetracker.model.person.Person;
@@ -22,12 +23,14 @@ public class PersonBuilder {
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
     public static final String DEFAULT_DATE_OF_BIRTH = "1998-01-05";
+    public static final String DEFAULT_DATE_OF_JOINING = "2020-01-01";
 
     private Name name;
     private Phone phone;
     private Email email;
     private Address address;
     private DateOfBirth dateOfBirth;
+    private DateOfJoining dateOfJoining;
     private Set<Tag> tags;
 
     /**
@@ -39,6 +42,7 @@ public class PersonBuilder {
         email = new Email(DEFAULT_EMAIL);
         address = new Address(DEFAULT_ADDRESS);
         dateOfBirth = new DateOfBirth(DEFAULT_DATE_OF_BIRTH);
+        dateOfJoining = new DateOfJoining(DEFAULT_DATE_OF_JOINING);
         tags = new HashSet<>();
     }
 
@@ -51,6 +55,7 @@ public class PersonBuilder {
         email = personToCopy.getEmail();
         address = personToCopy.getAddress();
         dateOfBirth = personToCopy.getDateOfBirth();
+        dateOfJoining = personToCopy.getDateOfJoining();
         tags = new HashSet<>(personToCopy.getTags());
     }
 
@@ -102,8 +107,16 @@ public class PersonBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code DateOfJoining} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withDateOfJoining(String dateOfJoining) {
+        this.dateOfJoining = new DateOfJoining(dateOfJoining);
+        return this;
+    }
+
     public Person build() {
-        return new Person(name, phone, email, address, dateOfBirth, tags);
+        return new Person(name, phone, email, address, dateOfBirth, dateOfJoining, tags);
     }
 
 }

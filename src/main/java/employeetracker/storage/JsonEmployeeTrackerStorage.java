@@ -60,8 +60,8 @@ public class JsonEmployeeTrackerStorage implements EmployeeTrackerStorage {
     }
 
     @Override
-    public void saveEmployeeTracker(ReadOnlyEmployeeTracker addressBook) throws IOException {
-        saveEmployeeTracker(addressBook, filePath);
+    public void saveEmployeeTracker(ReadOnlyEmployeeTracker employeeTracker) throws IOException {
+        saveEmployeeTracker(employeeTracker, filePath);
     }
 
     /**

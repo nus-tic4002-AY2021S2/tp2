@@ -1,11 +1,12 @@
 {
-  "_comment": "AddressBook save file which contains the same Person values as in TypicalPersons#getTypicalAddressBook()",
+  "_comment": "Employee Tracker save file which contains the same Person values as in TypicalPersons#getTypicalEmployeeTracker()",
   "persons" : [ {
     "name" : "Alice Pauline",
     "phone" : "94351253",
     "email" : "alice@example.com",
     "address" : "123, Jurong West Ave 6, #08-111",
     "dateOfBirth": "1988-09-14",
+    "dateOfJoining": "2020-02-01",
     "tagged" : [ "friends" ]
   }, {
     "name" : "Benson Meier",
@@ -13,6 +14,7 @@
     "email" : "johnd@example.com",
     "address" : "311, Clementi Ave 2, #02-25",
     "dateOfBirth": "1989-11-14",
+    "dateOfJoining": "2020-02-01",
     "tagged" : [ "owesMoney", "friends" ]
   }, {
     "name" : "Carl Kurz",
@@ -20,6 +22,7 @@
     "email" : "heinz@example.com",
     "address" : "wall street",
     "dateOfBirth": "1979-09-01",
+    "dateOfJoining": "2020-02-01",
     "tagged" : [ ]
   }, {
     "name" : "Daniel Meier",
@@ -27,6 +30,7 @@
     "email" : "cornelia@example.com",
     "address" : "10th street",
     "dateOfBirth": "1977-01-05",
+    "dateOfJoining": "2021-02-01",
     "tagged" : [ "friends" ]
   }, {
     "name" : "Elle Meyer",
@@ -34,6 +38,7 @@
     "email" : "werner@example.com",
     "address" : "michegan ave",
     "dateOfBirth": "2001-04-11",
+    "dateOfJoining": "2021-02-01",
     "tagged" : [ ]
   }, {
     "name" : "Fiona Kunz",
@@ -41,6 +46,7 @@
     "email" : "lydia@example.com",
     "address" : "little tokyo",
     "dateOfBirth": "2000-08-29",
+    "dateOfJoining": "2021-02-01",
     "tagged" : [ ]
   }, {
     "name" : "George Best",
@@ -48,6 +54,7 @@
     "email" : "anna@example.com",
     "address" : "4th street",
     "dateOfBirth": "1981-03-16",
+    "dateOfJoining": "2020-03-01",
     "tagged" : [ ]
   } ]
 }
