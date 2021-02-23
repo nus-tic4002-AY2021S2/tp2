@@ -249,6 +249,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user                                       | delete an employee record      | remove an employee record that I no longer need                        |
 | `* * *`  | user                                       | find an employee record        | look at the particular employee's information                          |
 | `* * *`  | user                                       | sort employee records by salary | see the salary structure in my company                                |
+| `* * *`  | user                                       | sort employee records by name  | see the name structure in my company                                   |
+| `* * *`  | user                                       | sort employee records by date of employment  | see the date of employment structure in my company       |
+| `* * *`  | user                                       | sort employee records by date of birth       | see the employees' age structure in my company           |
 | `* * *`  | user                                       | list all employee records      | view all my employees' information                                     |
 
 *{More to be added}*

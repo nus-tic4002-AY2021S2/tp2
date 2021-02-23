@@ -93,7 +93,7 @@ Examples of usage:
 
 ### Sorting employee records: `sort`
 
-Sorts the list of employee records in the Human Resource Management System.
+Sorts the list of employee records in the Employee Tracker.
 
 Format: `sort TYPE`
 * `TYPE` must be the letter n, s, d or b.
