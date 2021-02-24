@@ -8,6 +8,7 @@ import static employeetracker.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_NAME;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_PHONE;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_ROLE;
+import static employeetracker.logic.parser.CliSyntax.PREFIX_SALARY;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_TAG;
 import static java.util.Objects.requireNonNull;
 
@@ -36,7 +37,7 @@ public class EditCommandParser implements Parser<EditCommand> {
         requireNonNull(args);
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_ROLE, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS,
-                        PREFIX_DATE_OF_BIRTH, PREFIX_DATE_OF_JOINING, PREFIX_TAG);
+                        PREFIX_DATE_OF_BIRTH, PREFIX_DATE_OF_JOINING, PREFIX_SALARY, PREFIX_TAG);
 
         Index index;
 
@@ -69,6 +70,9 @@ public class EditCommandParser implements Parser<EditCommand> {
         if (argMultimap.getValue(PREFIX_DATE_OF_JOINING).isPresent()) {
             editPersonDescriptor.setDateOfJoining(ParserUtil.parseDateOfJoining(
                     argMultimap.getValue(PREFIX_DATE_OF_JOINING).get()));
+        }
+        if (argMultimap.getValue(PREFIX_SALARY).isPresent()) {
+            editPersonDescriptor.setSalary(ParserUtil.parseSalary(argMultimap.getValue(PREFIX_SALARY).get()));
         }
         parseTagsForEdit(argMultimap.getAllValues(PREFIX_TAG)).ifPresent(editPersonDescriptor::setTags);
 

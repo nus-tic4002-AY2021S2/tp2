@@ -11,6 +11,7 @@ import employeetracker.model.person.Name;
 import employeetracker.model.person.Person;
 import employeetracker.model.person.Phone;
 import employeetracker.model.person.Role;
+import employeetracker.model.person.Salary;
 import employeetracker.model.tag.Tag;
 import employeetracker.model.util.SampleDataUtil;
 
@@ -26,6 +27,7 @@ public class PersonBuilder {
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
     public static final String DEFAULT_DATE_OF_BIRTH = "1990-10-12";
     public static final String DEFAULT_DATE_OF_JOINING = "2020-01-01";
+    public static final String DEFAULT_SALARY = "6000";
 
     private Name name;
     private Role role;
@@ -34,6 +36,7 @@ public class PersonBuilder {
     private Address address;
     private DateOfBirth dateOfBirth;
     private DateOfJoining dateOfJoining;
+    private Salary salary;
     private Set<Tag> tags;
 
     /**
@@ -47,6 +50,7 @@ public class PersonBuilder {
         address = new Address(DEFAULT_ADDRESS);
         dateOfBirth = new DateOfBirth(DEFAULT_DATE_OF_BIRTH);
         dateOfJoining = new DateOfJoining(DEFAULT_DATE_OF_JOINING);
+        salary = new Salary(DEFAULT_SALARY);
         tags = new HashSet<>();
     }
 
@@ -61,6 +65,7 @@ public class PersonBuilder {
         address = personToCopy.getAddress();
         dateOfBirth = personToCopy.getDateOfBirth();
         dateOfJoining = personToCopy.getDateOfJoining();
+        salary = personToCopy.getSalary();
         tags = new HashSet<>(personToCopy.getTags());
     }
 
@@ -128,8 +133,16 @@ public class PersonBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code Salary} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withSalary(String salary) {
+        this.salary = new Salary(salary);
+        return this;
+    }
+
     public Person build() {
-        return new Person(name, role, phone, email, address, dateOfBirth, dateOfJoining, tags);
+        return new Person(name, role, phone, email, address, dateOfBirth, dateOfJoining, salary, tags);
     }
 
 }

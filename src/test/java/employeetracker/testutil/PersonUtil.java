@@ -7,6 +7,7 @@ import static employeetracker.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_NAME;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_PHONE;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_ROLE;
+import static employeetracker.logic.parser.CliSyntax.PREFIX_SALARY;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_TAG;
 
 import java.util.Set;
@@ -40,6 +41,7 @@ public class PersonUtil {
         sb.append(PREFIX_ADDRESS + person.getAddress().value + " ");
         sb.append(PREFIX_DATE_OF_BIRTH + person.getDateOfBirth().value + " ");
         sb.append(PREFIX_DATE_OF_JOINING + person.getDateOfJoining().value + " ");
+        sb.append(PREFIX_SALARY + person.getSalary().value + " ");
         person.getTags().stream().forEach(
             s -> sb.append(PREFIX_TAG + s.tagName + " ")
         );
@@ -60,6 +62,7 @@ public class PersonUtil {
                 sb.append(PREFIX_DATE_OF_BIRTH).append(dateOfBirth.value).append(" "));
         descriptor.getDateOfJoining().ifPresent(dateOfJoining ->
                 sb.append(PREFIX_DATE_OF_JOINING).append(dateOfJoining.value).append(" "));
+        descriptor.getSalary().ifPresent(salary -> sb.append(PREFIX_SALARY).append(salary.value).append(" "));
         if (descriptor.getTags().isPresent()) {
             Set<Tag> tags = descriptor.getTags().get();
             if (tags.isEmpty()) {

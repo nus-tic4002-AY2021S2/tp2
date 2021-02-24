@@ -8,6 +8,7 @@
     "address" : "123, Jurong West Ave 6, #08-111",
     "dateOfBirth": "1988-09-14",
     "dateOfJoining": "2020-02-01",
+    "salary": "6000",
     "tagged" : [ "friends" ]
   }, {
     "name" : "Benson Meier",
@@ -17,6 +18,7 @@
     "address" : "311, Clementi Ave 2, #02-25",
     "dateOfBirth": "1989-11-14",
     "dateOfJoining": "2020-02-01",
+    "salary": "6000",
     "tagged" : [ "owesMoney", "friends" ]
   }, {
     "name" : "Carl Kurz",
@@ -26,6 +28,7 @@
     "address" : "wall street",
     "dateOfBirth": "1979-09-01",
     "dateOfJoining": "2020-02-01",
+    "salary": "6000",
     "tagged" : [ ]
   }, {
     "name" : "Daniel Meier",
@@ -35,6 +38,7 @@
     "address" : "10th street",
     "dateOfBirth": "1977-01-05",
     "dateOfJoining": "2021-02-01",
+    "salary": "6000",
     "tagged" : [ "friends" ]
   }, {
     "name" : "Elle Meyer",
@@ -44,6 +48,7 @@
     "address" : "michegan ave",
     "dateOfBirth": "2001-04-11",
     "dateOfJoining": "2021-02-01",
+    "salary": "5000",
     "tagged" : [ ]
   }, {
     "name" : "Fiona Kunz",
@@ -53,6 +58,7 @@
     "address" : "little tokyo",
     "dateOfBirth": "2000-08-29",
     "dateOfJoining": "2021-02-01",
+    "salary": "5000",
     "tagged" : [ ]
   }, {
     "name" : "George Best",
@@ -62,6 +68,7 @@
     "address" : "4th street",
     "dateOfBirth": "1981-03-16",
     "dateOfJoining": "2020-03-01",
+    "salary": "5000",
     "tagged" : [ ]
   } ]
 }

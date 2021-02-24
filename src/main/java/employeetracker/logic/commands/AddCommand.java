@@ -7,6 +7,7 @@ import static employeetracker.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_NAME;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_PHONE;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_ROLE;
+import static employeetracker.logic.parser.CliSyntax.PREFIX_SALARY;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_TAG;
 import static java.util.Objects.requireNonNull;
 
@@ -30,14 +31,17 @@ public class AddCommand extends Command {
             + PREFIX_ADDRESS + "ADDRESS "
             + PREFIX_DATE_OF_BIRTH + "DATE_OF_BIRTH "
             + PREFIX_DATE_OF_JOINING + "DATE_OF_JOINING "
+            + PREFIX_SALARY + "SALARY "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_NAME + "John Doe "
+            + PREFIX_ROLE + "Developer "
             + PREFIX_PHONE + "98765432 "
             + PREFIX_EMAIL + "johnd@example.com "
             + PREFIX_ADDRESS + "311, Clementi Ave 2, #02-25 "
             + PREFIX_DATE_OF_BIRTH + "1990-12-25 "
             + PREFIX_DATE_OF_JOINING + "2020-07-01 "
+            + PREFIX_SALARY + "3000 "
             + PREFIX_TAG + "friends "
             + PREFIX_TAG + "owesMoney";
 

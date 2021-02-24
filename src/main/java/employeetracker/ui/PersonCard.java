@@ -45,6 +45,8 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label dateOfJoining;
     @FXML
+    private Label salary;
+    @FXML
     private FlowPane tags;
 
     /**
@@ -54,13 +56,14 @@ public class PersonCard extends UiPart<Region> {
         super(FXML);
         this.person = person;
         id.setText(displayedIndex + ". ");
-        name.setText("Name: " + person.getName().fullName);
-        role.setText("Role: " + person.getRole().value);
-        phone.setText("Phone: " + person.getPhone().value);
-        address.setText("Address: " + person.getAddress().value);
-        email.setText("Email: " + person.getEmail().value);
-        dateOfBirth.setText("Date of Birth: " + person.getDateOfBirth().value);
-        dateOfJoining.setText("Date of Joining: " + person.getDateOfJoining().value);
+        name.setText(person.getName().fullName);
+        role.setText("\uD83D\uDC77 " + person.getRole().value);
+        phone.setText("\uD83D\uDD81 " + person.getPhone().value);
+        address.setText("\uD83C\uDFE0 " + person.getAddress().value);
+        email.setText("\uD83D\uDCE7 " + person.getEmail().value);
+        dateOfBirth.setText("\uD83D\uDC76 " + person.getDateOfBirth().value);
+        dateOfJoining.setText("\uD83D\uDC66 " + person.getDateOfJoining().value);
+        salary.setText("\uD83D\uDCB2 " + person.getSalary().value);
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));

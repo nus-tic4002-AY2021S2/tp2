@@ -18,6 +18,7 @@ import employeetracker.model.person.Name;
 import employeetracker.model.person.Person;
 import employeetracker.model.person.Phone;
 import employeetracker.model.person.Role;
+import employeetracker.model.person.Salary;
 import employeetracker.model.tag.Tag;
 
 /**
@@ -34,6 +35,7 @@ class JsonAdaptedPerson {
     private final String address;
     private final String dateOfBirth;
     private final String dateOfJoining;
+    private final String salary;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
 
     /**
@@ -43,7 +45,8 @@ class JsonAdaptedPerson {
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("role") String role,
             @JsonProperty("phone") String phone, @JsonProperty("email") String email,
             @JsonProperty("address") String address, @JsonProperty("dateOfBirth") String dateOfBirth,
-            @JsonProperty("dateOfJoining") String dateOfJoining, @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
+            @JsonProperty("dateOfJoining") String dateOfJoining, @JsonProperty("salary") String salary,
+            @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
         this.name = name;
         this.role = role;
         this.phone = phone;
@@ -51,6 +54,7 @@ class JsonAdaptedPerson {
         this.address = address;
         this.dateOfBirth = dateOfBirth;
         this.dateOfJoining = dateOfJoining;
+        this.salary = salary;
         if (tagged != null) {
             this.tagged.addAll(tagged);
         }
@@ -67,6 +71,7 @@ class JsonAdaptedPerson {
         address = source.getAddress().value;
         dateOfBirth = source.getDateOfBirth().value;
         dateOfJoining = source.getDateOfJoining().value;
+        salary = source.getSalary().value;
         tagged.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
@@ -141,9 +146,18 @@ class JsonAdaptedPerson {
         }
         final DateOfJoining modelDateOfJoining = new DateOfJoining(dateOfJoining);
 
+        if (salary == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    Salary.class.getSimpleName()));
+        }
+        if (!Salary.isValidSalary(salary)) {
+            throw new IllegalValueException(Salary.MESSAGE_CONSTRAINTS);
+        }
+        final Salary modelSalary = new Salary(salary);
+
         final Set<Tag> modelTags = new HashSet<>(personTags);
         return new Person(modelName, modelRole, modelPhone, modelEmail, modelAddress, modelDateOfBirth,
-                modelDateOfJoining, modelTags);
+                modelDateOfJoining, modelSalary, modelTags);
     }
 
 }
