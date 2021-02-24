@@ -246,6 +246,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | -------- | ------------------------------------------ | ------------------------------ | ---------------------------------------------------------------------- |
 | `* * *`  | new user                                   | access a user manual           | learn how to use the available features                                |
 | `* * *`  | user                                       | add an employee record         | keep track of the data of a particular employee                        |
+| `* *  `  | user                                       | edit an employee record        | modify an employee record without having to delete and readd           |
 | `* * *`  | user                                       | delete an employee record      | remove an employee record that I no longer need                        |
 | `* * *`  | user                                       | find an employee record        | look at the particular employee's information                          |
 | `* * *`  | user                                       | sort employee records by salary | see the salary structure in my company                                |
