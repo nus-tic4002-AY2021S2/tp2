@@ -16,7 +16,7 @@ import employeetracker.model.person.Person;
 /**
  * An Immutable EmployeeTracker that is serializable to JSON format.
  */
-@JsonRootName(value = "addressbook")
+@JsonRootName(value = "employeetracker")
 class JsonSerializableEmployeeTracker {
 
     public static final String MESSAGE_DUPLICATE_PERSON = "Persons list contains duplicate person(s).";
@@ -46,15 +46,15 @@ class JsonSerializableEmployeeTracker {
      * @throws IllegalValueException if there were any data constraints violated.
      */
     public EmployeeTracker toModelType() throws IllegalValueException {
-        EmployeeTracker addressBook = new EmployeeTracker();
+        EmployeeTracker employeeTracker = new EmployeeTracker();
         for (JsonAdaptedPerson jsonAdaptedPerson : persons) {
             Person person = jsonAdaptedPerson.toModelType();
-            if (addressBook.hasPerson(person)) {
+            if (employeeTracker.hasPerson(person)) {
                 throw new IllegalValueException(MESSAGE_DUPLICATE_PERSON);
             }
-            addressBook.addPerson(person);
+            employeeTracker.addPerson(person);
         }
-        return addressBook;
+        return employeeTracker;
     }
 
 }

@@ -6,10 +6,14 @@ import java.util.stream.Stream;
 
 import employeetracker.logic.commands.EditCommand.EditPersonDescriptor;
 import employeetracker.model.person.Address;
+import employeetracker.model.person.DateOfBirth;
+import employeetracker.model.person.DateOfJoining;
 import employeetracker.model.person.Email;
 import employeetracker.model.person.Name;
 import employeetracker.model.person.Person;
 import employeetracker.model.person.Phone;
+import employeetracker.model.person.Role;
+import employeetracker.model.person.Salary;
 import employeetracker.model.tag.Tag;
 
 /**
@@ -33,9 +37,13 @@ public class EditPersonDescriptorBuilder {
     public EditPersonDescriptorBuilder(Person person) {
         descriptor = new EditPersonDescriptor();
         descriptor.setName(person.getName());
+        descriptor.setRole(person.getRole());
         descriptor.setPhone(person.getPhone());
         descriptor.setEmail(person.getEmail());
         descriptor.setAddress(person.getAddress());
+        descriptor.setDateOfBirth(person.getDateOfBirth());
+        descriptor.setDateOfJoining(person.getDateOfJoining());
+        descriptor.setSalary(person.getSalary());
         descriptor.setTags(person.getTags());
     }
 
@@ -44,6 +52,14 @@ public class EditPersonDescriptorBuilder {
      */
     public EditPersonDescriptorBuilder withName(String name) {
         descriptor.setName(new Name(name));
+        return this;
+    }
+
+    /**
+     * Sets the {@code Role} of the {@code EditPersonDescriptor} that we are building.
+     */
+    public EditPersonDescriptorBuilder withRole(String role) {
+        descriptor.setRole(new Role(role));
         return this;
     }
 
@@ -68,6 +84,30 @@ public class EditPersonDescriptorBuilder {
      */
     public EditPersonDescriptorBuilder withAddress(String address) {
         descriptor.setAddress(new Address(address));
+        return this;
+    }
+
+    /**
+     * Sets the {@code DateOfBirth} of the {@code EditPersonDescriptor} that we are building.
+     */
+    public EditPersonDescriptorBuilder withDateOfBirth(String dateOfBirth) {
+        descriptor.setDateOfBirth(new DateOfBirth(dateOfBirth));
+        return this;
+    }
+
+    /**
+     * Sets the {@code DateOfJoining} of the {@code EditPersonDescriptor} that we are building.
+     */
+    public EditPersonDescriptorBuilder withDateOfJoining(String dateOfJoining) {
+        descriptor.setDateOfJoining(new DateOfJoining(dateOfJoining));
+        return this;
+    }
+
+    /**
+     * Sets the {@code Salary} of the {@code EditPersonDescriptor} that we are building.
+     */
+    public EditPersonDescriptorBuilder withSalary(String salary) {
+        descriptor.setSalary(new Salary(salary));
         return this;
     }
 

@@ -1,9 +1,13 @@
 package employeetracker.logic.commands;
 
 import static employeetracker.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static employeetracker.logic.parser.CliSyntax.PREFIX_DATE_OF_BIRTH;
+import static employeetracker.logic.parser.CliSyntax.PREFIX_DATE_OF_JOINING;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_NAME;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_PHONE;
+import static employeetracker.logic.parser.CliSyntax.PREFIX_ROLE;
+import static employeetracker.logic.parser.CliSyntax.PREFIX_SALARY;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_TAG;
 import static employeetracker.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 import static java.util.Objects.requireNonNull;
@@ -20,10 +24,14 @@ import employeetracker.commons.util.CollectionUtil;
 import employeetracker.logic.commands.exceptions.CommandException;
 import employeetracker.model.Model;
 import employeetracker.model.person.Address;
+import employeetracker.model.person.DateOfBirth;
+import employeetracker.model.person.DateOfJoining;
 import employeetracker.model.person.Email;
 import employeetracker.model.person.Name;
 import employeetracker.model.person.Person;
 import employeetracker.model.person.Phone;
+import employeetracker.model.person.Role;
+import employeetracker.model.person.Salary;
 import employeetracker.model.tag.Tag;
 
 /**
@@ -33,28 +41,32 @@ public class EditCommand extends Command {
 
     public static final String COMMAND_WORD = "edit";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the person identified "
-            + "by the index number used in the displayed person list. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the employee identified "
+            + "by the index number used in the displayed employee list. "
             + "Existing values will be overwritten by the input values.\n"
             + "Parameters: INDEX (must be a positive integer) "
             + "[" + PREFIX_NAME + "NAME] "
+            + "[" + PREFIX_ROLE + "ROLE] "
             + "[" + PREFIX_PHONE + "PHONE] "
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_ADDRESS + "ADDRESS] "
+            + "[" + PREFIX_DATE_OF_BIRTH + "DATE_OF_BIRTH] "
+            + "[" + PREFIX_DATE_OF_JOINING + "DATE_OF_JOINING] "
+            + "[" + PREFIX_SALARY + "SALARY] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
             + PREFIX_EMAIL + "johndoe@example.com";
 
-    public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Person: %1$s";
+    public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Employee: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book.";
+    public static final String MESSAGE_DUPLICATE_PERSON = "This employee already exists in the Employee Tracker.";
 
     private final Index index;
     private final EditPersonDescriptor editPersonDescriptor;
 
     /**
-     * @param index of the person in the filtered person list to edit
+     * @param index of the person in the filtered employee list to edit
      * @param editPersonDescriptor details to edit the person with
      */
     public EditCommand(Index index, EditPersonDescriptor editPersonDescriptor) {
@@ -94,12 +106,18 @@ public class EditCommand extends Command {
         assert personToEdit != null;
 
         Name updatedName = editPersonDescriptor.getName().orElse(personToEdit.getName());
+        Role updatedRole = editPersonDescriptor.getRole().orElse(personToEdit.getRole());
         Phone updatedPhone = editPersonDescriptor.getPhone().orElse(personToEdit.getPhone());
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
+        DateOfBirth updatedDateOfBirth = editPersonDescriptor.getDateOfBirth().orElse(personToEdit.getDateOfBirth());
+        DateOfJoining updatedDateOfJoining = editPersonDescriptor.getDateOfJoining()
+                .orElse(personToEdit.getDateOfJoining());
+        Salary updatedSalary = editPersonDescriptor.getSalary().orElse(personToEdit.getSalary());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags);
+        return new Person(updatedName, updatedRole, updatedPhone, updatedEmail, updatedAddress, updatedDateOfBirth,
+                updatedDateOfJoining, updatedSalary, updatedTags);
     }
 
     @Override
@@ -126,9 +144,13 @@ public class EditCommand extends Command {
      */
     public static class EditPersonDescriptor {
         private Name name;
+        private Role role;
         private Phone phone;
         private Email email;
         private Address address;
+        private DateOfBirth dateOfBirth;
+        private DateOfJoining dateOfJoining;
+        private Salary salary;
         private Set<Tag> tags;
 
         public EditPersonDescriptor() {}
@@ -139,9 +161,13 @@ public class EditCommand extends Command {
          */
         public EditPersonDescriptor(EditPersonDescriptor toCopy) {
             setName(toCopy.name);
+            setRole(toCopy.role);
             setPhone(toCopy.phone);
             setEmail(toCopy.email);
             setAddress(toCopy.address);
+            setDateOfBirth(toCopy.dateOfBirth);
+            setDateOfJoining(toCopy.dateOfJoining);
+            setSalary(toCopy.salary);
             setTags(toCopy.tags);
         }
 
@@ -149,7 +175,8 @@ public class EditCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, address, tags);
+            return CollectionUtil.isAnyNonNull(name, role, phone, email, address, dateOfBirth, dateOfJoining,
+                    salary, tags);
         }
 
         public void setName(Name name) {
@@ -158,6 +185,14 @@ public class EditCommand extends Command {
 
         public Optional<Name> getName() {
             return Optional.ofNullable(name);
+        }
+
+        public void setRole(Role role) {
+            this.role = role;
+        }
+
+        public Optional<Role> getRole() {
+            return Optional.ofNullable(role);
         }
 
         public void setPhone(Phone phone) {
@@ -182,6 +217,30 @@ public class EditCommand extends Command {
 
         public Optional<Address> getAddress() {
             return Optional.ofNullable(address);
+        }
+
+        public void setDateOfBirth(DateOfBirth dateOfBirth) {
+            this.dateOfBirth = dateOfBirth;
+        }
+
+        public Optional<DateOfBirth> getDateOfBirth() {
+            return Optional.ofNullable(dateOfBirth);
+        }
+
+        public void setDateOfJoining(DateOfJoining dateOfJoining) {
+            this.dateOfJoining = dateOfJoining;
+        }
+
+        public Optional<DateOfJoining> getDateOfJoining() {
+            return Optional.ofNullable(dateOfJoining);
+        }
+
+        public void setSalary(Salary salary) {
+            this.salary = salary;
+        }
+
+        public Optional<Salary> getSalary() {
+            return Optional.ofNullable(salary);
         }
 
         /**
@@ -220,6 +279,9 @@ public class EditCommand extends Command {
                     && getPhone().equals(e.getPhone())
                     && getEmail().equals(e.getEmail())
                     && getAddress().equals(e.getAddress())
+                    && getDateOfBirth().equals(e.getDateOfBirth())
+                    && getDateOfJoining().equals(e.getDateOfJoining())
+                    && getSalary().equals(e.getSalary())
                     && getTags().equals(e.getTags());
         }
     }

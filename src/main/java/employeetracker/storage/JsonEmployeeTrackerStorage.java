@@ -45,14 +45,14 @@ public class JsonEmployeeTrackerStorage implements EmployeeTrackerStorage {
     public Optional<ReadOnlyEmployeeTracker> readEmployeeTracker(Path filePath) throws DataConversionException {
         requireNonNull(filePath);
 
-        Optional<JsonSerializableEmployeeTracker> jsonAddressBook = JsonUtil.readJsonFile(
+        Optional<JsonSerializableEmployeeTracker> jsonEmployeeTracker = JsonUtil.readJsonFile(
                 filePath, JsonSerializableEmployeeTracker.class);
-        if (!jsonAddressBook.isPresent()) {
+        if (!jsonEmployeeTracker.isPresent()) {
             return Optional.empty();
         }
 
         try {
-            return Optional.of(jsonAddressBook.get().toModelType());
+            return Optional.of(jsonEmployeeTracker.get().toModelType());
         } catch (IllegalValueException ive) {
             logger.info("Illegal values found in " + filePath + ": " + ive.getMessage());
             throw new DataConversionException(ive);
@@ -60,8 +60,8 @@ public class JsonEmployeeTrackerStorage implements EmployeeTrackerStorage {
     }
 
     @Override
-    public void saveEmployeeTracker(ReadOnlyEmployeeTracker addressBook) throws IOException {
-        saveEmployeeTracker(addressBook, filePath);
+    public void saveEmployeeTracker(ReadOnlyEmployeeTracker employeeTracker) throws IOException {
+        saveEmployeeTracker(employeeTracker, filePath);
     }
 
     /**
@@ -69,12 +69,12 @@ public class JsonEmployeeTrackerStorage implements EmployeeTrackerStorage {
      *
      * @param filePath location of the data. Cannot be null.
      */
-    public void saveEmployeeTracker(ReadOnlyEmployeeTracker addressBook, Path filePath) throws IOException {
-        requireNonNull(addressBook);
+    public void saveEmployeeTracker(ReadOnlyEmployeeTracker employeeTracker, Path filePath) throws IOException {
+        requireNonNull(employeeTracker);
         requireNonNull(filePath);
 
         FileUtil.createIfMissing(filePath);
-        JsonUtil.saveJsonFile(new JsonSerializableEmployeeTracker(addressBook), filePath);
+        JsonUtil.saveJsonFile(new JsonSerializableEmployeeTracker(employeeTracker), filePath);
     }
 
 }

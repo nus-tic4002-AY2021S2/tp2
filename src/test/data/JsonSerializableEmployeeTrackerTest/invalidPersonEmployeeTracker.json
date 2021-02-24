@@ -1,8 +1,12 @@
 {
   "persons": [ {
     "name": "Hans Muster",
+    "role": "Developer",
     "phone": "9482424",
     "email": "invalid@email!3e",
-    "address": "4th street"
+    "address": "4th street",
+    "dateOfBirth": "1988-01-17",
+    "dateOfJoining": "2020-01-05",
+    "salary": "5000"
   } ]
 }

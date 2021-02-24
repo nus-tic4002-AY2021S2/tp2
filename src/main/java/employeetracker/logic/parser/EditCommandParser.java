@@ -2,9 +2,13 @@ package employeetracker.logic.parser;
 
 import static employeetracker.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static employeetracker.logic.parser.CliSyntax.PREFIX_DATE_OF_BIRTH;
+import static employeetracker.logic.parser.CliSyntax.PREFIX_DATE_OF_JOINING;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_NAME;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_PHONE;
+import static employeetracker.logic.parser.CliSyntax.PREFIX_ROLE;
+import static employeetracker.logic.parser.CliSyntax.PREFIX_SALARY;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_TAG;
 import static java.util.Objects.requireNonNull;
 
@@ -32,7 +36,8 @@ public class EditCommandParser implements Parser<EditCommand> {
     public EditCommand parse(String args) throws ParseException {
         requireNonNull(args);
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_TAG);
+                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_ROLE, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS,
+                        PREFIX_DATE_OF_BIRTH, PREFIX_DATE_OF_JOINING, PREFIX_SALARY, PREFIX_TAG);
 
         Index index;
 
@@ -46,6 +51,9 @@ public class EditCommandParser implements Parser<EditCommand> {
         if (argMultimap.getValue(PREFIX_NAME).isPresent()) {
             editPersonDescriptor.setName(ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get()));
         }
+        if (argMultimap.getValue(PREFIX_ROLE).isPresent()) {
+            editPersonDescriptor.setRole(ParserUtil.parseRole(argMultimap.getValue(PREFIX_ROLE).get()));
+        }
         if (argMultimap.getValue(PREFIX_PHONE).isPresent()) {
             editPersonDescriptor.setPhone(ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get()));
         }
@@ -54,6 +62,17 @@ public class EditCommandParser implements Parser<EditCommand> {
         }
         if (argMultimap.getValue(PREFIX_ADDRESS).isPresent()) {
             editPersonDescriptor.setAddress(ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get()));
+        }
+        if (argMultimap.getValue(PREFIX_DATE_OF_BIRTH).isPresent()) {
+            editPersonDescriptor.setDateOfBirth(ParserUtil.parseDateOfBirth(
+                    argMultimap.getValue(PREFIX_DATE_OF_BIRTH).get()));
+        }
+        if (argMultimap.getValue(PREFIX_DATE_OF_JOINING).isPresent()) {
+            editPersonDescriptor.setDateOfJoining(ParserUtil.parseDateOfJoining(
+                    argMultimap.getValue(PREFIX_DATE_OF_JOINING).get()));
+        }
+        if (argMultimap.getValue(PREFIX_SALARY).isPresent()) {
+            editPersonDescriptor.setSalary(ParserUtil.parseSalary(argMultimap.getValue(PREFIX_SALARY).get()));
         }
         parseTagsForEdit(argMultimap.getAllValues(PREFIX_TAG)).ifPresent(editPersonDescriptor::setTags);
 
