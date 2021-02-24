@@ -177,24 +177,24 @@ AddressBook data are saved as a JSON file `[JAR file location]/data/addressbook.
 If your changes to the data file makes its format invalid, AddressBook will discard all data and start with an empty data file at the next run.
 </div>
 
-### Creating a group: `create -g`
+### Creating a group: `create g/`
 
 Creates a new group to the Address book NS Edition
 
-Format: `create -g n/NAME`
+Format: `create g/<group name>`
 
 Examples:
-*  `create -g n/FITNESS` Creates a group called Fitness
-*  `create -g n/COMBAT` Creates a group called COMBAT
+*  `create g/FITNESS` Creates a group called Fitness
+*  `create g/COMBAT` Creates a group called COMBAT
 
-### Listing all groups: `listgroup all`
+### Listing all groups: `show`
 
 Lists all groups in the Address book NS Edition
 
-Format: `listgroup all`
+Format: `show`
 
 Examples:
-*  `listgroup all` Lists all groups
+*  `show` Lists all groups
 
 
 ### Rename the group: `rename -g`
