@@ -15,6 +15,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.appointment.Appointment;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -29,6 +30,8 @@ class JsonAdaptedPerson {
     private final String email;
     private final String address;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
+    private final List<JsonAdaptedAppointment> appointment = new ArrayList<>();
+
 
     /**
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
@@ -36,13 +39,17 @@ class JsonAdaptedPerson {
     @JsonCreator
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
             @JsonProperty("email") String email, @JsonProperty("address") String address,
-            @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
+            @JsonProperty("tagged") List<JsonAdaptedTag> tagged,
+                             @JsonProperty("appointments") List<JsonAdaptedAppointment> appointment) {
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
         if (tagged != null) {
             this.tagged.addAll(tagged);
+        }
+        if (appointment != null) {
+            this.appointment.addAll(appointment);
         }
     }
 
@@ -57,6 +64,9 @@ class JsonAdaptedPerson {
         tagged.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
+        appointment.addAll(source.getAppointment().stream()
+                .map(JsonAdaptedAppointment::new)
+                .collect(Collectors.toList()));
     }
 
     /**
@@ -69,7 +79,10 @@ class JsonAdaptedPerson {
         for (JsonAdaptedTag tag : tagged) {
             personTags.add(tag.toModelType());
         }
-
+        final List<Appointment> personApp = new ArrayList<>();
+        for (JsonAdaptedAppointment app : appointment) {
+            personApp.add(app.toModelAppointment());
+        }
         if (name == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Name.class.getSimpleName()));
         }
@@ -103,7 +116,9 @@ class JsonAdaptedPerson {
         final Address modelAddress = new Address(address);
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
-        return new Person(modelName, modelPhone, modelEmail, modelAddress, modelTags);
+
+        final Set<Appointment> modelAppointments = new HashSet<>(personApp);
+        return new Person(modelName, modelPhone, modelEmail, modelAddress, modelTags, modelAppointments);
     }
 
 }
