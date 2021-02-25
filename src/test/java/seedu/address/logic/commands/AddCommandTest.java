@@ -21,6 +21,7 @@ import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.group.Group;
+import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.testutil.PersonBuilder;
 
@@ -111,6 +112,16 @@ public class AddCommandTest {
 
         @Override
         public void addPerson(Person person) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public Person getPerson(Name personName) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void assignPersonToGroup(Group group, Person person) {
             throw new AssertionError("This method should not be called.");
         }
 
