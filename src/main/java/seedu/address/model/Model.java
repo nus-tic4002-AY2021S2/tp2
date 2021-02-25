@@ -6,6 +6,7 @@ import java.util.function.Predicate;
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.group.Group;
+import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 
 /**
@@ -72,6 +73,18 @@ public interface Model {
      * {@code person} must not already exist in the address book.
      */
     void addPerson(Person person);
+
+    /**
+     * get the person through its name.
+     * {@code person} must already exist in the address book.
+     */
+    Person getPerson(Name personName);
+
+    /**
+     * assign person to a group its name.
+     * {@code person} must already exist in the address book.
+     */
+    void assignPersonToGroup(Group group, Person person);
 
     /**
      * Replaces the given person {@code target} with {@code editedPerson}.

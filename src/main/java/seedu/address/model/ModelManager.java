@@ -13,6 +13,7 @@ import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.group.Group;
 import seedu.address.model.group.GroupList;
+import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 
 /**
@@ -108,6 +109,16 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public Person getPerson(Name personName) {
+        return addressBook.getPerson(personName);
+    }
+
+    @Override
+    public void assignPersonToGroup(Group group, Person person) {
+        person.setGroup(group);
+    }
+
+    @Override
     public void setPerson(Person target, Person editedPerson) {
         requireAllNonNull(target, editedPerson);
 
@@ -134,8 +145,7 @@ public class ModelManager implements Model {
     @Override
     public boolean hasGroup(Group toAdd) {
         requireNonNull(toAdd);
-        GroupList.hasGroup(toAdd);
-        return false;
+        return GroupList.hasGroup(toAdd);
     }
 
     @Override
