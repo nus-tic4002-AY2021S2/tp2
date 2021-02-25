@@ -250,7 +250,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user                                       | delete an employee record       | remove an employee record that I no longer need                       |
 | `* * *`  | user                                       | list all employee records       | view all my employees' information                                    |
 | `* *  `  | user                                       | clear all employee records      | start afresh with the app                                             |
-| `* * *`  | user                                       | find an employee record        | look at the particular employee's information                          |
+| `* * *`  | user                                       | find an employee record by name  | look at the particular employee's name                               |
+| `* * *`  | user                                       | find an employee record by role  | look at the particular employee's role                               |
 | `* * *`  | user                                       | sort employee records by salary | see the salary structure in my company                                |
 
 *{More to be added}*
