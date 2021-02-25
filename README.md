@@ -2,7 +2,7 @@
 
 ![Ui](docs/images/Ui.png)
 
-* This is **an Addressbook NS Edition (ABNS)**.<br>
+* This is an **Addressbook NS Edition (ABNS)**.<br>
   * for the Singapore Armed Forces (SAF).
   * to include more information of the soldier such as rank, group, and performance.
   * to manage records as a bulk without the hassle of editing records one by one.
