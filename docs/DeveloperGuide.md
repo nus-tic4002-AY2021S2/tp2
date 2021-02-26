@@ -249,16 +249,20 @@ _{Explain here how the data archiving feature will be implemented}_
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                     | So that I can…​                                                        |
-| -------- | ------------------------------------------ | ------------------------------ | ---------------------------------------------------------------------- |
-| `* * *`  | new user                                   | see usage instructions         | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person               |                                                                        |
-| `* * *`  | user                                       | delete a person                | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name           | locate a person easily                                                 |
-
-*{More to be added}*
+| Priority | As a …​                                 | I want to …​                | So that I can…​                                                           |
+| -------- | ------------------------------------------ | ------------------------------ | -----------------------------------------------------------------------------|
+| `* * *`  | new user                                   | see usage instructions         | refer to instructions when I forget how to use the App                       |
+| `* * *`  | user                                       | add a new patient              | insert patient entries into the PatientBook                                  |
+| `* * *`  | user                                       | view the lists of patients     | shows a list of all patients in the PatientBook                              |
+| `* * *`  | user                                       | edit a patient personal details| modify entries in the PatientBook                                            |
+| `* * *`  | user                                       | delete a patient               | remove entries that I no longer need                                         |
+| `* * *`  | user                                       | find a patient by keyword      | locate details of patient without having to go through the entire list       |
+| `* * *`  | user                                       | add tags onto a patient's data | search using the tag                                                         |
+| `* * *`  | user                                       | add a new appointment          | insert appointment entries into the PatientBook                              |
+| `* * *`  | user                                       | view the lists of appointments | shows a list of all appointments a patient has in the PatientBook            |
+| `* * *`  | user                                       | find a appointment by date     | view and reference information related to the appointment in the PatientBook |
+| `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                      |
+| `*`      | user with many patients in the patient book| sort patients by name          | locate a patient easily                                                      |
 
 ### Use cases
 
