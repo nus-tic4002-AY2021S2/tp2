@@ -104,7 +104,7 @@ public class AddCommandTest {
         }
 
         @Override
-        public void setEmployeeTrackerFilePath(Path addressBookFilePath) {
+        public void setEmployeeTrackerFilePath(Path employeeTrackerFilePath) {
             throw new AssertionError("This method should not be called.");
         }
 

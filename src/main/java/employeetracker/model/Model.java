@@ -35,17 +35,17 @@ public interface Model {
     void setGuiSettings(GuiSettings guiSettings);
 
     /**
-     * Returns the user prefs' address book file path.
+     * Returns the user prefs' Employee Tracker file path.
      */
     Path getEmployeeTrackerFilePath();
 
     /**
-     * Sets the user prefs' address book file path.
+     * Sets the user prefs' Employee Tracker file path.
      */
-    void setEmployeeTrackerFilePath(Path addressBookFilePath);
+    void setEmployeeTrackerFilePath(Path employeeTrackerFilePath);
 
     /**
-     * Replaces address book data with the data in {@code addressBook}.
+     * Replaces Employee Tracker data with the data in {@code employeeTracker}.
      */
     void setEmployeeTracker(ReadOnlyEmployeeTracker employeeTracker);
 
@@ -53,26 +53,27 @@ public interface Model {
     ReadOnlyEmployeeTracker getEmployeeTracker();
 
     /**
-     * Returns true if a person with the same identity as {@code person} exists in the address book.
+     * Returns true if a person with the same identity as {@code person} exists in the Employee Tracker.
      */
     boolean hasPerson(Person person);
 
     /**
      * Deletes the given person.
-     * The person must exist in the address book.
+     * The person must exist in the Employee Tracker.
      */
     void deletePerson(Person target);
 
     /**
      * Adds the given person.
-     * {@code person} must not already exist in the address book.
+     * {@code person} must not already exist in the Employee Tracker.
      */
     void addPerson(Person person);
 
     /**
      * Replaces the given person {@code target} with {@code editedPerson}.
-     * {@code target} must exist in the address book.
-     * The person identity of {@code editedPerson} must not be the same as another existing person in the address book.
+     * {@code target} must exist in the Employee Tracker.
+     * The person identity of {@code editedPerson} must not be the same as another existing person
+     * in the Employee Tracker.
      */
     void setPerson(Person target, Person editedPerson);
 

@@ -86,6 +86,18 @@ public class Person {
     }
 
     /**
+     * Returns true if both persons have the same role.
+     */
+    public boolean hasSameRole(Person otherPerson) {
+        if (otherPerson == this) {
+            return true;
+        }
+
+        return otherPerson != null
+                && otherPerson.getRole().equals(getRole());
+    }
+
+    /**
      * Returns true if both persons have the same name.
      * This defines a weaker notion of equality between two persons.
      */
