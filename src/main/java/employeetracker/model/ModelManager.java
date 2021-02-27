@@ -71,9 +71,9 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public void setEmployeeTrackerFilePath(Path addressBookFilePath) {
-        requireNonNull(addressBookFilePath);
-        userPrefs.setEmployeeTrackerFilePath(addressBookFilePath);
+    public void setEmployeeTrackerFilePath(Path employeeTrackerFilePath) {
+        requireNonNull(employeeTrackerFilePath);
+        userPrefs.setEmployeeTrackerFilePath(employeeTrackerFilePath);
     }
 
     //=========== EmployeeTracker ================================================================================
