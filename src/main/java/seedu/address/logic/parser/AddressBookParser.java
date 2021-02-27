@@ -7,7 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import seedu.address.logic.commands.AddCommand;
-import seedu.address.logic.commands.AddGroup;
+import seedu.address.logic.commands.AddGroupCommand;
 import seedu.address.logic.commands.AssignPersonToGroupCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.Command;
@@ -16,6 +16,7 @@ import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.HelpCommand;
+import seedu.address.logic.commands.ListAllFromGroupCommand;
 import seedu.address.logic.commands.ListCommand;
 import seedu.address.logic.commands.ShowCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
@@ -50,7 +51,7 @@ public class AddressBookParser {
         case AddCommand.COMMAND_WORD:
             return new AddCommandParser().parse(arguments);
 
-        case AddGroup.COMMAND_WORD:
+        case AddGroupCommand.COMMAND_WORD:
             return new CreateGroupParser().parse(arguments); // Create group
 
         case AssignPersonToGroupCommand.COMMAND_WORD:
@@ -70,6 +71,9 @@ public class AddressBookParser {
 
         case ListCommand.COMMAND_WORD:
             return new ListCommand();
+
+        case ListAllFromGroupCommand.COMMAND_WORD:
+            return new ListAllFromGroupCommandParser().parse(arguments); // List all Person from the group
 
         case ShowCommand.COMMAND_WORD:
             return new ShowCommand();

@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.AddressBook;
 import seedu.address.model.ReadOnlyAddressBook;
+import seedu.address.model.group.GroupList;
 import seedu.address.model.person.Person;
 
 /**
@@ -53,6 +54,10 @@ class JsonSerializableAddressBook {
                 throw new IllegalValueException(MESSAGE_DUPLICATE_PERSON);
             }
             addressBook.addPerson(person);
+            //temporary solution for adding group from json file
+            if (!GroupList.hasGroup(person.getGroup())) {
+                GroupList.addGroup(person.getGroup());
+            }
         }
         return addressBook;
     }

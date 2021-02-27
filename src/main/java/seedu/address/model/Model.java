@@ -16,8 +16,13 @@ public interface Model {
     /** {@code Predicate} that always evaluate to true */
     Predicate<Person> PREDICATE_SHOW_ALL_PERSONS = unused -> true;
 
-    /** {@code Predicate} that always evaluate to true */
-    Predicate<Group> PREDICATE_SHOW_ALL_LIST = eachGroup -> true;
+    /**
+     * {@code Predicate} that always evaluate to true
+     */
+    public static Predicate<Person> predicateShowAllPersonsInGroup(Group group) {
+        return p -> p.getGroup().equals(group);
+    }
+
 
     /**
      * Replaces user prefs data with the data in {@code userPrefs}.
