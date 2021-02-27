@@ -9,14 +9,14 @@ import java.util.Set;
 import employeetracker.commons.core.index.Index;
 import employeetracker.commons.util.StringUtil;
 import employeetracker.logic.parser.exceptions.ParseException;
-import employeetracker.model.person.Address;
-import employeetracker.model.person.DateOfBirth;
-import employeetracker.model.person.DateOfJoining;
-import employeetracker.model.person.Email;
-import employeetracker.model.person.Name;
-import employeetracker.model.person.Phone;
-import employeetracker.model.person.Role;
-import employeetracker.model.person.Salary;
+import employeetracker.model.employee.Address;
+import employeetracker.model.employee.DateOfBirth;
+import employeetracker.model.employee.DateOfJoining;
+import employeetracker.model.employee.Email;
+import employeetracker.model.employee.Name;
+import employeetracker.model.employee.Phone;
+import employeetracker.model.employee.Role;
+import employeetracker.model.employee.Salary;
 import employeetracker.model.tag.Tag;
 
 /**

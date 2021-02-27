@@ -1,9 +1,9 @@
 package employeetracker.logic.commands;
 
 import static employeetracker.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static employeetracker.logic.commands.CommandTestUtil.showPersonAtIndex;
-import static employeetracker.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
-import static employeetracker.testutil.TypicalPersons.getTypicalEmployeeTracker;
+import static employeetracker.logic.commands.CommandTestUtil.showEmployeeAtIndex;
+import static employeetracker.testutil.TypicalEmployees.getTypicalEmployeeTracker;
+import static employeetracker.testutil.TypicalIndexes.INDEX_FIRST_EMPLOYEE;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -33,7 +33,7 @@ public class ListCommandTest {
 
     @Test
     public void execute_listIsFiltered_showsEverything() {
-        showPersonAtIndex(model, INDEX_FIRST_PERSON);
+        showEmployeeAtIndex(model, INDEX_FIRST_EMPLOYEE);
         assertCommandSuccess(new ListCommand(), model, ListCommand.MESSAGE_SUCCESS, expectedModel);
     }
 }

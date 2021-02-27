@@ -1,7 +1,7 @@
 package employeetracker.logic.commands;
 
 import static employeetracker.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static employeetracker.testutil.TypicalPersons.getTypicalEmployeeTracker;
+import static employeetracker.testutil.TypicalEmployees.getTypicalEmployeeTracker;
 
 import org.junit.jupiter.api.Test;
 

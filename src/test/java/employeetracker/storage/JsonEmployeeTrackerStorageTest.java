@@ -1,10 +1,10 @@
 package employeetracker.storage;
 
 import static employeetracker.testutil.Assert.assertThrows;
-import static employeetracker.testutil.TypicalPersons.ALICE;
-import static employeetracker.testutil.TypicalPersons.HOON;
-import static employeetracker.testutil.TypicalPersons.IDA;
-import static employeetracker.testutil.TypicalPersons.getTypicalEmployeeTracker;
+import static employeetracker.testutil.TypicalEmployees.ALICE;
+import static employeetracker.testutil.TypicalEmployees.HOON;
+import static employeetracker.testutil.TypicalEmployees.IDA;
+import static employeetracker.testutil.TypicalEmployees.getTypicalEmployeeTracker;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
@@ -48,42 +48,42 @@ public class JsonEmployeeTrackerStorageTest {
 
     @Test
     public void read_notJsonFormat_exceptionThrown() {
-        assertThrows(DataConversionException.class, () -> readEmployeeTracker("notJsonFormatEmployeeTracker.json"));
+        assertThrows(DataConversionException.class, () -> readEmployeeTracker("notJsonFormat.json"));
     }
 
     @Test
-    public void readEmployeeTracker_invalidPersonEmployeeTracker_throwDataConversionException() {
-        assertThrows(DataConversionException.class, () -> readEmployeeTracker("invalidPersonEmployeeTracker.json"));
+    public void readEmployeeTracker_invalidEmployee_throwDataConversionException() {
+        assertThrows(DataConversionException.class, () -> readEmployeeTracker("invalidEmployee.json"));
     }
 
     @Test
-    public void readEmployeeTracker_invalidAndValidPersonEmployeeTracker_throwDataConversionException() {
+    public void readEmployeeTracker_invalidAndValidEmployee_throwDataConversionException() {
         assertThrows(DataConversionException.class, () ->
-                readEmployeeTracker("invalidAndValidPersonEmployeeTracker.json"));
+                readEmployeeTracker("invalidAndValidEmployee.json"));
     }
 
     @Test
     public void readAndSaveEmployeeTracker_allInOrder_success() throws Exception {
         Path filePath = testFolder.resolve("TempAddressBook.json");
         EmployeeTracker original = getTypicalEmployeeTracker();
-        JsonEmployeeTrackerStorage jsonAddressBookStorage = new JsonEmployeeTrackerStorage(filePath);
+        JsonEmployeeTrackerStorage jsonEmployeeTrackerStorage = new JsonEmployeeTrackerStorage(filePath);
 
         // Save in new file and read back
-        jsonAddressBookStorage.saveEmployeeTracker(original, filePath);
-        ReadOnlyEmployeeTracker readBack = jsonAddressBookStorage.readEmployeeTracker(filePath).get();
+        jsonEmployeeTrackerStorage.saveEmployeeTracker(original, filePath);
+        ReadOnlyEmployeeTracker readBack = jsonEmployeeTrackerStorage.readEmployeeTracker(filePath).get();
         assertEquals(original, new EmployeeTracker(readBack));
 
         // Modify data, overwrite exiting file, and read back
-        original.addPerson(HOON);
-        original.removePerson(ALICE);
-        jsonAddressBookStorage.saveEmployeeTracker(original, filePath);
-        readBack = jsonAddressBookStorage.readEmployeeTracker(filePath).get();
+        original.addEmployee(HOON);
+        original.removeEmployee(ALICE);
+        jsonEmployeeTrackerStorage.saveEmployeeTracker(original, filePath);
+        readBack = jsonEmployeeTrackerStorage.readEmployeeTracker(filePath).get();
         assertEquals(original, new EmployeeTracker(readBack));
 
         // Save and read without specifying file path
-        original.addPerson(IDA);
-        jsonAddressBookStorage.saveEmployeeTracker(original); // file path not specified
-        readBack = jsonAddressBookStorage.readEmployeeTracker().get(); // file path not specified
+        original.addEmployee(IDA);
+        jsonEmployeeTrackerStorage.saveEmployeeTracker(original); // file path not specified
+        readBack = jsonEmployeeTrackerStorage.readEmployeeTracker().get(); // file path not specified
         assertEquals(original, new EmployeeTracker(readBack));
 
     }

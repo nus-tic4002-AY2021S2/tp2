@@ -13,10 +13,10 @@ import static java.util.Objects.requireNonNull;
 
 import employeetracker.logic.commands.exceptions.CommandException;
 import employeetracker.model.Model;
-import employeetracker.model.person.Person;
+import employeetracker.model.employee.Employee;
 
 /**
- * Adds a person to the Employee Tracker.
+ * Adds a employee to the Employee Tracker.
  */
 public class AddCommand extends Command {
 
@@ -46,27 +46,27 @@ public class AddCommand extends Command {
             + PREFIX_TAG + "owesMoney";
 
     public static final String MESSAGE_SUCCESS = "New employee added: %1$s";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This employee already exists in Employee Tracker";
+    public static final String MESSAGE_DUPLICATE_EMPLOYEE = "This employee already exists in Employee Tracker";
 
-    private final Person toAdd;
+    private final Employee toAdd;
 
     /**
-     * Creates an AddCommand to add the specified {@code Person}
+     * Creates an AddCommand to add the specified {@code Employee}
      */
-    public AddCommand(Person person) {
-        requireNonNull(person);
-        toAdd = person;
+    public AddCommand(Employee employee) {
+        requireNonNull(employee);
+        toAdd = employee;
     }
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
 
-        if (model.hasPerson(toAdd)) {
-            throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+        if (model.hasEmployee(toAdd)) {
+            throw new CommandException(MESSAGE_DUPLICATE_EMPLOYEE);
         }
 
-        model.addPerson(toAdd);
+        model.addEmployee(toAdd);
         return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
     }
 

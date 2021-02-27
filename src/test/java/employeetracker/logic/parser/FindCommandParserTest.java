@@ -9,7 +9,7 @@ import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 
 import employeetracker.logic.commands.FindCommand;
-import employeetracker.model.person.NameContainsKeywordsPredicate;
+import employeetracker.model.employee.NameContainsKeywordsPredicate;
 
 public class FindCommandParserTest {
 

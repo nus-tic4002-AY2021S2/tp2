@@ -1,6 +1,6 @@
 package employeetracker.logic.commands;
 
-import static employeetracker.model.Model.PREDICATE_SHOW_ALL_PERSONS;
+import static employeetracker.model.Model.PREDICATE_SHOW_ALL_EMPLOYEES;
 import static java.util.Objects.requireNonNull;
 
 import employeetracker.model.Model;
@@ -18,7 +18,7 @@ public class ListCommand extends Command {
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);
-        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+        model.updateFilteredEmployeeList(PREDICATE_SHOW_ALL_EMPLOYEES);
         return new CommandResult(MESSAGE_SUCCESS);
     }
 }
