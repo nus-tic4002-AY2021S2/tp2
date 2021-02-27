@@ -18,7 +18,7 @@ import org.junit.jupiter.api.Test;
 import employeetracker.model.Model;
 import employeetracker.model.ModelManager;
 import employeetracker.model.UserPrefs;
-import employeetracker.model.person.NameContainsKeywordsPredicate;
+import employeetracker.model.employee.NameContainsKeywordsPredicate;
 
 /**
  * Contains integration tests (interaction with the Model) for {@code FindCommand}.
@@ -50,7 +50,7 @@ public class FindCommandTest {
         // null -> returns false
         assertFalse(findFirstCommand.equals(null));
 
-        // different person -> returns false
+        // different employee -> returns false
         assertFalse(findFirstCommand.equals(findSecondCommand));
     }
 

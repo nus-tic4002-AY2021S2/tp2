@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 import employeetracker.logic.commands.EditCommand.EditPersonDescriptor;
 import employeetracker.testutil.EditPersonDescriptorBuilder;
 
-public class EditPersonDescriptorTest {
+public class EditEmployeeDescriptorTest {
 
     @Test
     public void equals() {

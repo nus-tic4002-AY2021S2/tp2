@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 
 import employeetracker.commons.core.GuiSettings;
 import employeetracker.commons.core.LogsCenter;
-import employeetracker.model.person.Person;
+import employeetracker.model.employee.Employee;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 
@@ -21,7 +21,7 @@ public class ModelManager implements Model {
 
     private final EmployeeTracker employeeTracker;
     private final UserPrefs userPrefs;
-    private final FilteredList<Person> filteredPersons;
+    private final FilteredList<Employee> filteredEmployees;
 
     /**
      * Initializes a ModelManager with the given employeeTracker and userPrefs.
@@ -34,7 +34,7 @@ public class ModelManager implements Model {
 
         this.employeeTracker = new EmployeeTracker(employeeTracker);
         this.userPrefs = new UserPrefs(userPrefs);
-        filteredPersons = new FilteredList<>(this.employeeTracker.getPersonList());
+        filteredEmployees = new FilteredList<>(this.employeeTracker.getPersonList());
     }
 
     public ModelManager() {
@@ -89,44 +89,44 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public boolean hasPerson(Person person) {
-        requireNonNull(person);
-        return employeeTracker.hasPerson(person);
+    public boolean hasPerson(Employee employee) {
+        requireNonNull(employee);
+        return employeeTracker.hasPerson(employee);
     }
 
     @Override
-    public void deletePerson(Person target) {
+    public void deletePerson(Employee target) {
         employeeTracker.removePerson(target);
     }
 
     @Override
-    public void addPerson(Person person) {
-        employeeTracker.addPerson(person);
+    public void addPerson(Employee employee) {
+        employeeTracker.addPerson(employee);
         updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
     }
 
     @Override
-    public void setPerson(Person target, Person editedPerson) {
-        requireAllNonNull(target, editedPerson);
+    public void setPerson(Employee target, Employee editedEmployee) {
+        requireAllNonNull(target, editedEmployee);
 
-        employeeTracker.setPerson(target, editedPerson);
+        employeeTracker.setPerson(target, editedEmployee);
     }
 
-    //=========== Filtered Person List Accessors =============================================================
+    //=========== Filtered Employee List Accessors =============================================================
 
     /**
-     * Returns an unmodifiable view of the list of {@code Person} backed by the internal list of
+     * Returns an unmodifiable view of the list of {@code Employee} backed by the internal list of
      * {@code versionedAddressBook}
      */
     @Override
-    public ObservableList<Person> getFilteredPersonList() {
-        return filteredPersons;
+    public ObservableList<Employee> getFilteredPersonList() {
+        return filteredEmployees;
     }
 
     @Override
-    public void updateFilteredPersonList(Predicate<Person> predicate) {
+    public void updateFilteredPersonList(Predicate<Employee> predicate) {
         requireNonNull(predicate);
-        filteredPersons.setPredicate(predicate);
+        filteredEmployees.setPredicate(predicate);
     }
 
     @Override
@@ -145,7 +145,7 @@ public class ModelManager implements Model {
         ModelManager other = (ModelManager) obj;
         return employeeTracker.equals(other.employeeTracker)
                 && userPrefs.equals(other.userPrefs)
-                && filteredPersons.equals(other.filteredPersons);
+                && filteredEmployees.equals(other.filteredEmployees);
     }
 
 }

@@ -1,6 +1,6 @@
 package employeetracker.model;
 
-import employeetracker.model.person.Person;
+import employeetracker.model.employee.Employee;
 import javafx.collections.ObservableList;
 
 /**
@@ -12,6 +12,6 @@ public interface ReadOnlyEmployeeTracker {
      * Returns an unmodifiable view of the persons list.
      * This list will not contain any duplicate persons.
      */
-    ObservableList<Person> getPersonList();
+    ObservableList<Employee> getPersonList();
 
 }

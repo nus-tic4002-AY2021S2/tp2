@@ -5,15 +5,15 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import employeetracker.logic.commands.EditCommand.EditPersonDescriptor;
-import employeetracker.model.person.Address;
-import employeetracker.model.person.DateOfBirth;
-import employeetracker.model.person.DateOfJoining;
-import employeetracker.model.person.Email;
-import employeetracker.model.person.Name;
-import employeetracker.model.person.Person;
-import employeetracker.model.person.Phone;
-import employeetracker.model.person.Role;
-import employeetracker.model.person.Salary;
+import employeetracker.model.employee.Address;
+import employeetracker.model.employee.DateOfBirth;
+import employeetracker.model.employee.DateOfJoining;
+import employeetracker.model.employee.Email;
+import employeetracker.model.employee.Employee;
+import employeetracker.model.employee.Name;
+import employeetracker.model.employee.Phone;
+import employeetracker.model.employee.Role;
+import employeetracker.model.employee.Salary;
 import employeetracker.model.tag.Tag;
 
 /**
@@ -32,19 +32,19 @@ public class EditPersonDescriptorBuilder {
     }
 
     /**
-     * Returns an {@code EditPersonDescriptor} with fields containing {@code person}'s details
+     * Returns an {@code EditPersonDescriptor} with fields containing {@code employee}'s details
      */
-    public EditPersonDescriptorBuilder(Person person) {
+    public EditPersonDescriptorBuilder(Employee employee) {
         descriptor = new EditPersonDescriptor();
-        descriptor.setName(person.getName());
-        descriptor.setRole(person.getRole());
-        descriptor.setPhone(person.getPhone());
-        descriptor.setEmail(person.getEmail());
-        descriptor.setAddress(person.getAddress());
-        descriptor.setDateOfBirth(person.getDateOfBirth());
-        descriptor.setDateOfJoining(person.getDateOfJoining());
-        descriptor.setSalary(person.getSalary());
-        descriptor.setTags(person.getTags());
+        descriptor.setName(employee.getName());
+        descriptor.setRole(employee.getRole());
+        descriptor.setPhone(employee.getPhone());
+        descriptor.setEmail(employee.getEmail());
+        descriptor.setAddress(employee.getAddress());
+        descriptor.setDateOfBirth(employee.getDateOfBirth());
+        descriptor.setDateOfJoining(employee.getDateOfJoining());
+        descriptor.setSalary(employee.getSalary());
+        descriptor.setTags(employee.getTags());
     }
 
     /**

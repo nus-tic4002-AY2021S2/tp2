@@ -36,10 +36,10 @@ import org.junit.jupiter.api.Test;
 import employeetracker.commons.core.index.Index;
 import employeetracker.logic.commands.EditCommand;
 import employeetracker.logic.commands.EditCommand.EditPersonDescriptor;
-import employeetracker.model.person.Address;
-import employeetracker.model.person.Email;
-import employeetracker.model.person.Name;
-import employeetracker.model.person.Phone;
+import employeetracker.model.employee.Address;
+import employeetracker.model.employee.Email;
+import employeetracker.model.employee.Name;
+import employeetracker.model.employee.Phone;
 import employeetracker.model.tag.Tag;
 import employeetracker.testutil.EditPersonDescriptorBuilder;
 
@@ -94,7 +94,7 @@ public class EditCommandParserTest {
         // is tested at {@code parse_invalidValueFollowedByValidValue_success()}
         assertParseFailure(parser, "1" + PHONE_DESC_BOB + INVALID_PHONE_DESC, Phone.MESSAGE_CONSTRAINTS);
 
-        // while parsing {@code PREFIX_TAG} alone will reset the tags of the {@code Person} being edited,
+        // while parsing {@code PREFIX_TAG} alone will reset the tags of the {@code Employee} being edited,
         // parsing it together with a valid tag results in error
         assertParseFailure(parser, "1" + TAG_DESC_FRIEND + TAG_DESC_HUSBAND + TAG_EMPTY, Tag.MESSAGE_CONSTRAINTS);
         assertParseFailure(parser, "1" + TAG_DESC_FRIEND + TAG_EMPTY + TAG_DESC_HUSBAND, Tag.MESSAGE_CONSTRAINTS);

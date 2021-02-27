@@ -12,14 +12,14 @@ import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
 
 import employeetracker.commons.exceptions.IllegalValueException;
-import employeetracker.model.person.Address;
-import employeetracker.model.person.DateOfBirth;
-import employeetracker.model.person.DateOfJoining;
-import employeetracker.model.person.Email;
-import employeetracker.model.person.Name;
-import employeetracker.model.person.Phone;
+import employeetracker.model.employee.Address;
+import employeetracker.model.employee.DateOfBirth;
+import employeetracker.model.employee.DateOfJoining;
+import employeetracker.model.employee.Email;
+import employeetracker.model.employee.Name;
+import employeetracker.model.employee.Phone;
 
-public class JsonAdaptedPersonTest {
+public class JsonAdaptedEmployeeTest {
     private static final String INVALID_NAME = "R@chel";
     private static final String INVALID_PHONE = "+651234";
     private static final String INVALID_EMAIL = "example.com";

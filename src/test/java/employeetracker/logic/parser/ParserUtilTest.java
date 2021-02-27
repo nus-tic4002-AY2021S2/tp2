@@ -14,10 +14,10 @@ import java.util.Set;
 import org.junit.jupiter.api.Test;
 
 import employeetracker.logic.parser.exceptions.ParseException;
-import employeetracker.model.person.Address;
-import employeetracker.model.person.Email;
-import employeetracker.model.person.Name;
-import employeetracker.model.person.Phone;
+import employeetracker.model.employee.Address;
+import employeetracker.model.employee.Email;
+import employeetracker.model.employee.Name;
+import employeetracker.model.employee.Phone;
 import employeetracker.model.tag.Tag;
 
 public class ParserUtilTest {

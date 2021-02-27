@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import employeetracker.model.Model;
 import employeetracker.model.ModelManager;
 import employeetracker.model.UserPrefs;
-import employeetracker.model.person.Person;
+import employeetracker.model.employee.Employee;
 import employeetracker.testutil.PersonBuilder;
 
 /**
@@ -27,19 +27,19 @@ public class AddCommandIntegrationTest {
 
     @Test
     public void execute_newPerson_success() {
-        Person validPerson = new PersonBuilder().build();
+        Employee validEmployee = new PersonBuilder().build();
 
         Model expectedModel = new ModelManager(model.getEmployeeTracker(), new UserPrefs());
-        expectedModel.addPerson(validPerson);
+        expectedModel.addPerson(validEmployee);
 
-        assertCommandSuccess(new AddCommand(validPerson), model,
-                String.format(AddCommand.MESSAGE_SUCCESS, validPerson), expectedModel);
+        assertCommandSuccess(new AddCommand(validEmployee), model,
+                String.format(AddCommand.MESSAGE_SUCCESS, validEmployee), expectedModel);
     }
 
     @Test
     public void execute_duplicatePerson_throwsCommandException() {
-        Person personInList = model.getEmployeeTracker().getPersonList().get(0);
-        assertCommandFailure(new AddCommand(personInList), model, AddCommand.MESSAGE_DUPLICATE_PERSON);
+        Employee employeeInList = model.getEmployeeTracker().getPersonList().get(0);
+        assertCommandFailure(new AddCommand(employeeInList), model, AddCommand.MESSAGE_DUPLICATE_PERSON);
     }
 
 }

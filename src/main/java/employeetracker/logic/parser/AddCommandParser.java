@@ -16,15 +16,15 @@ import java.util.stream.Stream;
 
 import employeetracker.logic.commands.AddCommand;
 import employeetracker.logic.parser.exceptions.ParseException;
-import employeetracker.model.person.Address;
-import employeetracker.model.person.DateOfBirth;
-import employeetracker.model.person.DateOfJoining;
-import employeetracker.model.person.Email;
-import employeetracker.model.person.Name;
-import employeetracker.model.person.Person;
-import employeetracker.model.person.Phone;
-import employeetracker.model.person.Role;
-import employeetracker.model.person.Salary;
+import employeetracker.model.employee.Address;
+import employeetracker.model.employee.DateOfBirth;
+import employeetracker.model.employee.DateOfJoining;
+import employeetracker.model.employee.Email;
+import employeetracker.model.employee.Employee;
+import employeetracker.model.employee.Name;
+import employeetracker.model.employee.Phone;
+import employeetracker.model.employee.Role;
+import employeetracker.model.employee.Salary;
 import employeetracker.model.tag.Tag;
 
 /**
@@ -56,9 +56,10 @@ public class AddCommandParser implements Parser<AddCommand> {
         Salary salary = ParserUtil.parseSalary(argMultimap.getValue(PREFIX_SALARY).get());
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
-        Person person = new Person(name, role, phone, email, address, dateOfBirth, dateOfJoining, salary, tagList);
+        Employee employee = new Employee(name, role, phone, email, address, dateOfBirth,
+                dateOfJoining, salary, tagList);
 
-        return new AddCommand(person);
+        return new AddCommand(employee);
     }
 
     /**

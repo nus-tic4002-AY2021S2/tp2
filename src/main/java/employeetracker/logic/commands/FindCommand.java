@@ -4,7 +4,7 @@ import static java.util.Objects.requireNonNull;
 
 import employeetracker.commons.core.Messages;
 import employeetracker.model.Model;
-import employeetracker.model.person.NameContainsKeywordsPredicate;
+import employeetracker.model.employee.NameContainsKeywordsPredicate;
 
 /**
  * Finds and lists all persons in address book whose name contains any of the argument keywords.

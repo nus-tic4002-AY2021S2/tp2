@@ -23,8 +23,8 @@ import employeetracker.logic.commands.FindCommand;
 import employeetracker.logic.commands.HelpCommand;
 import employeetracker.logic.commands.ListCommand;
 import employeetracker.logic.parser.exceptions.ParseException;
-import employeetracker.model.person.NameContainsKeywordsPredicate;
-import employeetracker.model.person.Person;
+import employeetracker.model.employee.Employee;
+import employeetracker.model.employee.NameContainsKeywordsPredicate;
 import employeetracker.testutil.EditPersonDescriptorBuilder;
 import employeetracker.testutil.PersonBuilder;
 import employeetracker.testutil.PersonUtil;
@@ -35,9 +35,9 @@ public class EmployeeTrackerParserTest {
 
     @Test
     public void parseCommand_add() throws Exception {
-        Person person = new PersonBuilder().build();
-        AddCommand command = (AddCommand) parser.parseCommand(PersonUtil.getAddCommand(person));
-        assertEquals(new AddCommand(person), command);
+        Employee employee = new PersonBuilder().build();
+        AddCommand command = (AddCommand) parser.parseCommand(PersonUtil.getAddCommand(employee));
+        assertEquals(new AddCommand(employee), command);
     }
 
     @Test
@@ -55,8 +55,8 @@ public class EmployeeTrackerParserTest {
 
     @Test
     public void parseCommand_edit() throws Exception {
-        Person person = new PersonBuilder().build();
-        EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder(person).build();
+        Employee employee = new PersonBuilder().build();
+        EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder(employee).build();
         EditCommand command = (EditCommand) parser.parseCommand(EditCommand.COMMAND_WORD + " "
                 + INDEX_FIRST_PERSON.getOneBased() + " " + PersonUtil.getEditPersonDescriptorDetails(descriptor));
         EditCommand command2 = new EditCommand(INDEX_FIRST_PERSON, descriptor);

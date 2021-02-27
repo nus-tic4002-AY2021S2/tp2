@@ -2,7 +2,7 @@ package employeetracker.ui;
 
 import java.util.Comparator;
 
-import employeetracker.model.person.Person;
+import employeetracker.model.employee.Employee;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
@@ -10,7 +10,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 
 /**
- * An UI component that displays information of a {@code Person}.
+ * An UI component that displays information of a {@code Employee}.
  */
 public class PersonCard extends UiPart<Region> {
 
@@ -24,7 +24,7 @@ public class PersonCard extends UiPart<Region> {
      * @see <a href="https://github.com/se-edu/addressbook-level4/issues/336">The issue on EmployeeTracker level 4</a>
      */
 
-    public final Person person;
+    public final Employee employee;
 
     @FXML
     private HBox cardPane;
@@ -50,21 +50,21 @@ public class PersonCard extends UiPart<Region> {
     private FlowPane tags;
 
     /**
-     * Creates a {@code PersonCode} with the given {@code Person} and index to display.
+     * Creates a {@code PersonCode} with the given {@code Employee} and index to display.
      */
-    public PersonCard(Person person, int displayedIndex) {
+    public PersonCard(Employee employee, int displayedIndex) {
         super(FXML);
-        this.person = person;
+        this.employee = employee;
         id.setText(displayedIndex + ". ");
-        name.setText(person.getName().fullName);
-        role.setText("\uD83D\uDC77 " + person.getRole().value);
-        phone.setText("\uD83D\uDD81 " + person.getPhone().value);
-        address.setText("\uD83C\uDFE0 " + person.getAddress().value);
-        email.setText("\uD83D\uDCE7 " + person.getEmail().value);
-        dateOfBirth.setText("\uD83D\uDC76 " + person.getDateOfBirth().value);
-        dateOfJoining.setText("\uD83D\uDC66 " + person.getDateOfJoining().value);
-        salary.setText("\uD83D\uDCB2 " + person.getSalary().value);
-        person.getTags().stream()
+        name.setText(employee.getName().fullName);
+        role.setText("\uD83D\uDC77 " + employee.getRole().value);
+        phone.setText("\uD83D\uDD81 " + employee.getPhone().value);
+        address.setText("\uD83C\uDFE0 " + employee.getAddress().value);
+        email.setText("\uD83D\uDCE7 " + employee.getEmail().value);
+        dateOfBirth.setText("\uD83D\uDC76 " + employee.getDateOfBirth().value);
+        dateOfJoining.setText("\uD83D\uDC66 " + employee.getDateOfJoining().value);
+        salary.setText("\uD83D\uDCB2 " + employee.getSalary().value);
+        employee.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
     }
@@ -84,6 +84,6 @@ public class PersonCard extends UiPart<Region> {
         // state check
         PersonCard card = (PersonCard) other;
         return id.getText().equals(card.id.getText())
-                && person.equals(card.person);
+                && employee.equals(card.employee);
     }
 }

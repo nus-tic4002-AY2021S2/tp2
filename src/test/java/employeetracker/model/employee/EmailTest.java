@@ -1,4 +1,4 @@
-package employeetracker.model.person;
+package employeetracker.model.employee;
 
 import static employeetracker.testutil.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertFalse;

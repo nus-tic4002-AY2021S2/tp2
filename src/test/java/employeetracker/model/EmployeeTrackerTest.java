@@ -16,8 +16,8 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import employeetracker.model.person.Person;
-import employeetracker.model.person.exceptions.DuplicatePersonException;
+import employeetracker.model.employee.Employee;
+import employeetracker.model.employee.exceptions.DuplicatePersonException;
 import employeetracker.testutil.PersonBuilder;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -45,11 +45,11 @@ public class EmployeeTrackerTest {
 
     @Test
     public void resetData_withDuplicatePersons_throwsDuplicatePersonException() {
-        // Two persons with the same identity fields
-        Person editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
+        // Two employees with the same identity fields
+        Employee editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
                 .build();
-        List<Person> newPersons = Arrays.asList(ALICE, editedAlice);
-        EmployeeTrackerStub newData = new EmployeeTrackerStub(newPersons);
+        List<Employee> newEmployees = Arrays.asList(ALICE, editedAlice);
+        EmployeeTrackerStub newData = new EmployeeTrackerStub(newEmployees);
 
         assertThrows(DuplicatePersonException.class, () -> employeeTracker.resetData(newData));
     }
@@ -73,7 +73,7 @@ public class EmployeeTrackerTest {
     @Test
     public void hasPerson_personWithSameIdentityFieldsInEmployeeTracker_returnsTrue() {
         employeeTracker.addPerson(ALICE);
-        Person editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
+        Employee editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
                 .build();
         assertTrue(employeeTracker.hasPerson(editedAlice));
     }
@@ -84,18 +84,18 @@ public class EmployeeTrackerTest {
     }
 
     /**
-     * A stub ReadOnlyEmployeeTracker whose persons list can violate interface constraints.
+     * A stub ReadOnlyEmployeeTracker whose employees list can violate interface constraints.
      */
     private static class EmployeeTrackerStub implements ReadOnlyEmployeeTracker {
-        private final ObservableList<Person> persons = FXCollections.observableArrayList();
+        private final ObservableList<Employee> employees = FXCollections.observableArrayList();
 
-        EmployeeTrackerStub(Collection<Person> persons) {
-            this.persons.setAll(persons);
+        EmployeeTrackerStub(Collection<Employee> employees) {
+            this.employees.setAll(employees);
         }
 
         @Override
-        public ObservableList<Person> getPersonList() {
-            return persons;
+        public ObservableList<Employee> getPersonList() {
+            return employees;
         }
     }
 

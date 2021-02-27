@@ -3,20 +3,20 @@ package employeetracker.testutil;
 import java.util.HashSet;
 import java.util.Set;
 
-import employeetracker.model.person.Address;
-import employeetracker.model.person.DateOfBirth;
-import employeetracker.model.person.DateOfJoining;
-import employeetracker.model.person.Email;
-import employeetracker.model.person.Name;
-import employeetracker.model.person.Person;
-import employeetracker.model.person.Phone;
-import employeetracker.model.person.Role;
-import employeetracker.model.person.Salary;
+import employeetracker.model.employee.Address;
+import employeetracker.model.employee.DateOfBirth;
+import employeetracker.model.employee.DateOfJoining;
+import employeetracker.model.employee.Email;
+import employeetracker.model.employee.Employee;
+import employeetracker.model.employee.Name;
+import employeetracker.model.employee.Phone;
+import employeetracker.model.employee.Role;
+import employeetracker.model.employee.Salary;
 import employeetracker.model.tag.Tag;
 import employeetracker.model.util.SampleDataUtil;
 
 /**
- * A utility class to help with building Person objects.
+ * A utility class to help with building Employee objects.
  */
 public class PersonBuilder {
 
@@ -55,22 +55,22 @@ public class PersonBuilder {
     }
 
     /**
-     * Initializes the PersonBuilder with the data of {@code personToCopy}.
+     * Initializes the PersonBuilder with the data of {@code employeeToCopy}.
      */
-    public PersonBuilder(Person personToCopy) {
-        name = personToCopy.getName();
-        role = personToCopy.getRole();
-        phone = personToCopy.getPhone();
-        email = personToCopy.getEmail();
-        address = personToCopy.getAddress();
-        dateOfBirth = personToCopy.getDateOfBirth();
-        dateOfJoining = personToCopy.getDateOfJoining();
-        salary = personToCopy.getSalary();
-        tags = new HashSet<>(personToCopy.getTags());
+    public PersonBuilder(Employee employeeToCopy) {
+        name = employeeToCopy.getName();
+        role = employeeToCopy.getRole();
+        phone = employeeToCopy.getPhone();
+        email = employeeToCopy.getEmail();
+        address = employeeToCopy.getAddress();
+        dateOfBirth = employeeToCopy.getDateOfBirth();
+        dateOfJoining = employeeToCopy.getDateOfJoining();
+        salary = employeeToCopy.getSalary();
+        tags = new HashSet<>(employeeToCopy.getTags());
     }
 
     /**
-     * Sets the {@code Name} of the {@code Person} that we are building.
+     * Sets the {@code Name} of the {@code Employee} that we are building.
      */
     public PersonBuilder withName(String name) {
         this.name = new Name(name);
@@ -78,7 +78,7 @@ public class PersonBuilder {
     }
 
     /**
-     * Sets the {@code Role} of the {@code Person} that we are building.
+     * Sets the {@code Role} of the {@code Employee} that we are building.
      */
     public PersonBuilder withRole(String role) {
         this.role = new Role(role);
@@ -86,7 +86,7 @@ public class PersonBuilder {
     }
 
     /**
-     * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code Person} that we are building.
+     * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code Employee} that we are building.
      */
     public PersonBuilder withTags(String ... tags) {
         this.tags = SampleDataUtil.getTagSet(tags);
@@ -94,7 +94,7 @@ public class PersonBuilder {
     }
 
     /**
-     * Sets the {@code Address} of the {@code Person} that we are building.
+     * Sets the {@code Address} of the {@code Employee} that we are building.
      */
     public PersonBuilder withAddress(String address) {
         this.address = new Address(address);
@@ -102,7 +102,7 @@ public class PersonBuilder {
     }
 
     /**
-     * Sets the {@code Phone} of the {@code Person} that we are building.
+     * Sets the {@code Phone} of the {@code Employee} that we are building.
      */
     public PersonBuilder withPhone(String phone) {
         this.phone = new Phone(phone);
@@ -110,7 +110,7 @@ public class PersonBuilder {
     }
 
     /**
-     * Sets the {@code Email} of the {@code Person} that we are building.
+     * Sets the {@code Email} of the {@code Employee} that we are building.
      */
     public PersonBuilder withEmail(String email) {
         this.email = new Email(email);
@@ -118,7 +118,7 @@ public class PersonBuilder {
     }
 
     /**
-     * Sets the {@code DateOfBirth} of the {@code Person} that we are building.
+     * Sets the {@code DateOfBirth} of the {@code Employee} that we are building.
      */
     public PersonBuilder withDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = new DateOfBirth(dateOfBirth);
@@ -126,7 +126,7 @@ public class PersonBuilder {
     }
 
     /**
-     * Sets the {@code DateOfJoining} of the {@code Person} that we are building.
+     * Sets the {@code DateOfJoining} of the {@code Employee} that we are building.
      */
     public PersonBuilder withDateOfJoining(String dateOfJoining) {
         this.dateOfJoining = new DateOfJoining(dateOfJoining);
@@ -134,15 +134,15 @@ public class PersonBuilder {
     }
 
     /**
-     * Sets the {@code Salary} of the {@code Person} that we are building.
+     * Sets the {@code Salary} of the {@code Employee} that we are building.
      */
     public PersonBuilder withSalary(String salary) {
         this.salary = new Salary(salary);
         return this;
     }
 
-    public Person build() {
-        return new Person(name, role, phone, email, address, dateOfBirth, dateOfJoining, salary, tags);
+    public Employee build() {
+        return new Employee(name, role, phone, email, address, dateOfBirth, dateOfJoining, salary, tags);
     }
 
 }

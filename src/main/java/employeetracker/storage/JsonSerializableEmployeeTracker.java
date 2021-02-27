@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 import employeetracker.commons.exceptions.IllegalValueException;
 import employeetracker.model.EmployeeTracker;
 import employeetracker.model.ReadOnlyEmployeeTracker;
-import employeetracker.model.person.Person;
+import employeetracker.model.employee.Employee;
 
 /**
  * An Immutable EmployeeTracker that is serializable to JSON format.
@@ -19,7 +19,7 @@ import employeetracker.model.person.Person;
 @JsonRootName(value = "employeetracker")
 class JsonSerializableEmployeeTracker {
 
-    public static final String MESSAGE_DUPLICATE_PERSON = "Persons list contains duplicate person(s).";
+    public static final String MESSAGE_DUPLICATE_PERSON = "Persons list contains duplicate employee(s).";
 
     private final List<JsonAdaptedPerson> persons = new ArrayList<>();
 
@@ -48,11 +48,11 @@ class JsonSerializableEmployeeTracker {
     public EmployeeTracker toModelType() throws IllegalValueException {
         EmployeeTracker employeeTracker = new EmployeeTracker();
         for (JsonAdaptedPerson jsonAdaptedPerson : persons) {
-            Person person = jsonAdaptedPerson.toModelType();
-            if (employeeTracker.hasPerson(person)) {
+            Employee employee = jsonAdaptedPerson.toModelType();
+            if (employeeTracker.hasPerson(employee)) {
                 throw new IllegalValueException(MESSAGE_DUPLICATE_PERSON);
             }
-            employeeTracker.addPerson(person);
+            employeeTracker.addPerson(employee);
         }
         return employeeTracker;
     }

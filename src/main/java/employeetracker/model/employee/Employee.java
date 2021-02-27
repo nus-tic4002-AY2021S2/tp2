@@ -1,4 +1,4 @@
-package employeetracker.model.person;
+package employeetracker.model.employee;
 
 import static employeetracker.commons.util.CollectionUtil.requireAllNonNull;
 
@@ -10,10 +10,10 @@ import java.util.Set;
 import employeetracker.model.tag.Tag;
 
 /**
- * Represents a Person in the Employee Tracker.
+ * Represents a Employee in the Employee Tracker.
  * Guarantees: details are present and not null, field values are validated, immutable.
  */
-public class Person {
+public class Employee {
 
     // Identity fields
     private final Name name;
@@ -31,8 +31,8 @@ public class Person {
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Role role, Phone phone, Email email, Address address, DateOfBirth dateOfBirth,
-                  DateOfJoining dateOfJoining, Salary salary, Set<Tag> tags) {
+    public Employee(Name name, Role role, Phone phone, Email email, Address address, DateOfBirth dateOfBirth,
+                    DateOfJoining dateOfJoining, Salary salary, Set<Tag> tags) {
         requireAllNonNull(name, role, phone, email, address, dateOfBirth, dateOfJoining, salary, tags);
         this.name = name;
         this.role = role;
@@ -88,26 +88,26 @@ public class Person {
     /**
      * Returns true if both persons have the same role.
      */
-    public boolean hasSameRole(Person otherPerson) {
-        if (otherPerson == this) {
+    public boolean hasSameRole(Employee otherEmployee) {
+        if (otherEmployee == this) {
             return true;
         }
 
-        return otherPerson != null
-                && otherPerson.getRole().equals(getRole());
+        return otherEmployee != null
+                && otherEmployee.getRole().equals(getRole());
     }
 
     /**
      * Returns true if both persons have the same name.
      * This defines a weaker notion of equality between two persons.
      */
-    public boolean isSamePerson(Person otherPerson) {
-        if (otherPerson == this) {
+    public boolean isSamePerson(Employee otherEmployee) {
+        if (otherEmployee == this) {
             return true;
         }
 
-        return otherPerson != null
-                && otherPerson.getName().equals(getName());
+        return otherEmployee != null
+                && otherEmployee.getName().equals(getName());
     }
 
     /**
@@ -120,20 +120,20 @@ public class Person {
             return true;
         }
 
-        if (!(other instanceof Person)) {
+        if (!(other instanceof Employee)) {
             return false;
         }
 
-        Person otherPerson = (Person) other;
-        return otherPerson.getName().equals(getName())
-                && otherPerson.getRole().equals(getRole())
-                && otherPerson.getPhone().equals(getPhone())
-                && otherPerson.getEmail().equals(getEmail())
-                && otherPerson.getAddress().equals(getAddress())
-                && otherPerson.getDateOfBirth().equals(getDateOfBirth())
-                && otherPerson.getDateOfJoining().equals(getDateOfJoining())
-                && otherPerson.getSalary().equals(getSalary())
-                && otherPerson.getTags().equals(getTags());
+        Employee otherEmployee = (Employee) other;
+        return otherEmployee.getName().equals(getName())
+                && otherEmployee.getRole().equals(getRole())
+                && otherEmployee.getPhone().equals(getPhone())
+                && otherEmployee.getEmail().equals(getEmail())
+                && otherEmployee.getAddress().equals(getAddress())
+                && otherEmployee.getDateOfBirth().equals(getDateOfBirth())
+                && otherEmployee.getDateOfJoining().equals(getDateOfJoining())
+                && otherEmployee.getSalary().equals(getSalary())
+                && otherEmployee.getTags().equals(getTags());
     }
 
     @Override

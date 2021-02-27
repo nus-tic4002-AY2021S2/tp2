@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 import employeetracker.logic.commands.FindCommand;
 import employeetracker.logic.parser.exceptions.ParseException;
-import employeetracker.model.person.NameContainsKeywordsPredicate;
+import employeetracker.model.employee.NameContainsKeywordsPredicate;
 
 /**
  * Parses input arguments and creates a new FindCommand object

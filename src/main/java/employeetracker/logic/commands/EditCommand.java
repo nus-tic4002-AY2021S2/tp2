@@ -23,19 +23,19 @@ import employeetracker.commons.core.index.Index;
 import employeetracker.commons.util.CollectionUtil;
 import employeetracker.logic.commands.exceptions.CommandException;
 import employeetracker.model.Model;
-import employeetracker.model.person.Address;
-import employeetracker.model.person.DateOfBirth;
-import employeetracker.model.person.DateOfJoining;
-import employeetracker.model.person.Email;
-import employeetracker.model.person.Name;
-import employeetracker.model.person.Person;
-import employeetracker.model.person.Phone;
-import employeetracker.model.person.Role;
-import employeetracker.model.person.Salary;
+import employeetracker.model.employee.Address;
+import employeetracker.model.employee.DateOfBirth;
+import employeetracker.model.employee.DateOfJoining;
+import employeetracker.model.employee.Email;
+import employeetracker.model.employee.Employee;
+import employeetracker.model.employee.Name;
+import employeetracker.model.employee.Phone;
+import employeetracker.model.employee.Role;
+import employeetracker.model.employee.Salary;
 import employeetracker.model.tag.Tag;
 
 /**
- * Edits the details of an existing person in the address book.
+ * Edits the details of an existing employee in the address book.
  */
 public class EditCommand extends Command {
 
@@ -66,8 +66,8 @@ public class EditCommand extends Command {
     private final EditPersonDescriptor editPersonDescriptor;
 
     /**
-     * @param index of the person in the filtered employee list to edit
-     * @param editPersonDescriptor details to edit the person with
+     * @param index of the employee in the filtered employee list to edit
+     * @param editPersonDescriptor details to edit the employee with
      */
     public EditCommand(Index index, EditPersonDescriptor editPersonDescriptor) {
         requireNonNull(index);
@@ -80,43 +80,43 @@ public class EditCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-        List<Person> lastShownList = model.getFilteredPersonList();
+        List<Employee> lastShownList = model.getFilteredPersonList();
 
         if (index.getZeroBased() >= lastShownList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
 
-        Person personToEdit = lastShownList.get(index.getZeroBased());
-        Person editedPerson = createEditedPerson(personToEdit, editPersonDescriptor);
+        Employee employeeToEdit = lastShownList.get(index.getZeroBased());
+        Employee editedEmployee = createEditedPerson(employeeToEdit, editPersonDescriptor);
 
-        if (!personToEdit.isSamePerson(editedPerson) && model.hasPerson(editedPerson)) {
+        if (!employeeToEdit.isSamePerson(editedEmployee) && model.hasPerson(editedEmployee)) {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }
 
-        model.setPerson(personToEdit, editedPerson);
+        model.setPerson(employeeToEdit, editedEmployee);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
-        return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, editedPerson));
+        return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, editedEmployee));
     }
 
     /**
-     * Creates and returns a {@code Person} with the details of {@code personToEdit}
+     * Creates and returns a {@code Employee} with the details of {@code employeeToEdit}
      * edited with {@code editPersonDescriptor}.
      */
-    private static Person createEditedPerson(Person personToEdit, EditPersonDescriptor editPersonDescriptor) {
-        assert personToEdit != null;
+    private static Employee createEditedPerson(Employee employeeToEdit, EditPersonDescriptor editPersonDescriptor) {
+        assert employeeToEdit != null;
 
-        Name updatedName = editPersonDescriptor.getName().orElse(personToEdit.getName());
-        Role updatedRole = editPersonDescriptor.getRole().orElse(personToEdit.getRole());
-        Phone updatedPhone = editPersonDescriptor.getPhone().orElse(personToEdit.getPhone());
-        Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
-        Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
-        DateOfBirth updatedDateOfBirth = editPersonDescriptor.getDateOfBirth().orElse(personToEdit.getDateOfBirth());
+        Name updatedName = editPersonDescriptor.getName().orElse(employeeToEdit.getName());
+        Role updatedRole = editPersonDescriptor.getRole().orElse(employeeToEdit.getRole());
+        Phone updatedPhone = editPersonDescriptor.getPhone().orElse(employeeToEdit.getPhone());
+        Email updatedEmail = editPersonDescriptor.getEmail().orElse(employeeToEdit.getEmail());
+        Address updatedAddress = editPersonDescriptor.getAddress().orElse(employeeToEdit.getAddress());
+        DateOfBirth updatedDateOfBirth = editPersonDescriptor.getDateOfBirth().orElse(employeeToEdit.getDateOfBirth());
         DateOfJoining updatedDateOfJoining = editPersonDescriptor.getDateOfJoining()
-                .orElse(personToEdit.getDateOfJoining());
-        Salary updatedSalary = editPersonDescriptor.getSalary().orElse(personToEdit.getSalary());
-        Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
+                .orElse(employeeToEdit.getDateOfJoining());
+        Salary updatedSalary = editPersonDescriptor.getSalary().orElse(employeeToEdit.getSalary());
+        Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(employeeToEdit.getTags());
 
-        return new Person(updatedName, updatedRole, updatedPhone, updatedEmail, updatedAddress, updatedDateOfBirth,
+        return new Employee(updatedName, updatedRole, updatedPhone, updatedEmail, updatedAddress, updatedDateOfBirth,
                 updatedDateOfJoining, updatedSalary, updatedTags);
     }
 
@@ -139,8 +139,8 @@ public class EditCommand extends Command {
     }
 
     /**
-     * Stores the details to edit the person with. Each non-empty field value will replace the
-     * corresponding field value of the person.
+     * Stores the details to edit the employee with. Each non-empty field value will replace the
+     * corresponding field value of the employee.
      */
     public static class EditPersonDescriptor {
         private Name name;

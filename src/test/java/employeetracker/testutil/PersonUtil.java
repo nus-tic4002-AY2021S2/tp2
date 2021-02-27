@@ -14,35 +14,35 @@ import java.util.Set;
 
 import employeetracker.logic.commands.AddCommand;
 import employeetracker.logic.commands.EditCommand.EditPersonDescriptor;
-import employeetracker.model.person.Person;
+import employeetracker.model.employee.Employee;
 import employeetracker.model.tag.Tag;
 
 /**
- * A utility class for Person.
+ * A utility class for Employee.
  */
 public class PersonUtil {
 
     /**
-     * Returns an add command string for adding the {@code person}.
+     * Returns an add command string for adding the {@code employee}.
      */
-    public static String getAddCommand(Person person) {
-        return AddCommand.COMMAND_WORD + " " + getPersonDetails(person);
+    public static String getAddCommand(Employee employee) {
+        return AddCommand.COMMAND_WORD + " " + getPersonDetails(employee);
     }
 
     /**
-     * Returns the part of command string for the given {@code person}'s details.
+     * Returns the part of command string for the given {@code employee}'s details.
      */
-    public static String getPersonDetails(Person person) {
+    public static String getPersonDetails(Employee employee) {
         StringBuilder sb = new StringBuilder();
-        sb.append(PREFIX_NAME + person.getName().fullName + " ");
-        sb.append(PREFIX_ROLE + person.getRole().value + " ");
-        sb.append(PREFIX_PHONE + person.getPhone().value + " ");
-        sb.append(PREFIX_EMAIL + person.getEmail().value + " ");
-        sb.append(PREFIX_ADDRESS + person.getAddress().value + " ");
-        sb.append(PREFIX_DATE_OF_BIRTH + person.getDateOfBirth().value + " ");
-        sb.append(PREFIX_DATE_OF_JOINING + person.getDateOfJoining().value + " ");
-        sb.append(PREFIX_SALARY + person.getSalary().value + " ");
-        person.getTags().stream().forEach(
+        sb.append(PREFIX_NAME + employee.getName().fullName + " ");
+        sb.append(PREFIX_ROLE + employee.getRole().value + " ");
+        sb.append(PREFIX_PHONE + employee.getPhone().value + " ");
+        sb.append(PREFIX_EMAIL + employee.getEmail().value + " ");
+        sb.append(PREFIX_ADDRESS + employee.getAddress().value + " ");
+        sb.append(PREFIX_DATE_OF_BIRTH + employee.getDateOfBirth().value + " ");
+        sb.append(PREFIX_DATE_OF_JOINING + employee.getDateOfJoining().value + " ");
+        sb.append(PREFIX_SALARY + employee.getSalary().value + " ");
+        employee.getTags().stream().forEach(
             s -> sb.append(PREFIX_TAG + s.tagName + " ")
         );
         return sb.toString();

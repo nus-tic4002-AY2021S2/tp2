@@ -1,10 +1,10 @@
-package employeetracker.model.person;
+package employeetracker.model.employee;
 
 import static employeetracker.commons.util.AppUtil.checkArgument;
 import static java.util.Objects.requireNonNull;
 
 /**
- * Represents a Person's email in the Employee Tracker.
+ * Represents a Employee's email in the Employee Tracker.
  * Guarantees: immutable; is valid as declared in {@link #isValidEmail(String)}
  */
 public class Email {

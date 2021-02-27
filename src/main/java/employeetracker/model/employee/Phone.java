@@ -1,10 +1,10 @@
-package employeetracker.model.person;
+package employeetracker.model.employee;
 
 import static employeetracker.commons.util.AppUtil.checkArgument;
 import static java.util.Objects.requireNonNull;
 
 /**
- * Represents a Person's phone number in the Employee Tracker.
+ * Represents a Employee's phone number in the Employee Tracker.
  * Guarantees: immutable; is valid as declared in {@link #isValidPhone(String)}
  */
 public class Phone {
