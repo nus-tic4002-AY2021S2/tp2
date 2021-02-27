@@ -6,7 +6,7 @@ import employeetracker.model.employee.Employee;
 /**
  * A utility class to help with building EmployeeTracker objects.
  * Example usage: <br>
- *     {@code EmployeeTracker ab = new EmployeeTrackerBuilder().withPerson("John", "Doe").build();}
+ *     {@code EmployeeTracker ab = new EmployeeTrackerBuilder().withEmployee("John", "Doe").build();}
  */
 public class EmployeeTrackerBuilder {
 
@@ -23,8 +23,8 @@ public class EmployeeTrackerBuilder {
     /**
      * Adds a new {@code Employee} to the {@code EmployeeTracker} that we are building.
      */
-    public EmployeeTrackerBuilder withPerson(Employee employee) {
-        employeeTracker.addPerson(employee);
+    public EmployeeTrackerBuilder withEmployee(Employee employee) {
+        employeeTracker.addEmployee(employee);
         return this;
     }
 

@@ -21,7 +21,7 @@ import employeetracker.model.tag.Tag;
  * Contains utility methods for populating {@code EmployeeTracker} with sample data.
  */
 public class SampleDataUtil {
-    public static Employee[] getSamplePersons() {
+    public static Employee[] getSampleEmployees() {
         return new Employee[] {
             new Employee(new Name("Alex Yeoh"), new Role("Developer"), new Phone("87438807"),
                     new Email("alexyeoh@example.com"), new Address("Blk 30 Geylang Street 29, #06-40"),
@@ -57,8 +57,8 @@ public class SampleDataUtil {
 
     public static ReadOnlyEmployeeTracker getSampleEmployeeTracker() {
         EmployeeTracker sampleAb = new EmployeeTracker();
-        for (Employee sampleEmployee : getSamplePersons()) {
-            sampleAb.addPerson(sampleEmployee);
+        for (Employee sampleEmployee : getSampleEmployees()) {
+            sampleAb.addEmployee(sampleEmployee);
         }
         return sampleAb;
     }

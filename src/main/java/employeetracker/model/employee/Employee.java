@@ -10,7 +10,7 @@ import java.util.Set;
 import employeetracker.model.tag.Tag;
 
 /**
- * Represents a Employee in the Employee Tracker.
+ * Represents an Employee in the Employee Tracker.
  * Guarantees: details are present and not null, field values are validated, immutable.
  */
 public class Employee {
@@ -86,9 +86,9 @@ public class Employee {
     }
 
     /**
-     * Returns true if both persons have the same role.
+     * Returns true if both employees have the same role.
      */
-    public boolean hasSameRole(Employee otherEmployee) {
+    public boolean hasSameEmployee(Employee otherEmployee) {
         if (otherEmployee == this) {
             return true;
         }
@@ -98,10 +98,10 @@ public class Employee {
     }
 
     /**
-     * Returns true if both persons have the same name.
+     * Returns true if both employees have the same name.
      * This defines a weaker notion of equality between two persons.
      */
-    public boolean isSamePerson(Employee otherEmployee) {
+    public boolean isSameEmployee(Employee otherEmployee) {
         if (otherEmployee == this) {
             return true;
         }
@@ -111,7 +111,7 @@ public class Employee {
     }
 
     /**
-     * Returns true if both persons have the same identity and data fields.
+     * Returns true if both employees have the same identity and data fields.
      * This defines a stronger notion of equality between two persons.
      */
     @Override

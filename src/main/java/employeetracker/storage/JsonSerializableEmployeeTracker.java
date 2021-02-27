@@ -19,16 +19,16 @@ import employeetracker.model.employee.Employee;
 @JsonRootName(value = "employeetracker")
 class JsonSerializableEmployeeTracker {
 
-    public static final String MESSAGE_DUPLICATE_PERSON = "Persons list contains duplicate employee(s).";
+    public static final String MESSAGE_DUPLICATE_EMPLOYEE = "Employees list contains duplicate employee(s).";
 
-    private final List<JsonAdaptedPerson> persons = new ArrayList<>();
+    private final List<JsonAdaptedEmployee> employees = new ArrayList<>();
 
     /**
      * Constructs a {@code JsonSerializableEmployeeTracker} with the given persons.
      */
     @JsonCreator
-    public JsonSerializableEmployeeTracker(@JsonProperty("persons") List<JsonAdaptedPerson> persons) {
-        this.persons.addAll(persons);
+    public JsonSerializableEmployeeTracker(@JsonProperty("employees") List<JsonAdaptedEmployee> employees) {
+        this.employees.addAll(employees);
     }
 
     /**
@@ -37,7 +37,7 @@ class JsonSerializableEmployeeTracker {
      * @param source future changes to this will not affect the created {@code JsonSerializableEmployeeTracker}.
      */
     public JsonSerializableEmployeeTracker(ReadOnlyEmployeeTracker source) {
-        persons.addAll(source.getPersonList().stream().map(JsonAdaptedPerson::new).collect(Collectors.toList()));
+        employees.addAll(source.getEmployeeList().stream().map(JsonAdaptedEmployee::new).collect(Collectors.toList()));
     }
 
     /**
@@ -47,12 +47,12 @@ class JsonSerializableEmployeeTracker {
      */
     public EmployeeTracker toModelType() throws IllegalValueException {
         EmployeeTracker employeeTracker = new EmployeeTracker();
-        for (JsonAdaptedPerson jsonAdaptedPerson : persons) {
-            Employee employee = jsonAdaptedPerson.toModelType();
-            if (employeeTracker.hasPerson(employee)) {
-                throw new IllegalValueException(MESSAGE_DUPLICATE_PERSON);
+        for (JsonAdaptedEmployee jsonAdaptedEmployee : employees) {
+            Employee employee = jsonAdaptedEmployee.toModelType();
+            if (employeeTracker.hasEmployee(employee)) {
+                throw new IllegalValueException(MESSAGE_DUPLICATE_EMPLOYEE);
             }
-            employeeTracker.addPerson(employee);
+            employeeTracker.addEmployee(employee);
         }
         return employeeTracker;
     }

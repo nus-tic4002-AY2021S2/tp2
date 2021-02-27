@@ -2,7 +2,7 @@ package employeetracker.logic.parser;
 
 import static employeetracker.logic.parser.ParserUtil.MESSAGE_INVALID_INDEX;
 import static employeetracker.testutil.Assert.assertThrows;
-import static employeetracker.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
+import static employeetracker.testutil.TypicalIndexes.INDEX_FIRST_EMPLOYEE;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -50,10 +50,10 @@ public class ParserUtilTest {
     @Test
     public void parseIndex_validInput_success() throws Exception {
         // No whitespaces
-        assertEquals(INDEX_FIRST_PERSON, ParserUtil.parseIndex("1"));
+        assertEquals(INDEX_FIRST_EMPLOYEE, ParserUtil.parseIndex("1"));
 
         // Leading and trailing whitespaces
-        assertEquals(INDEX_FIRST_PERSON, ParserUtil.parseIndex("  1  "));
+        assertEquals(INDEX_FIRST_EMPLOYEE, ParserUtil.parseIndex("  1  "));
     }
 
     @Test

@@ -4,7 +4,7 @@ import static employeetracker.commons.util.AppUtil.checkArgument;
 import static java.util.Objects.requireNonNull;
 
 /**
- * Represents a Employee's date of birth in the Employee Tracker.
+ * Represents an Employee's date of birth in the Employee Tracker.
  * Guarantees: immutable; is valid as declared in {@link #isValidDateOfBirth(String)}
  */
 public class DateOfBirth {

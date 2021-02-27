@@ -4,7 +4,7 @@ import static employeetracker.commons.util.AppUtil.checkArgument;
 import static java.util.Objects.requireNonNull;
 
 /**
- * Represents a Employee's name in the Employee Tracker.
+ * Represents an Employee's name in the Employee Tracker.
  * Guarantees: immutable; is valid as declared in {@link #isValidName(String)}
  */
 public class Name {

@@ -4,7 +4,7 @@ import static employeetracker.commons.util.AppUtil.checkArgument;
 import static java.util.Objects.requireNonNull;
 
 /**
- * Represents a Employee's date of joining in the Employee Tracker.
+ * Represents an Employee's date of joining in the Employee Tracker.
  * Guarantees: immutable; is valid as declared in {@link #isValidDateOfJoining(String)}
  */
 public class DateOfJoining {

@@ -34,7 +34,7 @@ public class ModelManager implements Model {
 
         this.employeeTracker = new EmployeeTracker(employeeTracker);
         this.userPrefs = new UserPrefs(userPrefs);
-        filteredEmployees = new FilteredList<>(this.employeeTracker.getPersonList());
+        filteredEmployees = new FilteredList<>(this.employeeTracker.getEmployeeList());
     }
 
     public ModelManager() {
@@ -89,27 +89,27 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public boolean hasPerson(Employee employee) {
+    public boolean hasEmployee(Employee employee) {
         requireNonNull(employee);
-        return employeeTracker.hasPerson(employee);
+        return employeeTracker.hasEmployee(employee);
     }
 
     @Override
-    public void deletePerson(Employee target) {
-        employeeTracker.removePerson(target);
+    public void deleteEmployee(Employee target) {
+        employeeTracker.removeEmployee(target);
     }
 
     @Override
-    public void addPerson(Employee employee) {
-        employeeTracker.addPerson(employee);
-        updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+    public void addEmployee(Employee employee) {
+        employeeTracker.addEmployee(employee);
+        updateFilteredEmployeeList(PREDICATE_SHOW_ALL_EMPLOYEES);
     }
 
     @Override
-    public void setPerson(Employee target, Employee editedEmployee) {
+    public void setEmployee(Employee target, Employee editedEmployee) {
         requireAllNonNull(target, editedEmployee);
 
-        employeeTracker.setPerson(target, editedEmployee);
+        employeeTracker.setEmployee(target, editedEmployee);
     }
 
     //=========== Filtered Employee List Accessors =============================================================
@@ -119,12 +119,12 @@ public class ModelManager implements Model {
      * {@code versionedAddressBook}
      */
     @Override
-    public ObservableList<Employee> getFilteredPersonList() {
+    public ObservableList<Employee> getFilteredEmployeeList() {
         return filteredEmployees;
     }
 
     @Override
-    public void updateFilteredPersonList(Predicate<Employee> predicate) {
+    public void updateFilteredEmployeeList(Predicate<Employee> predicate) {
         requireNonNull(predicate);
         filteredEmployees.setPredicate(predicate);
     }

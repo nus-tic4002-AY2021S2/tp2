@@ -1,6 +1,6 @@
 package employeetracker.logic;
 
-import static employeetracker.commons.core.Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX;
+import static employeetracker.commons.core.Messages.MESSAGE_INVALID_EMPLOYEE_DISPLAYED_INDEX;
 import static employeetracker.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import static employeetracker.logic.commands.CommandTestUtil.ADDRESS_DESC_AMY;
 import static employeetracker.logic.commands.CommandTestUtil.DATE_OF_BIRTH_DESC_AMY;
@@ -11,7 +11,7 @@ import static employeetracker.logic.commands.CommandTestUtil.PHONE_DESC_AMY;
 import static employeetracker.logic.commands.CommandTestUtil.ROLE_DESC_AMY;
 import static employeetracker.logic.commands.CommandTestUtil.SALARY_DESC_AMY;
 import static employeetracker.testutil.Assert.assertThrows;
-import static employeetracker.testutil.TypicalPersons.AMY;
+import static employeetracker.testutil.TypicalEmployees.AMY;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.IOException;
@@ -34,7 +34,7 @@ import employeetracker.model.employee.Employee;
 import employeetracker.storage.JsonEmployeeTrackerStorage;
 import employeetracker.storage.JsonUserPrefsStorage;
 import employeetracker.storage.StorageManager;
-import employeetracker.testutil.PersonBuilder;
+import employeetracker.testutil.EmployeeBuilder;
 
 public class LogicManagerTest {
     private static final IOException DUMMY_IO_EXCEPTION = new IOException("dummy exception");
@@ -63,7 +63,7 @@ public class LogicManagerTest {
     @Test
     public void execute_commandExecutionError_throwsCommandException() {
         String deleteCommand = "delete 9";
-        assertCommandException(deleteCommand, MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+        assertCommandException(deleteCommand, MESSAGE_INVALID_EMPLOYEE_DISPLAYED_INDEX);
     }
 
     @Test
@@ -85,16 +85,16 @@ public class LogicManagerTest {
         // Execute add command
         String addCommand = AddCommand.COMMAND_WORD + NAME_DESC_AMY + ROLE_DESC_AMY + PHONE_DESC_AMY + EMAIL_DESC_AMY
                 + DATE_OF_BIRTH_DESC_AMY + DATE_OF_JOINING_DESC_AMY + SALARY_DESC_AMY + ADDRESS_DESC_AMY;
-        Employee expectedEmployee = new PersonBuilder(AMY).withTags().build();
+        Employee expectedEmployee = new EmployeeBuilder(AMY).withTags().build();
         ModelManager expectedModel = new ModelManager();
-        expectedModel.addPerson(expectedEmployee);
+        expectedModel.addEmployee(expectedEmployee);
         String expectedMessage = LogicManager.FILE_OPS_ERROR_MESSAGE + DUMMY_IO_EXCEPTION;
         assertCommandFailure(addCommand, CommandException.class, expectedMessage, expectedModel);
     }
 
     @Test
-    public void getFilteredPersonList_modifyList_throwsUnsupportedOperationException() {
-        assertThrows(UnsupportedOperationException.class, () -> logic.getFilteredPersonList().remove(0));
+    public void getFilteredEmployeeList_modifyList_throwsUnsupportedOperationException() {
+        assertThrows(UnsupportedOperationException.class, () -> logic.getFilteredEmployeeList().remove(0));
     }
 
     /**

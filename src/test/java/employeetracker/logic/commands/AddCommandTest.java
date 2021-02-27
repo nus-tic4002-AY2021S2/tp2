@@ -20,40 +20,41 @@ import employeetracker.model.Model;
 import employeetracker.model.ReadOnlyEmployeeTracker;
 import employeetracker.model.ReadOnlyUserPrefs;
 import employeetracker.model.employee.Employee;
-import employeetracker.testutil.PersonBuilder;
+import employeetracker.testutil.EmployeeBuilder;
 import javafx.collections.ObservableList;
 
 public class AddCommandTest {
 
     @Test
-    public void constructor_nullPerson_throwsNullPointerException() {
+    public void constructor_nullEmployee_throwsNullPointerException() {
         assertThrows(NullPointerException.class, () -> new AddCommand(null));
     }
 
     @Test
-    public void execute_personAcceptedByModel_addSuccessful() throws Exception {
-        ModelStubAcceptingPersonAdded modelStub = new ModelStubAcceptingPersonAdded();
-        Employee validEmployee = new PersonBuilder().build();
+    public void execute_employeeAcceptedByModel_addSuccessful() throws Exception {
+        ModelStubAcceptingEmployeeAdded modelStub = new ModelStubAcceptingEmployeeAdded();
+        Employee validEmployee = new EmployeeBuilder().build();
 
         CommandResult commandResult = new AddCommand(validEmployee).execute(modelStub);
 
         assertEquals(String.format(AddCommand.MESSAGE_SUCCESS, validEmployee), commandResult.getFeedbackToUser());
-        assertEquals(Arrays.asList(validEmployee), modelStub.personsAdded);
+        assertEquals(Arrays.asList(validEmployee), modelStub.employeesAdded);
     }
 
     @Test
-    public void execute_duplicatePerson_throwsCommandException() {
-        Employee validEmployee = new PersonBuilder().build();
+    public void execute_duplicateEmployee_throwsCommandException() {
+        Employee validEmployee = new EmployeeBuilder().build();
         AddCommand addCommand = new AddCommand(validEmployee);
-        ModelStub modelStub = new ModelStubWithPerson(validEmployee);
+        ModelStub modelStub = new ModelStubWithEmployee(validEmployee);
 
-        assertThrows(CommandException.class, AddCommand.MESSAGE_DUPLICATE_PERSON, () -> addCommand.execute(modelStub));
+        assertThrows(CommandException.class,
+                AddCommand.MESSAGE_DUPLICATE_EMPLOYEE, () -> addCommand.execute(modelStub));
     }
 
     @Test
     public void equals() {
-        Employee alice = new PersonBuilder().withName("Alice").build();
-        Employee bob = new PersonBuilder().withName("Bob").build();
+        Employee alice = new EmployeeBuilder().withName("Alice").build();
+        Employee bob = new EmployeeBuilder().withName("Bob").build();
         AddCommand addAliceCommand = new AddCommand(alice);
         AddCommand addBobCommand = new AddCommand(bob);
 
@@ -109,7 +110,7 @@ public class AddCommandTest {
         }
 
         @Override
-        public void addPerson(Employee employee) {
+        public void addEmployee(Employee employee) {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -124,27 +125,27 @@ public class AddCommandTest {
         }
 
         @Override
-        public boolean hasPerson(Employee employee) {
+        public boolean hasEmployee(Employee employee) {
             throw new AssertionError("This method should not be called.");
         }
 
         @Override
-        public void deletePerson(Employee target) {
+        public void deleteEmployee(Employee target) {
             throw new AssertionError("This method should not be called.");
         }
 
         @Override
-        public void setPerson(Employee target, Employee editedEmployee) {
+        public void setEmployee(Employee target, Employee editedEmployee) {
             throw new AssertionError("This method should not be called.");
         }
 
         @Override
-        public ObservableList<Employee> getFilteredPersonList() {
+        public ObservableList<Employee> getFilteredEmployeeList() {
             throw new AssertionError("This method should not be called.");
         }
 
         @Override
-        public void updateFilteredPersonList(Predicate<Employee> predicate) {
+        public void updateFilteredEmployeeList(Predicate<Employee> predicate) {
             throw new AssertionError("This method should not be called.");
         }
     }
@@ -152,37 +153,37 @@ public class AddCommandTest {
     /**
      * A Model stub that contains a single employee.
      */
-    private class ModelStubWithPerson extends ModelStub {
+    private class ModelStubWithEmployee extends ModelStub {
         private final Employee employee;
 
-        ModelStubWithPerson(Employee employee) {
+        ModelStubWithEmployee(Employee employee) {
             requireNonNull(employee);
             this.employee = employee;
         }
 
         @Override
-        public boolean hasPerson(Employee employee) {
+        public boolean hasEmployee(Employee employee) {
             requireNonNull(employee);
-            return this.employee.isSamePerson(employee);
+            return this.employee.isSameEmployee(employee);
         }
     }
 
     /**
      * A Model stub that always accept the employee being added.
      */
-    private class ModelStubAcceptingPersonAdded extends ModelStub {
-        final ArrayList<Employee> personsAdded = new ArrayList<>();
+    private class ModelStubAcceptingEmployeeAdded extends ModelStub {
+        final ArrayList<Employee> employeesAdded = new ArrayList<>();
 
         @Override
-        public boolean hasPerson(Employee employee) {
+        public boolean hasEmployee(Employee employee) {
             requireNonNull(employee);
-            return personsAdded.stream().anyMatch(employee::isSamePerson);
+            return employeesAdded.stream().anyMatch(employee::isSameEmployee);
         }
 
         @Override
-        public void addPerson(Employee employee) {
+        public void addEmployee(Employee employee) {
             requireNonNull(employee);
-            personsAdded.add(employee);
+            employeesAdded.add(employee);
         }
 
         @Override

@@ -4,7 +4,7 @@ import static employeetracker.commons.util.AppUtil.checkArgument;
 import static java.util.Objects.requireNonNull;
 
 /**
- * Represents a Employee's address in the Employee Tracker.
+ * Represents an Employee's address in the Employee Tracker.
  * Guarantees: immutable; is valid as declared in {@link #isValidAddress(String)}
  */
 public class Address {

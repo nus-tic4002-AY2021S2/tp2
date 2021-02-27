@@ -5,16 +5,16 @@ import static java.util.Objects.requireNonNull;
 import java.util.List;
 
 import employeetracker.model.employee.Employee;
-import employeetracker.model.employee.UniquePersonList;
+import employeetracker.model.employee.UniqueEmployeeList;
 import javafx.collections.ObservableList;
 
 /**
  * Wraps all data at the employee-tracker level
- * Duplicates are not allowed (by .isSamePerson comparison)
+ * Duplicates are not allowed (by .isSameEmployee comparison)
  */
 public class EmployeeTracker implements ReadOnlyEmployeeTracker {
 
-    private final UniquePersonList persons;
+    private final UniqueEmployeeList employees;
 
     /*
      * The 'unusual' code block below is a non-static initialization block, sometimes used to avoid duplication
@@ -24,13 +24,13 @@ public class EmployeeTracker implements ReadOnlyEmployeeTracker {
      *   among constructors.
      */
     {
-        persons = new UniquePersonList();
+        employees = new UniqueEmployeeList();
     }
 
     public EmployeeTracker() {}
 
     /**
-     * Creates an EmployeeTracker using the Persons in the {@code toBeCopied}
+     * Creates an EmployeeTracker using the Employees in the {@code toBeCopied}
      */
     public EmployeeTracker(ReadOnlyEmployeeTracker toBeCopied) {
         this();
@@ -43,8 +43,8 @@ public class EmployeeTracker implements ReadOnlyEmployeeTracker {
      * Replaces the contents of the employee list with {@code employees}.
      * {@code employees} must not contain duplicate employees.
      */
-    public void setPersons(List<Employee> employees) {
-        this.persons.setPersons(employees);
+    public void setEmployees(List<Employee> employees) {
+        this.employees.setEmployees(employees);
     }
 
     /**
@@ -53,25 +53,25 @@ public class EmployeeTracker implements ReadOnlyEmployeeTracker {
     public void resetData(ReadOnlyEmployeeTracker newData) {
         requireNonNull(newData);
 
-        setPersons(newData.getPersonList());
+        setEmployees(newData.getEmployeeList());
     }
 
     //// employee-level operations
 
     /**
-     * Returns true if a employee with the same identity as {@code employee} exists in the address book.
+     * Returns true if a employee with the same identity as {@code employee} exists in the Employee Tracker.
      */
-    public boolean hasPerson(Employee employee) {
+    public boolean hasEmployee(Employee employee) {
         requireNonNull(employee);
-        return persons.contains(employee);
+        return employees.contains(employee);
     }
 
     /**
      * Adds a employee to the address book.
-     * The employee must not already exist in the address book.
+     * The employee must not already exist in the Employee Tracker.
      */
-    public void addPerson(Employee p) {
-        persons.add(p);
+    public void addEmployee(Employee p) {
+        employees.add(p);
     }
 
     /**
@@ -80,42 +80,42 @@ public class EmployeeTracker implements ReadOnlyEmployeeTracker {
      * The employee identity of {@code editedEmployee} must not be the same as another existing employee in the
      * employee Tracker.
      */
-    public void setPerson(Employee target, Employee editedEmployee) {
+    public void setEmployee(Employee target, Employee editedEmployee) {
         requireNonNull(editedEmployee);
 
-        persons.setPerson(target, editedEmployee);
+        employees.setEmployee(target, editedEmployee);
     }
 
     /**
      * Removes {@code key} from this {@code EmployeeTracker}.
      * {@code key} must exist in the address book.
      */
-    public void removePerson(Employee key) {
-        persons.remove(key);
+    public void removeEmployee(Employee key) {
+        employees.remove(key);
     }
 
     //// util methods
 
     @Override
     public String toString() {
-        return persons.asUnmodifiableObservableList().size() + " persons";
+        return employees.asUnmodifiableObservableList().size() + " persons";
         // TODO: refine later
     }
 
     @Override
-    public ObservableList<Employee> getPersonList() {
-        return persons.asUnmodifiableObservableList();
+    public ObservableList<Employee> getEmployeeList() {
+        return employees.asUnmodifiableObservableList();
     }
 
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof EmployeeTracker // instanceof handles nulls
-                && persons.equals(((EmployeeTracker) other).persons));
+                && employees.equals(((EmployeeTracker) other).employees));
     }
 
     @Override
     public int hashCode() {
-        return persons.hashCode();
+        return employees.hashCode();
     }
 }

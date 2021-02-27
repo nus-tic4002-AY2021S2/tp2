@@ -3,7 +3,7 @@ package employeetracker.logic.parser;
 import static employeetracker.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static employeetracker.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static employeetracker.logic.parser.CommandParserTestUtil.assertParseSuccess;
-import static employeetracker.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
+import static employeetracker.testutil.TypicalIndexes.INDEX_FIRST_EMPLOYEE;
 
 import org.junit.jupiter.api.Test;
 
@@ -22,7 +22,7 @@ public class DeleteCommandParserTest {
 
     @Test
     public void parse_validArgs_returnsDeleteCommand() {
-        assertParseSuccess(parser, "1", new DeleteCommand(INDEX_FIRST_PERSON));
+        assertParseSuccess(parser, "1", new DeleteCommand(INDEX_FIRST_EMPLOYEE));
     }
 
     @Test

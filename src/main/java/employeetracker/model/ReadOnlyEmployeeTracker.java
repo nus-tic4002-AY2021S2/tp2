@@ -12,6 +12,6 @@ public interface ReadOnlyEmployeeTracker {
      * Returns an unmodifiable view of the persons list.
      * This list will not contain any duplicate persons.
      */
-    ObservableList<Employee> getPersonList();
+    ObservableList<Employee> getEmployeeList();
 
 }

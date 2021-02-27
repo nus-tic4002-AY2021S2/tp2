@@ -13,26 +13,26 @@ import static employeetracker.logic.parser.CliSyntax.PREFIX_TAG;
 import java.util.Set;
 
 import employeetracker.logic.commands.AddCommand;
-import employeetracker.logic.commands.EditCommand.EditPersonDescriptor;
+import employeetracker.logic.commands.EditCommand;
 import employeetracker.model.employee.Employee;
 import employeetracker.model.tag.Tag;
 
 /**
  * A utility class for Employee.
  */
-public class PersonUtil {
+public class EmployeeUtil {
 
     /**
      * Returns an add command string for adding the {@code employee}.
      */
     public static String getAddCommand(Employee employee) {
-        return AddCommand.COMMAND_WORD + " " + getPersonDetails(employee);
+        return AddCommand.COMMAND_WORD + " " + getEmployeeDetails(employee);
     }
 
     /**
      * Returns the part of command string for the given {@code employee}'s details.
      */
-    public static String getPersonDetails(Employee employee) {
+    public static String getEmployeeDetails(Employee employee) {
         StringBuilder sb = new StringBuilder();
         sb.append(PREFIX_NAME + employee.getName().fullName + " ");
         sb.append(PREFIX_ROLE + employee.getRole().value + " ");
@@ -49,9 +49,9 @@ public class PersonUtil {
     }
 
     /**
-     * Returns the part of command string for the given {@code EditPersonDescriptor}'s details.
+     * Returns the part of command string for the given {@code EditEmployeeDescriptor}'s details.
      */
-    public static String getEditPersonDescriptorDetails(EditPersonDescriptor descriptor) {
+    public static String getEditEmployeeDescriptorDetails(EditCommand.EditEmployeeDescriptor descriptor) {
         StringBuilder sb = new StringBuilder();
         descriptor.getName().ifPresent(name -> sb.append(PREFIX_NAME).append(name.fullName).append(" "));
         descriptor.getRole().ifPresent(role -> sb.append(PREFIX_ROLE).append(role.value).append(" "));

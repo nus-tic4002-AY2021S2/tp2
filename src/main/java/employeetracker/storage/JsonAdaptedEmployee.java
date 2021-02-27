@@ -24,7 +24,7 @@ import employeetracker.model.tag.Tag;
 /**
  * Jackson-friendly version of {@link Employee}.
  */
-class JsonAdaptedPerson {
+class JsonAdaptedEmployee {
 
     public static final String MISSING_FIELD_MESSAGE_FORMAT = "Employee's %s field is missing!";
 
@@ -39,10 +39,10 @@ class JsonAdaptedPerson {
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
 
     /**
-     * Constructs a {@code JsonAdaptedPerson} with the given employee details.
+     * Constructs a {@code JsonAdaptedEmployee} with the given employee details.
      */
     @JsonCreator
-    public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("role") String role,
+    public JsonAdaptedEmployee(@JsonProperty("name") String name, @JsonProperty("role") String role,
             @JsonProperty("phone") String phone, @JsonProperty("email") String email,
             @JsonProperty("address") String address, @JsonProperty("dateOfBirth") String dateOfBirth,
             @JsonProperty("dateOfJoining") String dateOfJoining, @JsonProperty("salary") String salary,
@@ -63,7 +63,7 @@ class JsonAdaptedPerson {
     /**
      * Converts a given {@code Employee} into this class for Jackson use.
      */
-    public JsonAdaptedPerson(Employee source) {
+    public JsonAdaptedEmployee(Employee source) {
         name = source.getName().fullName;
         role = source.getRole().value;
         phone = source.getPhone().value;

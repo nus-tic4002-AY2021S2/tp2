@@ -12,7 +12,7 @@ import javafx.collections.ObservableList;
  */
 public interface Model {
     /** {@code Predicate} that always evaluate to true */
-    Predicate<Employee> PREDICATE_SHOW_ALL_PERSONS = unused -> true;
+    Predicate<Employee> PREDICATE_SHOW_ALL_EMPLOYEES = unused -> true;
 
     /**
      * Replaces user prefs data with the data in {@code userPrefs}.
@@ -55,19 +55,19 @@ public interface Model {
     /**
      * Returns true if a employee with the same identity as {@code employee} exists in the Employee Tracker.
      */
-    boolean hasPerson(Employee employee);
+    boolean hasEmployee(Employee employee);
 
     /**
      * Deletes the given employee.
      * The employee must exist in the Employee Tracker.
      */
-    void deletePerson(Employee target);
+    void deleteEmployee(Employee target);
 
     /**
      * Adds the given employee.
      * {@code employee} must not already exist in the Employee Tracker.
      */
-    void addPerson(Employee employee);
+    void addEmployee(Employee employee);
 
     /**
      * Replaces the given employee {@code target} with {@code editedEmployee}.
@@ -75,14 +75,14 @@ public interface Model {
      * The employee identity of {@code editedEmployee} must not be the same as another existing employee
      * in the Employee Tracker.
      */
-    void setPerson(Employee target, Employee editedEmployee);
+    void setEmployee(Employee target, Employee editedEmployee);
 
     /** Returns an unmodifiable view of the filtered employee list */
-    ObservableList<Employee> getFilteredPersonList();
+    ObservableList<Employee> getFilteredEmployeeList();
 
     /**
      * Updates the filter of the filtered employee list to filter by the given {@code predicate}.
      * @throws NullPointerException if {@code predicate} is null.
      */
-    void updateFilteredPersonList(Predicate<Employee> predicate);
+    void updateFilteredEmployeeList(Predicate<Employee> predicate);
 }
