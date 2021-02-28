@@ -147,6 +147,16 @@ Clears all entries from the Police Address Book.
 
 Format: `clear`
 
+### Sending email : `send`
+
+sending email to user.
+
+Format: `send [INDEX] e/[EMAIL]`
+
+
+Examples:
+* `send 1 e/hellokitty@hotmail.com` sending the first data in the printed list to the user.
+
 ### Exiting the program : `exit`
 
 Exits the program.
@@ -186,3 +196,4 @@ Action | Format, Examples
 **List** | `list`
 **Help** | `help`
 **Remark** | `remark INDEX r/REMARK`<br> e.g., `remark 1 r/shop theft`
+**send** | `send INDEX e/EMAIL`<br> e.g., `send 1 e/hellokitty@hotmail.com`
