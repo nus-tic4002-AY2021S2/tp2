@@ -13,7 +13,7 @@ import employeetracker.logic.parser.EmployeeTrackerParser;
 import employeetracker.logic.parser.exceptions.ParseException;
 import employeetracker.model.Model;
 import employeetracker.model.ReadOnlyEmployeeTracker;
-import employeetracker.model.person.Person;
+import employeetracker.model.employee.Employee;
 import employeetracker.storage.Storage;
 import javafx.collections.ObservableList;
 
@@ -60,8 +60,8 @@ public class LogicManager implements Logic {
     }
 
     @Override
-    public ObservableList<Person> getFilteredPersonList() {
-        return model.getFilteredPersonList();
+    public ObservableList<Employee> getFilteredEmployeeList() {
+        return model.getFilteredEmployeeList();
     }
 
     @Override

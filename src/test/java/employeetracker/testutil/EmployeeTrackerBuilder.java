@@ -1,12 +1,12 @@
 package employeetracker.testutil;
 
 import employeetracker.model.EmployeeTracker;
-import employeetracker.model.person.Person;
+import employeetracker.model.employee.Employee;
 
 /**
  * A utility class to help with building EmployeeTracker objects.
  * Example usage: <br>
- *     {@code EmployeeTracker ab = new EmployeeTrackerBuilder().withPerson("John", "Doe").build();}
+ *     {@code EmployeeTracker ab = new EmployeeTrackerBuilder().withEmployee("John", "Doe").build();}
  */
 public class EmployeeTrackerBuilder {
 
@@ -21,10 +21,10 @@ public class EmployeeTrackerBuilder {
     }
 
     /**
-     * Adds a new {@code Person} to the {@code EmployeeTracker} that we are building.
+     * Adds a new {@code Employee} to the {@code EmployeeTracker} that we are building.
      */
-    public EmployeeTrackerBuilder withPerson(Person person) {
-        employeeTracker.addPerson(person);
+    public EmployeeTrackerBuilder withEmployee(Employee employee) {
+        employeeTracker.addEmployee(employee);
         return this;
     }
 

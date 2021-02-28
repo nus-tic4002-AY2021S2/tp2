@@ -7,7 +7,7 @@ import employeetracker.logic.commands.CommandResult;
 import employeetracker.logic.commands.exceptions.CommandException;
 import employeetracker.logic.parser.exceptions.ParseException;
 import employeetracker.model.ReadOnlyEmployeeTracker;
-import employeetracker.model.person.Person;
+import employeetracker.model.employee.Employee;
 import javafx.collections.ObservableList;
 
 /**
@@ -30,11 +30,11 @@ public interface Logic {
      */
     ReadOnlyEmployeeTracker getEmployeeTracker();
 
-    /** Returns an unmodifiable view of the filtered list of persons */
-    ObservableList<Person> getFilteredPersonList();
+    /** Returns an unmodifiable view of the filtered list of employees */
+    ObservableList<Employee> getFilteredEmployeeList();
 
     /**
-     * Returns the user prefs' address book file path.
+     * Returns the user prefs' Employee Tracker file path.
      */
     Path getEmployeeTrackerFilePath();
 
