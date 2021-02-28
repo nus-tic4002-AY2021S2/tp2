@@ -252,7 +252,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *  `  | user                                       | clear all employee records      | start afresh with the app                                             |
 | `* * *`  | user                                       | find an employee record by name | look at the particular employee's information
 | `* * *`  | user                                       | find employee records by role   | look at the information of the employees with this role
-| `* * *`  | user                                       | sort employee records by salary | see the salary structure in my company                                |
+| `* * *`  | user                                       | sort employee records by salary          | view the salary structure in my company                           |
+| `* * *`  | user                                       | sort employee records by name            | view employee records in alphabetical order                       |
+| `* * *`  | user                                       | sort employee records by date of joining | find the employees who stayed the shortest/longest in the company |
+| `* * *`  | user                                       | sort employee records by date of birth   | find the youngest/oldest employees in the company                 |
 
 *{More to be added}*
 
