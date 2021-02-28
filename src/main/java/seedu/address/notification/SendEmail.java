@@ -37,7 +37,7 @@ public class SendEmail {
         String to = receiver;
 
         // Sender's email ID needs to be mentioned
-        String from = "TaskTracker@roject.com";
+        String from = "PoliceAddressBook@project.com";
 
         // Assuming you are sending email from through gmail smtp
         String host = "smtp.gmail.com";
@@ -76,11 +76,11 @@ public class SendEmail {
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
 
             // Set Subject: header field
-            message.setSubject("The New Project");
+            message.setSubject("The data");
 
             // Now set the actual message
             message.setText("Hi \n" + "This Task has been send you as a notification.\n\n" + messages
-                    + "\n\n Best regards \n Task Tracker");
+                    + "\n\n Best regards \n The Police Address Book");
 
             System.out.println("sending...");
             // Send message
