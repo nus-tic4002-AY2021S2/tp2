@@ -32,7 +32,7 @@ public class NameContainsKeywordsPredicate implements Predicate<Person> {
                         .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(person.getName().fullName, keyword));
             } else if (obj.contains("i/")) {
                 return keywords.stream()
-                        .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(person.getNric().value, keyword));
+                        .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(person.getIc().value, keyword));
             } else if (obj.contains("p/")) {
                 return keywords.stream()
                         .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(person.getPhone().value, keyword));
