@@ -10,7 +10,8 @@ import employeetracker.logic.commands.FindCommand;
 import employeetracker.logic.parser.exceptions.ParseException;
 import employeetracker.model.employee.Name;
 import employeetracker.model.employee.NameContainsKeywordsPredicate;
-import employeetracker.model.employee.RoleContainsKeywordsPredicate;
+import employeetracker.model.employee.Role;
+
 
 /**
  * Parses input arguments and creates a new FindCommand object
@@ -27,6 +28,7 @@ public class FindCommandParser implements Parser<FindCommand> {
         requireNonNull(args);
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_ROLE);
+
         ///---------
         String trimmedArgs = args.trim();
         if (trimmedArgs.isEmpty()) {
@@ -34,7 +36,8 @@ public class FindCommandParser implements Parser<FindCommand> {
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));
         }
 
-        String[] nameKeywords = new String[0];
+        String[] employeeKeywords = new String[0];
+        String findBy = null;
         //   String[] nameKeywords = trimmedArgs.split("\\s+"); ///-----may need to change it
       //  System.out.println("--------------------actual"+Arrays.toString(nameKeywords));
        // FindEmployeeDescriptor findEmployeeDescriptor = new FindEmployeeDescriptor();
@@ -44,16 +47,24 @@ public class FindCommandParser implements Parser<FindCommand> {
             Name nameObjectArray
                     = (ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get()));
             trimmedArgs = nameObjectArray.toString().trim();
-            nameKeywords = trimmedArgs.split("\\s+");
-            return new FindCommand(new NameContainsKeywordsPredicate(Arrays.asList(nameKeywords)));
+            employeeKeywords = trimmedArgs.split("\\s+");
+            findBy= String.valueOf(PREFIX_NAME);
+           // return new FindCommand(new NameContainsKeywordsPredicate(Arrays.asList(nameKeywords),findBy));
         }
         ///--------
-//        if (argMultimap.getValue(PREFIX_ROLE).isPresent()) {
-//          //  editEmployeeDescriptor.setRole(ParserUtil.parseRole(argMultimap.getValue(PREFIX_ROLE).get()));
-//            return new FindCommand(new RoleContainsKeywordsPredicate(Arrays.asList(nameKeywords)));
-//        }
+        if (argMultimap.getValue(PREFIX_ROLE).isPresent()) {
+            Role roleObjectArray
+                    = (ParserUtil.parseRole(argMultimap.getValue(PREFIX_ROLE).get()));
+            trimmedArgs = roleObjectArray.toString().trim();
+            employeeKeywords = trimmedArgs.split("\\s+");
+            findBy= String.valueOf(PREFIX_ROLE);
 
-        return new FindCommand(new NameContainsKeywordsPredicate(Arrays.asList(nameKeywords)));
+         //   return new FindCommand(new NameContainsKeywordsPredicate(Arrays.asList(nameKeywords),findBy));
+        }
+
+        return new FindCommand(new NameContainsKeywordsPredicate(Arrays.asList(employeeKeywords), findBy));
+
+
     }
 
 }

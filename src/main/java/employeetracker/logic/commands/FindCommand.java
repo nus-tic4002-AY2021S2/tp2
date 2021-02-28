@@ -7,7 +7,6 @@ import static java.util.Objects.requireNonNull;
 import employeetracker.commons.core.Messages;
 import employeetracker.model.Model;
 import employeetracker.model.employee.NameContainsKeywordsPredicate;
-import employeetracker.model.employee.RoleContainsKeywordsPredicate;
 
 /**
  * Finds and lists all persons in address book whose name contains any of the argument keywords.
@@ -32,6 +31,9 @@ public class FindCommand extends Command {
     public FindCommand(NameContainsKeywordsPredicate predicate) {
         this.predicate = predicate;
     }
+
+
+
 
     ///--------
     //private final FindEmployeeDescriptor findEmployeeDescriptor;
