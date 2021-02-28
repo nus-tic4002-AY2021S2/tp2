@@ -250,7 +250,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user                                       | delete an employee record       | remove an employee record that I no longer need                       |
 | `* * *`  | user                                       | list all employee records       | view all my employees' information                                    |
 | `* *  `  | user                                       | clear all employee records      | start afresh with the app                                             |
-| `* * *`  | user                                       | find an employee record        | look at the particular employee's information                          |
+| `* * *`  | user                                       | find an employee record by name | look at the particular employee's information
+| `* * *`  | user                                       | find employee records by role   | look at the information of the employees with this role
 | `* * *`  | user                                       | sort employee records by salary | see the salary structure in my company                                |
 
 *{More to be added}*
@@ -261,7 +262,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Use case: Add an employee record**
 
-***MSS*
+**MSS**
 1. User enters new employee record.
 2. Employee Tracker displays a success message together with the updated list of employee records.<br>
    Use case ends.
@@ -287,8 +288,33 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 3a. The given index is invalid.
     * 3a1. Employee Tracker shows an error message.<br>
       Use case resumes at step 2.
+
+**Use case: Find an employee record by name**
+
+**MSS**
+1. User requests to find employee records by name.
+2. Employee Tracker displays a success message together with the matched employee records.<br>
+   Use case ends.
+
+**Extensions**
+* 4a. The command entered is in the wrong format.
+    * 4a1. Employee Tracker shows an error message.<br>
+      Use case ends.
+
+**Use case: Find employee records by role**
+
+**MSS**
+1. User requests to find employee records by role.
+2. Employee Tracker displays a success message together with the matched employee records.<br>
+   Use case ends.
+
+**Extensions**
+* 5a. The command entered is in the wrong format.
+    * 5a1. Employee Tracker shows an error message.<br>
+      Use case ends.
       
 *{More to be added}*
+
 
 ### Non-Functional Requirements
 
