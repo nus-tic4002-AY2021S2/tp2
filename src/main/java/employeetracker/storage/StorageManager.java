@@ -67,14 +67,14 @@ public class StorageManager implements Storage {
     }
 
     @Override
-    public void saveEmployeeTracker(ReadOnlyEmployeeTracker addressBook) throws IOException {
-        saveEmployeeTracker(addressBook, employeeTrackerStorage.getEmployeeTrackerFilePath());
+    public void saveEmployeeTracker(ReadOnlyEmployeeTracker employeeTracker) throws IOException {
+        saveEmployeeTracker(employeeTracker, employeeTrackerStorage.getEmployeeTrackerFilePath());
     }
 
     @Override
-    public void saveEmployeeTracker(ReadOnlyEmployeeTracker addressBook, Path filePath) throws IOException {
+    public void saveEmployeeTracker(ReadOnlyEmployeeTracker employeeTracker, Path filePath) throws IOException {
         logger.fine("Attempting to write to data file: " + filePath);
-        employeeTrackerStorage.saveEmployeeTracker(addressBook, filePath);
+        employeeTrackerStorage.saveEmployeeTracker(employeeTracker, filePath);
     }
 
 }

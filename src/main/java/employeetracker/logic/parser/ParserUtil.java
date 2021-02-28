@@ -9,10 +9,14 @@ import java.util.Set;
 import employeetracker.commons.core.index.Index;
 import employeetracker.commons.util.StringUtil;
 import employeetracker.logic.parser.exceptions.ParseException;
-import employeetracker.model.person.Address;
-import employeetracker.model.person.Email;
-import employeetracker.model.person.Name;
-import employeetracker.model.person.Phone;
+import employeetracker.model.employee.Address;
+import employeetracker.model.employee.DateOfBirth;
+import employeetracker.model.employee.DateOfJoining;
+import employeetracker.model.employee.Email;
+import employeetracker.model.employee.Name;
+import employeetracker.model.employee.Phone;
+import employeetracker.model.employee.Role;
+import employeetracker.model.employee.Salary;
 import employeetracker.model.tag.Tag;
 
 /**
@@ -48,6 +52,21 @@ public class ParserUtil {
             throw new ParseException(Name.MESSAGE_CONSTRAINTS);
         }
         return new Name(trimmedName);
+    }
+
+    /**
+     * Parses a {@code String role} into a {@code ROle}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code role} is invalid.
+     */
+    public static Role parseRole(String role) throws ParseException {
+        requireNonNull(role);
+        String trimmedRole = role.trim();
+        if (!Name.isValidName(trimmedRole)) {
+            throw new ParseException(Name.MESSAGE_CONSTRAINTS);
+        }
+        return new Role(trimmedRole);
     }
 
     /**
@@ -93,6 +112,51 @@ public class ParserUtil {
             throw new ParseException(Email.MESSAGE_CONSTRAINTS);
         }
         return new Email(trimmedEmail);
+    }
+
+    /**
+     * Parses a {@code String dateOfBirth} into an {@code DateOfBirth}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code dateOfBirth} is invalid.
+     */
+    public static DateOfBirth parseDateOfBirth(String dateOfBirth) throws ParseException {
+        requireNonNull(dateOfBirth);
+        String trimmedDateOfBirth = dateOfBirth.trim();
+        if (!DateOfBirth.isValidDateOfBirth(trimmedDateOfBirth)) {
+            throw new ParseException(DateOfBirth.MESSAGE_CONSTRAINTS);
+        }
+        return new DateOfBirth(trimmedDateOfBirth);
+    }
+
+    /**
+     * Parses a {@code String dateOfJoining} into an {@code DateOfJoining}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code dateOfJoining} is invalid.
+     */
+    public static DateOfJoining parseDateOfJoining(String dateOfJoining) throws ParseException {
+        requireNonNull(dateOfJoining);
+        String trimmedDateOfJoining = dateOfJoining.trim();
+        if (!DateOfBirth.isValidDateOfBirth(trimmedDateOfJoining)) {
+            throw new ParseException(DateOfJoining.MESSAGE_CONSTRAINTS);
+        }
+        return new DateOfJoining(trimmedDateOfJoining);
+    }
+
+    /**
+     * Parses a {@code String salary} into an {@code Salary}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code email} is invalid.
+     */
+    public static Salary parseSalary(String salary) throws ParseException {
+        requireNonNull(salary);
+        String trimmedSalary = salary.trim();
+        if (!Salary.isValidSalary(trimmedSalary)) {
+            throw new ParseException(Salary.MESSAGE_CONSTRAINTS);
+        }
+        return new Salary(trimmedSalary);
     }
 
     /**

@@ -1,6 +1,6 @@
 package employeetracker.storage;
 
-import static employeetracker.testutil.TypicalPersons.getTypicalEmployeeTracker;
+import static employeetracker.testutil.TypicalEmployees.getTypicalEmployeeTracker;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 

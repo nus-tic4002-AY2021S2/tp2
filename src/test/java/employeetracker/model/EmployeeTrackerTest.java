@@ -3,8 +3,8 @@ package employeetracker.model;
 import static employeetracker.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
 import static employeetracker.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static employeetracker.testutil.Assert.assertThrows;
-import static employeetracker.testutil.TypicalPersons.ALICE;
-import static employeetracker.testutil.TypicalPersons.getTypicalEmployeeTracker;
+import static employeetracker.testutil.TypicalEmployees.ALICE;
+import static employeetracker.testutil.TypicalEmployees.getTypicalEmployeeTracker;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -16,9 +16,9 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import employeetracker.model.person.Person;
-import employeetracker.model.person.exceptions.DuplicatePersonException;
-import employeetracker.testutil.PersonBuilder;
+import employeetracker.model.employee.Employee;
+import employeetracker.model.employee.exceptions.DuplicateEmployeeException;
+import employeetracker.testutil.EmployeeBuilder;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -28,7 +28,7 @@ public class EmployeeTrackerTest {
 
     @Test
     public void constructor() {
-        assertEquals(Collections.emptyList(), employeeTracker.getPersonList());
+        assertEquals(Collections.emptyList(), employeeTracker.getEmployeeList());
     }
 
     @Test
@@ -44,58 +44,58 @@ public class EmployeeTrackerTest {
     }
 
     @Test
-    public void resetData_withDuplicatePersons_throwsDuplicatePersonException() {
-        // Two persons with the same identity fields
-        Person editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
+    public void resetData_withDuplicateEmployees_throwsDuplicateEmployeeException() {
+        // Two employees with the same identity fields
+        Employee editedAlice = new EmployeeBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
                 .build();
-        List<Person> newPersons = Arrays.asList(ALICE, editedAlice);
-        EmployeeTrackerStub newData = new EmployeeTrackerStub(newPersons);
+        List<Employee> newEmployees = Arrays.asList(ALICE, editedAlice);
+        EmployeeTrackerStub newData = new EmployeeTrackerStub(newEmployees);
 
-        assertThrows(DuplicatePersonException.class, () -> employeeTracker.resetData(newData));
+        assertThrows(DuplicateEmployeeException.class, () -> employeeTracker.resetData(newData));
     }
 
     @Test
-    public void hasPerson_nullPerson_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> employeeTracker.hasPerson(null));
+    public void hasEmployee_nullEmployee_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> employeeTracker.hasEmployee(null));
     }
 
     @Test
-    public void hasPerson_personNotInEmployeeTracker_returnsFalse() {
-        assertFalse(employeeTracker.hasPerson(ALICE));
+    public void hasEmployee_employeeNotInEmployeeTracker_returnsFalse() {
+        assertFalse(employeeTracker.hasEmployee(ALICE));
     }
 
     @Test
-    public void hasPerson_personInEmployeeTracker_returnsTrue() {
-        employeeTracker.addPerson(ALICE);
-        assertTrue(employeeTracker.hasPerson(ALICE));
+    public void hasEmployee_employeeInEmployeeTracker_returnsTrue() {
+        employeeTracker.addEmployee(ALICE);
+        assertTrue(employeeTracker.hasEmployee(ALICE));
     }
 
     @Test
-    public void hasPerson_personWithSameIdentityFieldsInEmployeeTracker_returnsTrue() {
-        employeeTracker.addPerson(ALICE);
-        Person editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
+    public void hasEmployee_employeeWithSameIdentityFieldsInEmployeeTracker_returnsTrue() {
+        employeeTracker.addEmployee(ALICE);
+        Employee editedAlice = new EmployeeBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
                 .build();
-        assertTrue(employeeTracker.hasPerson(editedAlice));
+        assertTrue(employeeTracker.hasEmployee(editedAlice));
     }
 
     @Test
-    public void getPersonList_modifyList_throwsUnsupportedOperationException() {
-        assertThrows(UnsupportedOperationException.class, () -> employeeTracker.getPersonList().remove(0));
+    public void getEmployeeList_modifyList_throwsUnsupportedOperationException() {
+        assertThrows(UnsupportedOperationException.class, () -> employeeTracker.getEmployeeList().remove(0));
     }
 
     /**
-     * A stub ReadOnlyEmployeeTracker whose persons list can violate interface constraints.
+     * A stub ReadOnlyEmployeeTracker whose employees list can violate interface constraints.
      */
     private static class EmployeeTrackerStub implements ReadOnlyEmployeeTracker {
-        private final ObservableList<Person> persons = FXCollections.observableArrayList();
+        private final ObservableList<Employee> employees = FXCollections.observableArrayList();
 
-        EmployeeTrackerStub(Collection<Person> persons) {
-            this.persons.setAll(persons);
+        EmployeeTrackerStub(Collection<Employee> employees) {
+            this.employees.setAll(employees);
         }
 
         @Override
-        public ObservableList<Person> getPersonList() {
-            return persons;
+        public ObservableList<Employee> getEmployeeList() {
+            return employees;
         }
     }
 

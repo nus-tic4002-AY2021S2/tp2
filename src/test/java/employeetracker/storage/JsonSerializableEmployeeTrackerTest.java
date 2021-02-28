@@ -11,37 +11,37 @@ import org.junit.jupiter.api.Test;
 import employeetracker.commons.exceptions.IllegalValueException;
 import employeetracker.commons.util.JsonUtil;
 import employeetracker.model.EmployeeTracker;
-import employeetracker.testutil.TypicalPersons;
+import employeetracker.testutil.TypicalEmployees;
 
 public class JsonSerializableEmployeeTrackerTest {
 
     private static final Path TEST_DATA_FOLDER =
             Paths.get("src", "test", "data", "JsonSerializableEmployeeTrackerTest");
-    private static final Path TYPICAL_PERSONS_FILE = TEST_DATA_FOLDER.resolve("typicalPersonsEmployeeTracker.json");
-    private static final Path INVALID_PERSON_FILE = TEST_DATA_FOLDER.resolve("invalidPersonEmployeeTracker.json");
-    private static final Path DUPLICATE_PERSON_FILE = TEST_DATA_FOLDER.resolve("duplicatePersonEmployeeTracker.json");
+    private static final Path TYPICAL_EMPLOYEES_FILE = TEST_DATA_FOLDER.resolve("typicalEmployees.json");
+    private static final Path INVALID_EMPLOYEE_FILE = TEST_DATA_FOLDER.resolve("invalidEmployee.json");
+    private static final Path DUPLICATE_EMPLOYEE_FILE = TEST_DATA_FOLDER.resolve("duplicateEmployee.json");
 
     @Test
-    public void toModelType_typicalPersonsFile_success() throws Exception {
-        JsonSerializableEmployeeTracker dataFromFile = JsonUtil.readJsonFile(TYPICAL_PERSONS_FILE,
+    public void toModelType_typicalEmployeesFile_success() throws Exception {
+        JsonSerializableEmployeeTracker dataFromFile = JsonUtil.readJsonFile(TYPICAL_EMPLOYEES_FILE,
                 JsonSerializableEmployeeTracker.class).get();
-        EmployeeTracker addressBookFromFile = dataFromFile.toModelType();
-        EmployeeTracker typicalPersonsAddressBook = TypicalPersons.getTypicalEmployeeTracker();
-        assertEquals(addressBookFromFile, typicalPersonsAddressBook);
+        EmployeeTracker employeeTrackerFromFile = dataFromFile.toModelType();
+        EmployeeTracker typicalPersonsEmployeeTracker = TypicalEmployees.getTypicalEmployeeTracker();
+        assertEquals(employeeTrackerFromFile, typicalPersonsEmployeeTracker);
     }
 
     @Test
-    public void toModelType_invalidPersonFile_throwsIllegalValueException() throws Exception {
-        JsonSerializableEmployeeTracker dataFromFile = JsonUtil.readJsonFile(INVALID_PERSON_FILE,
+    public void toModelType_invalidEmployeeFile_throwsIllegalValueException() throws Exception {
+        JsonSerializableEmployeeTracker dataFromFile = JsonUtil.readJsonFile(INVALID_EMPLOYEE_FILE,
                 JsonSerializableEmployeeTracker.class).get();
         assertThrows(IllegalValueException.class, dataFromFile::toModelType);
     }
 
     @Test
-    public void toModelType_duplicatePersons_throwsIllegalValueException() throws Exception {
-        JsonSerializableEmployeeTracker dataFromFile = JsonUtil.readJsonFile(DUPLICATE_PERSON_FILE,
+    public void toModelType_duplicateEmployees_throwsIllegalValueException() throws Exception {
+        JsonSerializableEmployeeTracker dataFromFile = JsonUtil.readJsonFile(DUPLICATE_EMPLOYEE_FILE,
                 JsonSerializableEmployeeTracker.class).get();
-        assertThrows(IllegalValueException.class, JsonSerializableEmployeeTracker.MESSAGE_DUPLICATE_PERSON,
+        assertThrows(IllegalValueException.class, JsonSerializableEmployeeTracker.MESSAGE_DUPLICATE_EMPLOYEE,
                 dataFromFile::toModelType);
     }
 
