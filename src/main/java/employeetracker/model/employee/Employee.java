@@ -88,7 +88,7 @@ public class Employee {
     /**
      * Returns true if both employees have the same role.
      */
-    public boolean hasSameEmployee(Employee otherEmployee) {
+    public boolean hasSameRole(Employee otherEmployee) {
         if (otherEmployee == this) {
             return true;
         }
