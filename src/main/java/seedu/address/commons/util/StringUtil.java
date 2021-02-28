@@ -5,7 +5,6 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.util.Arrays;
 
 /**
  * Helper functions for handling strings.
@@ -28,6 +27,8 @@ public class StringUtil {
         requireNonNull(sentence);
         requireNonNull(word);
         String[] obj;
+
+        //System.out.println(word);
         String preppedWord = word.trim().toLowerCase();
 
         if (preppedWord.contains("/")) {
@@ -40,7 +41,8 @@ public class StringUtil {
         String preppedSentence = sentence.toLowerCase();
         String[] wordsInPreppedSentence = preppedSentence.split("\\s+");
 
-        return Arrays.asList(wordsInPreppedSentence).contains(preppedWord);
+        //return Arrays.asList(wordsInPreppedSentence).contains(preppedWord);
+        return preppedSentence.contains(preppedWord);
     }
 
     /**
