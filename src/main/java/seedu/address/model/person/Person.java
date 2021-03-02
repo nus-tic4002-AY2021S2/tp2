@@ -26,6 +26,7 @@ public class Person {
     private final Set<Tag> tags = new HashSet<>();
     private final Set<Appointment> appointments = new HashSet<>();
 
+    private boolean viewAppInd = false;
     /**
      * Every field must be present and not null.
      */
@@ -53,6 +54,14 @@ public class Person {
 
     public Address getAddress() {
         return address;
+    }
+
+    public boolean isViewAppInd() {
+        return viewAppInd;
+    }
+
+    public void setViewAppInd(boolean viewAppInd) {
+        this.viewAppInd = viewAppInd;
     }
 
     /**

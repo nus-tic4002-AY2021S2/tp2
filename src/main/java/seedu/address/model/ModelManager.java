@@ -11,7 +11,6 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
-import seedu.address.model.person.Appointment;
 import seedu.address.model.person.Person;
 
 /**
@@ -23,7 +22,6 @@ public class ModelManager implements Model {
     private final AddressBook addressBook;
     private final UserPrefs userPrefs;
     private final FilteredList<Person> filteredPersons;
-
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
      */
@@ -128,14 +126,20 @@ public class ModelManager implements Model {
     public void updateFilteredPersonList(Predicate<Person> predicate) {
         requireNonNull(predicate);
         filteredPersons.setPredicate(predicate);
+        for (Person p : filteredPersons) {
+            p.setViewAppInd(false);
+        }
     }
 
     @Override
-    public void addAppointmentToPerson(Person person, Appointment appointment) {
-        Person editPerson = person;
-        editPerson.getAppointments().add(appointment);
-        addressBook.setPerson(person,editPerson);
+    public void updateFilteredViewAppPersonList(Predicate<Person> predicate) {
+        requireNonNull(predicate);
+        filteredPersons.setPredicate(predicate);
+        for (Person p : filteredPersons) {
+            p.setViewAppInd(true);
+        }
     }
+
 
     @Override
     public boolean equals(Object obj) {

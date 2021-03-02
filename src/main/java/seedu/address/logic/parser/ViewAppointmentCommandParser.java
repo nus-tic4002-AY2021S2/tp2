@@ -1,26 +1,26 @@
 package seedu.address.logic.parser;
 
-import seedu.address.commons.core.index.Index;
-import seedu.address.logic.commands.AddAppointmentCommand;
-import seedu.address.logic.commands.FindCommand;
-import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.NameContainsKeywordsPredicate;
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 import java.util.Arrays;
 
-import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import seedu.address.logic.commands.FindCommand;
+import seedu.address.logic.commands.ViewAppointmentCommand;
+import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.person.NameContainsKeywordsPredicate;
+
 
 /**
  * Parses input arguments and creates a new FindCommand object
  */
-public class AddAppointmentCommandParser implements Parser<FindCommand> {
+public class ViewAppointmentCommandParser implements Parser<ViewAppointmentCommand> {
 
     /**
      * Parses the given {@code String} of arguments in the context of the FindCommand
      * and returns a FindCommand object for execution.
      * @throws ParseException if the user input does not conform the expected format
      */
-    public AddAppointmentCommand parse(String args) throws ParseException {
+    public ViewAppointmentCommand parse(String args) throws ParseException {
         String trimmedArgs = args.trim();
         if (trimmedArgs.isEmpty()) {
             throw new ParseException(
@@ -29,15 +29,7 @@ public class AddAppointmentCommandParser implements Parser<FindCommand> {
 
         String[] nameKeywords = trimmedArgs.split("\\s+");
 
-        String details ="";
-        String dateString ="";
-        Index index;
-        try {
-            return new AddAppointmentCommand();
-        } catch (java.text.ParseException e) {
-            e.printStackTrace();
-        }
-        return null;
+        return new ViewAppointmentCommand(new NameContainsKeywordsPredicate(Arrays.asList(nameKeywords)));
     }
 
 }
