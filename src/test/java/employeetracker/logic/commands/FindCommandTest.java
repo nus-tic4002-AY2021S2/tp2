@@ -58,7 +58,8 @@ public class FindCommandTest {
     @Test
     public void execute_zeroKeywords_noEmployeeFound() {
         String expectedMessage = String.format(MESSAGE_EMPLOYEES_LISTED_OVERVIEW, 0);
-        NameContainsKeywordsPredicate predicate = preparePredicate(" ");
+        NameContainsKeywordsPredicate predicate = new NameContainsKeywordsPredicate(
+                Collections.emptyList(), "n/");
         FindCommand command = new FindCommand(predicate);
         expectedModel.updateFilteredEmployeeList(predicate);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
@@ -68,7 +69,8 @@ public class FindCommandTest {
     @Test
     public void execute_multipleKeywords_multipleEmployeesFound() {
         String expectedMessage = String.format(MESSAGE_EMPLOYEES_LISTED_OVERVIEW, 3);
-        NameContainsKeywordsPredicate predicate = preparePredicate("n/Kurz Elle Kunz");
+        NameContainsKeywordsPredicate predicate = new NameContainsKeywordsPredicate(
+                Arrays.asList("Kurz", "Elle", "Kunz"), "n/");
         FindCommand command = new FindCommand(predicate);
         expectedModel.updateFilteredEmployeeList(predicate);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
