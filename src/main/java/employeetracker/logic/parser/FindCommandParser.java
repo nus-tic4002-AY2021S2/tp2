@@ -1,7 +1,8 @@
 package employeetracker.logic.parser;
 
 import static employeetracker.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static employeetracker.logic.parser.CliSyntax.*;
+import static employeetracker.logic.parser.CliSyntax.PREFIX_NAME;
+import static employeetracker.logic.parser.CliSyntax.PREFIX_ROLE;
 import static java.util.Objects.requireNonNull;
 
 import java.util.Arrays;
@@ -38,28 +39,19 @@ public class FindCommandParser implements Parser<FindCommand> {
 
         String[] employeeKeywords = new String[0];
         String findBy = null;
-        //   String[] nameKeywords = trimmedArgs.split("\\s+"); ///-----may need to change it
-      //  System.out.println("--------------------actual"+Arrays.toString(nameKeywords));
-       // FindEmployeeDescriptor findEmployeeDescriptor = new FindEmployeeDescriptor();
-       // NameContainsKeywordsPredicate editEmployeeDescriptor = new FindCommand.NameContainsKeywordsPredicate();
-        ///--------
+
         if (argMultimap.getValue(PREFIX_NAME).isPresent()) {
-            Name nameObjectArray
-                    = (ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get()));
+            Name nameObjectArray = (ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get()));
             trimmedArgs = nameObjectArray.toString().trim();
             employeeKeywords = trimmedArgs.split("\\s+");
-            findBy= String.valueOf(PREFIX_NAME);
-           // return new FindCommand(new NameContainsKeywordsPredicate(Arrays.asList(nameKeywords),findBy));
+            findBy = String.valueOf(PREFIX_NAME);
         }
-        ///--------
+
         if (argMultimap.getValue(PREFIX_ROLE).isPresent()) {
-            Role roleObjectArray
-                    = (ParserUtil.parseRole(argMultimap.getValue(PREFIX_ROLE).get()));
+            Role roleObjectArray = (ParserUtil.parseRole(argMultimap.getValue(PREFIX_ROLE).get()));
             trimmedArgs = roleObjectArray.toString().trim();
             employeeKeywords = trimmedArgs.split("\\s+");
-            findBy= String.valueOf(PREFIX_ROLE);
-
-         //   return new FindCommand(new NameContainsKeywordsPredicate(Arrays.asList(nameKeywords),findBy));
+            findBy = String.valueOf(PREFIX_ROLE);
         }
 
         return new FindCommand(new NameContainsKeywordsPredicate(Arrays.asList(employeeKeywords), findBy));

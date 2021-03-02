@@ -22,9 +22,8 @@ public class FindCommand extends Command {
             + COMMAND_WORD + " [" + PREFIX_NAME + "NAME] "
             + "Example: " + COMMAND_WORD + " n/ Alice bob charlie"
             + "\n OR \n"
-            + COMMAND_WORD  + " [" + PREFIX_ROLE + "ROLE] "
-            + "Example: " + COMMAND_WORD + " r/ Developer"
-            ;
+            + COMMAND_WORD + " [" + PREFIX_ROLE + "ROLE] "
+            + "Example: " + COMMAND_WORD + " r/ Developer";
 
     private final NameContainsKeywordsPredicate predicate;
 
