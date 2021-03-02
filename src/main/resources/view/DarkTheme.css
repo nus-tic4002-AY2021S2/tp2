@@ -350,3 +350,16 @@
     -fx-background-radius: 2;
     -fx-font-size: 11;
 }
+
+#appointments  {
+    -fx-padding: 5px 0px 0px 0px;
+    -fx-border-insets: 5px;
+    -fx-background-insets: 5px;
+}
+
+
+#appointments .label {
+    -fx-font-size: 11pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-opacity: 0.9;
+}

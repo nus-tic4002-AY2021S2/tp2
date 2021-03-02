@@ -8,6 +8,7 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.appointment.Appointment;
 
 /**
  * An UI component that displays information of a {@code Person}.
@@ -40,6 +41,10 @@ public class PersonCard extends UiPart<Region> {
     private Label email;
     @FXML
     private FlowPane tags;
+    @FXML
+    private FlowPane appointments;
+    @FXML
+    private FlowPane noOfAppointments;
 
     /**
      * Creates a {@code PersonCode} with the given {@code Person} and index to display.
@@ -49,12 +54,24 @@ public class PersonCard extends UiPart<Region> {
         this.person = person;
         id.setText(displayedIndex + ". ");
         name.setText(person.getName().fullName);
-        phone.setText(person.getPhone().value);
         address.setText(person.getAddress().value);
+        phone.setText(person.getPhone().value);
         email.setText(person.getEmail().value);
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
+        int count = 0;
+        if (person.getAppointment().size() > 0 && person.isViewAppInd()) {
+            person.getAppointment().stream()
+                    .sorted(Comparator.comparing(appointment -> appointment.appointmentDescription));
+            for (Appointment appointment : person.getAppointment()) {
+                count++;
+                appointments.getChildren().add(new Label(count + ". " + appointment.appointmentDescription));
+            }
+        } else {
+            noOfAppointments.getChildren().add(new Label(person.getAppointment().size() + " Appointments"));
+        }
+
     }
 
     @Override
