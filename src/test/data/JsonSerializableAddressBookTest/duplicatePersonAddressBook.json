@@ -1,6 +1,7 @@
 {
   "persons": [ {
     "name": "Alice Pauline",
+    "date": "01-02-2020",
     "nric": "S1234567F",
     "phone": "94351253",
     "email": "alice@example.com",
@@ -9,6 +10,7 @@
     "tagged": [ "friends" ]
   }, {
     "name": "Alice Pauline",
+    "date": "01-02-2020",
     "nric": "S1234567F",
     "phone": "94351253",
     "email": "pauline@example.com",

@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.person.Address;
+import seedu.address.model.person.Date;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Nric;
@@ -27,6 +28,7 @@ class JsonAdaptedPerson {
     public static final String MISSING_FIELD_MESSAGE_FORMAT = "Person's %s field is missing!";
 
     private final String name;
+    private final String date;
     private final String nric;
     private final String phone;
     private final String email;
@@ -38,11 +40,13 @@ class JsonAdaptedPerson {
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
      */
     @JsonCreator
-    public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("nric") String nric,
-                             @JsonProperty("phone") String phone, @JsonProperty("email") String email,
-                             @JsonProperty("address") String address, @JsonProperty("remark") String remark,
+    public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("date") String date,
+                             @JsonProperty("nric") String nric, @JsonProperty("phone") String phone,
+                             @JsonProperty("email") String email, @JsonProperty("address") String address,
+                             @JsonProperty("remark") String remark,
                              @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
         this.name = name;
+        this.date = date;
         this.nric = nric;
         this.phone = phone;
         this.email = email;
@@ -58,6 +62,7 @@ class JsonAdaptedPerson {
      */
     public JsonAdaptedPerson(Person source) {
         name = source.getName().fullName;
+        date = source.getDate().value;
         nric = source.getNric().value;
         phone = source.getPhone().value;
         email = source.getEmail().value;
@@ -86,6 +91,15 @@ class JsonAdaptedPerson {
             throw new IllegalValueException(Name.MESSAGE_CONSTRAINTS);
         }
         final Name modelName = new Name(name);
+
+        if (date == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    Date.class.getSimpleName()));
+        }
+        if (!Date.isValidDate(date)) {
+            throw new IllegalValueException(Date.MESSAGE_DATE_CONSTRAINTS);
+        }
+        final Date modelDate = new Date(date);
 
         if (nric == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Nric.class.getSimpleName()));
@@ -126,7 +140,8 @@ class JsonAdaptedPerson {
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
 
-        return new Person(modelName, modelNric, modelPhone, modelEmail, modelAddress, modelRemark, modelTags);
+        return new Person(modelName, modelDate, modelNric, modelPhone,
+                modelEmail, modelAddress, modelRemark, modelTags);
     }
 
 }
