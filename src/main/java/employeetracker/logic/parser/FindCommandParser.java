@@ -25,33 +25,33 @@ public class FindCommandParser implements Parser<FindCommand> {
      * @throws ParseException if the user input does not conform the expected format
      */
     public FindCommand parse(String args) throws ParseException {
-        ///--------
+        String[] employeeKeywords = new String[0];
+        String findBy = null;
+
         requireNonNull(args);
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_ROLE);
 
-        ///---------
         String trimmedArgs = args.trim();
+
         if (trimmedArgs.isEmpty()) {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));
         }
-
-        String[] employeeKeywords = new String[0];
-        String findBy = null;
 
         if (argMultimap.getValue(PREFIX_NAME).isPresent()) {
             Name nameObjectArray = (ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get()));
             trimmedArgs = nameObjectArray.toString().trim();
             employeeKeywords = trimmedArgs.split("\\s+");
             findBy = String.valueOf(PREFIX_NAME);
-        }
-
-        if (argMultimap.getValue(PREFIX_ROLE).isPresent()) {
+        } else if (argMultimap.getValue(PREFIX_ROLE).isPresent()) {
             Role roleObjectArray = (ParserUtil.parseRole(argMultimap.getValue(PREFIX_ROLE).get()));
             trimmedArgs = roleObjectArray.toString().trim();
             employeeKeywords = trimmedArgs.split("\\s+");
             findBy = String.valueOf(PREFIX_ROLE);
+        } else {
+            throw new ParseException(
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));
         }
 
         return new FindCommand(new NameContainsKeywordsPredicate(Arrays.asList(employeeKeywords), findBy));
