@@ -254,6 +254,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | new user | see usage instructions         | refer to instructions when I forget how to use the App                 |
 | `* * *`  | user | add a new person               | record new cases                                                                       |
 | `* * *`  | user | delete a person                | remove entries that I no longer need                                   |
+| `* * *`  | user | list all person's information          | view all my person's information|
+| `* * *`  | police officer | edit a person's information        | modify a person's information|
+| `* * *`  | police officer | clear all person's information       | start afresh with the app|
 | `* * *`  | police officer | have an NRIC field         | easily find the unique person |
 | `* * *`  | police officer | add remarks to a case         | record my own notes after a call |
 | `* * *`  | police officer | find a person by field         | easily locate details of persons with any bit of information I can remember |

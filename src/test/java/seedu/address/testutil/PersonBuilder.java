@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import seedu.address.model.person.Address;
+import seedu.address.model.person.Date;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Nric;
@@ -19,6 +20,7 @@ import seedu.address.model.util.SampleDataUtil;
 public class PersonBuilder {
 
     public static final String DEFAULT_NAME = "Alice Pauline";
+    public static final String DEFAULT_DATE = "01-01-2021";
     public static final String DEFAULT_NRIC = "S1234567B";
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "alice@gmail.com";
@@ -26,6 +28,7 @@ public class PersonBuilder {
     public static final String DEFAULT_REMARK = "She likes aardvarks.";
 
     private Name name;
+    private Date date;
     private Nric nric;
     private Phone phone;
     private Email email;
@@ -38,6 +41,7 @@ public class PersonBuilder {
      */
     public PersonBuilder() {
         name = new Name(DEFAULT_NAME);
+        date = new Date(DEFAULT_DATE);
         nric = new Nric(DEFAULT_NRIC);
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
@@ -51,6 +55,7 @@ public class PersonBuilder {
      */
     public PersonBuilder(Person personToCopy) {
         name = personToCopy.getName();
+        date = personToCopy.getDate();
         nric = personToCopy.getNric();
         phone = personToCopy.getPhone();
         email = personToCopy.getEmail();
@@ -64,6 +69,14 @@ public class PersonBuilder {
      */
     public PersonBuilder withName(String name) {
         this.name = new Name(name);
+        return this;
+    }
+
+    /**
+     * Sets the {@code date} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withDate(String date) {
+        this.date = new Date(date);
         return this;
     }
 
@@ -118,7 +131,7 @@ public class PersonBuilder {
 
 
     public Person build() {
-        return new Person(name, nric, phone, email, address, remark, tags);
+        return new Person(name, date, nric, phone, email, address, remark, tags);
     }
 
 }
