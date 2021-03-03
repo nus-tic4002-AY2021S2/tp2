@@ -84,6 +84,7 @@ public class CommandTestUtil {
     public static final EditCommand.EditEmployeeDescriptor DESC_AMY;
     public static final EditCommand.EditEmployeeDescriptor DESC_BOB;
 
+
     static {
         DESC_AMY = new EditEmployeeDescriptorBuilder().withName(VALID_NAME_AMY).withRole(VALID_ROLE_AMY)
                 .withPhone(VALID_PHONE_AMY).withEmail(VALID_EMAIL_AMY).withAddress(VALID_ADDRESS_AMY)
@@ -144,7 +145,7 @@ public class CommandTestUtil {
 
         Employee employee = model.getFilteredEmployeeList().get(targetIndex.getZeroBased());
         final String[] splitName = employee.getName().fullName.split("\\s+");
-        model.updateFilteredEmployeeList(new NameContainsKeywordsPredicate(Arrays.asList(splitName[0])));
+        model.updateFilteredEmployeeList(new NameContainsKeywordsPredicate(Arrays.asList(splitName[0]), "n/"));
 
         assertEquals(1, model.getFilteredEmployeeList().size());
     }

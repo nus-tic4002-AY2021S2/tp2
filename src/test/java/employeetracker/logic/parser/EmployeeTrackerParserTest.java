@@ -32,6 +32,7 @@ import employeetracker.testutil.EmployeeUtil;
 public class EmployeeTrackerParserTest {
 
     private final EmployeeTrackerParser parser = new EmployeeTrackerParser();
+    private String findBy;
 
     @Test
     public void parseCommand_add() throws Exception {
@@ -73,8 +74,9 @@ public class EmployeeTrackerParserTest {
     public void parseCommand_find() throws Exception {
         List<String> keywords = Arrays.asList("foo", "bar", "baz");
         FindCommand command = (FindCommand) parser.parseCommand(
-                FindCommand.COMMAND_WORD + " " + keywords.stream().collect(Collectors.joining(" ")));
-        assertEquals(new FindCommand(new NameContainsKeywordsPredicate(keywords)), command);
+                FindCommand.COMMAND_WORD + " n/ " + keywords.stream().collect(Collectors.joining(" ")));
+        assertEquals(new FindCommand(new NameContainsKeywordsPredicate(keywords, "n/")), command);
+
     }
 
     @Test
