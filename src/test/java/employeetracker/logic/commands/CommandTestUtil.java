@@ -83,7 +83,7 @@ public class CommandTestUtil {
 
     public static final EditCommand.EditEmployeeDescriptor DESC_AMY;
     public static final EditCommand.EditEmployeeDescriptor DESC_BOB;
-    private static String findBy;
+
 
     static {
         DESC_AMY = new EditEmployeeDescriptorBuilder().withName(VALID_NAME_AMY).withRole(VALID_ROLE_AMY)
@@ -145,7 +145,7 @@ public class CommandTestUtil {
 
         Employee employee = model.getFilteredEmployeeList().get(targetIndex.getZeroBased());
         final String[] splitName = employee.getName().fullName.split("\\s+");
-        model.updateFilteredEmployeeList(new NameContainsKeywordsPredicate(Arrays.asList(splitName[0]), findBy));
+        model.updateFilteredEmployeeList(new NameContainsKeywordsPredicate(Arrays.asList(splitName[0]), "n/"));
 
         assertEquals(1, model.getFilteredEmployeeList().size());
     }
