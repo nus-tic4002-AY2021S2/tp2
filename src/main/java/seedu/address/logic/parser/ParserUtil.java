@@ -12,11 +12,13 @@ import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Address;
+import seedu.address.model.person.Date;
 import seedu.address.model.person.Email;
-import seedu.address.model.person.Ic;
 import seedu.address.model.person.Name;
+import seedu.address.model.person.Nric;
 import seedu.address.model.person.Phone;
 import seedu.address.model.tag.Tag;
+
 
 /**
  * Contains utility methods used for parsing strings in the various *Parser classes.
@@ -53,6 +55,20 @@ public class ParserUtil {
         return new Name(trimmedName);
     }
 
+    /**
+     * Parses a {@code String date} into a {@code date}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws IllegalValueException if the given {@code date} is invalid.
+     */
+    public static Date parseDate(String date) throws IllegalValueException {
+        requireNonNull(date);
+        String trimmedDate = date.trim();
+        if (!Date.isValidDate(trimmedDate)) {
+            throw new IllegalValueException(Date.MESSAGE_DATE_CONSTRAINTS);
+        }
+        return new Date(trimmedDate);
+    }
 
     /**
      * Parses a {@code String nric} into a {@code Nric}.
@@ -60,22 +76,22 @@ public class ParserUtil {
      *
      * @throws IllegalValueException if the given {@code nric} is invalid.
      */
-    public static Ic parseIc(String ic) throws IllegalValueException {
-        requireNonNull(ic);
-        String trimmedIc = ic.trim();
-        if (!Ic.isValidIc(trimmedIc)) {
-            throw new IllegalValueException(Ic.MESSAGE_NRIC_CONSTRAINTS);
+    public static Nric parseNric(String nric) throws IllegalValueException {
+        requireNonNull(nric);
+        String trimmedNric = nric.trim();
+        if (!Nric.isValidNric(trimmedNric)) {
+            throw new IllegalValueException(Nric.MESSAGE_NRIC_CONSTRAINTS);
         }
-        return new Ic(trimmedIc);
+        return new Nric(trimmedNric);
     }
 
     /**
      * Parses a {@code Optional<String> nric} into an {@code Optional<Nric>} if {@code nric} is present.
      * See header comment of this class regarding the use of {@code Optional} parameters.
      */
-    public static Optional<Ic> parseIc(Optional<String> ic) throws IllegalValueException {
-        requireNonNull(ic);
-        return ic.isPresent() ? Optional.of(parseIc(ic.get())) : Optional.empty();
+    public static Optional<Nric> parseNric(Optional<String> nric) throws IllegalValueException {
+        requireNonNull(nric);
+        return nric.isPresent() ? Optional.of(parseNric(nric.get())) : Optional.empty();
     }
 
     /**
@@ -149,5 +165,6 @@ public class ParserUtil {
         }
         return tagSet;
     }
+
 
 }
