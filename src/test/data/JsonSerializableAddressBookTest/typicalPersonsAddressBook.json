@@ -2,6 +2,7 @@
   "_comment": "AddressBook save file which contains the same Person values as in TypicalPersons#getTypicalAddressBook()",
   "persons" : [ {
     "name" : "Alice Pauline",
+    "date": "01-02-2020",
     "nric" : "S1234567B",
     "phone" : "94351253",
     "email" : "alice@example.com",
@@ -10,6 +11,7 @@
     "tagged" : [ "friends" ]
   }, {
     "name" : "Benson Meier",
+    "date": "01-02-2020",
     "nric" : "S1234569B",
     "phone" : "98765432",
     "email" : "johnd@example.com",
@@ -18,6 +20,7 @@
     "tagged" : [ "owesMoney", "friends" ]
   }, {
     "name" : "Carl Kurz",
+    "date": "01-02-2020",
     "nric" : "S1234567C",
     "phone" : "95352563",
     "email" : "heinz@example.com",
@@ -26,6 +29,7 @@
     "tagged" : [ ]
   }, {
     "name" : "Daniel Meier",
+    "date": "01-02-2020",
     "nric" : "S1234565E",
     "phone" : "87652533",
     "email" : "cornelia@example.com",
@@ -34,6 +38,7 @@
     "tagged" : [ "friends" ]
   }, {
     "name" : "Elle Meyer",
+    "date": "01-02-2020",
     "nric" : "S2234567B",
     "phone" : "9482224",
     "email" : "werner@example.com",
@@ -42,6 +47,7 @@
     "tagged" : [ ]
   }, {
     "name" : "Fiona Kunz",
+    "date": "01-02-2020",
     "nric" : "S3234567B",
     "phone" : "9482427",
     "email" : "lydia@example.com",
@@ -50,6 +56,7 @@
     "tagged" : [ ]
   }, {
     "name" : "George Best",
+    "date": "01-02-2020",
     "nric" : "S1234567F",
     "phone" : "9482442",
     "email" : "anna@example.com",
