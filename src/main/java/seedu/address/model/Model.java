@@ -5,6 +5,8 @@ import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
+import seedu.address.model.group.Group;
+import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 
 /**
@@ -13,6 +15,14 @@ import seedu.address.model.person.Person;
 public interface Model {
     /** {@code Predicate} that always evaluate to true */
     Predicate<Person> PREDICATE_SHOW_ALL_PERSONS = unused -> true;
+
+    /**
+     * {@code Predicate} that always evaluate to true
+     */
+    public static Predicate<Person> predicateShowAllPersonsInGroup(Group group) {
+        return p -> p.getGroup().equals(group);
+    }
+
 
     /**
      * Replaces user prefs data with the data in {@code userPrefs}.
@@ -70,6 +80,18 @@ public interface Model {
     void addPerson(Person person);
 
     /**
+     * get the person through its name.
+     * {@code person} must already exist in the address book.
+     */
+    Person getPerson(Name personName);
+
+    /**
+     * assign person to a group its name.
+     * {@code person} must already exist in the address book.
+     */
+    void assignPersonToGroup(Group group, Person person);
+
+    /**
      * Replaces the given person {@code target} with {@code editedPerson}.
      * {@code target} must exist in the address book.
      * The person identity of {@code editedPerson} must not be the same as another existing person in the address book.
@@ -84,4 +106,15 @@ public interface Model {
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredPersonList(Predicate<Person> predicate);
+
+    /**
+     * Returns true if a group with the same name as {@code group} exists in the address book.
+     */
+    boolean hasGroup(Group toAdd);
+    /**
+     * Adds the given group.
+     * {@code group} must not already exist in the address book.
+     */
+    void addGroup(Group toAdd);
+
 }
