@@ -1,12 +1,14 @@
 package seedu.address.logic.commands;
 
+import static java.util.Objects.requireNonNull;
+
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.group.Group;
 import seedu.address.model.group.GroupList;
 
-import static java.util.Objects.requireNonNull;
+
 
 /**
  * Deletes a Group identified using it's displayed index from show command in address book.
@@ -14,8 +16,8 @@ import static java.util.Objects.requireNonNull;
 public class DeleteGroupCommand extends Command {
     public static final String COMMAND_WORD = "deletegrp";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD +
-            ": Deletes the group identified by the index number used in the displayed group list.\n"
+    public static final String MESSAGE_USAGE = COMMAND_WORD
+            + ": Deletes the group identified by the index number used in the displayed group list.\n"
             + "Parameters: INDEX (must be a positive integer)\n"
             + "Example: " + COMMAND_WORD + " 1";
 
