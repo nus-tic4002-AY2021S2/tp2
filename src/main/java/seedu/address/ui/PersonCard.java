@@ -31,6 +31,8 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label name;
     @FXML
+    private Label date;
+    @FXML
     private Label nric;
     @FXML
     private Label id;
@@ -56,6 +58,7 @@ public class PersonCard extends UiPart<Region> {
         this.person = person;
         id.setText(displayedIndex + ". ");
         name.setText(person.getName().fullName);
+        date.setText(person.getDate().value);
         nric.setText(person.getNric().value);
         phone.setText(person.getPhone().value);
         address.setText(person.getAddress().value);
