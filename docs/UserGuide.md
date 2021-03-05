@@ -17,14 +17,14 @@ Through a simple and intuitive graphical user interface, business owners can rec
 2. Download the latest `employeetracker.jar` [here](https://github.com/AY2021S2-TIC4002-F18-2/tp2/releases).
 3. Copy `employeetracker.jar` to the folder you want to use as the home folder for Employee Tracker.
 4. Navigate to the home folder for Employee Tracker on your CLI program.
-5. Launch Employee Tracker by running the command `java -jar HRMS.jar`.
+5. Launch Employee Tracker by running the command `java -jar employeetracker.jar`.
 6. Type the command in the CLI program and press `Enter` to execute it.
    <br>Some example commands you can try:
-    - `add n/Rachel Lee e/rachel@f18solutions.com.sg r/Designer a/BLK 730 Woodlands Road #15-150 c/91648917 d/2020-09-01 b/1988-01-02`: Adds an employee record.
+    - `add n/Rachel Lee r/Designer p/91648917 e/rachel@f18tech.com.sg a/BLK 730 Woodlands Road #15-150 b/1988-01-02 j/2020-09-01 s/8000 t/Founder t/l33tCoder`: Adds an employee record.
     - `list`: Lists all employee records.
     - `delete 3`: Deletes the 3rd employee record shown in the current list.
     - `sort n`: Sorts all employee records based on `Name` in alphabetical order.
-    - `find n Rachel` : Finds all employee records with `Rachel` in its `Name` field
+    - `find n/Rachel` : Finds all employee records with `Rachel` in its `Name` field
 7. Refer to **Features** below for details of each command.
 
 --------------------------------------------------------------------------------------------------------------------
