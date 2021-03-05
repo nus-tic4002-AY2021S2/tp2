@@ -22,7 +22,6 @@ public class ModelManager implements Model {
     private final AddressBook addressBook;
     private final UserPrefs userPrefs;
     private final FilteredList<Person> filteredPersons;
-
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
      */
@@ -127,7 +126,20 @@ public class ModelManager implements Model {
     public void updateFilteredPersonList(Predicate<Person> predicate) {
         requireNonNull(predicate);
         filteredPersons.setPredicate(predicate);
+        for (Person p : filteredPersons) {
+            p.setViewAppInd(false);
+        }
     }
+
+    @Override
+    public void updateFilteredViewAppPersonList(Predicate<Person> predicate) {
+        requireNonNull(predicate);
+        filteredPersons.setPredicate(predicate);
+        for (Person p : filteredPersons) {
+            p.setViewAppInd(true);
+        }
+    }
+
 
     @Override
     public boolean equals(Object obj) {
