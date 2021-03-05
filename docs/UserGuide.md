@@ -26,7 +26,7 @@ Police Address Book (PAB) is a **desktop app for managing contacts, optimized fo
 
     * **`list`** : Lists all contacts.
 
-    * **`add`**`n/John Doe i/S1111111B p/98765432 e/johnd@example.com a/John street, block 123, #01-01 r/shop theft d/12-20-2012` : Adds a contact named `John Doe` to the Police Address Book.
+    * **`add`**`n/John Doe d/21-02-2021 i/S1111111B p/98765432 e/johnd@example.com a/John street, block 123, #01-01 r/shop theft d/12-20-2012` : Adds a contact named `John Doe` to the Police Address Book.
     * **`find`** `n/John`:Find the person with the specific name in the current list.
 
     * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
@@ -63,8 +63,12 @@ Police Address Book (PAB) is a **desktop app for managing contacts, optimized fo
 * Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
  
-* Date format should be `mm-dd-yyyy`, other date format will not be accepted.
-  e.g. `02-23-2021` is a valid date format, `Feb-23-2021` or `23-02-2021` is a invalid date format. 
+* Date format should be `dd-mm-yyyy`, other date format will not be accepted.
+  e.g. `23-02-2021` is a valid date format, `Feb-23-2021` or `02-23-2021` is an invalid date format. 
+  
+* Date should be a valid calendar date, date out of range will not be accepted.
+  e.g. `23-02-2021` is a valid calendar date, `33-02-2021` is an invalid date format. 
+  
 * NRIC format should be `1 alphabet, 7 digits, 1 alphabet, and it should not be blank`, other NRIC format will not be accepted.
     e.g. `S1234567B` is a valid NRIC format, `s2222b` or `s11111111` is an invalid NRIC format. 
 
@@ -83,7 +87,7 @@ Format: `help`
 
 Adds a person to the address book.
 
-Format: `add n/NAME i/NRIC p/PHONE_NUMBER e/EMAIL a/ADDRESS r/REMARK d/DATE  [t/TAG]…​`
+Format: `add n/NAME d/DATE i/NRIC p/PHONE_NUMBER e/EMAIL a/ADDRESS r/REMARK d/DATE  [t/TAG]…​`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 A person can have any number of tags (including 0)
@@ -91,8 +95,8 @@ A person can have any number of tags (including 0)
 
 Examples:
 
-* `add n/John Doe i/S1111111B p/98765432 e/johnd@example.com a/John street, block 123, #01-01 r/shop theft d/12-20-2012 `
-* `add n/Betsy Crowe i/S1234567A p/1234567 e/betsycrowe@example.com a/Newgate Prison r/shop theft d/12-20-2012 t/friend t/close`
+* `add n/John Doe d/12-02-2021 i/S1111111B p/98765432 e/johnd@example.com a/John street, block 123, #01-01 r/shop theft `
+* `add n/Betsy Crowe d/12-02-2021 i/S1234567A p/1234567 e/betsycrowe@example.com a/Newgate Prison r/shop theft t/friend t/close`
 
 ### Listing all persons : `list`
 
@@ -104,7 +108,7 @@ Format: `list`
 
 Edits an existing person in the address book.
 
-Format: `edit INDEX [n/NAME] [i/NRIC] [p/PHONE] [e/EMAIL] [a/ADDRESS] [r/REMARK] [d/DATE] [t/TAG]…​`
+Format: `edit INDEX [n/NAME] [d/DATE] [i/NRIC] [p/PHONE] [e/EMAIL] [a/ADDRESS] [r/REMARK] [d/DATE] [t/TAG]…​`
 
 * Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
@@ -121,7 +125,7 @@ Examples:
 Finds all fields contain any of the given keywords.
 
 
-Format: `find KEYWORD [n/MORE_KEYWORDS] [i/NRIC] [p/PHONE] [e/EMAIL] [a/ADDRESS] [r/REMARK] [d/DATE] [t/TAG]…`
+Format: `find KEYWORD [n/MORE_KEYWORDS] [d/DATE] [i/NRIC] [p/PHONE] [e/EMAIL] [a/ADDRESS] [r/REMARK]  [t/TAG]…`
 
 
 * The search is case-insensitive. e.g `n/hans` will match `Hans`
@@ -194,7 +198,7 @@ If your changes to the data file makes its format invalid, Police Address Book w
 
 Action | Format, Examples
 --------|------------------
-**Add** | `add n/NAME i/NRIC p/PHONE_NUMBER e/EMAIL a/ADDRESS r/REMARK d/DATE [t/TAG]…​` <br> e.g., `add n/James Ho i/S1234567A p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 r/shop theft d/12-20-2012  t/friend t/colleague`
+**Add** | `add n/NAME d/DATE i/NRIC p/PHONE_NUMBER e/EMAIL a/ADDRESS r/REMARK d/DATE [t/TAG]…​` <br> e.g., `add n/James Ho i/S1234567A p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 r/shop theft d/12-20-2012  t/friend t/colleague`
 **Clear** | `clear`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
 **Edit** | `edit INDEX [n/NAME] [i/NRIC] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [r/REMARK] [d/DATE] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
