@@ -127,6 +127,12 @@ Clears all employee records from the Employee Tracker.
 
 Format: `clear`
 
+### Viewing summary statistics : `stats`
+
+Shows summary statistics of employees.
+
+Format: `stats`
+
 ### Exiting the program : `exit`
 
 Exits the Employee Tracker app.
