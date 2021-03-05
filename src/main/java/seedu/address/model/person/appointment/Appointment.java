@@ -4,7 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
- * Represents a Appointment in the address book.
+ * Represents a Appointment in the patient book.
  * Guarantees: immutable; name is valid as declared in {@link #isValidAppointmentDescription(String)}
  */
 public class Appointment {

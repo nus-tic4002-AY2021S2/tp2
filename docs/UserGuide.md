@@ -26,7 +26,7 @@ PatientBook is a **desktop app for managing contacts and appointments. It also h
 
    * **`list`** : Lists all contacts.
 
-   * **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the Address Book.
+   * **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the patient book.
 
    * **`edit`**`3 n/John Doe e/johnd@example.com a/John street, block 123, #01-01` : Edit `Charlotte` contact to `John Doe` to the PatientBook.
 
@@ -77,7 +77,7 @@ Format: `help`
 
 ### Adding a patient: `add`
 
-Adds a patient to the address book.
+Adds a patient to the patient book.
 
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG] [app/APPOINTMENT]...​`
 
@@ -92,13 +92,13 @@ Examples:
 
 ### Listing all persons : `list`
 
-Shows a list of all persons in the address book.
+Shows a list of all persons in the patient book.
 
 Format: `list`
 
 ### Editing a Patient : `edit`
 
-Edits an existing person in the address book.
+Edits an existing person in the patient book.
 
 Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
 
@@ -142,12 +142,12 @@ Format: `delete INDEX`
 * The index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
-* `list` followed by `delete 2` deletes the 2nd patient in the address book.
+* `list` followed by `delete 2` deletes the 2nd patient in the patient book.
 * `find Betsy` followed by `delete 1` deletes the 1st patient in the results of the `find` command.
 
 ### Clearing all entries : `clear`
 
-Clears all entries from the address book.
+Clears all entries from the patient book.
 
 Format: `clear`
 
