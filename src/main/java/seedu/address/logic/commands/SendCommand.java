@@ -30,20 +30,33 @@ public class SendCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
+
         String email = "";
         String message = "";
+        Boolean numberExsit = false;
         int number = 0;
+
         for (Object obj : keywords) {
+            System.out.println(obj);
             if (obj.toString().contains("e/")) {
                 String[] data = obj.toString().split("e/", 2);
                 email = getEmail(data[1].trim());
-            } else if (obj instanceof Integer) {
-                number = Integer.parseInt(obj.toString().trim());
-
+                message = "";
+                if ( number != 0) {
+                    break;
+                }
             } else {
-                message = obj.toString().trim();
+                if (numberExsit == false && isNumeric(obj.toString().trim())) {
+                    number = Integer.parseInt(obj.toString().trim());
+                    numberExsit = true;
+                } else {
+                    if (email == "") {
+                        message = message.concat(obj.toString() + " ");
+                    }
+                }
             }
         }
+
 
         if (number > model.getFilteredPersonList().size() || number <= 0) {
             return new CommandResult(String.format(MESSAGE_INVALID));
@@ -54,13 +67,16 @@ public class SendCommand extends Command {
             if (message == "") {
                 message = model.getFilteredPersonList().get(number - 1).toString();
             }
+            System.out.println(" email is " + email);
+            System.out.println(" Message is " + message);
+
             new SendEmail(email, message);
             return new CommandResult(
                     String.format(MESSAGE_SUCCESS));
         }
     }
 
-    private String getEmail(String email) throws CommandException {
+    public String getEmail(String email) throws CommandException {
         String regex = ".*(\\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}\\b).*";
         Pattern p = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
         Matcher m = p.matcher(email);
@@ -69,6 +85,27 @@ public class SendCommand extends Command {
         } else {
             throw new CommandException("No valid email address found");
         }
+    }
+
+    /**
+     * checking the number
+     * @param string
+     * @return
+     */
+    public boolean isNumeric(String string) {
+        int intValue;
+        if (string == null || string.equals("")) {
+            return false;
+        }
+
+        try {
+            intValue = Integer.parseInt(string);
+            System.out.println(intValue);
+            return true;
+        } catch (NumberFormatException e) {
+            System.out.println("Input String cannot be parsed to Integer.");
+        }
+        return false;
     }
 }
 

@@ -79,7 +79,7 @@ public class SendEmail {
             message.setSubject("The data");
 
             // Now set the actual message
-            message.setText("Hi \n" + "This Task has been send you as a notification.\n\n" + messages
+            message.setText("Hi \n" + "This email has send to you as a notification.\n\n" + messages
                     + "\n\n Best regards \n The Police Address Book");
 
             System.out.println("sending...");
