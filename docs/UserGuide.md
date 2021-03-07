@@ -152,10 +152,12 @@ Format: `clear`
 sending email to user.
 
 Format: `send [INDEX] e/[EMAIL]`
+        `send [INDEX] MESSAGE
 
 
 Examples:
 * `send 1 e/hellokitty@hotmail.com` sending the first data in the printed list to the user.
+* `send 1 I am not able to contact you, please call me` the message will send to the reporter's email address in the list number 1.
 
 ### Exiting the program : `exit`
 
