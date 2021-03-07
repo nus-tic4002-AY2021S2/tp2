@@ -172,9 +172,13 @@ public class EditCommand extends Command {
             this.name = name;
         }
 
-        public Optional<Name> getName() { return Optional.ofNullable(name); }
+        public Optional<Name> getName() {
+            return Optional.ofNullable(name);
+        }
 
-        public void setDate(Date date) { this.date = date; }
+        public void setDate(Date date) {
+            this.date = date;
+        }
 
         public Optional<Date> getDate() {
             return Optional.ofNullable(date);

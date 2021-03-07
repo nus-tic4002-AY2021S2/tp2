@@ -17,7 +17,7 @@ public class SendCommand extends Command {
             + "Parameters: Send INDEX e/[EMAIL]"
             + "example: send 1 e/hellokitty@hotmail.com";
 
-    public static final String MESSAGE_INVALID = "Invalid range";
+    public static final String MESSAGE_INVALID = "The person index provided is invalid";
     public static final String MESSAGE_SUCCESS = "Email has been send";
 
     private String[] keywords;

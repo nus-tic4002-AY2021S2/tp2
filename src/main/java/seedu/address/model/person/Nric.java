@@ -9,13 +9,16 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class Nric {
     public static final String MESSAGE_NRIC_CONSTRAINTS =
-            "Patient NRIC should follow the format of 1 alphabet, 7 digits, 1 alphabet, and it should not be blank";
+            "Patient NRIC should follow the following format:\n"
+                    + "NRICs should only contain alphanumeric characters. It should start with S, T, F or G"
+                    + " followed by 7 numerical numbers and a checksum letter. It should not be blank.\n";
+
 
     /**
      * The first character of the NRIC must not be a whitespace,
      * otherwise " " (a blank string) becomes a valid input.
      */
-    public static final String NRIC_VALIDATION_REGEX = "[\\p{Alpha}][\\p{Digit}]{7}[\\p{Alpha}]";
+    public static final String NRIC_VALIDATION_REGEX = "^[STFG]\\d{7}[A-Z]$";
 
     public final String value;
 

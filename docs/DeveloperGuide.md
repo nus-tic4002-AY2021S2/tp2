@@ -339,6 +339,47 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case resumes at step 2.
 
+**Use case: Edit a person**
+
+1.  User requests to list persons
+2.  Police Address Book shows a list of persons
+3.  User requests to edit a specific person in the list
+4.  Police Address Book update the person's information
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+
+* 3a. The given index is invalid.
+
+    * 3a1. Police Address Book shows an error message.
+
+      Use case resumes at step 2.
+      
+**Use case: Send email to person**
+
+1.  User requests to list persons
+2.  Police Address Book shows a list of persons
+3.  User requests to send a specific email address to specific person in the list
+4.  Police Address Book will show a response message
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+
+* 3a. The given index is invalid.
+
+    * 3a1. Police Address Book shows an error message.
+
+      Use case resumes at step 2.
 *{More to be added}*
 
 ### Non-Functional Requirements

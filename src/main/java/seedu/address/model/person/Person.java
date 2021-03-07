@@ -45,11 +45,17 @@ public class Person {
 
     }
 
-    public Name getName() { return name; }
+    public Name getName() {
+        return name;
+    }
 
-    public Date getDate() { return date; }
+    public Date getDate() {
+        return date;
+    }
 
-    public Nric getNric() { return nric; }
+    public Nric getNric() {
+        return nric;
+    }
 
     public Phone getPhone() {
         return phone;
@@ -85,9 +91,7 @@ public class Person {
         }
 
         return otherPerson != null
-            && otherPerson.getName().equals(getName())
-            && otherPerson.getNric().equals(getNric())
-            && (otherPerson.getPhone().equals(getPhone()) || otherPerson.getEmail().equals(getEmail()));
+            && (otherPerson.getNric().equals(getNric()) || otherPerson.getPhone().equals(getPhone()));
     }
 
     /**
