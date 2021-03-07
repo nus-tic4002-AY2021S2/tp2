@@ -151,7 +151,7 @@ Format: `clear`
 
 sending email to user.
 
-Format: `send [INDEX] e/[EMAIL]`
+Format: `send [INDEX] e/[EMAIL]`<br>
         `send [INDEX] MESSAGE
         
 * The email format will be validated.
