@@ -153,6 +153,9 @@ sending email to user.
 
 Format: `send [INDEX] e/[EMAIL]`
         `send [INDEX] MESSAGE
+        
+* The email format will be validated.
+* The index must be numeric and within the list size.
 
 
 Examples:
