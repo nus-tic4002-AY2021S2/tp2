@@ -8,7 +8,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class Date {
     public static final String MESSAGE_DATE_CONSTRAINTS =
-            "Report Date should follow date format 'dd-mm-yyyy' and it should be a valid calendar date";
+            "Date should follow date format 'dd-mm-yyyy' and it should be a valid calendar date";
 
     /**
      * The date format is 'dd-mm-yyyy', with leading zero is required
