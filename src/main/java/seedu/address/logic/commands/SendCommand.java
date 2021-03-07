@@ -14,6 +14,7 @@ public class SendCommand extends Command {
             + "Parameters: Send INDEX e/[EMAIL]"
             + "example: send 1 e/hellokitty@hotmail.com";
 
+    public static final String MESSAGE_INVALID = "Inalid INPUT";
     public static final String MESSAGE_SUCCESS = "Email has been send";
 
     private String[] keywords;
@@ -37,9 +38,12 @@ public class SendCommand extends Command {
             }
         }
 
-        new SendEmail(email, model.getFilteredPersonList().get(number - 1).toString());
-
-        return new CommandResult(
-                String.format(MESSAGE_SUCCESS));
+        if (number > model.getFilteredPersonList().size() || number <= 0) {
+            return new CommandResult(String.format(MESSAGE_INVALID));
+        } else {
+            new SendEmail(email, model.getFilteredPersonList().get(number - 1).toString());
+            return new CommandResult(
+                    String.format(MESSAGE_SUCCESS));
+        }
     }
 }
