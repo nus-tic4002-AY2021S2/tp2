@@ -97,8 +97,8 @@ Format: `edit INDEX [n/NAME] [r/ROLE] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [b/
 * `DATE_OF_JOINING` must be in yyyy-MM-dd format. E.g. `2020-09-1`.
 * `SALARY` must be a positive integer. E.g. `4000`, `3000`.
 * `TAG` must be alphanumeric. E.g. `Founder`, `l33tCoder`.
-* All existing tags for this employee record will be removed if `TAG` is not provided in the `[t/TAG]` parameter. E.g. `edit 1 t/`
-* Editing tags will remove all existing tags for this employee record. E.g. If an employee record 1 has tags `Mentor` and `l33tCoder`, `edit 1 t/WiseGuy` will result in this employee record only having the tag `WiseGuy`
+* All existing tags for this employee record will be removed if `TAG` is not provided in the `[t/TAG]` parameter. E.g. `edit 1 t/`.
+* Editing tags will remove all existing tags for this employee record. E.g. If an employee record 1 has tags `Mentor` and `l33tCoder`, `edit 1 t/WiseGuy` will result in this employee record only having the tag `WiseGuy`.
 
 Example of usage:
 * `edit 1 p/91821748 s/8000 t/Mentor t/l33tCoder`
