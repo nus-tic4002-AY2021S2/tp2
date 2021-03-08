@@ -1,5 +1,5 @@
 {
-  "_comment": "Employee Tracker save file which contains the same Person values as in TypicalPersons#getTypicalEmployeeTracker()",
+  "_comment": "Employee Tracker save file which contains the same Employee values as in TypicalEmployees#getTypicalEmployeeTracker()",
   "employees": [ {
     "name" : "Alice Pauline",
     "role": "Finance Manager",

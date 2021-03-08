@@ -17,14 +17,14 @@ Through a simple and intuitive graphical user interface, business owners can rec
 2. Download the latest `employeetracker.jar` [here](https://github.com/AY2021S2-TIC4002-F18-2/tp2/releases).
 3. Copy `employeetracker.jar` to the folder you want to use as the home folder for Employee Tracker.
 4. Navigate to the home folder for Employee Tracker on your CLI program.
-5. Launch Employee Tracker by running the command `java -jar HRMS.jar`.
+5. Launch Employee Tracker by running the command `java -jar employeetracker.jar`.
 6. Type the command in the CLI program and press `Enter` to execute it.
    <br>Some example commands you can try:
-    - `add n/Rachel Lee e/rachel@f18solutions.com.sg r/Designer a/BLK 730 Woodlands Road #15-150 c/91648917 d/2020-09-01 b/1988-01-02`: Adds an employee record.
+    - `add n/Rachel Lee r/Designer p/91648917 e/rachel@f18tech.com.sg a/BLK 730 Woodlands Road #15-150 b/1988-01-02 j/2020-09-01 s/8000 t/Founder t/l33tCoder`: Adds an employee record.
     - `list`: Lists all employee records.
     - `delete 3`: Deletes the 3rd employee record shown in the current list.
     - `sort n`: Sorts all employee records based on `Name` in alphabetical order.
-    - `find n Rachel` : Finds all employee records with `Rachel` in its `Name` field
+    - `find n/Rachel` : Finds all employee records with `Rachel` in its `Name` field
 7. Refer to **Features** below for details of each command.
 
 --------------------------------------------------------------------------------------------------------------------
@@ -38,8 +38,11 @@ Through a simple and intuitive graphical user interface, business owners can rec
 * Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
   E.g. The parameter `INDEX` in the command `delete INDEX`.
 
-* Parameters with `...` after them can be included multiple times<br>
-  E.g. The parameter `KEYWORD` in the command `find TYPE KEYWORD...`.
+* Parameters in square brackets are optional.
+  E.g. The parameter `[s/SALARY]` in `edit INDEX [n/NAME] [r/ROLE] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [b/DATE_OF_BIRTH] [j/DATE_OF_JOINING] [s/SALARY] [t/TAG]…`
+  
+* Parameters with `…` after them can be included multiple times<br>
+  E.g. The parameter `KEYWORD` in the command `find TYPE/KEYWORD…`.
 
 * Parameters can be in any order.<br>
   E.g. The command `add` requires a few parameters such as `n/NAME`, `e/EMAIL` and `r/ROLE`. Placing these parameters in any order is acceptable.
@@ -62,28 +65,50 @@ Format: `help`
 
 Adds an employee record to the Employee Tracker.
 
-Format: `add n/NAME e/EMAIL r/ROLE a/ADDRESS c/CONTACT_NUMBER s/SALARY d/DATE_OF_EMPLOYMENT b/DATE_OF_BIRTH`
-* `EMAIL` must be in local-part@domain format. E.g. `andy@f18solutions.com.sg`.
-* `CONTACT_NUMBER` must be an 8-digit number. E.g. `9871821`, `67617361`.
-* `SALARY` must be a positive integer. E.g. `4000`, `3000`.
-* `DATE_OF_EMPLOYMENT` must be in yyyy-MM-dd format. E.g. `2020-09-1`.
+Format: `add n/NAME r/ROLE p/PHONE_NUMBER e/EMAIL a/ADDRESS b/DATE_OF_BIRTH j/DATE_OF_JOINING s/SALARY [t/TAG]…`
+* `PHONE_NUMBER` must be a number that is at least 3-digit long. E.g. `98714821`, `67617361`.
+* `EMAIL` must be in local-part@domain format. E.g. `andy@f18tech.com.sg`.
 * `DATE_OF_BIRTH` must be in yyyy-MM-dd format. E.g. `1990-12-25`.
+* `DATE_OF_JOINING` must be in yyyy-MM-dd format. E.g. `2020-09-1`.
+* `SALARY` must be a positive integer. E.g. `4000`, `3000`.
+* `TAG` must be alphanumeric. E.g. `Founder`, `l33tCoder`.
 
 Example of usage:
-* `add n/Rachel Lee e/rachel@f18solutions.com.sg r/Designer a/BLK 730 Woodlands Road #15-150 c/91648917 d/2020-09-01 b/1988-01-02`
+* `add n/Rachel Lee r/Designer p/91648917 e/rachel@f18tech.com.sg a/BLK 730 Woodlands Road #15-150 b/1988-01-02 j/2020-09-01 s/8000 t/Founder t/l33tCoder`
 
 ### Listing all employee records：`list`
 
-Lists all the employee records in the Human Resource Management System.
+Lists all the employee records in the Employee Tracker.
 
 Format: `list`
+
+### Editing an employee record：`edit`
+
+Edits an employee record in the Employee Tracker.
+
+Format: `edit INDEX [n/NAME] [r/ROLE] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [b/DATE_OF_BIRTH] [j/DATE_OF_JOINING] [s/SALARY] [t/TAG]…`
+* `INDEX` refers to the index number shown in the list of employee records.
+* `INDEX` must a positive integer. E.g. `1`, `2`, `3`…
+* At least one of the optional parameters must be provided.
+* The employee record indicated by the index number will be edited.
+* `PHONE_NUMBER` must be a number that is at least 3-digit long. E.g. `98714821`, `67617361`.
+* `EMAIL` must be in local-part@domain format. E.g. `andy@f18tech.com.sg`.
+* `DATE_OF_BIRTH` must be in yyyy-MM-dd format. E.g. `1990-12-25`.
+* `DATE_OF_JOINING` must be in yyyy-MM-dd format. E.g. `2020-09-1`.
+* `SALARY` must be a positive integer. E.g. `4000`, `3000`.
+* `TAG` must be alphanumeric. E.g. `Founder`, `l33tCoder`.
+* All existing tags for this employee record will be removed if `TAG` is not provided in the `[t/TAG]` parameter. E.g. `edit 1 t/`.
+* Editing tags will remove all existing tags for this employee record. E.g. If an employee record 1 has tags `Mentor` and `l33tCoder`, `edit 1 t/WiseGuy` will result in this employee record only having the tag `WiseGuy`.
+
+Example of usage:
+* `edit 1 p/91821748 s/8000 t/Mentor t/l33tCoder`
 
 ### Deleting an employee record : `delete`
 
 Deletes the specified employee from the Employee Tracker.
 
 Format: `delete INDEX`
-* `INDEX` refers to the index number shown in the list generated by the list command.
+* `INDEX` refers to the index number shown in the list of employee records.
 * `INDEX` must a positive integer. E.g. `1`, `2`, `3`…
 * The employee record indicated by the index number will be deleted.
 
@@ -164,6 +189,7 @@ Action | Format, Examples
 **Help** | `help`
 **Add** | `add n/NAME e/EMAIL r/ROLE a/ADDRESS c/CONTACT_NUMBER s/SALARY d/DATE_OF_EMPLOYMENT b/DATE_OF_BIRTH` <br> E.g., `add n/Rachel Lee e/rachel@f18solutions.com.sg r/Designer a/BLK 730 Woodlands Road #15-150 c/91648917 d/2020-09-01 b/1988-01-02`
 **List** | `list`
+**Edit** | `edit INDEX [n/NAME] [r/ROLE] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [b/DATE_OF_BIRTH] [j/DATE_OF_JOINING] [s/SALARY] [t/TAG]…` <br> E.g. `edit 1 p/91821748 s/8000 t/Mentor t/l33tCoder`
 **Delete** | `delete INDEX`<br> E.g., `delete 2`
 **Sort** | `sort TYPE` <br> E.g., `sort d`
 **Find** | `find TYPE KEYWORD` <br> E.g.,`find n John Bernice Andy`
