@@ -164,11 +164,17 @@ Format: `clear`
 
 sending email to user.
 
-Format: `send [INDEX] e/[EMAIL]`
+Format: 
+`send [INDEX] e/[EMAIL]`<br>
+`send [INDEX] MESSAGE`
+        
+* The email format will be validated.
+* The index must be numeric and within the list size.
 
 
 Examples:
 * `send 1 e/hellokitty@hotmail.com` sending the first data in the printed list to the user.
+* `send 1 I am not able to contact you, please call me` the message will send to the reporter's email address in the list number 1.
 
 ### Exiting the program : `exit`
 
