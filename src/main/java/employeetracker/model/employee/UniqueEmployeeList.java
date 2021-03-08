@@ -12,7 +12,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**
- * A list of persons that enforces uniqueness between its elements and does not allow nulls.
+ * A list of employees that enforces uniqueness between its elements and does not allow nulls.
  * A employee is considered unique by comparing using {@code Employee#isSameEmployee(Employee)}. As such, adding and
  * updating of persons uses Employee#isSameEmployee(Employee) for equality so as to ensure that the employee being added
  * or updated is unique in terms of identity in the UniqueEmployeeList. However, the removal of a employee uses
