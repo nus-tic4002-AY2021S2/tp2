@@ -10,8 +10,8 @@ import java.util.Set;
 import seedu.address.model.tag.Tag;
 
 /**
- * Represents a Person in the address book.
- * Guarantees: details are present and not null, field values are validated, immutable.
+ * Represents a Person in the address book. Guarantees: details are present and not null, field values are validated,
+ * immutable.
  */
 public class Person {
 
@@ -24,6 +24,7 @@ public class Person {
     // Data fields
     private final Date date;
     private final Address address;
+    private final Description description;
     private final Remark remark;
     private final Set<Tag> tags = new HashSet<>();
 
@@ -32,24 +33,31 @@ public class Person {
      */
 
     public Person(Name name, Date date, Nric nric, Phone phone,
-                  Email email, Address address, Remark remark, Set<Tag> tags) {
-        requireAllNonNull(name, date, nric, phone, email, address, tags);
+                  Email email, Address address, Description description, Remark remark, Set<Tag> tags) {
+        requireAllNonNull(name, date, nric, phone, email, address, description, tags);
         this.name = name;
         this.date = date;
         this.nric = nric;
         this.phone = phone;
         this.email = email;
         this.address = address;
+        this.description = description;
         this.remark = remark;
         this.tags.addAll(tags);
 
     }
 
-    public Name getName() { return name; }
+    public Name getName() {
+        return name;
+    }
 
-    public Date getDate() { return date; }
+    public Date getDate() {
+        return date;
+    }
 
-    public Nric getNric() { return nric; }
+    public Nric getNric() {
+        return nric;
+    }
 
     public Phone getPhone() {
         return phone;
@@ -63,21 +71,24 @@ public class Person {
         return address;
     }
 
+    public Description getDescription() {
+        return description;
+    }
+
     public Remark getRemark() {
         return remark;
     }
 
     /**
-     * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
-     * if modification is attempted.
+     * Returns an immutable tag set, which throws {@code UnsupportedOperationException} if modification is attempted.
      */
     public Set<Tag> getTags() {
         return Collections.unmodifiableSet(tags);
     }
 
     /**
-     * Returns true if both persons of the same name have at least one other identity field that is the same.
-     * This defines a weaker notion of equality between two persons.
+     * Returns true if both persons of the same name have at least one other identity field that is the same. This
+     * defines a weaker notion of equality between two persons.
      */
     public boolean isSamePerson(Person otherPerson) {
         if (otherPerson == this) {
@@ -91,8 +102,8 @@ public class Person {
     }
 
     /**
-     * Returns true if both persons have the same identity and data fields.
-     * This defines a stronger notion of equality between two persons.
+     * Returns true if both persons have the same identity and data fields. This defines a stronger notion of equality
+     * between two persons.
      */
     @Override
     public boolean equals(Object other) {
@@ -110,13 +121,15 @@ public class Person {
             && otherPerson.getPhone().equals(getPhone())
             && otherPerson.getEmail().equals(getEmail())
             && otherPerson.getAddress().equals(getAddress())
+            && otherPerson.getDescription().equals(getDescription())
+            //&& otherPerson.getRemark().equals(getRemark())
             && otherPerson.getTags().equals(getTags());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, date, nric, phone, email, address, remark, tags);
+        return Objects.hash(name, date, nric, phone, email, address, description, remark, tags);
     }
 
     @Override
@@ -133,6 +146,8 @@ public class Person {
             .append(getEmail())
             .append(" Address: ")
             .append(getAddress())
+            .append(" Description: ")
+            .append(getDescription())
             .append(" Remark: ")
             .append(getRemark())
             .append(" Tags: ");

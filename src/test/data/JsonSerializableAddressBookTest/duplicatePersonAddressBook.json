@@ -6,8 +6,9 @@
     "phone": "94351253",
     "email": "alice@example.com",
     "address": "123, Jurong West Ave 6, #08-111",
+    "description": "She was molested by a Senior Investigations Officer at the Jurong Police Division Headquarters in the interview room around 9.00pm.",
     "remark" : "",
-    "tagged": [ "friends" ]
+    "tagged": [ "NeverCalled" ]
   }, {
     "name": "Alice Pauline",
     "date": "01-02-2020",
@@ -15,6 +16,7 @@
     "phone": "94351253",
     "email": "pauline@example.com",
     "address": "4th street",
+    "description": "She was molested by a Senior Investigations Officer at the Jurong Police Division Headquarters in the interview room around 9.00pm.",
     "remark" : ""
   } ]
 }

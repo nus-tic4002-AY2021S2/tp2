@@ -4,7 +4,8 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
- *
+ * Represents the date of when the case was reported.
+ * Guarantees: immutable; is valid as declared in {@link #isValidDate(String)}
  */
 public class Date {
     public static final String MESSAGE_DATE_CONSTRAINTS =
