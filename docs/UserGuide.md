@@ -72,9 +72,11 @@ It is designed to help them manage their investigation cases better by reminding
 * Date should be a valid calendar date, date out of range will not be accepted.
   e.g. `23-02-2021` is a valid calendar date, `33-02-2021` is an invalid date format. 
   
-* NRIC format should be `1 alphabet, 7 digits, 1 alphabet, and it should not be blank`, other NRIC format will not be accepted.
+* NRIC format should be `1 alphanumeric characters( It should start with S, T, F or G),followed by 7 numerical numbers and a checksum letter. It should not be blank.`, other NRIC format will not be accepted.
     e.g. `S1234567B` is a valid NRIC format, `s2222b` or `s11111111` is an invalid NRIC format. 
-
+    
+* Every data must be unique NRIC and Phone number.
+ 
 </div>
 
 ### Viewing help : `help`
@@ -164,11 +166,17 @@ Format: `clear`
 
 sending email to user.
 
-Format: `send [INDEX] e/[EMAIL]`
+Format: 
+`send [INDEX] e/[EMAIL]`<br>
+`send [INDEX] MESSAGE`
+        
+* The email format will be validated.
+* The index must be numeric and within the list size.
 
 
 Examples:
 * `send 1 e/hellokitty@hotmail.com` sending the first data in the printed list to the user.
+* `send 1 I am not able to contact you, please call me` the message will send to the reporter's email address in the list number 1.
 
 ### Exiting the program : `exit`
 
