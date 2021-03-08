@@ -42,7 +42,7 @@ public class SendCommand extends Command {
                 String[] data = obj.toString().split("e/", 2);
                 email = getEmail(data[1].trim());
                 message = "";
-                if ( number != 0) {
+                if (number != 0) {
                     break;
                 }
             } else {

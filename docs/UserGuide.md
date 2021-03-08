@@ -73,7 +73,7 @@ Police Address Book (PAB) is a **desktop app for managing contacts, optimized fo
 * NRIC format should be `1 alphanumeric characters( It should start with S, T, F or G),followed by 7 numerical numbers and a checksum letter. It should not be blank.`, other NRIC format will not be accepted.
     e.g. `S1234567B` is a valid NRIC format, `s2222b` or `s11111111` is an invalid NRIC format. 
     
-* Every data must be unique NRIC and Phone number.
+* Every data must be unique NRIC, phone number or email.
  
 </div>
 
