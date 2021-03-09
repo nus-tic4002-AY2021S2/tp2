@@ -32,36 +32,37 @@ public class PersonTest {
         // null -> returns false
         assertFalse(ALICE.isSamePerson(null));
 
-        // different phone and email -> returns false
-        Person editedAlice = new PersonBuilder(ALICE).withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB).build();
+        // different nric, different phone and different email -> returns false
+        Person editedAlice = new PersonBuilder(ALICE)
+            .withNric(VALID_NRIC_BOB).withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB).build();
         assertFalse(ALICE.isSamePerson(editedAlice));
 
-        // different name -> returns false
+        // different name, same attributes -> returns true
         editedAlice = new PersonBuilder(ALICE).withName(VALID_NAME_BOB).build();
-        assertFalse(ALICE.isSamePerson(editedAlice));
+        assertTrue(ALICE.isSamePerson(editedAlice));
 
-        // same name, same phone, different attributes -> returns false
+        // same name, same phone, different attributes -> returns true
         editedAlice = new PersonBuilder(ALICE).withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB)
             .withTags(VALID_TAG_SEVERITY).build();
-        assertFalse(ALICE.isSamePerson(editedAlice));
+        assertTrue(ALICE.isSamePerson(editedAlice));
 
-        // same name, same email, different attributes -> returns false
+        // same name, same email, different attributes -> returns true
         editedAlice = new PersonBuilder(ALICE).withPhone(VALID_PHONE_BOB).withAddress(VALID_ADDRESS_BOB)
                 .withTags(VALID_TAG_SEVERITY).build();
-        assertFalse(ALICE.isSamePerson(editedAlice));
+        assertTrue(ALICE.isSamePerson(editedAlice));
 
         // same name, same phone, same email, same NRIC, different attributes -> returns true
         editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_SEVERITY).build();
         assertTrue(ALICE.isSamePerson(editedAlice));
 
-        //different NRIC-> returns false
+        //different NRIC, same attributes -> returns true
         editedAlice = new PersonBuilder(ALICE).withNric(VALID_NRIC_BOB).build();
-        assertFalse(ALICE.isSamePerson(editedAlice));
+        assertTrue(ALICE.isSamePerson(editedAlice));
 
-        //different NRIC, same phone, same name-> returns false
+        //different NRIC, different phone, different name, same attributes -> returns true
         editedAlice = new PersonBuilder(ALICE).withNric(VALID_NRIC_BOB).withPhone(VALID_PHONE_BOB)
                 .withName(VALID_NAME_BOB).build();
-        assertFalse(ALICE.isSamePerson(editedAlice));
+        assertTrue(ALICE.isSamePerson(editedAlice));
 
 
     }
