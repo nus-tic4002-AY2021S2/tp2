@@ -267,6 +267,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 (For all use cases below, the **System** is the `PatientBook` and the **Actor** is the `Staff`, unless specified otherwise)
 
+---
 
 **Use case: View appointment in PatientBook**
 
@@ -276,7 +277,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 2.  User view appointment by patients name
 3.  PatientBook show all appointment of the patient
 
-    Use case ends.
+Use case ends.
 
 **Extensions**
 
@@ -284,12 +285,43 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     Use case go back to step1 and restart by key in the correct name
     
   2a. No appointment in this patient 
-    Use case end.
+  
+Use case ends.
 
+---
+
+**Use case: List all patients**
+
+**MSS**
+
+1.  User requests to list patients
+2.  PatientBook shows a list of patients
+
+Use case ends.
+
+**Extensions**
+
+* 2a. The PatientBook is empty. 
+
+Use case ends.
+
+**Use case: Find a patient**
+
+**MSS**
+
+1.  User will search patient records with keywords
+2.  PatientBook will list the patient with keywords in the name
+
+**Extensions**
+
+* 1a. The PatientBook is empty.
+  2a. The PatientBook will not list any records.
   Use case ends.
 
-
-
+* 1a. The keywords do not match any patient.
+  2a. The PatientBook will not list any records. Return to step 1 to enter new keywords.
+  
+Use case ends.
 
 ### Non-Functional Requirements
 
