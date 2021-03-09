@@ -47,7 +47,7 @@ public class PersonTest {
 
         // same name, same email, different attributes -> returns false
         editedAlice = new PersonBuilder(ALICE).withPhone(VALID_PHONE_BOB).withAddress(VALID_ADDRESS_BOB)
-                .withTags(VALID_TAG_HUSBAND).build();
+                .withTags(VALID_TAG_SEVERITY).build();
         assertFalse(ALICE.isSamePerson(editedAlice));
 
         // same name, same phone, same email, same NRIC, different attributes -> returns true
