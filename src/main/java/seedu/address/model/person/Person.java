@@ -11,7 +11,7 @@ import seedu.address.model.person.appointment.Appointment;
 import seedu.address.model.tag.Tag;
 
 /**
- * Represents a Person in the address book.
+ * Represents a Person in the patient book.
  * Guarantees: details are present and not null, field values are validated, immutable.
  */
 public class Person {
@@ -26,6 +26,7 @@ public class Person {
     private final Set<Tag> tags = new HashSet<>();
     private final Set<Appointment> appointments = new HashSet<>();
 
+    private boolean viewAppInd = false;
     /**
      * Every field must be present and not null.
      */
@@ -53,6 +54,14 @@ public class Person {
 
     public Address getAddress() {
         return address;
+    }
+
+    public boolean isViewAppInd() {
+        return viewAppInd;
+    }
+
+    public void setViewAppInd(boolean viewAppInd) {
+        this.viewAppInd = viewAppInd;
     }
 
     /**
