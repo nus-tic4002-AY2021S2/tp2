@@ -90,6 +90,14 @@ public class EmployeeTracker implements ReadOnlyEmployeeTracker {
      * Removes {@code key} from this {@code EmployeeTracker}.
      * {@code key} must exist in the address book.
      */
+    public void sortEmployee(String field) {
+        employees.sortEmployee(field);
+    }
+
+    /**
+     * Removes {@code key} from this {@code EmployeeTracker}.
+     * {@code key} must exist in the address book.
+     */
     public void removeEmployee(Employee key) {
         employees.remove(key);
     }

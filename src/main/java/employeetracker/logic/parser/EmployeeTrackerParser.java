@@ -15,6 +15,7 @@ import employeetracker.logic.commands.ExitCommand;
 import employeetracker.logic.commands.FindCommand;
 import employeetracker.logic.commands.HelpCommand;
 import employeetracker.logic.commands.ListCommand;
+import employeetracker.logic.commands.SortCommand;
 import employeetracker.logic.parser.exceptions.ParseException;
 
 /**
@@ -58,6 +59,9 @@ public class EmployeeTrackerParser {
 
         case FindCommand.COMMAND_WORD:
             return new FindCommandParser().parse(arguments);
+
+        case SortCommand.COMMAND_WORD:
+            return new SortCommandParser().parse(arguments);
 
         case ListCommand.COMMAND_WORD:
             return new ListCommand();

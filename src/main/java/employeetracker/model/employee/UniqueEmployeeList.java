@@ -134,4 +134,28 @@ public class UniqueEmployeeList implements Iterable<Employee> {
         }
         return true;
     }
+
+    /**
+     * Sort the employees list by field.
+     * The employee must exist in the list.
+     */
+    public void sortEmployee(String field) {
+        switch (field) {
+        case "n":
+            internalList.sort((s1, s2) -> s1.getName().toString().compareToIgnoreCase(s2.getName().toString()));
+            break;
+        case "s":
+            internalList.sort((s1, s2) -> s1.getSalary().value.compareToIgnoreCase(s2.getSalary().value));
+            break;
+        case "d":
+            internalList.sort((s1, s2) -> s1.getDateOfJoining().value.compareToIgnoreCase(s2.getDateOfJoining().value));
+            break;
+        case "b":
+            internalList.sort((s1, s2) -> s1.getDateOfBirth().value.compareToIgnoreCase(s2.getDateOfBirth().value));
+            break;
+        default:
+            throw new AssertionError("Sort field Parameters: TYPE (must be the letter n, s, d or b)\n");
+        }
+    }
+
 }
