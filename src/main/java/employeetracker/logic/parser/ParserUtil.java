@@ -55,7 +55,7 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String role} into a {@code ROle}.
+     * Parses a {@code String role} into a {@code Role}.
      * Leading and trailing whitespaces will be trimmed.
      *
      * @throws ParseException if the given {@code role} is invalid.
@@ -63,8 +63,8 @@ public class ParserUtil {
     public static Role parseRole(String role) throws ParseException {
         requireNonNull(role);
         String trimmedRole = role.trim();
-        if (!Name.isValidName(trimmedRole)) {
-            throw new ParseException(Name.MESSAGE_CONSTRAINTS);
+        if (!Role.isValidRole(trimmedRole)) {
+            throw new ParseException(Role.MESSAGE_CONSTRAINTS);
         }
         return new Role(trimmedRole);
     }
@@ -138,7 +138,7 @@ public class ParserUtil {
     public static DateOfJoining parseDateOfJoining(String dateOfJoining) throws ParseException {
         requireNonNull(dateOfJoining);
         String trimmedDateOfJoining = dateOfJoining.trim();
-        if (!DateOfBirth.isValidDateOfBirth(trimmedDateOfJoining)) {
+        if (!DateOfJoining.isValidDateOfJoining(trimmedDateOfJoining)) {
             throw new ParseException(DateOfJoining.MESSAGE_CONSTRAINTS);
         }
         return new DateOfJoining(trimmedDateOfJoining);
