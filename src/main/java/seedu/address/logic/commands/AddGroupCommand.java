@@ -8,7 +8,7 @@ import seedu.address.model.Model;
 import seedu.address.model.group.Group;
 
 
-public class AddGroup extends Command {
+public class AddGroupCommand extends Command {
 
     public static final String COMMAND_WORD = "create";
 
@@ -23,7 +23,7 @@ public class AddGroup extends Command {
     /**
      * Creates an AddCommand to add the specified {@code Person}
      */
-    public AddGroup(Group group) {
+    public AddGroupCommand(Group group) {
         requireNonNull(group);
         toAdd = group;
     }

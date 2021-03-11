@@ -223,18 +223,18 @@ Examples:
 *  `list -g PERFORMANCE ` Lists all persons in PERFORMANCE.
 
 
-### Deleting a group: `delete -g`
+### Deleting a group: `deletegrp [Index Number]`
 
 Deletes the specified group from the address book.
 
-Format: `delete INDEX`
+Format: `deletegrp INDEX`
 
 * Deletes the group at the specified INDEX.
 * The index refers to the index number shown in the displayed person list.
 * The index **must be a positive integer** 1, 2, 3, …
 
 Examples:
-*  `list` followed by `delete 2` deletes the 2nd group in the address book.
+*  `show` followed by `delete 2` deletes the 2nd group in the address book.
 *  `List all` followed by `delete 1` deletes the 1st group in the results of the `find` command.
 
 

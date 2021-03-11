@@ -7,15 +7,17 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import seedu.address.logic.commands.AddCommand;
-import seedu.address.logic.commands.AddGroup;
+import seedu.address.logic.commands.AddGroupCommand;
 import seedu.address.logic.commands.AssignPersonToGroupCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.DeleteCommand;
+import seedu.address.logic.commands.DeleteGroupCommand;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.HelpCommand;
+import seedu.address.logic.commands.ListAllFromGroupCommand;
 import seedu.address.logic.commands.ListCommand;
 import seedu.address.logic.commands.ShowCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
@@ -37,6 +39,7 @@ public class AddressBookParser {
      * @return the command based on the user input
      * @throws ParseException if the user input does not conform the expected format
      */
+    @SuppressWarnings("checkstyle:Indentation")
     public Command parseCommand(String userInput) throws ParseException {
         final Matcher matcher = BASIC_COMMAND_FORMAT.matcher(userInput.trim());
         if (!matcher.matches()) {
@@ -50,11 +53,14 @@ public class AddressBookParser {
         case AddCommand.COMMAND_WORD:
             return new AddCommandParser().parse(arguments);
 
-        case AddGroup.COMMAND_WORD:
+        case AddGroupCommand.COMMAND_WORD:
             return new CreateGroupParser().parse(arguments); // Create group
 
         case AssignPersonToGroupCommand.COMMAND_WORD:
             return new AssignPersonToGroupCommandParser().parse(arguments); // Assign person to group
+
+        case DeleteGroupCommand.COMMAND_WORD:
+            return new DeleteGroupCommandParser().parse(arguments);
 
         case EditCommand.COMMAND_WORD:
             return new EditCommandParser().parse(arguments);
@@ -70,6 +76,9 @@ public class AddressBookParser {
 
         case ListCommand.COMMAND_WORD:
             return new ListCommand();
+
+        case ListAllFromGroupCommand.COMMAND_WORD:
+            return new ListAllFromGroupCommandParser().parse(arguments); // List all Person from the group
 
         case ShowCommand.COMMAND_WORD:
             return new ShowCommand();
