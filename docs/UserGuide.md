@@ -14,7 +14,7 @@ PatientBook is a **desktop app for managing contacts and appointments. It also h
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-1. Download the latest `addressbook.jar` from [here](https://github.com/se-edu/addressbook-level3/releases).
+1. Download the latest `patientBook.jar` from [here](https://github.com/AY2021S2-TIC4002-F18-4/tp2/releases).
 
 1. Copy the file to the folder you want to use as the _home folder_ for your PatientBook.
 
@@ -26,7 +26,11 @@ PatientBook is a **desktop app for managing contacts and appointments. It also h
 
    * **`list`** : Lists all contacts.
 
-   * **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the Address Book.
+   * **`add`**`n/John Doe p/98765432 e/johnd@example.com
+    
+    a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the patient book.
+
+   * **`edit`**`3 n/John Doe e/johnd@example.com a/John street, block 123, #01-01` : Edit `Charlotte` contact to `John Doe` to the PatientBook.
 
    * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
 
@@ -73,37 +77,38 @@ Shows a message explaning how to access the help page.
 Format: `help`
 
 
-### Adding a person: `add`
+### Adding a patient: `add`
 
-Adds a person to the address book.
+Adds a patient to the patient book.
 
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
+Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG] [app/APPOINTMENT]...​`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-A person can have any number of tags (including 0)
+A patient can have any number of tags (including 0) </div>
+<div>A patient can have any number of appointments.</div>
 </div>
 
 Examples:
 * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
-* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal`
+* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal app/health check up at 21/03/2021`
 
 ### Listing all persons : `list`
 
-Shows a list of all persons in the address book.
+Shows a list of all persons in the patient book.
 
 Format: `list`
 
-### Editing a person : `edit`
+### Editing a Patient : `edit`
 
-Edits an existing person in the address book.
+Edits an existing person in the patient book.
 
 Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
 
-* Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
+* Edits the patient at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
-* When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
-* You can remove all the person’s tags by typing `t/` without
+* When editing tags, the existing tags of the patient will be removed i.e adding of tags is not cumulative.
+* You can remove all the patient’s tags by typing `t/` without
     specifying any tags after it.
 
 Examples:
@@ -112,7 +117,7 @@ Examples:
 
 ### Locating persons by name: `find`
 
-Finds persons whose names contain any of the given keywords.
+Finds patient whose names contain any of the given keywords.
 
 Format: `find KEYWORD [MORE_KEYWORDS]`
 
@@ -139,12 +144,12 @@ Format: `delete INDEX`
 * The index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
-* `list` followed by `delete 2` deletes the 2nd patient in the address book.
+* `list` followed by `delete 2` deletes the 2nd patient in the patient book.
 * `find Betsy` followed by `delete 1` deletes the 1st patient in the results of the `find` command.
 
 ### Clearing all entries : `clear`
 
-Clears all entries from the address book.
+Clears all entries from the patient book.
 
 Format: `clear`
 
