@@ -323,6 +323,30 @@ Use case ends.
   
 Use case ends.
 
+*Use case: Delete a patient*
+
+*MSS*
+
+1.  User requests to list patient
+2.  PatientBook shows a list of patients
+3.  Staff requests to delete a specific patient in the list
+4.  PatientBook deletes the patient successfully.
+
+
+*Extensions*
+
+* 2a. The PatientBook is empty.
+
+  Use case ends.
+
+* 3a. The given index is invalid.
+
+    * 3a1. PatientBook shows an error message.
+
+      Use case resumes at step 2.
+      
+Use case ends.
+
 ### Non-Functional Requirements
 
 1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
@@ -370,15 +394,15 @@ testers are expected to do more *exploratory* testing.
 
 ### Deleting a person
 
-1. Deleting a person while all persons are being shown
+1. Deleting a patient while all patients are shown
 
-   1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
+   1. Prerequisites: List all patients using the `list` command. Multiple patients in the list.
 
    1. Test case: `delete 1`<br>
-      Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
+      Expected: First contact will be deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar will be updated.
 
    1. Test case: `delete 0`<br>
-      Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.
+      Expected: No patient will be deleted. Error details shown in the status message. Status bar remains the same.
 
    1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
