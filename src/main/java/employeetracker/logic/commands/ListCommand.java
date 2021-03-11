@@ -5,6 +5,9 @@ import static java.util.Objects.requireNonNull;
 
 import employeetracker.model.Model;
 
+/**
+ * Lists all employees in the Employee Tracker to the user.
+ */
 public class ListCommand extends Command {
 
     public static final String COMMAND_WORD = "list";
