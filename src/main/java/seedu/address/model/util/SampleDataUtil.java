@@ -43,8 +43,9 @@ public class SampleDataUtil {
                     new Email("berniceyu@example.com"),
                     new Address("Blk 30 Lorong 3 Serangoon Gardens, #07-18"),
                     new Description("She was molested by a Senior Investigations Officer "
-                        + "at the Jurong Police Division Headquarters in the interview room around 9.00pm."),
-                    new Remark("She informed a policeman at the Police Cantonment Complex 5 days later."),
+                        + "at the Jurong Police Division Headquarters in the interview room around 9.00pm. "
+                        + "She informed a policeman at the Police Cantonment Complex 5 days later."),
+                    EMPTY_REMARK,
                     getTagSet("MediumPriority", "NeverCalled")),
             new Person(new Name("Charlotte Oliveiro"),
                     new Date("21-02-2021"),
