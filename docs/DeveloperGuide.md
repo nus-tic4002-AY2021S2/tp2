@@ -23,11 +23,11 @@ The ***Architecture Diagram*** given above explains the high-level design of the
 
 <div markdown="span" class="alert alert-primary">
 
-:bulb: **Tip:** The `.puml` files used to create diagrams in this document can be found in the [diagrams](https://github.com/se-edu/addressbook-level3/tree/master/docs/diagrams/) folder. Refer to the [_PlantUML Tutorial_ at se-edu/guides](https://se-education.org/guides/tutorials/plantUml.html) to learn how to create and edit diagrams.
+:bulb: **Tip:** The `.puml` files used to create diagrams in this document can be found in the [diagrams](https://github.com/AY2021S2-TIC4002-F18-1/tp2/tree/master/docs/diagrams/) folder. Refer to the [_PlantUML Tutorial_ at se-edu/guides](https://se-education.org/guides/tutorials/plantUml.html) to learn how to create and edit diagrams.
 
 </div>
 
-**`Main`** has two classes called [`Main`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/Main.java) and [`MainApp`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/MainApp.java). It is responsible for,
+**`Main`** has two classes called [`Main`](https://github.com/AY2021S2-TIC4002-F18-1/tp2/tree/master/src/main/java/seedu/address/Main.java) and [`MainApp`](https://github.com/AY2021S2-TIC4002-F18-1/tp2/tree/master/src/main/java/seedu/address/MainApp.java). It is responsible for,
 * At app launch: Initializes the components in the correct sequence, and connects them up with each other.
 * At shut down: Shuts down the components and invokes cleanup methods where necessary.
 
@@ -62,11 +62,11 @@ The sections below give more details of each component.
 ![Structure of the UI Component](images/UiClassDiagram.png)
 
 **API** :
-[`Ui.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java)
+[`Ui.java`](https://github.com/AY2021S2-TIC4002-F18-1/tp2/tree/master/src/main/java/seedu/address/ui/Ui.java)
 
 The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class.
 
-The `UI` component uses JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml)
+The `UI` component uses JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/AY2021S2-TIC4002-F18-1/tp2/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/AY2021S2-TIC4002-F18-1/tp2/tree/master/src/main/resources/view/MainWindow.fxml)
 
 The `UI` component,
 
@@ -78,7 +78,7 @@ The `UI` component,
 ![Structure of the Logic Component](images/LogicClassDiagram.png)
 
 **API** :
-[`Logic.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/logic/Logic.java)
+[`Logic.java`](https://github.com/AY2021S2-TIC4002-F18-1/tp2/tree/master/src/main/java/seedu/address/logic/Logic.java)
 
 1. `Logic` uses the `AddressBookParser` class to parse the user command.
 1. This results in a `Command` object which is executed by the `LogicManager`.
@@ -97,7 +97,7 @@ Given below is the Sequence Diagram for interactions within the `Logic` componen
 
 ![Structure of the Model Component](images/ModelClassDiagram.png)
 
-**API** : [`Model.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java)
+**API** : [`Model.java`](https://github.com/AY2021S2-TIC4002-F18-1/tp2/tree/master/src/main/java/seedu/address/model/Model.java)
 
 The `Model`,
 
@@ -117,7 +117,7 @@ The `Model`,
 
 ![Structure of the Storage Component](images/StorageClassDiagram.png)
 
-**API** : [`Storage.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/storage/Storage.java)
+**API** : [`Storage.java`](https://github.com/AY2021S2-TIC4002-F18-1/tp2/tree/master/src/main/java/seedu/address/storage/Storage.java)
 
 The `Storage` component,
 * can save `UserPref` objects in json format and read it back.
@@ -234,15 +234,15 @@ _{Explain here how the data archiving feature will be implemented}_
 
 ### Product scope
 
-**Target user profile**:
+**Target user profile**: Police Investigation Officer
 
-* has a need to manage a significant number of contacts
+* has a need to record contact details, case description and report number
 * prefer desktop apps over other types
 * can type fast
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
 
-**Value proposition**: manage contacts faster than a typical mouse/GUI driven app
+**Value proposition**: Helps to remind which people to call, helps to auto reschedule follow up calls, able to update a person's information and add own notes after a call
 
 
 ### User stories
@@ -251,27 +251,79 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 | Priority | As a …​                                    | I want to …​                     | So that I can…​                                                        |
 | -------- | ------------------------------------------ | ------------------------------ | ---------------------------------------------------------------------- |
-| `* * *`  | new user                                   | see usage instructions         | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person               |                                                                        |
-| `* * *`  | user                                       | delete a person                | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name           | locate a person easily                                                 |
-
-*{More to be added}*
+| `* * *`  | new user | see usage instructions         | refer to instructions when I forget how to use the App                 |
+| `* * *`  | user | add a new person               | record new cases                                                                       |
+| `* * *`  | user | delete a person                | remove entries that I no longer need                                   |
+| `* * *`  | user | list all person's information          | view all my person's information|
+| `* * *`  | police officer | edit a person's information        | modify a person's information|
+| `* * *`  | police officer | clear all person's information       | start afresh with the app|
+| `* * *`  | police officer | have an NRIC field         | easily find the unique person |
+| `* * *`  | police officer | add remarks to a case         | record my own notes after a call |
+| `* * *`  | police officer | find a person by field         | easily locate details of persons with any bit of information I can remember |
+| `* * *`  | police officer | have a date for each case         | know when the case occurred |
+| `* * *`  | police officer | have a description for each case      | see the details of the person and the case for follow up in future |
+| `* * *`  | police officer | set time intervals           | be reminded to give a follow up call |
+| `* *`  | police officer | have no repeated data           | avoid duplicate entries (check by phone number or NRIC) |
+| `* *`  | police officer | have an email field           | still contact the person in another way in case no one answers the phone |
+| `*`    | police officer | have a better GUI display of information           | easily see the details of each person and their case |
 
 ### Use cases
 
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is the `Police Address Book` and the **Actor** is the `user`, unless specified otherwise)
+
+**Use case: Add a person**
+
+1.  User attempts to add a person
+2.  Police Address Book adds the person
+3.  Police Address Book shows the new person in the list
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. There are missing fields.
+
+    * 1a1. Police Address Book shows an error message and an example.
+
+      Use case resumes at step 1.
+    
+* 2a. There are duplicate entries.
+
+    * 2a1. Police Address Book shows an error message.
+
+      Use case resumes at step 1.
+
+**Use case: Find a person**
+
+1.  User find a person by field
+2.  Police Address Book shows a list of matching persons
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+
+* 2b. There are no matching results.
+
+    * 2b1. Police Address Book shows nothing.
+
+      Use case resumes at step 1.
+    
+* 2c. The given field is invalid.
+
+    * 2b1. Police Address Book shows an error message.
+
+      Use case resumes at step 1.
 
 **Use case: Delete a person**
 
-**MSS**
-
 1.  User requests to list persons
-2.  AddressBook shows a list of persons
+2.  Police Address Book shows a list of persons
 3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
+4.  Police Address Book deletes the person
 
     Use case ends.
 
@@ -283,10 +335,51 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 3a. The given index is invalid.
 
-    * 3a1. AddressBook shows an error message.
+    * 3a1. Police Address Book shows an error message.
 
       Use case resumes at step 2.
 
+**Use case: Edit a person**
+
+1.  User requests to list persons
+2.  Police Address Book shows a list of persons
+3.  User requests to edit a specific person in the list
+4.  Police Address Book update the person's information
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+
+* 3a. The given index is invalid.
+
+    * 3a1. Police Address Book shows an error message.
+
+      Use case resumes at step 2.
+      
+**Use case: Send email to person**
+
+1.  User requests to list persons
+2.  Police Address Book shows a list of persons
+3.  User requests to send a specific email address to specific person in the list
+4.  Police Address Book will show a response message
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+
+* 3a. The given index is invalid.
+
+    * 3a1. Police Address Book shows an error message.
+
+      Use case resumes at step 2.
 *{More to be added}*
 
 ### Non-Functional Requirements
@@ -294,13 +387,18 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
 2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
 3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
-
-*{More to be added}*
+* Operation Environment: Should work on any _Mainstream OS_ as long as it has Java **11** or above installed.
+* Usability: A command line interface application, user will use specified command to interact with the system.
+* Capacity: Should be able to record at least 1,000 person records.
+* Reliability / Availability: Once the Police Address Book has been successfully deployed on user's computer, availability is 24/7.
+* Scalability: The current version only supports local data file storage, users are unable to share a centralised project data.
+  If the need of having a centralised data storage raised in the future, it can be added as system enhancement.
+* Security: User login is not required. Police Address Book uses user's computer login as authentication.
+* Maintainability: A updated JAR file will be released to user if there is any update to the current version of the Police Address Book.
 
 ### Glossary
 
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
-* **Private contact detail**: A contact detail that is not meant to be shared with others
 
 --------------------------------------------------------------------------------------------------------------------
 

@@ -26,7 +26,7 @@ public class RemarkCommand extends Command {
         + "Parameters: INDEX (must be a positive integer) "
         + PREFIX_REMARK + "[REMARK]\n"
         + "Example: " + COMMAND_WORD + " 1 "
-        + PREFIX_REMARK + "Likes to swim.";
+        + PREFIX_REMARK + "He could be just curious to see what the Istana looks like.";
 
     public static final String MESSAGE_ADD_REMARK_SUCCESS = "Added remark to Person: %1$s";
     public static final String MESSAGE_DELETE_REMARK_SUCCESS = "Removed remark from Person: %1$s";
@@ -53,8 +53,11 @@ public class RemarkCommand extends Command {
         }
 
         Person personToEdit = lastShownList.get(index.getZeroBased());
-        Person editedPerson = new Person(personToEdit.getName(), personToEdit.getPhone(), personToEdit.getEmail(),
-            personToEdit.getAddress(), remark, personToEdit.getTags());
+
+        Person editedPerson = new Person(personToEdit.getName(), personToEdit.getDate(),
+                personToEdit.getNric(), personToEdit.getPhone(), personToEdit.getEmail(),
+                personToEdit.getAddress(), personToEdit.getDescription(), remark,
+                personToEdit.getTags());
 
         model.setPerson(personToEdit, editedPerson);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
