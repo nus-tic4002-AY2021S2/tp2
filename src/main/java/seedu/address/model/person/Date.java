@@ -13,6 +13,7 @@ public class Date {
 
     /**
      * The date format is 'dd-mm-yyyy', with leading zero is required
+     * public static final String DATE_VALIDATION_REGEX = "^(3[01]|[12][0-9]|0[1-9])-(1[0-2]|0[1-9])-[0-9]{4}$";
      */
     public static final String DATE_VALIDATION_REGEX = "^(3[01]|[12][0-9]|0[1-9])-(1[0-2]|0[1-9])-[0-9]{4}$";
 
