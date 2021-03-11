@@ -35,7 +35,7 @@ import employeetracker.model.employee.Salary;
 import employeetracker.model.tag.Tag;
 
 /**
- * Edits the details of an existing employee in the employee tracker.
+ * Edits the details of an existing employee in the Employee Tracker.
  */
 public class EditCommand extends Command {
 

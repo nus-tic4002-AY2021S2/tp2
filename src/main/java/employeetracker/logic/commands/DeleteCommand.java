@@ -11,7 +11,7 @@ import employeetracker.model.Model;
 import employeetracker.model.employee.Employee;
 
 /**
- * Deletes a employee identified using it's displayed index from the employee tracker.
+ * Deletes a employee identified using it's displayed index from the Employee Tracker.
  */
 public class DeleteCommand extends Command {
 
