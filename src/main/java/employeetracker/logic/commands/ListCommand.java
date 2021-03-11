@@ -6,7 +6,7 @@ import static java.util.Objects.requireNonNull;
 import employeetracker.model.Model;
 
 /**
- * Lists all persons in the Employee Tracker to the user.
+ * Lists all employees in the Employee Tracker to the user.
  */
 public class ListCommand extends Command {
 

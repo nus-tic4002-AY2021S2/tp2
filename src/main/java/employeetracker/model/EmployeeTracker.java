@@ -67,7 +67,7 @@ public class EmployeeTracker implements ReadOnlyEmployeeTracker {
     }
 
     /**
-     * Adds a employee to the address book.
+     * Adds a employee to the Employee Tracker.
      * The employee must not already exist in the Employee Tracker.
      */
     public void addEmployee(Employee p) {
@@ -76,9 +76,9 @@ public class EmployeeTracker implements ReadOnlyEmployeeTracker {
 
     /**
      * Replaces the given employee {@code target} in the list with {@code editedEmployee}.
-     * {@code target} must exist in the address book.
+     * {@code target} must exist in the Employee Tracker.
      * The employee identity of {@code editedEmployee} must not be the same as another existing employee in the
-     * employee Tracker.
+     * Employee Tracker.
      */
     public void setEmployee(Employee target, Employee editedEmployee) {
         requireNonNull(editedEmployee);
@@ -88,7 +88,7 @@ public class EmployeeTracker implements ReadOnlyEmployeeTracker {
 
     /**
      * Removes {@code key} from this {@code EmployeeTracker}.
-     * {@code key} must exist in the address book.
+     * {@code key} must exist in the Employee Tracker.
      */
     public void sortEmployee(String field) {
         employees.sortEmployee(field);
@@ -96,7 +96,7 @@ public class EmployeeTracker implements ReadOnlyEmployeeTracker {
 
     /**
      * Removes {@code key} from this {@code EmployeeTracker}.
-     * {@code key} must exist in the address book.
+     * {@code key} must exist in the Employee Tracker.
      */
     public void removeEmployee(Employee key) {
         employees.remove(key);

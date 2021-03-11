@@ -11,7 +11,7 @@ import employeetracker.logic.parser.exceptions.ParseException;
  */
 public class SortCommandParser implements Parser<SortCommand> {
     /**
-     * Parses the given {@code String} of arguments in the context of the Sort
+     * Parses the given {@code String} of arguments in the context of the SortCommand
      * and returns an SortCommand object for execution.
      * @throws ParseException if the input field does not conform the expected format
      */

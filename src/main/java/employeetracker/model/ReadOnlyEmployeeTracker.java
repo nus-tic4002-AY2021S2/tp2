@@ -9,8 +9,8 @@ import javafx.collections.ObservableList;
 public interface ReadOnlyEmployeeTracker {
 
     /**
-     * Returns an unmodifiable view of the persons list.
-     * This list will not contain any duplicate persons.
+     * Returns an unmodifiable view of the employees list.
+     * This list will not contain any duplicate employees.
      */
     ObservableList<Employee> getEmployeeList();
 

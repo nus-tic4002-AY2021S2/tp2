@@ -6,7 +6,8 @@ import employeetracker.model.Model;
 
 
 /**
- * Sort and lists all persons in address book by name contains any of the argument keywords.
+ * Sort and list all employees in Employee Tracker by name, salary,
+ * date of join & date of birth contains any of the argument keywords.
  * Keyword matching is case insensitive.
  */
 public class SortCommand extends Command {

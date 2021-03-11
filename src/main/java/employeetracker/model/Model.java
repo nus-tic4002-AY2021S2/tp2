@@ -86,5 +86,9 @@ public interface Model {
      */
     void updateFilteredEmployeeList(Predicate<Employee> predicate);
 
+    /**
+     * Sorts the exist employees list in Employee Tracker.
+     * {@code field} must be chart n, s, d, b.
+     */
     void sortEmployee(String field);
 }
