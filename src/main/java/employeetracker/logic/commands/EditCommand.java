@@ -278,6 +278,7 @@ public class EditCommand extends Command {
             EditEmployeeDescriptor e = (EditEmployeeDescriptor) other;
 
             return getName().equals(e.getName())
+                    && getRole().equals(e.getRole())
                     && getPhone().equals(e.getPhone())
                     && getEmail().equals(e.getEmail())
                     && getAddress().equals(e.getAddress())
