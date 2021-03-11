@@ -63,7 +63,7 @@ public class EmployeeCard extends UiPart<Region> {
         email.setText("\uD83D\uDCE7 " + employee.getEmail().value);
         dateOfBirth.setText("\uD83D\uDC76 " + employee.getDateOfBirth().value);
         dateOfJoining.setText("\uD83D\uDC66 " + employee.getDateOfJoining().value);
-        salary.setText("\uD83D\uDCB2 " + employee.getSalary().value);
+        salary.setText("\uD83D\uDCB2 " + String.format("%,d", Integer.parseInt(employee.getSalary().value)));
         employee.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
