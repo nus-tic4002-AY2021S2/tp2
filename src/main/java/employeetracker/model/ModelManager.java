@@ -108,8 +108,13 @@ public class ModelManager implements Model {
     @Override
     public void setEmployee(Employee target, Employee editedEmployee) {
         requireAllNonNull(target, editedEmployee);
-
         employeeTracker.setEmployee(target, editedEmployee);
+    }
+
+    @Override
+    public void sortEmployee(String field) {
+        employeeTracker.sortEmployee(field);
+        updateFilteredEmployeeList(PREDICATE_SHOW_ALL_EMPLOYEES);
     }
 
     //=========== Filtered Employee List Accessors =============================================================
