@@ -14,7 +14,7 @@ import seedu.address.model.group.GroupList;
 /**
  * Deletes a Group identified using it's displayed index from show command in address book.
  */
-@SuppressWarnings("checkstyle:Regexp")
+//@SuppressWarnings("checkstyle:Regexp")
 public class DeleteGroupCommand extends Command {
     public static final String COMMAND_WORD = "deletegrp";
 
