@@ -94,12 +94,11 @@ public class Person {
         if (otherPerson == this) {
             return true;
         }
-
+        //Persons must have unique Nric, phone number and email.
         return otherPerson != null
-                && otherPerson.getName().equals(getName())
-                && otherPerson.getNric().equals(getNric())
-                && otherPerson.getPhone().equals(getPhone())
-                && otherPerson.getEmail().equals(getEmail());
+            && (otherPerson.getNric().equals(getNric())
+                    || otherPerson.getPhone().equals(getPhone())
+                    || otherPerson.getEmail().equals(getEmail()));
     }
 
     /**
@@ -123,7 +122,6 @@ public class Person {
             && otherPerson.getEmail().equals(getEmail())
             && otherPerson.getAddress().equals(getAddress())
             && otherPerson.getDescription().equals(getDescription())
-            //&& otherPerson.getRemark().equals(getRemark())
             && otherPerson.getTags().equals(getTags());
     }
 
