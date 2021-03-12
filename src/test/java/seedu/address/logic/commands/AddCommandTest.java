@@ -161,6 +161,11 @@ public class AddCommandTest {
         }
 
         @Override
+        public int countPersonInGroup(Predicate<Person> predicate){
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public boolean hasGroup(Group toAdd) {
             return true;
         }
