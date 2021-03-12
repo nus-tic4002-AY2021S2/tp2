@@ -2,6 +2,7 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
+import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
@@ -22,6 +23,9 @@ public class DeleteGroupCommand extends Command {
             + "Example: " + COMMAND_WORD + " 1";
 
     public static final String MESSAGE_SUCCESS = "Group deleted successfully: %1$s";
+    //public static final String MESSAGE_PersonInGroup = "Cannot be deleted as there are persons in this group";
+
+
 
     private final Index targetIndex;
 
@@ -34,6 +38,12 @@ public class DeleteGroupCommand extends Command {
         requireNonNull(model);
 
         Group groupName = GroupList.getGroup(targetIndex.getOneBased());
+        int count = model.countPersonInGroup(Model.predicateShowAllPersonsInGroup(groupName));
+        //System.out.println(count);
+        //System.out.println(groupName.toString());
+        if (count > 0) {
+            throw new CommandException(Messages.MESSAGE_PERSON_IN_GROUP);
+        }
         GroupList.deleteGroup(targetIndex.getOneBased());
         return new CommandResult(String.format(MESSAGE_SUCCESS, groupName.toString()));
     }

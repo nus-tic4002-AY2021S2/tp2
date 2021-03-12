@@ -107,6 +107,13 @@ public interface Model {
      */
     void updateFilteredPersonList(Predicate<Person> predicate);
 
+
+    /**
+     * Counts the filter of the filtered person list to filter by the given {@code predicate}.
+     * @throws NullPointerException if {@code predicate} is null.
+     */
+    int countPersonInGroup(Predicate<Person> predicate);
+
     /**
      * Returns true if a group with the same name as {@code group} exists in the address book.
      */
