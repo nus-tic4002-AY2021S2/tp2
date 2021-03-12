@@ -69,7 +69,11 @@ public class ParserUtil {
         if (!Date.isValidDate(trimmedDate)) {
             throw new IllegalValueException(Date.MESSAGE_DATE_CONSTRAINTS);
         }
-        return new Date(trimmedDate);
+        else if (!Date.isValidCalendarDate(trimmedDate)) {
+            throw new IllegalValueException(Date.MESSAGE_DATE_CONSTRAINTS);
+        } else {
+            return new Date(trimmedDate);
+        }
     }
 
     /**

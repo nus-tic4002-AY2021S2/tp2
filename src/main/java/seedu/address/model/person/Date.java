@@ -13,7 +13,6 @@ public class Date {
 
     /**
      * The date format is 'dd-mm-yyyy', with leading zero is required
-     * public static final String DATE_VALIDATION_REGEX = "^(3[01]|[12][0-9]|0[1-9])-(1[0-2]|0[1-9])-[0-9]{4}$";
      */
     public static final String DATE_VALIDATION_REGEX = "^(3[01]|[12][0-9]|0[1-9])-(1[0-2]|0[1-9])-[0-9]{4}$";
 
@@ -27,8 +26,8 @@ public class Date {
     public Date(String date) {
         requireNonNull(date);
         checkArgument(isValidDate(date), MESSAGE_DATE_CONSTRAINTS);
+        checkArgument(isValidCalendarDate(date), MESSAGE_DATE_CONSTRAINTS);
         this.value = date;
-
     }
 
     @Override
@@ -48,5 +47,17 @@ public class Date {
      */
     public static boolean isValidDate(String date) {
         return date.matches(DATE_VALIDATION_REGEX);
+    }
+
+    /**
+     * Returns true if a given string is a valid calendar date.
+     */
+    public static boolean isValidCalendarDate(String date) {
+        int days = Integer.parseInt(date.substring(0, 2));
+        int month = Integer.parseInt(date.substring(3, 5));
+        if (days > 28 && month == 2 ) {
+            return false;
+        }
+        return true;
     }
 }
