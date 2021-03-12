@@ -4,11 +4,12 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
- *
+ * Represents the date of when the case was reported.
+ * Guarantees: immutable; is valid as declared in {@link #isValidDate(String)}
  */
 public class Date {
     public static final String MESSAGE_DATE_CONSTRAINTS =
-            "Report Date should follow date format 'dd-mm-yyyy' and it should be a valid calendar date";
+            "Date should follow date format 'dd-mm-yyyy' and it should be a valid calendar date";
 
     /**
      * The date format is 'dd-mm-yyyy', with leading zero is required
@@ -25,8 +26,8 @@ public class Date {
     public Date(String date) {
         requireNonNull(date);
         checkArgument(isValidDate(date), MESSAGE_DATE_CONSTRAINTS);
+        checkArgument(isValidCalendarDate(date), MESSAGE_DATE_CONSTRAINTS);
         this.value = date;
-
     }
 
     @Override
@@ -46,5 +47,17 @@ public class Date {
      */
     public static boolean isValidDate(String date) {
         return date.matches(DATE_VALIDATION_REGEX);
+    }
+
+    /**
+     * Returns true if a given string is a valid calendar date.
+     */
+    public static boolean isValidCalendarDate(String date) {
+        int days = Integer.parseInt(date.substring(0, 2));
+        int month = Integer.parseInt(date.substring(3, 5));
+        if (days > 28 && month == 2 ) {
+            return false;
+        }
+        return true;
     }
 }

@@ -15,17 +15,15 @@ We are a team based in the [School of Computing, National University of Singapor
 [[portfolio](team/linqing.md)]
 
 * Role: Team member
-* Responsibilities: UI
 
 ### Wang Zhenquan
 
-<img src="images/zhenquan.png" width="200px">
+<img src="images/impala36.png" width="200px">
 
 [[github](http://github.com/impala36/tp2)]
-[[portfolio](team/impala36.md)]
+[[portfolio](team/zhenquan.md)]
 
 * Role: Team member
-* Responsibilities: Data
 
 ### Lin Binhui
 
@@ -35,14 +33,12 @@ We are a team based in the [School of Computing, National University of Singapor
 [[portfolio](team/binhui.md)]
 
 * Role: Team member
-* Responsibilities: Dev Ops + Threading
 
 ### Zheng Yiheng
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/yiheng0410.png" width="200px">
 
 [[github](https://github.com/Yiheng0410/tp2)]
 [[portfolio](team/yiheng.md)]
 
 * Role: Team member
-* Responsibilities: UI

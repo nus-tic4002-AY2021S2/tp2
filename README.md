@@ -1,15 +1,14 @@
-[![CI Status](https://github.com/se-edu/addressbook-level3/workflows/Java%20CI/badge.svg)](https://github.com/se-edu/addressbook-level3/actions)
+# Police Address Book
+
+[![CI Status](https://github.com/AY2021S2-TIC4002-F18-1/tp2/workflows/Java%20CI/badge.svg)](https://github.com/AY2021S2-TIC4002-F18-1/tp2/actions)
 
 ![Ui](docs/images/Ui.png)
 
-* This is **a sample project for Software Engineering (SE) students**.<br>
-  Example usages:
-  * as a starting point of a course project (as opposed to writing everything from scratch)
-  * as a case study
-* The project simulates an ongoing software project for a desktop application (called _AddressBook_) used for managing contact details.
-  * It is **written in OOP fashion**. It provides a **reasonably well-written** code base **bigger** (around 6 KLoC) than what students usually write in beginner-level SE modules, without being overwhelmingly big.
-  * It comes with a **reasonable level of user and developer documentation**.
-* It is named `AddressBook Level 3` (`AB3` for short) because it was initially created as a part of a series of `AddressBook` projects (`Level 1`, `Level 2`, `Level 3` ...).
-* For the detailed documentation of this project, see the **[Address Book Product Website](https://se-education.org/addressbook-level3)**.
+* **Police Address Book (PAB)** is a desktop app meant for Police Investigation Officers, optimized for use via a Command Line Interface (CLI) with a Graphical User Interface (GUI).
+
+* It is designed to help them manage their investigation cases better by reminding them on which people to call, automatically rescheduling follow up calls and assisting in sending case detail emails to colleagues or call notification emails to people in the contact list.
+  
+* Detailed documentation of this project can be found in the **[Police Address Book Website](https://ay2021s2-tic4002-f18-1.github.io/tp2/)**.
+  
 * This project is a **part of the se-education.org** initiative. If you would like to contribute code to this project, see [se-education.org](https://se-education.org#https://se-education.org/#contributing) for more info.
 

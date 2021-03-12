@@ -1,4 +1,4 @@
-title: "AB-3"
+title: "Police Address Book"
 theme: minima
 
 header_pages:
@@ -8,7 +8,7 @@ header_pages:
 
 markdown: kramdown
 
-repository: "se-edu/addressbook-level3"
+repository: "AY2021S2-TIC4002-F18-1/tp2"
 github_icon: "images/github-icon.png"
 
 plugins:
