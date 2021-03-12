@@ -143,7 +143,7 @@ public class ModelManager implements Model {
     }
 
     /**
-     * Counts persons in group
+     * Returns persons in particular group
      */
     @Override
     public int countPersonInGroup(Predicate<Person> predicate) {

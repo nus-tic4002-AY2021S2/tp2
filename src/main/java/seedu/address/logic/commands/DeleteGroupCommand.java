@@ -14,6 +14,7 @@ import seedu.address.model.group.GroupList;
 /**
  * Deletes a Group identified using it's displayed index from show command in address book.
  */
+@SuppressWarnings("checkstyle:Regexp")
 public class DeleteGroupCommand extends Command {
     public static final String COMMAND_WORD = "deletegrp";
 
@@ -23,12 +24,7 @@ public class DeleteGroupCommand extends Command {
             + "Example: " + COMMAND_WORD + " 1";
 
     public static final String MESSAGE_SUCCESS = "Group deleted successfully: %1$s";
-    //public static final String MESSAGE_PersonInGroup = "Cannot be deleted as there are persons in this group";
-
-
-
     private final Index targetIndex;
-
     public DeleteGroupCommand(Index targetIndex) {
         this.targetIndex = targetIndex;
     }
@@ -38,10 +34,7 @@ public class DeleteGroupCommand extends Command {
         requireNonNull(model);
 
         Group groupName = GroupList.getGroup(targetIndex.getOneBased());
-        int count = model.countPersonInGroup(Model.predicateShowAllPersonsInGroup(groupName));
-        //System.out.println(count);
-        //System.out.println(groupName.toString());
-        if (count > 0) {
+        if (model.countPersonInGroup(Model.predicateShowAllPersonsInGroup(groupName)) > 0) {
             throw new CommandException(Messages.MESSAGE_PERSON_IN_GROUP);
         }
         GroupList.deleteGroup(targetIndex.getOneBased());
