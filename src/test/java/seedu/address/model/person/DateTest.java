@@ -1,6 +1,8 @@
 package seedu.address.model.person;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.Assert.assertThrows;
 
@@ -39,8 +41,16 @@ public class DateTest {
     public void isValidCalendarDate() {
         assertFalse(Date.isValidCalendarDate("29-02-2021")); // day in feb is bigger than 28
         assertFalse(Date.isValidCalendarDate("30-02-2020")); // day in feb is bigger than 28
+        assertFalse(Date.isValidCalendarDate("30-02-2020")); // day in feb is bigger than 28
 
         assertTrue(Date.isValidCalendarDate("01-02-2020")); // correct date
         assertTrue(Date.isValidCalendarDate("30-03-2020")); // correct date
+        assertTrue(Date.isValidCalendarDate("29-02-2020")); // leap year
+    }
+
+    @Test
+    public void calculateDateDiff() {
+        assertEquals(Date.calculateDateDiff("01-02-2021", "28-02-2021"), 27);
+        assertNotEquals(Date.calculateDateDiff("01-02-2021", "28-02-2021"), 23);
     }
 }
