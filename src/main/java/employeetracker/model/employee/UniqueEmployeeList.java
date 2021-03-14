@@ -147,14 +147,14 @@ public class UniqueEmployeeList implements Iterable<Employee> {
         case "s":
             internalList.sort((s1, s2) -> s1.getSalary().value.compareToIgnoreCase(s2.getSalary().value));
             break;
-        case "d":
+        case "j":
             internalList.sort((s1, s2) -> s1.getDateOfJoining().value.compareToIgnoreCase(s2.getDateOfJoining().value));
             break;
         case "b":
             internalList.sort((s1, s2) -> s1.getDateOfBirth().value.compareToIgnoreCase(s2.getDateOfBirth().value));
             break;
         default:
-            throw new AssertionError("Sort field Parameters: TYPE (must be the letter n, s, d or b)\n");
+            assert false : "Sort field Parameters: TYPE (must be the letter n, s, j or b)";
         }
     }
 

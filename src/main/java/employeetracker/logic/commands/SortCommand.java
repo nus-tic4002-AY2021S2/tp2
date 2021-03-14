@@ -7,7 +7,7 @@ import employeetracker.model.Model;
 
 /**
  * Sort and list all employees in Employee Tracker by name, salary,
- * date of join & date of birth contains any of the argument keywords.
+ * date of joining & date of birth contains any of the argument keywords.
  * Keyword matching is case insensitive.
  */
 public class SortCommand extends Command {
@@ -16,7 +16,7 @@ public class SortCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Sorts the list of all employee records in the Employee Tracker.\n"
-            + "Parameters: TYPE (must be the letter n, s, d or b)\n"
+            + "Parameters: TYPE (must be the letter n, s, j or b)\n"
             + "Example: " + COMMAND_WORD + " n";
 
     public static final String MESSAGE_SORT_EMPLOYEE_SUCCESS = "Employees list has been sorted.";
