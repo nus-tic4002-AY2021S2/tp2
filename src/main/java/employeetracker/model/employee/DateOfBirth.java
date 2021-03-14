@@ -33,6 +33,7 @@ public class DateOfBirth {
 
     @Override
     public String toString() {
+        assert(value != null);
         return value;
     }
 
@@ -45,6 +46,7 @@ public class DateOfBirth {
 
     @Override
     public int hashCode() {
+        assert(value != null);
         return value.hashCode();
     }
 

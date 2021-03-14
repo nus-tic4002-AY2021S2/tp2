@@ -34,6 +34,7 @@ public class Phone {
 
     @Override
     public String toString() {
+        assert(value != null);
         return value;
     }
 
@@ -46,6 +47,7 @@ public class Phone {
 
     @Override
     public int hashCode() {
+        assert(value != null);
         return value.hashCode();
     }
 

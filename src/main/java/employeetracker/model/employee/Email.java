@@ -49,6 +49,7 @@ public class Email {
 
     @Override
     public String toString() {
+        assert(value != null);
         return value;
     }
 
@@ -61,6 +62,7 @@ public class Email {
 
     @Override
     public int hashCode() {
+        assert(value != null);
         return value.hashCode();
     }
 
