@@ -1,7 +1,5 @@
 package employeetracker.logic.commands;
 
-import static employeetracker.logic.parser.CliSyntax.PREFIX_NAME;
-import static employeetracker.logic.parser.CliSyntax.PREFIX_ROLE;
 import static java.util.Objects.requireNonNull;
 
 import employeetracker.commons.core.Messages;
@@ -9,7 +7,7 @@ import employeetracker.model.Model;
 import employeetracker.model.employee.NameContainsKeywordsPredicate;
 
 /**
- * Finds and lists all employees in employee tracker whose name contains any of the argument keywords.
+ * Finds and lists all employees in Employee Tracker whose name contains any of the argument keywords.
  * Keyword matching is case insensitive.
  */
 public class FindCommand extends Command {
@@ -18,12 +16,10 @@ public class FindCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all persons whose names contain any of "
             + "the specified keywords (case-insensitive) and displays them as a list with index numbers.\n"
-            + "Parameters: KEYWORD [MORE_KEYWORDS]...\n"
-            + COMMAND_WORD + " [" + PREFIX_NAME + "NAME] "
-            + "Example: " + COMMAND_WORD + " n/ Alice bob charlie"
-            + "\n OR \n"
-            + COMMAND_WORD + " [" + PREFIX_ROLE + "ROLE] "
-            + "Example: " + COMMAND_WORD + " r/ Developer";
+            + "Parameters: TYPE (must be n or r)/KEYWORD...\n"
+            + "Example: " + COMMAND_WORD + " n/ Roy Irfan"
+            + " OR "
+            + COMMAND_WORD + " r/ Developer";
 
     private final NameContainsKeywordsPredicate predicate;
 
@@ -34,9 +30,7 @@ public class FindCommand extends Command {
 
 
 
-    ///--------
-    //private final FindEmployeeDescriptor findEmployeeDescriptor;
-    ///-------
+
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);

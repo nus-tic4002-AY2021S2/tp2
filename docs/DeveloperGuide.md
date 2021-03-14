@@ -218,6 +218,32 @@ _{more aspects and alternatives to be added}_
 _{Explain here how the data archiving feature will be implemented}_
 
 
+
+### Find feature
+#### Implementation of find feature
+
+The find operation is implemented using `FindCommand`, which extends `Command`.
+Upon receiving an input string that has `find` as the fist word, the `Employee Tracker` object will instantiate an `FindCommand` object with the `fullCommand` string, which is the input entered by the user. 
+The user is flexible to find the keywords by name, by role.
+
+* `find n/ Alice`: find by name based on the keywords (e.g Alice).
+* `find r/ Developer`: find by role based on the keywords (e.g Developer).
+
+
+These operations are exposed in the `FindCommand()` class.
+* Step 1: The user executes find command.
+* Step 2: !!!!! The FindCommand() class will parser the user instruction keywords and save as rules.
+* Step 3: !!!!! Then check the rules one by one and return matched transaction records by calling the method `getFilteredList`
+* Step 4: !!!!! Display the matched transaction records to the user.
+
+
+The following sequence diagram shows how the find operation works:
+<br> <img src="images/ArchitectureSequenceDiagramFindCommand.png" width="700" /> <br>
+
+The following activity diagram summarizes what happens when a user executes a find command:
+<br> <img src="images/ArchitectureActivityDiagramFindCommand.png" width="700" /> <br>
+
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Documentation, logging, testing, configuration, dev-ops**
