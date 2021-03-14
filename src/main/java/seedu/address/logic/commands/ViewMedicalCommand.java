@@ -9,6 +9,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.medical.MedicalHistory;
 
 
 /**
@@ -40,7 +41,14 @@ public class ViewMedicalCommand extends Command {
 
         Person personToShowMedicalHistory = lastShownList.get(targetIndex.getZeroBased());
 
-        return new CommandResult(String.format(MESSAGE_USAGE, personToShowMedicalHistory));
+        StringBuilder viewMedicalHistory = new StringBuilder();
+        viewMedicalHistory.append("Here is the Medical History of " + personToShowMedicalHistory.getName() + " : \n");
+        for (MedicalHistory medicalHistory : personToShowMedicalHistory.getMedicalHistories()) {
+            viewMedicalHistory.append(medicalHistory.getMedicalHistoryDescription() + "\n");
+        }
+
+        return new CommandResult(String.format(MESSAGE_USAGE, personToShowMedicalHistory),
+                viewMedicalHistory.toString());
     }
 
     public MedicalRecordResult executeViewMedical(Model model) {

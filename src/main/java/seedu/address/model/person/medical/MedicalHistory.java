@@ -4,12 +4,20 @@ public class MedicalHistory {
 
     public static final String VALIDATION_REGEX = "[^\\s].*";
     public final String medicalHistoryDescription;
+    public final Integer index;
     private String medicalItem;
     private String medicalPeriod;
     private Integer quantity;
 
-    public MedicalHistory(String medicalHistoryDescription) {
+
+    /**
+     *
+     * @param medicalHistoryDescription
+     * @param index
+     */
+    public MedicalHistory(String medicalHistoryDescription, Integer index) {
         this.medicalHistoryDescription = medicalHistoryDescription;
+        this.index = index;
     }
 
     public String getMedicalHistoryDescription() {
@@ -44,4 +52,10 @@ public class MedicalHistory {
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
+
+
+    public Integer getIndex() {
+        return index;
+    }
+
 }
