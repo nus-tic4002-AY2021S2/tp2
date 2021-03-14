@@ -20,6 +20,14 @@ public class SortCommandParser implements Parser<SortCommand> {
         if (trimmedArgs.isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, SortCommand.MESSAGE_USAGE));
         }
+
+        if (!trimmedArgs.equalsIgnoreCase("n")
+                && !trimmedArgs.equalsIgnoreCase("s")
+                && !trimmedArgs.equalsIgnoreCase("j")
+                && !trimmedArgs.equalsIgnoreCase("b")) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, SortCommand.MESSAGE_USAGE));
+        }
+
         return new SortCommand(trimmedArgs);
     }
 }
