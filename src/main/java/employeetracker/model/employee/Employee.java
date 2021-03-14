@@ -86,18 +86,6 @@ public class Employee {
     }
 
     /**
-     * Returns true if both employees have the same role.
-     */
-    public boolean hasSameRole(Employee otherEmployee) {
-        if (otherEmployee == this) {
-            return true;
-        }
-
-        return otherEmployee != null
-                && otherEmployee.getRole().equals(getRole());
-    }
-
-    /**
      * Returns true if both employees have the same name.
      * This defines a weaker notion of equality between two persons.
      */
