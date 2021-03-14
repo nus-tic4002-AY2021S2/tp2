@@ -1,5 +1,9 @@
 package seedu.address.model.person.appointment;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
@@ -7,7 +11,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  * Represents a Appointment in the patient book.
  * Guarantees: immutable; name is valid as declared in {@link #isValidAppointmentDescription(String)}
  */
-public class Appointment {
+public class Appointment implements Comparable<Appointment>{
 
     public static final String MESSAGE_CONSTRAINTS = "Appointment description cannot be null.";
 
@@ -17,6 +21,8 @@ public class Appointment {
      */
     public static final String VALIDATION_REGEX = "[^\\s].*";
     public final String appointmentDescription;
+    private String date;
+    private Integer index;
 
     /**
      * Constructs a {@code Tag}.
@@ -26,6 +32,18 @@ public class Appointment {
         requireNonNull(appointmentDescription);
         checkArgument(isValidAppointmentDescription(appointmentDescription), MESSAGE_CONSTRAINTS);
         this.appointmentDescription = appointmentDescription;
+    }
+
+    /**
+     * Constructs a {@code Tag}.
+     *  @param appointmentDescription A valid tag name.
+     */
+    public Appointment(String appointmentDescription, Integer index, String date) {
+        requireNonNull(appointmentDescription);
+        checkArgument(isValidAppointmentDescription(appointmentDescription), MESSAGE_CONSTRAINTS);
+        this.appointmentDescription = appointmentDescription;
+        this.date = date;
+        this.index = index;
     }
 
     /**
@@ -54,4 +72,44 @@ public class Appointment {
         return '[' + appointmentDescription + ']';
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public Integer getIndex() {
+        return index;
+    }
+
+    public void setIndex(Integer index) {
+        this.index = index;
+    }
+
+    @Override
+    public int compareTo(Appointment appointment) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String currentDate = getDate();
+        String prevDate = appointment.getDate();
+        Date curDate = null, newDate = null;
+        if (currentDate!="" && currentDate!=null ){
+            try {
+                curDate = simpleDateFormat.parse(currentDate);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if (prevDate!="" && prevDate!=null ){
+            try {
+                newDate = simpleDateFormat.parse(prevDate);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return curDate.compareTo(newDate);
+    }
 }
