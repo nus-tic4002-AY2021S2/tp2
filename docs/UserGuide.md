@@ -125,7 +125,7 @@ Format: `sort TYPE`
 * `TYPE` must be the letter n, s, j or b.
 * If `TYPE` is n, the employee records will be sorted based on name in alphabetical order.
 * If `TYPE` is s, the employee records will be sorted based on salary in increasing order.
-* If `TYPE` is j, the employee records will be sorted based on date of employment joining from the earliest date to the latest date.
+* If `TYPE` is j, the employee records will be sorted based on date of joining from the earliest date to the latest date.
 * If `TYPE` is b, the employee records will be sorted based on date of birth from the earliest date to the latest date.
 
 Example of usage:
@@ -191,7 +191,7 @@ Action | Format, Examples
 **Add** | `add n/NAME e/EMAIL r/ROLE a/ADDRESS c/CONTACT_NUMBER s/SALARY d/DATE_OF_EMPLOYMENT b/DATE_OF_BIRTH` <br> E.g., `add n/Rachel Lee e/rachel@f18solutions.com.sg r/Designer a/BLK 730 Woodlands Road #15-150 c/91648917 d/2020-09-01 b/1988-01-02`
 **List** | `list`
 **Edit** | `edit INDEX [n/NAME] [r/ROLE] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [b/DATE_OF_BIRTH] [j/DATE_OF_JOINING] [s/SALARY] [t/TAG]…` <br> E.g. `edit 1 p/91821748 s/8000 t/Mentor t/l33tCoder`
-**Delete** | `delete INDEX`<br> E.g., `delete 2`
-**Sort** | `sort TYPE` <br> E.g., `sort j`
-**Find** | `find TYPE/KEYWORD` <br> E.g.,`find n/John Bernice Andy`,`find r/Developer`
+**Delete** | `delete INDEX`<br> E.g. `delete 2`
+**Sort** | `sort TYPE` <br> E.g. `sort j`
+**Find** | `find TYPE/KEYWORD` <br> E.g. `find n/John Bernice Andy`,`find r/Developer`
 **Clear** | `clear`
