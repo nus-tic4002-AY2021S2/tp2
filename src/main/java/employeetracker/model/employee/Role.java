@@ -39,6 +39,7 @@ public class Role {
 
     @Override
     public String toString() {
+        assert(value != null);
         return value;
     }
 
@@ -51,6 +52,7 @@ public class Role {
 
     @Override
     public int hashCode() {
+        assert(value != null);
         return value.hashCode();
     }
 

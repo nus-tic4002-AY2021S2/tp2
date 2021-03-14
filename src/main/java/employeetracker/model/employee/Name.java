@@ -40,6 +40,7 @@ public class Name {
 
     @Override
     public String toString() {
+        assert(fullName != null);
         return fullName;
     }
 
@@ -52,6 +53,7 @@ public class Name {
 
     @Override
     public int hashCode() {
+        assert(fullName != null);
         return fullName.hashCode();
     }
 
