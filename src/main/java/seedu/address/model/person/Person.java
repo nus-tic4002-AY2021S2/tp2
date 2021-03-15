@@ -8,6 +8,7 @@ import java.util.Objects;
 import java.util.Set;
 
 import seedu.address.model.person.appointment.Appointment;
+import seedu.address.model.person.medical.MedicalHistory;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -24,13 +25,15 @@ public class Person {
     // Data fields
     private final Address address;
     private final Set<Tag> tags = new HashSet<>();
-    private final Set<Appointment> appointments = new HashSet<>();
+    private Set<Appointment> appointments = new HashSet<>();
+    private Set<MedicalHistory> medicalHistories = new HashSet<>();
 
     private boolean viewAppInd = false;
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags, Set<Appointment> appointments) {
+    public Person(Name name, Phone phone, Email email, Address address,
+                  Set<Tag> tags, Set<Appointment> appointments, Set<MedicalHistory> medicalHistories) {
         requireAllNonNull(name, phone, email, address, tags);
         this.name = name;
         this.phone = phone;
@@ -38,6 +41,7 @@ public class Person {
         this.address = address;
         this.tags.addAll(tags);
         this.appointments.addAll(appointments);
+        this.medicalHistories.addAll(medicalHistories);
     }
 
     public Name getName() {
@@ -62,6 +66,22 @@ public class Person {
 
     public void setViewAppInd(boolean viewAppInd) {
         this.viewAppInd = viewAppInd;
+    }
+
+    public Set<Appointment> getAppointments() {
+        return appointments;
+    }
+
+    public Set<MedicalHistory> getMedicalHistories() {
+        return medicalHistories;
+    }
+
+    public void setAppointments(Set<Appointment> appointments) {
+        this.appointments = appointments;
+    }
+
+    public void setMedicalHistories(Set<MedicalHistory> medicalHistories) {
+        this.medicalHistories = medicalHistories;
     }
 
     /**
@@ -146,5 +166,4 @@ public class Person {
 
         return builder.toString();
     }
-
 }

@@ -16,6 +16,7 @@ import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.appointment.Appointment;
+import seedu.address.model.person.medical.MedicalHistory;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -31,16 +32,17 @@ class JsonAdaptedPerson {
     private final String address;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
     private final List<JsonAdaptedAppointment> appointment = new ArrayList<>();
-
+    private final List<JsonAdaptedMedicalHistory> medicalHistories = new ArrayList<>();
 
     /**
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
      */
     @JsonCreator
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
-            @JsonProperty("email") String email, @JsonProperty("address") String address,
-            @JsonProperty("tagged") List<JsonAdaptedTag> tagged,
-                             @JsonProperty("appointments") List<JsonAdaptedAppointment> appointment) {
+                             @JsonProperty("email") String email, @JsonProperty("address") String address,
+                             @JsonProperty("tagged") List<JsonAdaptedTag> tagged,
+                             @JsonProperty("appointments") List<JsonAdaptedAppointment> appointment,
+                             @JsonProperty("medicalHistories") List<JsonAdaptedMedicalHistory> medicalHistories) {
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -50,6 +52,9 @@ class JsonAdaptedPerson {
         }
         if (appointment != null) {
             this.appointment.addAll(appointment);
+        }
+        if (medicalHistories != null) {
+            this.medicalHistories.addAll(medicalHistories);
         }
     }
 
@@ -67,6 +72,12 @@ class JsonAdaptedPerson {
         appointment.addAll(source.getAppointment().stream()
                 .map(JsonAdaptedAppointment::new)
                 .collect(Collectors.toList()));
+        for (MedicalHistory medicalHistory : source.getMedicalHistories()) {
+            JsonAdaptedMedicalHistory jsonAdaptedMedicalHistory =
+                    new JsonAdaptedMedicalHistory(medicalHistory.getMedicalHistoryDescription(),
+                            medicalHistory.getIndex());
+            medicalHistories.add(jsonAdaptedMedicalHistory);
+        }
     }
 
     /**
@@ -83,6 +94,12 @@ class JsonAdaptedPerson {
         for (JsonAdaptedAppointment app : appointment) {
             personApp.add(app.toModelAppointment());
         }
+
+        final List<MedicalHistory> personMedical = new ArrayList<>();
+        for (JsonAdaptedMedicalHistory history : medicalHistories) {
+            personMedical.add(history.toModelMedicalHistory());
+        }
+
         if (name == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Name.class.getSimpleName()));
         }
@@ -118,7 +135,10 @@ class JsonAdaptedPerson {
         final Set<Tag> modelTags = new HashSet<>(personTags);
 
         final Set<Appointment> modelAppointments = new HashSet<>(personApp);
-        return new Person(modelName, modelPhone, modelEmail, modelAddress, modelTags, modelAppointments);
+
+        final Set<MedicalHistory> modelMedicalHistory = new HashSet<>(personMedical);
+        return new Person(modelName, modelPhone, modelEmail, modelAddress, modelTags,
+                modelAppointments, modelMedicalHistory);
     }
 
 }

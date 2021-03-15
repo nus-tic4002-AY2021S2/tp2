@@ -57,6 +57,11 @@ public class PersonCard extends UiPart<Region> {
         address.setText(person.getAddress().value);
         phone.setText(person.getPhone().value);
         email.setText(person.getEmail().value);
+
+        //Newline
+        Region p = new Region();
+        p.setPrefSize(Double.MAX_VALUE, 0.0);
+
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
@@ -66,12 +71,22 @@ public class PersonCard extends UiPart<Region> {
                     .sorted(Comparator.comparing(appointment -> appointment.appointmentDescription));
             for (Appointment appointment : person.getAppointment()) {
                 count++;
-                appointments.getChildren().add(new Label(count + ". " + appointment.appointmentDescription));
+                //appointments.getChildren().add(new Label(), new Label(count + ". "
+                // + appointment.appointmentDescription));
+                appointments.getChildren().addAll(new Label(count + ". " + appointment.appointmentDescription));
+                appointments.getChildren().add(lineBreak());
             }
+
         } else {
             noOfAppointments.getChildren().add(new Label(person.getAppointment().size() + " Appointments"));
         }
 
+    }
+
+    private Region lineBreak() {
+        return new Region() {{
+                setPrefSize(Double.MAX_VALUE, 0.0);
+            }};
     }
 
     @Override
