@@ -217,6 +217,10 @@ _{more aspects and alternatives to be added}_
 
 _{Explain here how the data archiving feature will be implemented}_
 
+--------------------------------------------------------------------------------------------------------------------
+
+
+
 
 
 ### Find feature
@@ -231,17 +235,23 @@ The user is flexible to find the keywords by name, by role.
 
 
 These operations are exposed in the `FindCommand()` class.
-* Step 1: The user executes find command.
-* Step 2: !!!!! The FindCommand() class will parser the user instruction keywords and save as rules.
-* Step 3: !!!!! Then check the rules one by one and return matched transaction records by calling the method `getFilteredList`
-* Step 4: !!!!! Display the matched transaction records to the user.
+* Step 1: The user executes the find command.
+* Step 2: The FindCommand() class will check with NameContainsKeywordsPredicate in Model to see if match the user instruction keywords.
+* Step 3: Then check the keywords one by one and return matched Employee records.
+* Step 4: Create command result and display the matched Employee records to the user.
 
 
 The following sequence diagram shows how the find operation works:
-<br> <img src="images/ArchitectureSequenceDiagramFindCommand.png" width="700" /> <br>
+<br> <img src="images/SequenceDiagram_FindCommand.png" /> <br>
 
 The following activity diagram summarizes what happens when a user executes a find command:
-<br> <img src="images/ArchitectureActivityDiagramFindCommand.png" width="700" /> <br>
+<br> <img src="images/ActivityDiagram_FindCommand.png" /> <br>
+
+
+
+
+
+
 
 
 --------------------------------------------------------------------------------------------------------------------
