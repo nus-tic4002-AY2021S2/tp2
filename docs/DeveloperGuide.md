@@ -242,11 +242,10 @@ These operations are exposed in the `FindCommand()` class.
 
 
 The following sequence diagram shows how the find operation works:
-<br> <img src="images/SequenceDiagram_FindCommand.png" /> <br>
+![SequenceDiagram_FindCommand](images/SequenceDiagram_FindCommand.png)
 
 The following activity diagram summarizes what happens when a user executes a find command:
-<br> <img src="images/ActivityDiagram_FindCommand.png" /> <br>
-
+![ActivityDiagram_FindCommand](images/ActivityDiagram_FindCommand.png)
 
 
 
