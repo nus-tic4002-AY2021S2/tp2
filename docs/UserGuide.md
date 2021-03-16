@@ -135,10 +135,10 @@ Example of usage:
 
 Finds employee records that have any of the given keywords in their name/role.
 
-Format: `find TYPE/KEYWORD...`
+Format: `find TYPE/KEYWORD…`
 * `TYPE` must be the letter `n` or `r`.
-* If `TYPE` is `n`, the search will be based on name `[n/NAME]`.
-* If `TYPE` is `r`, the search will be based on role `[r/ROLE]`.
+* If `TYPE` is `n`, the search will be based on name.
+* If `TYPE` is `r`, the search will be based on role.
 * The search is case-insensitive. E.g. keyword `john` will match `John`.
 * Only exact words will be matched. E.g. keyword `Jon` will not match `John`.
 * Employee records matching at least one keyword will be returned. E.g. keywords `John Wong` will return `John Lam` and `Bernice Wong`.
