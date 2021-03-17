@@ -6,6 +6,12 @@ import java.util.ArrayList;
 public class GroupList {
     private static ArrayList<Group> listOfGroup = new ArrayList<>();
 
+    GroupList() {
+        Group defaultGroup = new Group();
+        defaultGroup.setGroupName("NA");
+        addGroup(defaultGroup);
+    }
+
     public static void addGroup (Group group) {
         listOfGroup.add(group);
     }
