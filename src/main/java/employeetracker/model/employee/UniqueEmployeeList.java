@@ -4,10 +4,9 @@ import static employeetracker.commons.util.CollectionUtil.requireAllNonNull;
 import static java.util.Objects.requireNonNull;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Date;
-import java.lang.Object;
 
 import employeetracker.model.employee.exceptions.DuplicateEmployeeException;
 import employeetracker.model.employee.exceptions.EmployeeNotFoundException;
@@ -235,6 +234,7 @@ public class UniqueEmployeeList implements Iterable<Employee> {
                 }
             }
         } catch (Exception e) {
+            System.out.println(e.toString());
         }
 
         int totalYears = (int) (longest / yearMiniSec);
@@ -253,7 +253,8 @@ public class UniqueEmployeeList implements Iterable<Employee> {
             Date dateOfJoin;
             long yearMiniSec = Long.parseLong("31536000000");
             long dayMiniSec = Long.parseLong("86400000");
-            long shortest = new SimpleDateFormat("yyyy-MM-dd").parse(internalList.get(0).getDateOfJoining().value).getTime();
+            long shortest =
+                    new SimpleDateFormat("yyyy-MM-dd").parse(internalList.get(0).getDateOfJoining().value).getTime();
             long diffInMillies;
 
             for (int i = 1; i < internalList.size(); i++) {
@@ -266,11 +267,12 @@ public class UniqueEmployeeList implements Iterable<Employee> {
             }
 
 
-        totalYears = (int) (shortest / yearMiniSec);
-        days = (int) (shortest / dayMiniSec - (totalYears * 365));
+            totalYears = (int) (shortest / yearMiniSec);
+            days = (int) (shortest / dayMiniSec - (totalYears * 365));
 
 
         } catch (Exception e) {
+            System.out.println(e.toString());
         }
         return totalYears + " Years " + days + " Days (" + employeeName + ")";
     }
@@ -291,6 +293,7 @@ public class UniqueEmployeeList implements Iterable<Employee> {
                 totalMillies += diffInMillies;
             }
         } catch (Exception e) {
+            System.out.println(e.toString());
         }
         avgTensure = totalMillies / internalList.size();
         int totalYears = (int) (avgTensure / yearMiniSec);
