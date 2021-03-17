@@ -17,15 +17,14 @@ public class GroupList {
      */
     public static boolean hasGroup (Group group) {
 
-        boolean result = false;
 
         for (int i = 0; i < listOfGroup.size(); i++) {
             if (listOfGroup.get(i).equals(group)) {
-                result = true;
+                return true;
             }
         }
 
-        return result;
+        return false;
     }
 
     /**
@@ -44,6 +43,13 @@ public class GroupList {
      */
     public static Group getGroup (int index) {
         return listOfGroup.get(index - 1);
+    }
+
+    /**
+     * Get all {@code Group}.
+     */
+    public static ArrayList<Group> getGroupList () {
+        return listOfGroup;
     }
 
     /**
