@@ -1,11 +1,11 @@
 package seedu.address.model.person.appointment;
 
+import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.util.AppUtil.checkArgument;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
-import static java.util.Objects.requireNonNull;
-import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
  * Represents a Appointment in the patient book.
@@ -95,7 +95,7 @@ public class Appointment implements Comparable<Appointment> {
         String prevDate = appointment.getDate();
         Date curDate = null;
         Date newDate = null;
-        if (currentDate!= "" && currentDate!= null) {
+        if (currentDate != "" && currentDate != null) {
             try {
                 curDate = simpleDateFormat.parse(currentDate);
             } catch (ParseException e) {
@@ -103,7 +103,7 @@ public class Appointment implements Comparable<Appointment> {
             }
         }
 
-        if (prevDate!= "" && prevDate!=null) {
+        if (prevDate != "" && prevDate != null) {
             try {
                 newDate = simpleDateFormat.parse(prevDate);
             } catch (ParseException e) {

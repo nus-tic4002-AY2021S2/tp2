@@ -77,7 +77,7 @@ public class PersonCard extends UiPart<Region> {
             for (Appointment appointment : appointmentList) {
                 count++;
                 displayResult += count + ". "
-                        +appointment.getDate() + " - " + appointment.appointmentDescription + "\n";
+                        + appointment.getDate() + " - " + appointment.appointmentDescription + "\n";
             }
             appointments.getChildren().addAll(new Label(displayResult));
             appointments.getChildren().add(lineBreak());
