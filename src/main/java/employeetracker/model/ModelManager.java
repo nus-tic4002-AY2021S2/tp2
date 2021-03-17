@@ -10,7 +10,6 @@ import java.util.logging.Logger;
 import employeetracker.commons.core.GuiSettings;
 import employeetracker.commons.core.LogsCenter;
 import employeetracker.model.employee.Employee;
-import employeetracker.ui.StatsWindow;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 
@@ -155,7 +154,7 @@ public class ModelManager implements Model {
                 && filteredEmployees.equals(other.filteredEmployees);
     }
     public String getStatement() {
-        String statement=employeeTracker.getStatement();
+        String statement = employeeTracker.getStatement();
         return statement;
     }
 }

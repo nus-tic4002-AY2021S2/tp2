@@ -3,13 +3,12 @@ package employeetracker.model.employee;
 import static employeetracker.commons.util.CollectionUtil.requireAllNonNull;
 import static java.util.Objects.requireNonNull;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Date;
 import java.lang.Object;
+
 import employeetracker.model.employee.exceptions.DuplicateEmployeeException;
 import employeetracker.model.employee.exceptions.EmployeeNotFoundException;
 import javafx.collections.FXCollections;
@@ -167,121 +166,121 @@ public class UniqueEmployeeList implements Iterable<Employee> {
     /**
      * Get the number of employees in the list.
      */
-    public int noOfemployees(){
+    public int noOfemployees() {
         return this.internalList.size();
     }
 
     /**
      * Get the total Salary expenses for all employee in the list.
      */
-    public double getTotalSalary(){
-        double totalSalary=0;
+    public double getTotalSalary() {
+        double totalSalary = 0;
         for (int i = 0; i < internalList.size(); i++) {
 
-            totalSalary +=Double.parseDouble(internalList.get(i).getSalary().value);
+            totalSalary += Double.parseDouble(internalList.get(i).getSalary().value);
         }
         return totalSalary;
     }
 
-    public String getHighestSalary(){
-        double highestSalary=0;
-        String highestSalaryEmployee ="";
+    public String getHighestSalary() {
+        double highestSalary = 0;
+        String highestSalaryEmployee = "";
         String highestSalaryResult = "";
-        for(int i = 0; i < internalList.size(); i++){
-            if(highestSalary < Double.parseDouble(internalList.get(i).getSalary().value)){
+        for (int i = 0; i < internalList.size(); i++) {
+            if (highestSalary < Double.parseDouble(internalList.get(i).getSalary().value)) {
                 highestSalary = Double.parseDouble(internalList.get(i).getSalary().value);
                 highestSalaryEmployee = internalList.get(i).getName().fullName;
             }
         }
-        highestSalaryResult = String.format("%.2f",highestSalary) + "(" + highestSalaryEmployee + ")";
+        highestSalaryResult = String.format("%.2f", highestSalary) + "(" + highestSalaryEmployee + ")";
         return highestSalaryResult;
     }
 
-    public String getLowestSalary(){
-        double lowestSalary = Double.parseDouble(internalList.get(0).getSalary().value) ;
+    public String getLowestSalary() {
+        double lowestSalary = Double.parseDouble(internalList.get(0).getSalary().value);
         String lowestSalaryEmployee = internalList.get(0).getName().fullName;
         String lowestSalaryResult = "";
-        for(int i = 1; i < internalList.size(); i++){
-            if(lowestSalary > Double.parseDouble(internalList.get(i).getSalary().value)){
+        for (int i = 1; i < internalList.size(); i++) {
+            if (lowestSalary > Double.parseDouble(internalList.get(i).getSalary().value)) {
                 lowestSalary = Double.parseDouble(internalList.get(i).getSalary().value);
                 lowestSalaryEmployee = internalList.get(i).getName().fullName;
             }
         }
-        lowestSalaryResult = String.format("%.2f",lowestSalary) + "(" + lowestSalaryEmployee + ")";
+        lowestSalaryResult = String.format("%.2f", lowestSalary) + "(" + lowestSalaryEmployee + ")";
         return lowestSalaryResult;
     }
 
-    public double getAvgSalary(){
+    public double getAvgSalary() {
         double avgSalary;
-        avgSalary = getTotalSalary()/internalList.size();
+        avgSalary = getTotalSalary() / internalList.size();
         return avgSalary;
     }
 
     public String getLongestTenure() {
         Date todaysDate = new Date();
         Date dateOfJoin;
-        long longest=0, diffInMillies;
-        long yearMiniSec =Long.parseLong("31536000000");
-        long dayMiniSec=Long.parseLong("86400000");
-        String employeeName="";
+        long longest = 0;
+        long diffInMillies;
+        long yearMiniSec = Long.parseLong("31536000000");
+        long dayMiniSec = Long.parseLong("86400000");
+        String employeeName = "";
 
         try {
             for (int i = 0; i < internalList.size(); i++) {
-                 dateOfJoin = new SimpleDateFormat("yyyy-MM-dd").parse(internalList.get(i).getDateOfJoining().value);
+                dateOfJoin = new SimpleDateFormat("yyyy-MM-dd").parse(internalList.get(i).getDateOfJoining().value);
                 diffInMillies = todaysDate.getTime() - dateOfJoin.getTime();
-                if(longest < diffInMillies){
+                if (longest < diffInMillies) {
                     longest = diffInMillies;
                     employeeName = internalList.get(i).getName().fullName;
                 }
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
         }
 
-        int totalYears = (int)(longest/yearMiniSec);
-        int days = (int)(longest/dayMiniSec - (totalYears * 365));
+        int totalYears = (int) (longest / yearMiniSec);
+        int days = (int) (longest / dayMiniSec - (totalYears * 365));
 
-        return totalYears +" Years "+days +" Days ("+employeeName+")";
+        return totalYears + " Years " + days + " Days (" + employeeName + ")";
 
     }
 
-    public String getShortestTenure(){
+    public String getShortestTenure() {
         int totalYears = 0;
         int days = 0;
         String employeeName = internalList.get(0).getName().fullName;
-        try{
-        Date todaysDate = new Date();
-        Date dateOfJoin;
-        long yearMiniSec =Long.parseLong("31536000000");
-        long dayMiniSec=Long.parseLong("86400000");
-        long shortest= new SimpleDateFormat("yyyy-MM-dd").parse(internalList.get(0).getDateOfJoining().value).getTime(), diffInMillies;
+        try {
+            Date todaysDate = new Date();
+            Date dateOfJoin;
+            long yearMiniSec = Long.parseLong("31536000000");
+            long dayMiniSec = Long.parseLong("86400000");
+            long shortest = new SimpleDateFormat("yyyy-MM-dd").parse(internalList.get(0).getDateOfJoining().value).getTime();
+            long diffInMillies;
 
             for (int i = 1; i < internalList.size(); i++) {
                 dateOfJoin = new SimpleDateFormat("yyyy-MM-dd").parse(internalList.get(i).getDateOfJoining().value);
                 diffInMillies = todaysDate.getTime() - dateOfJoin.getTime();
-                if(shortest > diffInMillies){
+                if (shortest > diffInMillies) {
                     shortest = diffInMillies;
                     employeeName = internalList.get(i).getName().fullName;
                 }
             }
 
 
-        totalYears = (int)(shortest/yearMiniSec);
-        days = (int)(shortest/dayMiniSec - (totalYears * 365));
+        totalYears = (int) (shortest / yearMiniSec);
+        days = (int) (shortest / dayMiniSec - (totalYears * 365));
 
 
+        } catch (Exception e) {
         }
-        catch (Exception e) {
-        }
-        return totalYears +" Years "+days +" Days ("+employeeName+")";
+        return totalYears + " Years " + days + " Days (" + employeeName + ")";
     }
 
-    public String getAvgTenure(){
+    public String getAvgTenure() {
         Date todaysDate = new Date();
-        Date dateOfJoin= new Date();
+        Date dateOfJoin;
         long diffInMillies;
-        long yearMiniSec =Long.parseLong("31536000000");
-        long dayMiniSec=Long.parseLong("86400000");
+        long yearMiniSec = Long.parseLong("31536000000");
+        long dayMiniSec = Long.parseLong("86400000");
         long totalMillies = 0;
         long avgTensure = 0;
 
@@ -291,13 +290,12 @@ public class UniqueEmployeeList implements Iterable<Employee> {
                 diffInMillies = todaysDate.getTime() - dateOfJoin.getTime();
                 totalMillies += diffInMillies;
             }
+        } catch (Exception e) {
         }
-        catch (Exception e) {
-            }
-        avgTensure = totalMillies/internalList.size();
-        int totalYears = (int)(avgTensure/yearMiniSec);
-        int days = (int)(avgTensure/dayMiniSec - (totalYears * 365));
-        return totalYears +" Years "+days +" Days";
+        avgTensure = totalMillies / internalList.size();
+        int totalYears = (int) (avgTensure / yearMiniSec);
+        int days = (int) (avgTensure / dayMiniSec - (totalYears * 365));
+        return totalYears + " Years " + days + " Days";
     }
 
 }

@@ -2,7 +2,6 @@ package employeetracker.model;
 
 import static java.util.Objects.requireNonNull;
 
-import java.text.ParseException;
 import java.util.List;
 
 import employeetracker.model.employee.Employee;
@@ -128,13 +127,13 @@ public class EmployeeTracker implements ReadOnlyEmployeeTracker {
         return employees.hashCode();
     }
 
-    public String getStatement(){
-        String statement="";
+    public String getStatement() {
+        String statement = "";
         statement += "Total Employees: " + employees.noOfemployees() + "\n";
-        statement += "Total Salary: " + String.format("%.2f",employees.getTotalSalary()) + "\n";
+        statement += "Total Salary: " + String.format("%.2f", employees.getTotalSalary()) + "\n";
         statement += "Highest Salary: " + employees.getHighestSalary() + "\n";
         statement += "Lowest Salary: " + employees.getLowestSalary() + "\n";
-        statement += "Average Salary: " + String.format("%.2f",employees.getAvgSalary()) + "\n";
+        statement += "Average Salary: " + String.format("%.2f", employees.getAvgSalary()) + "\n";
         statement += "Longest Tenure: " + employees.getLongestTenure() + "\n";
         statement += "Shortest Tenure: " + employees.getShortestTenure() + "\n";
         statement += "Average Tensure: " + employees.getAvgTenure() + "\n";

@@ -6,7 +6,18 @@ import static employeetracker.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import employeetracker.logic.commands.*;
+import employeetracker.logic.commands.AddCommand;
+import employeetracker.logic.commands.EditCommand;
+import employeetracker.logic.commands.DeleteCommand;
+import employeetracker.logic.commands.ClearCommand;
+import employeetracker.logic.commands.FindCommand;
+import employeetracker.logic.commands.SortCommand;
+import employeetracker.logic.commands.ListCommand;
+import employeetracker.logic.commands.ExitCommand;
+import employeetracker.logic.commands.StatsCommand;
+import employeetracker.logic.commands.HelpCommand;
+import employeetracker.logic.commands.Command;
+
 import employeetracker.logic.parser.exceptions.ParseException;
 
 /**
