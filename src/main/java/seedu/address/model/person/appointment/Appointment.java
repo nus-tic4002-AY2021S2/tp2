@@ -11,7 +11,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  * Represents a Appointment in the patient book.
  * Guarantees: immutable; name is valid as declared in {@link #isValidAppointmentDescription(String)}
  */
-public class Appointment implements Comparable<Appointment>{
+public class Appointment implements Comparable<Appointment> {
 
     public static final String MESSAGE_CONSTRAINTS = "Appointment description cannot be null.";
 
@@ -93,8 +93,9 @@ public class Appointment implements Comparable<Appointment>{
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String currentDate = getDate();
         String prevDate = appointment.getDate();
-        Date curDate = null, newDate = null;
-        if (currentDate!="" && currentDate!=null ){
+        Date curDate = null;
+        Date newDate = null;
+        if (currentDate!= "" && currentDate!= null) {
             try {
                 curDate = simpleDateFormat.parse(currentDate);
             } catch (ParseException e) {
@@ -102,7 +103,7 @@ public class Appointment implements Comparable<Appointment>{
             }
         }
 
-        if (prevDate!="" && prevDate!=null ){
+        if (prevDate!= "" && prevDate!=null) {
             try {
                 newDate = simpleDateFormat.parse(prevDate);
             } catch (ParseException e) {
