@@ -142,6 +142,16 @@ public class ModelManager implements Model {
         filteredPersons.setPredicate(predicate);
     }
 
+    /**
+     * Returns persons in particular group
+     */
+    @Override
+    public int countPersonInGroup(Predicate<Person> predicate) {
+        requireNonNull(predicate);
+        filteredPersons.setPredicate(predicate);
+        return filteredPersons.size();
+    }
+
     @Override
     public boolean hasGroup(Group toAdd) {
         requireNonNull(toAdd);
