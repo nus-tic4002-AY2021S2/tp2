@@ -66,6 +66,7 @@ public class MainWindow extends UiPart<Stage> {
         setAccelerators();
 
         helpWindow = new HelpWindow();
+
     }
 
     public Stage getPrimaryStage() {
@@ -150,6 +151,8 @@ public class MainWindow extends UiPart<Stage> {
     void show() {
         primaryStage.show();
     }
+
+
 
     /**
      * Closes the application.

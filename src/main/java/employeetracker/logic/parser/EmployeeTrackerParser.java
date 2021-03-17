@@ -6,16 +6,7 @@ import static employeetracker.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import employeetracker.logic.commands.AddCommand;
-import employeetracker.logic.commands.ClearCommand;
-import employeetracker.logic.commands.Command;
-import employeetracker.logic.commands.DeleteCommand;
-import employeetracker.logic.commands.EditCommand;
-import employeetracker.logic.commands.ExitCommand;
-import employeetracker.logic.commands.FindCommand;
-import employeetracker.logic.commands.HelpCommand;
-import employeetracker.logic.commands.ListCommand;
-import employeetracker.logic.commands.SortCommand;
+import employeetracker.logic.commands.*;
 import employeetracker.logic.parser.exceptions.ParseException;
 
 /**
@@ -43,6 +34,7 @@ public class EmployeeTrackerParser {
 
         final String commandWord = matcher.group("commandWord");
         final String arguments = matcher.group("arguments");
+
         switch (commandWord) {
 
         case AddCommand.COMMAND_WORD:
@@ -68,6 +60,9 @@ public class EmployeeTrackerParser {
 
         case ExitCommand.COMMAND_WORD:
             return new ExitCommand();
+
+        case StatsCommand.COMMAND_WORD:
+            return new StatsCommandParser().parse(StatsCommand.COMMAND_WORD);
 
         case HelpCommand.COMMAND_WORD:
             return new HelpCommand();

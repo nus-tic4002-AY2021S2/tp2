@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 import employeetracker.commons.core.GuiSettings;
 import employeetracker.commons.core.LogsCenter;
 import employeetracker.model.employee.Employee;
+import employeetracker.ui.StatsWindow;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 
@@ -117,6 +118,7 @@ public class ModelManager implements Model {
         updateFilteredEmployeeList(PREDICATE_SHOW_ALL_EMPLOYEES);
     }
 
+
     //=========== Filtered Employee List Accessors =============================================================
 
     /**
@@ -152,5 +154,8 @@ public class ModelManager implements Model {
                 && userPrefs.equals(other.userPrefs)
                 && filteredEmployees.equals(other.filteredEmployees);
     }
-
+    public String getStatement() {
+        String statement=employeeTracker.getStatement();
+        return statement;
+    }
 }

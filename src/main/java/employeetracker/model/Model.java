@@ -91,4 +91,6 @@ public interface Model {
      * {@code field} must be chart n, s, d, b.
      */
     void sortEmployee(String field);
+
+    String getStatement();
 }
