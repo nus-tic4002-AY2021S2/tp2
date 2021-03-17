@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
@@ -114,8 +115,20 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public ArrayList<Person> getPersonListInThisGroup(Group group) {
+        return addressBook.getPersonListInThisGroup(group);
+    }
+
+    @Override
     public void assignPersonToGroup(Group group, Person person) {
         person.setGroup(group);
+    }
+
+
+    public void unAssignPersonToGroup(Person person) {
+        Group emptyGroup = new Group();
+        emptyGroup.setGroupName("N/A");
+        person.setGroup(emptyGroup);
     }
 
     @Override
