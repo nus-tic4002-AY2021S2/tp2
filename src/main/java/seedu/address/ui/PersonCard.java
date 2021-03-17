@@ -1,5 +1,7 @@
 package seedu.address.ui;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 
 import javafx.fxml.FXML;
@@ -67,16 +69,18 @@ public class PersonCard extends UiPart<Region> {
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
         int count = 0;
         if (person.getAppointment().size() > 0 && person.isViewAppInd()) {
+            String displayResult = "";
             person.getAppointment().stream()
                     .sorted(Comparator.comparing(appointment -> appointment.appointmentDescription));
-            for (Appointment appointment : person.getAppointment()) {
+            ArrayList<Appointment> appointmentList = new ArrayList<>(person.getAppointment());
+            Collections.sort(appointmentList);
+            for (Appointment appointment : appointmentList) {
                 count++;
-                //appointments.getChildren().add(new Label(), new Label(count + ". "
-                // + appointment.appointmentDescription));
-                appointments.getChildren().addAll(new Label(count + ". " + appointment.appointmentDescription));
-                appointments.getChildren().add(lineBreak());
+                displayResult += count + ". "
+                        + appointment.getDate() + " - " + appointment.appointmentDescription + "\n";
             }
-
+            appointments.getChildren().addAll(new Label(displayResult));
+            appointments.getChildren().add(lineBreak());
         } else {
             noOfAppointments.getChildren().add(new Label(person.getAppointment().size() + " Appointments"));
         }
