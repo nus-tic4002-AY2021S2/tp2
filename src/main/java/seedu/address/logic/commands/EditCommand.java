@@ -99,9 +99,9 @@ public class EditCommand extends Command {
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
-        Group group = editPersonDescriptor.getGroup().orElse(personToEdit.getGroup());
+        Group updatedGroup = editPersonDescriptor.getGroup().orElse(personToEdit.getGroup());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags, group);
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags, updatedGroup);
     }
 
     @Override
@@ -132,7 +132,7 @@ public class EditCommand extends Command {
         private Email email;
         private Address address;
         private Set<Tag> tags;
-        private Group group = new Group();
+        private Group group;
 
         public EditPersonDescriptor() {}
 
@@ -153,7 +153,7 @@ public class EditCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, address, tags);
+            return CollectionUtil.isAnyNonNull(name, phone, email, address, tags, group);
         }
 
         public void setName(Name name) {
@@ -189,7 +189,7 @@ public class EditCommand extends Command {
         }
 
         public void setGroup(Group group) {
-            this.group.setGroupName(group.toString());
+            this.group = group;
         }
 
         public Optional<Group> getGroup() {
