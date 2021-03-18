@@ -2,6 +2,8 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import seedu.address.commons.core.Messages;
@@ -43,8 +45,12 @@ public class ViewMedicalCommand extends Command {
 
         StringBuilder viewMedicalHistory = new StringBuilder();
         viewMedicalHistory.append("Here is the Medical History of " + personToShowMedicalHistory.getName() + " : \n");
-        for (MedicalHistory medicalHistory : personToShowMedicalHistory.getMedicalHistories()) {
-            viewMedicalHistory.append(medicalHistory.getMedicalHistoryDescription() + "\n");
+        List<MedicalHistory> medicalHistories = new ArrayList<>(personToShowMedicalHistory.getMedicalHistories());
+        Collections.sort(medicalHistories);
+        Integer count = 0;
+        for (MedicalHistory medicalHistory : medicalHistories) {
+            viewMedicalHistory.append(++count + ". " + medicalHistory.getMedicalHistoryDescription() + "\n");
+
         }
 
         return new CommandResult(String.format(MESSAGE_USAGE, personToShowMedicalHistory),
