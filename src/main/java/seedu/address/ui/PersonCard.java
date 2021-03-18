@@ -3,8 +3,6 @@ package seedu.address.ui;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
-import java.util.Set;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -71,17 +69,15 @@ public class PersonCard extends UiPart<Region> {
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
         int count = 0;
         if (person.getAppointment().size() > 0 && person.isViewAppInd()) {
-            String displayResult ="";
+            String displayResult = "";
             person.getAppointment().stream()
                     .sorted(Comparator.comparing(appointment -> appointment.appointmentDescription));
             ArrayList<Appointment> appointmentList = new ArrayList<>(person.getAppointment());
             Collections.sort(appointmentList);
             for (Appointment appointment : appointmentList) {
                 count++;
-                //appointments.getChildren().add(new Label(), new Label(count + ". "
-                // + appointment.appointmentDescription));
                 displayResult += count + ". "
-                        +appointment.getDate() +" - "+ appointment.appointmentDescription +"\n";
+                        + appointment.getDate() + " - " + appointment.appointmentDescription + "\n";
             }
             appointments.getChildren().addAll(new Label(displayResult));
             appointments.getChildren().add(lineBreak());

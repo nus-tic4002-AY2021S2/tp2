@@ -1,11 +1,10 @@
 package seedu.address.logic.parser;
 
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.AddAppointmentCommand;
-import seedu.address.logic.commands.ViewAppointmentCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-
-import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 
 /**
@@ -25,9 +24,9 @@ public class AddAppointmentCommandParser implements Parser<AddAppointmentCommand
 
             String description = s.substring(s.indexOf("/d") + 3, s.indexOf("/t"));
 
-            String dateString =  s.substring(s.indexOf("/t") + 3);
+            String dateString = s.substring(s.indexOf("/t") + 3);
 
-            return new AddAppointmentCommand(index,description,dateString);
+            return new AddAppointmentCommand(index, description, dateString);
         } catch (ParseException pe) {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddAppointmentCommand.MESSAGE_USAGE), pe);

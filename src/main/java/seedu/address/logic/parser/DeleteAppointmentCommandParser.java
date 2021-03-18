@@ -1,12 +1,10 @@
 package seedu.address.logic.parser;
 
-import seedu.address.commons.core.index.Index;
-import seedu.address.logic.commands.AddAppointmentCommand;
-import seedu.address.logic.commands.DeleteAppointmentCommand;
-import seedu.address.logic.parser.exceptions.ParseException;
-
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
+import seedu.address.commons.core.index.Index;
+import seedu.address.logic.commands.DeleteAppointmentCommand;
+import seedu.address.logic.parser.exceptions.ParseException;
 
 /**
  * Parses input arguments and creates a new FindCommand object
@@ -23,7 +21,7 @@ public class DeleteAppointmentCommandParser implements Parser<DeleteAppointmentC
             Index index = ParserUtil.parseIndex(args.trim().split(" ")[0]);
             Integer secondInd = Integer.parseInt(args.trim().split(" ")[1].trim());
 
-            return new DeleteAppointmentCommand(index,secondInd);
+            return new DeleteAppointmentCommand(index, secondInd);
         } catch (ParseException pe) {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteAppointmentCommand.MESSAGE_USAGE), pe);
