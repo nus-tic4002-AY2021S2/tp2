@@ -219,9 +219,35 @@ _{Explain here how the data archiving feature will be implemented}_
 
 --------------------------------------------------------------------------------------------------------------------
 
+### Add feature
+#### Implementation
 
+The `add` command is implemented using the `AddCommand` class, which extends the `Command` class; and the `AddCommandParser` class, which implements the `Parser` class. Upon receiving a user command that has `add` as the first word, the following object interactions will occur, resulting in the instantiation of an `AddCommand` object:
 
+1. `MainWindow` object calls `LogicManager#execute(commandText)`, where `commandText` is the user's input string;
 
+2. `LogicManager` object calls `EmployeeTrackerParser#parseCommand(commandText)` to parse the user command, where `commandText` is the user's input string;
+
+3. `EmployeeTrackerParser#parseCommand()` calls AddCommandParser#parse(arguments), where `arguments` are the parameters in `commandText` such as `n/NAME` and `s/SALARY`;
+
+4. AddCommandParser#parse() calls `AddCommand(employee)` to instantiate an `AddCommand` object, where `employee` is an `Employee` object that is constructed using `arguments`.
+
+Next, the following object interactions will occur to save the new employee record to the `Model` object;
+
+1. `LogicManager` object calls `AddCommand#execute(model)`, where `model` is the `Model` object;
+
+2. `AddCommand#execute()` calls `Model#addEmployee(toAdd)` to add the new `employee`, where `toAdd` is the `Employee` object to be stored.
+
+The following sequence diagram shows the object interactions when `LogicManager#execute(commandText)` is called:
+
+![Object Interactions for `add` Command](images/AddSequenceDiagram.png)
+
+<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `AddCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+</div>
+
+The following activity diagram shows what happens when a user executes an add command:
+
+![Activity Diagram for `add` Command](images/AddActivityDiagram.png)
 
 ### Find feature
 #### Implementation of find feature
