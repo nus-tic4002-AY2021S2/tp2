@@ -75,7 +75,7 @@ public class TypicalPersons {
         return new ArrayList<>(Arrays.asList(ALICE, BENSON, CARL, DANIEL, ELLE, FIONA, GEORGE));
     }
 
-    public static List<Appointment> getAppointmentList(){
+    public static List<Appointment> getAppointmentList() {
         return new ArrayList<>(Arrays.asList(new Appointment("Description 1", 1, "2021-03-18 15:00:00")));
     }
 }
