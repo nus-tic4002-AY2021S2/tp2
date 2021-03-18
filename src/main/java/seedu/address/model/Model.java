@@ -86,4 +86,6 @@ public interface Model {
     void updateFilteredPersonList(Predicate<Person> predicate);
 
     void updateFilteredViewAppPersonList(Predicate<Person> predicate);
+
+    void viewMedicalHistory(Person target);
 }

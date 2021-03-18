@@ -26,6 +26,7 @@ import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.appointment.Appointment;
+import seedu.address.model.person.medical.MedicalHistory;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -57,7 +58,7 @@ public class EditCommand extends Command {
     private final EditPersonDescriptor editPersonDescriptor;
 
     /**
-     * @param index of the person in the filtered person list to edit
+     * @param index                of the person in the filtered person list to edit
      * @param editPersonDescriptor details to edit the person with
      */
     public EditCommand(Index index, EditPersonDescriptor editPersonDescriptor) {
@@ -103,7 +104,10 @@ public class EditCommand extends Command {
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
         Set<Appointment> updatedAppointments = editPersonDescriptor.getAppointments()
                 .orElse(personToEdit.getAppointment());
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags, updatedAppointments);
+        Set<MedicalHistory> updatedMedicalHistory = editPersonDescriptor.getMedicalHistories()
+                .orElse(personToEdit.getMedicalHistories());
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags,
+                updatedAppointments, updatedMedicalHistory);
     }
 
     @Override
@@ -135,8 +139,10 @@ public class EditCommand extends Command {
         private Address address;
         private Set<Tag> tags;
         private Set<Appointment> appointments;
+        private Set<MedicalHistory> medicalHistories;
 
-        public EditPersonDescriptor() {}
+        public EditPersonDescriptor() {
+        }
 
         /**
          * Copy constructor.
@@ -149,6 +155,7 @@ public class EditCommand extends Command {
             setAddress(toCopy.address);
             setTags(toCopy.tags);
             setAppointments(toCopy.appointments);
+            setMedicalHistories(toCopy.medicalHistories);
         }
 
         /**
@@ -222,6 +229,15 @@ public class EditCommand extends Command {
          */
         public Optional<Set<Appointment>> getAppointments() {
             return (appointments != null) ? Optional.of(Collections.unmodifiableSet(appointments)) : Optional.empty();
+        }
+
+        public Optional<Set<MedicalHistory>> getMedicalHistories() {
+            return (medicalHistories != null) ? Optional.of(Collections.unmodifiableSet(medicalHistories))
+                    : Optional.empty();
+        }
+
+        public void setMedicalHistories(Set<MedicalHistory> medicalHistories) {
+            this.medicalHistories = medicalHistories;
         }
 
         @Override

@@ -33,6 +33,7 @@ public class MainWindow extends UiPart<Stage> {
     // Independent Ui parts residing in this Ui container
     private PersonListPanel personListPanel;
     private ResultDisplay resultDisplay;
+    private MedicalRecordDisplay medicalRecordDisplay;
     private HelpWindow helpWindow;
 
     @FXML
@@ -49,6 +50,9 @@ public class MainWindow extends UiPart<Stage> {
 
     @FXML
     private StackPane statusbarPlaceholder;
+
+    @FXML
+    private StackPane medicalRecordPlaceholder;
 
     /**
      * Creates a {@code MainWindow} with the given {@code Stage} and {@code Logic}.
@@ -78,6 +82,7 @@ public class MainWindow extends UiPart<Stage> {
 
     /**
      * Sets the accelerator of a MenuItem.
+     *
      * @param keyCombination the KeyCombination value of the accelerator
      */
     private void setAccelerator(MenuItem menuItem, KeyCombination keyCombination) {
@@ -116,6 +121,10 @@ public class MainWindow extends UiPart<Stage> {
 
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
+
+        medicalRecordDisplay = new MedicalRecordDisplay();
+        medicalRecordPlaceholder.getStylesheets().add("medical-display");
+        medicalRecordPlaceholder.getChildren().add(medicalRecordDisplay.getRoot());
 
         StatusBarFooter statusBarFooter = new StatusBarFooter(logic.getAddressBookFilePath());
         statusbarPlaceholder.getChildren().add(statusBarFooter.getRoot());
@@ -179,6 +188,14 @@ public class MainWindow extends UiPart<Stage> {
             logger.info("Result: " + commandResult.getFeedbackToUser());
             resultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
 
+            boolean isMedicalRecordView = logic.isMedicalHistoryRelated(commandText);
+
+            if (isMedicalRecordView) {
+                medicalRecordDisplay.setFeedbackToUser(commandResult.getMedicalHistory());
+            } else {
+                medicalRecordDisplay.setFeedbackToUser("");
+            }
+
             if (commandResult.isShowHelp()) {
                 handleHelp();
             }
@@ -194,4 +211,5 @@ public class MainWindow extends UiPart<Stage> {
             throw e;
         }
     }
+
 }

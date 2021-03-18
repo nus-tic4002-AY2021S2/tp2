@@ -140,6 +140,10 @@ public class ModelManager implements Model {
         }
     }
 
+    @Override
+    public void viewMedicalHistory(Person target) {
+
+    }
 
     @Override
     public boolean equals(Object obj) {
