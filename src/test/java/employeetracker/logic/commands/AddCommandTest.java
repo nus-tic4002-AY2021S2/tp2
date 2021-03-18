@@ -153,6 +153,11 @@ public class AddCommandTest {
         public void sortEmployee(String field) {
             throw new AssertionError("This method should not be called.");
         }
+
+        @Override
+        public String getStatement() {
+            return null;
+        }
     }
 
     /**

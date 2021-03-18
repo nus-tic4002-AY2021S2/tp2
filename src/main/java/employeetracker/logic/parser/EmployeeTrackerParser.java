@@ -16,6 +16,7 @@ import employeetracker.logic.commands.FindCommand;
 import employeetracker.logic.commands.HelpCommand;
 import employeetracker.logic.commands.ListCommand;
 import employeetracker.logic.commands.SortCommand;
+import employeetracker.logic.commands.StatsCommand;
 import employeetracker.logic.parser.exceptions.ParseException;
 
 /**
@@ -43,6 +44,7 @@ public class EmployeeTrackerParser {
 
         final String commandWord = matcher.group("commandWord");
         final String arguments = matcher.group("arguments");
+
         switch (commandWord) {
 
         case AddCommand.COMMAND_WORD:
@@ -68,6 +70,9 @@ public class EmployeeTrackerParser {
 
         case ExitCommand.COMMAND_WORD:
             return new ExitCommand();
+
+        case StatsCommand.COMMAND_WORD:
+            return new StatsCommandParser().parse(StatsCommand.COMMAND_WORD);
 
         case HelpCommand.COMMAND_WORD:
             return new HelpCommand();

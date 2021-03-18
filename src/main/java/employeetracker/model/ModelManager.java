@@ -117,6 +117,7 @@ public class ModelManager implements Model {
         updateFilteredEmployeeList(PREDICATE_SHOW_ALL_EMPLOYEES);
     }
 
+
     //=========== Filtered Employee List Accessors =============================================================
 
     /**
@@ -152,5 +153,8 @@ public class ModelManager implements Model {
                 && userPrefs.equals(other.userPrefs)
                 && filteredEmployees.equals(other.filteredEmployees);
     }
-
+    public String getStatement() {
+        String statement = employeeTracker.getStatement();
+        return statement;
+    }
 }

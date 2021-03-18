@@ -126,4 +126,17 @@ public class EmployeeTracker implements ReadOnlyEmployeeTracker {
     public int hashCode() {
         return employees.hashCode();
     }
+
+    public String getStatement() {
+        String statement = "";
+        statement += "Total Employees: " + employees.noOfemployees() + "\n";
+        statement += "Total Salary: " + String.format("%.2f", employees.getTotalSalary()) + "\n";
+        statement += "Highest Salary: " + employees.getHighestSalary() + "\n";
+        statement += "Lowest Salary: " + employees.getLowestSalary() + "\n";
+        statement += "Average Salary: " + String.format("%.2f", employees.getAvgSalary()) + "\n";
+        statement += "Longest Tenure: " + employees.getLongestTenure() + "\n";
+        statement += "Shortest Tenure: " + employees.getShortestTenure() + "\n";
+        statement += "Average Tensure: " + employees.getAvgTenure() + "\n";
+        return statement;
+    }
 }
