@@ -7,6 +7,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+
 /**
  * Represents a Appointment in the patient book.
  * Guarantees: immutable; name is valid as declared in {@link #isValidAppointmentDescription(String)}
@@ -26,7 +27,8 @@ public class Appointment implements Comparable<Appointment> {
 
     /**
      * Constructs a {@code Tag}.
-     *  @param appointmentDescription A valid tag name.
+     *
+     * @param appointmentDescription A valid tag name.
      */
     public Appointment(String appointmentDescription) {
         requireNonNull(appointmentDescription);
@@ -36,7 +38,8 @@ public class Appointment implements Comparable<Appointment> {
 
     /**
      * Constructs a {@code Tag}.
-     *  @param appointmentDescription A valid tag name.
+     *
+     * @param appointmentDescription A valid tag name.
      */
     public Appointment(String appointmentDescription, Integer index, String date) {
         requireNonNull(appointmentDescription);
@@ -95,6 +98,7 @@ public class Appointment implements Comparable<Appointment> {
         String prevDate = appointment.getDate();
         Date curDate = null;
         Date newDate = null;
+
         if (currentDate != "" && currentDate != null) {
             try {
                 curDate = simpleDateFormat.parse(currentDate);

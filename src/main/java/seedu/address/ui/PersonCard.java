@@ -89,8 +89,8 @@ public class PersonCard extends UiPart<Region> {
 
     private Region lineBreak() {
         return new Region() {{
-                setPrefSize(Double.MAX_VALUE, 0.0);
-            }};
+                    setPrefSize(Double.MAX_VALUE, 0.0);
+                }};
     }
 
     @Override

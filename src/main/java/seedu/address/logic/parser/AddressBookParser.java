@@ -6,10 +6,16 @@ import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import seedu.address.logic.DeleteMedicalCommandParser;
+import seedu.address.logic.commands.AddAppointmentCommand;
 import seedu.address.logic.commands.AddCommand;
+import seedu.address.logic.commands.AddMedicalCommand;
+import seedu.address.logic.commands.AppointmentNotificationCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.Command;
+import seedu.address.logic.commands.DeleteAppointmentCommand;
 import seedu.address.logic.commands.DeleteCommand;
+import seedu.address.logic.commands.DeleteMedicalCommand;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.FindCommand;
@@ -75,6 +81,21 @@ public class AddressBookParser {
 
         case ViewMedicalCommand.COMMAND_WORD:
             return new ViewMedCommandParser().parse(arguments);
+
+        case AddAppointmentCommand.COMMAND_WORD:
+            return new AddAppointmentCommandParser().parse(arguments);
+
+        case DeleteAppointmentCommand.COMMAND_WORD:
+            return new DeleteAppointmentCommandParser().parse(arguments);
+
+        case AddMedicalCommand.COMMAND_WORD:
+            return new AddMedicalCommandParser().parse(arguments);
+
+        case DeleteMedicalCommand.COMMAND_WORD:
+            return new DeleteMedicalCommandParser().parse(arguments);
+
+        case AppointmentNotificationCommand.COMMAND_WORD:
+            return new AppointmentNotificationCommand();
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);

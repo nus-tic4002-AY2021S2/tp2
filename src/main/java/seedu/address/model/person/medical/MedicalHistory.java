@@ -1,6 +1,7 @@
 package seedu.address.model.person.medical;
 
-public class MedicalHistory {
+
+public class MedicalHistory implements Comparable<MedicalHistory> {
 
     public static final String VALIDATION_REGEX = "[^\\s].*";
     public final String medicalHistoryDescription;
@@ -56,6 +57,11 @@ public class MedicalHistory {
 
     public Integer getIndex() {
         return index;
+    }
+
+    @Override
+    public int compareTo(MedicalHistory medicalHistory) {
+        return getIndex().compareTo(medicalHistory.getIndex());
     }
 
 }
