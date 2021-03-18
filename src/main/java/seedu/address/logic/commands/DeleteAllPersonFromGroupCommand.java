@@ -23,6 +23,10 @@ public class DeleteAllPersonFromGroupCommand extends Command {
 
     private final Group group;
 
+    /**
+     * constructor to set the group
+     * @param group
+     */
     public DeleteAllPersonFromGroupCommand(Group group) {
         requireNonNull(group);
         this.group = group;
