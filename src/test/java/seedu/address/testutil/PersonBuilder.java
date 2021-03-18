@@ -1,6 +1,7 @@
 package seedu.address.testutil;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import seedu.address.model.person.Address;
@@ -30,6 +31,7 @@ public class PersonBuilder {
     private Set<Tag> tags;
     private Set<Appointment> appointments;
     private Set<MedicalHistory> medicalHistories;
+
     /**
      * Creates a {@code PersonBuilder} with the default details.
      */
@@ -100,8 +102,8 @@ public class PersonBuilder {
     /**
      * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code Person} that we are building.
      */
-    public PersonBuilder withAppointment(String ... appointment) {
-        this.appointments = SampleDataUtil.getAppSet(appointment);
+    public PersonBuilder withAppointment(List<Appointment> appointments) {
+        this.appointments = SampleDataUtil.getAppSet(appointments);
         return this;
     }
     public Person build() {
