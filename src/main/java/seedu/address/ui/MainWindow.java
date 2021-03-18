@@ -120,7 +120,7 @@ public class MainWindow extends UiPart<Stage> {
         statusbarPlaceholder.getChildren().add(statusBarFooter.getRoot());
 
         CommandBox commandBox = new CommandBox(this::executeCommand);
-        commandBoxPlaceholder.getChildren().add(commandBox.getRoot()); // could the selection of all person from the group be selected and displayed here?
+        commandBoxPlaceholder.getChildren().add(commandBox.getRoot()); 
     }
 
     /**

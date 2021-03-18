@@ -124,7 +124,10 @@ public class ModelManager implements Model {
         person.setGroup(group);
     }
 
-
+    /**
+     * remove a person from group, replace group with "N/A" indicator
+     * @param person to remove group from
+     */
     public void unAssignPersonToGroup(Person person) {
         Group emptyGroup = new Group();
         emptyGroup.setGroupName("N/A");
