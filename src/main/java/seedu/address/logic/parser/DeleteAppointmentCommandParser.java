@@ -6,6 +6,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.DeleteAppointmentCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
+
 /**
  * Parses input arguments and creates a new FindCommand object
  */
@@ -14,6 +15,7 @@ public class DeleteAppointmentCommandParser implements Parser<DeleteAppointmentC
     /**
      * Parses the given {@code String} of arguments in the context of the FindCommand
      * and returns a FindCommand object for execution.
+     *
      * @throws ParseException if the user input does not conform the expected format
      */
     public DeleteAppointmentCommand parse(String args) throws ParseException {

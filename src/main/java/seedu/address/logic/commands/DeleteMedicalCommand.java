@@ -14,13 +14,12 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.person.Person;
-import seedu.address.model.person.appointment.Appointment;
+import seedu.address.model.person.medical.MedicalHistory;
 
+public class DeleteMedicalCommand extends Command {
+    public static final String COMMAND_WORD = "deleteMed";
 
-public class DeleteAppointmentCommand extends Command {
-    public static final String COMMAND_WORD = "deleteApp";
-
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": delete appointment for this person";
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": delete medical history for this person";
 
     private final Index targetIndex;
 
@@ -30,7 +29,7 @@ public class DeleteAppointmentCommand extends Command {
      * @param targetIndex
      * @param secondIndex
      */
-    public DeleteAppointmentCommand(Index targetIndex, Integer secondIndex) {
+    public DeleteMedicalCommand(Index targetIndex, Integer secondIndex) {
         this.targetIndex = targetIndex;
         this.secondIndex = secondIndex;
     }
@@ -47,11 +46,11 @@ public class DeleteAppointmentCommand extends Command {
         Person personToDelApp = lastShownList.get(targetIndex.getZeroBased());
 
         Person editedPerson = personToDelApp;
-        List<Appointment> sortedList = new ArrayList<>(editedPerson.getAppointments());
+        List<MedicalHistory> sortedList = new ArrayList<>(editedPerson.getMedicalHistories());
         Collections.sort(sortedList);
         sortedList.remove(secondIndex - 1);
-        Set<Appointment> editedSet = new HashSet<>(sortedList);
-        editedPerson.setAppointments(editedSet);
+        Set<MedicalHistory> editedSet = new HashSet<>(sortedList);
+        editedPerson.setMedicalHistories(editedSet);
         model.setPerson(personToDelApp, editedPerson);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
 
