@@ -147,6 +147,101 @@ Examples:
 * `list` followed by `delete 2` deletes the 2nd patient in the patient book.
 * `find Betsy` followed by `delete 1` deletes the 1st patient in the results of the `find` command.
 
+### Adding Appointment to Patient : `viewApp`
+
+View appointment of a specified patient from the Patient book.
+
+Format: `viewApp INDEX`
+
+* View appointment of the patient at the specified `INDEX`.
+* The index refers to the index number shown in the displayed patient list
+* The index **must be a positive integer** 1, 2, 3, …​
+
+Examples:
+* `list` followed by `viewApp 2` display all the appointment of 2nd patient in the patient book.
+* `find Betsy` followed by `viewApp 1` display appointments of the 1st patient in the results of the `find` command.
+
+### Adding Appointment to Patient : `addApp`
+
+Adds an appointment to specified patient from the Patient book.
+
+Format: `addApp INDEX /d DESCRIPTION /t DATETIME`
+
+* Add appointment with timing `DATEIME` to patient at the specified `INDEX`.
+* The index refers to the index number shown in the displayed patient list
+* Datetime input **must be in specified format** 2021-03-18 10:00:00
+* The index **must be a positive integer** 1, 2, 3, …​
+
+Examples:
+* `list` followed by `addApp 2 /d Check-up /d 2021-03-18 10:00:00` add checkup appointment on datetime to the 2nd patient in the patient book.
+
+### Deleting Appointment from Patient : `deleteApp`
+
+Deletes the specified appointment from specified patient from the Patient book.
+
+Format: `deleteApp USERINDEX APPOINTMENTINDEX`
+
+* Deletes an appointment at specified `APPOINTMENT_INDEX` from specified patient at the specified `USER_INDEX`.
+* Delete will only be valid after viewing the specified patient from the Patient Book. 
+* The userIndex refers to the index number shown in the displayed patient list.
+* The appointmentIndex refers to the index number of the appointment of the specified patient.
+* The userIndex and appointmentIndex **must be a positive integer** 1, 2, 3, …​
+
+Examples:
+* `view Betsy` followed by `deleteApp 1 3` deletes the 3rd appointment from 1st patient in the results of the `view` command.
+
+### Adding Appointment to Patient : `viewMed`
+
+View medical records of a specified patient from the Patient book.
+
+Format: `viewMed INDEX`
+
+* View medical records of the patient at the specified `INDEX`.
+* The index refers to the index number shown in the displayed patient list
+* The index **must be a positive integer** 1, 2, 3, …​
+
+Examples:
+* `list` followed by `viewMed 2` display all medical records of 2nd patient in the patient book.
+* `find Betsy` followed by `viewMed 1` display all medical records of the 1st patient in the results of the `find` command.
+
+### Adding Appointment to Patient : `addMed`
+
+Adds a medical records to specified patient from the Patient book.
+
+Format: `addMed INDEX /d DESCRIPTION`
+
+* Add medical records with content `DESCRIPTION` to patient at the specified `INDEX`.
+* The index refers to the index number shown in the displayed patient list
+* The index **must be a positive integer** 1, 2, 3, …​
+
+Examples:
+* `list` followed by `addMed 2 /d Surgery` add medical records to 2nd patient in the patient book.
+* `find Betsy` followed by `addMed 1 /d Surgery` add medical records to 1st patient in the results of the `find` command.
+
+### Deleting Appointment from Patient : `deleteMed`
+
+Deletes the specified medical records from specified patient from the Patient book.
+
+Format: `deleteMed USERINDEX RECORDINDEX`
+
+* Deletes a medical records at specified `RECORDINDEX` from specified patient at the specified `USERINDEX`.
+* The userIndex refers to the index number shown in the displayed patient list.
+* The appointmentIndex refers to the index number of the medical records of the specified patient.
+* The userIndex and recordIndex **must be a positive integer** 1, 2, 3, …​
+
+Examples:
+* `list` followed by `deleteMed 2 1` deletes the 1st medical record of the 2nd patient in the patient book.
+* `view Betsy` followed by `deleteMed 1 3` deletes the 3rd medical records from 1st patient in the results of the `view` command.
+
+### View of Appointment on Today : `appNotification`
+
+View all appointments in the Patient Book that are scheduled for today.
+
+Format: `appNotification`
+
+* The display will first show all appointments which are scheduled for today once the program loaded.
+* User can call `appNotification` to check for any appointments that are scheduled for today.
+
 ### Clearing all entries : `clear`
 
 Clears all entries from the patient book.
