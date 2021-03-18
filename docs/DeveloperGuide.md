@@ -253,7 +253,7 @@ The following activity diagram shows what happens when a user executes an add co
 #### Implementation of find feature
 
 The find operation is implemented using `FindCommand`, which extends `Command`.
-Upon receiving an input string that has `find` as the fist word, the `Employee Tracker` object will instantiate an `FindCommand` object with the `fullCommand` string, which is the input entered by the user. 
+Upon receiving an input string that has `find` as the fist word, the `Employee Tracker` object will instantiate an `FindCommand` object with the `fullCommand` string, which is the input entered by the user.
 The user is flexible to find the keywords by name, by role.
 
 * `find n/ Alice`: find by name based on the keywords (e.g Alice).
@@ -332,7 +332,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1. User enters new employee record.
 2. Employee Tracker displays a success message together with the updated list of employee records.<br>
    Use case ends.
-   
+
 **Extensions**
 * 1a. The command entered is in the wrong format.
     * 1a1. Employee Tracker shows an error message.<br>
