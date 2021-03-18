@@ -191,7 +191,7 @@ public class UniqueEmployeeList implements Iterable<Employee> {
                 highestSalaryEmployee = internalList.get(i).getName().fullName;
             }
         }
-        highestSalaryResult = String.format("%.2f", highestSalary) + "(" + highestSalaryEmployee + ")";
+        highestSalaryResult = String.format("%.2f", highestSalary) + " (" + highestSalaryEmployee + ")";
         return highestSalaryResult;
     }
 
@@ -205,7 +205,7 @@ public class UniqueEmployeeList implements Iterable<Employee> {
                 lowestSalaryEmployee = internalList.get(i).getName().fullName;
             }
         }
-        lowestSalaryResult = String.format("%.2f", lowestSalary) + "(" + lowestSalaryEmployee + ")";
+        lowestSalaryResult = String.format("%.2f", lowestSalary) + " (" + lowestSalaryEmployee + ")";
         return lowestSalaryResult;
     }
 
