@@ -66,9 +66,11 @@ public class GroupList {
         StringBuffer output = new StringBuffer();
 
         for (int i = 0; i < listOfGroup.size(); i++) {
-            output.append(i + 1);
-            output.append(". " + listOfGroup.get(i).toString());
-            output.append(System.lineSeparator());
+            if (!listOfGroup.get(i).toString().equals("N/A")) {
+                output.append(i + 1);
+                output.append(". " + listOfGroup.get(i).toString());
+                output.append(System.lineSeparator());
+            }
         }
         return output.toString();
     }
