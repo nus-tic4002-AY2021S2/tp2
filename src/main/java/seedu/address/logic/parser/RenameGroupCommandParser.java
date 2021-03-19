@@ -35,8 +35,7 @@ public class RenameGroupCommandParser {
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, RenameGroupCommand.MESSAGE_USAGE), pe);
         }
 
-        if (!arePrefixesPresent(argMultimap, PREFIX_GROUP)
-                || !argMultimap.getPreamble().isEmpty()) {
+        if (!arePrefixesPresent(argMultimap, PREFIX_GROUP)) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
                     RenameGroupCommand.MESSAGE_USAGE));
         }

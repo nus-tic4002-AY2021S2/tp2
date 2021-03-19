@@ -201,7 +201,7 @@ Examples:
 
 Rename an existing group to another name.
 
-Format: `rename INDEX [n/NAME]`
+Format: `rename INDEX [g/NAME]`
 
 * Rename the group at the specified INDEX
 * The index refers to the index number shown in the displayed group list.
@@ -209,7 +209,7 @@ Format: `rename INDEX [n/NAME]`
 * Existing values will be updated to the input values.
 
 Examples:
-*  `rename 1 n/PERFORMANCE ` Rename the group with index 1 into  PERFORMANCE.
+*  `rename 1 g/PERFORMANCE ` Rename the group with index 1 into  PERFORMANCE.
 
 ### List all persons in a group: `list -g [group name]`
 
