@@ -68,8 +68,11 @@ public class ParserUtil {
         String trimmedDate = date.trim();
         if (!Date.isValidDate(trimmedDate)) {
             throw new IllegalValueException(Date.MESSAGE_DATE_CONSTRAINTS);
+        } else if (!Date.isValidCalendarDate(trimmedDate)) {
+            throw new IllegalValueException(Date.MESSAGE_DATE_CONSTRAINTS);
+        } else {
+            return new Date(trimmedDate);
         }
-        return new Date(trimmedDate);
     }
 
     /**
