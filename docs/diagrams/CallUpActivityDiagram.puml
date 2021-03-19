@@ -1,0 +1,18 @@
+@startuml
+start
+:User opens application;
+:AddressBook checks
+through Persons in the list;
+
+if () then ([Person has CallUpDate])
+    if () then ([CallUpDate is same
+    as today's date])
+    :Show Call Notification Icon;
+    :Message
+    "This person is to be called today";
+    else ([else])
+    endif
+else ([else])
+endif
+stop
+@enduml
