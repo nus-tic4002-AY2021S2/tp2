@@ -63,7 +63,8 @@ public class Date {
         if (isLeapYear (year)) {
             if (days > 29 && month == 2) {
                 return false;
-            } } else {
+            }
+        } else {
             if (days > 28 && month == 2) {
                 return false;
             }
