@@ -133,6 +133,16 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 This section describes some noteworthy details on how certain features are implemented.
 
+### Follow up Calls feature
+
+#### Implementation
+
+This feature is meant to assist the Investigations Officer by reminding which persons are to be called up on the day itself, by showing a notification icon and a message.
+
+The following activity diagram summarizes what happens when a user opens the application:
+
+![CallUpActivityDiagram](images/CallUpActivityDiagram.png)
+
 ### \[Proposed\] Undo/redo feature
 
 #### Proposed Implementation
@@ -212,10 +222,6 @@ The following activity diagram summarizes what happens when a user executes a ne
   * Cons: We must ensure that the implementation of each individual command are correct.
 
 _{more aspects and alternatives to be added}_
-
-### \[Proposed\] Data archiving
-
-_{Explain here how the data archiving feature will be implemented}_
 
 
 --------------------------------------------------------------------------------------------------------------------
