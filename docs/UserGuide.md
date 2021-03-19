@@ -72,7 +72,7 @@ It is designed to help them manage their investigation cases better by reminding
 * Date should be a valid calendar date, date out of range will not be accepted.
   e.g. `23-02-2021` is a valid calendar date, `33-02-2021` is an invalid date format. 
   
-* NRIC format should be `1 alphanumeric characters( It should start with S, T, F or G),followed by 7 numerical numbers and a checksum letter. It should not be blank.`, other NRIC format will not be accepted.
+* NRIC format should be `1 capital letter that start with S, T, F or G,followed by 7 numerical numbers and a capital letter with alphanumeric characters . It should not be blank.`, other NRIC format will not be accepted.
     e.g. `S1234567B` is a valid NRIC format, `s2222b` or `s11111111` is an invalid NRIC format. 
     
 * Every data must be unique NRIC, phone number or email.
