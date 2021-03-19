@@ -4,6 +4,8 @@ import java.util.Comparator;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
@@ -15,6 +17,7 @@ import seedu.address.model.person.Person;
 public class PersonCard extends UiPart<Region> {
 
     private static final String FXML = "PersonListCard.fxml";
+    private static final String ICON_EXCLAIMATION = "/images/exclamation_point_icon.png";
 
     /**
      * Note: Certain keywords such as "location" and "resources" are reserved keywords in JavaFX.
@@ -49,7 +52,11 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label remark;
     @FXML
+    private Label callMessage;
+    @FXML
     private FlowPane tags;
+    @FXML
+    private ImageView displayIcon;
 
     /**
      * Constructs a {@code PersonCard}.
@@ -72,6 +79,12 @@ public class PersonCard extends UiPart<Region> {
         remark.setText(person.getRemark().value);
         remark.setWrapText(true);
         remarkTitle.setText("");
+        callMessage.setText("");
+
+        if (!person.getRemark().value.equals("")) {
+            displayIcon.setImage(new Image(ICON_EXCLAIMATION));
+            callMessage.setText("Call Today!");
+        }
         if (!person.getRemark().value.equals("")) {
             remarkTitle.setText("Officer's Remark");
         }
