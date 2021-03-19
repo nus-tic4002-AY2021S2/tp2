@@ -70,6 +70,7 @@ public class CommandTestUtil {
 
     public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + "James&"; // '&' not allowed in names
     public static final String INVALID_DATE_DESC = " " + PREFIX_DATE + "11/30/2020";
+    //missing 1 numeric number,'&' not allowed in nric
     public static final String INVALID_NRIC_DESC = " " + PREFIX_NRIC + "S11111B&";
     public static final String INVALID_PHONE_DESC = " " + PREFIX_PHONE + "911a"; // 'a' not allowed in phones
     public static final String INVALID_EMAIL_DESC = " " + PREFIX_EMAIL + "bob!yahoo"; // missing '@' symbol
