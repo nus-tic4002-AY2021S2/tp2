@@ -47,7 +47,8 @@ public class AddCommand extends Command {
             + PREFIX_TAG + "HighPriority ";
 
     public static final String MESSAGE_SUCCESS = "New person added: %1$s";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book";
+    public static final String MESSAGE_DUPLICATE_PERSON =
+        "This person has a duplicate NRIC, phone number or email as another person.";
 
     private final Person toAdd;
 
