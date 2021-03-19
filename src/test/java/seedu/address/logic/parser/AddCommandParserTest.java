@@ -14,6 +14,7 @@ import static seedu.address.logic.commands.CommandTestUtil.INVALID_DATE_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_DESCRIPTION;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_EMAIL_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_NAME_DESC;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_NRIC_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_PHONE_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_TAG_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_AMY;
@@ -48,6 +49,7 @@ import seedu.address.model.person.Date;
 import seedu.address.model.person.Description;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
+import seedu.address.model.person.Nric;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.tag.Tag;
@@ -161,6 +163,11 @@ public class AddCommandParserTest {
         assertParseFailure(parser, INVALID_NAME_DESC + DATE_DESC_BOB + NRIC_DESC_BOB
                 + PHONE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_BOB + DESCRIPTION_BOB
                 + TAG_DESC_SEVERITY + TAG_DESC_CALLED, Name.MESSAGE_CONSTRAINTS);
+
+        // invalid nric
+        assertParseFailure(parser, NAME_DESC_BOB + DATE_DESC_BOB + INVALID_NRIC_DESC
+                + PHONE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_BOB + DESCRIPTION_BOB
+                + TAG_DESC_SEVERITY + TAG_DESC_CALLED, Nric.MESSAGE_NRIC_CONSTRAINTS);
 
         // invalid date
         assertParseFailure(parser, NAME_DESC_BOB + INVALID_DATE_DESC + NRIC_DESC_BOB
