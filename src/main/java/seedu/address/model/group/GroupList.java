@@ -8,7 +8,7 @@ public class GroupList {
 
     GroupList() {
         Group defaultGroup = new Group();
-        defaultGroup.setGroupName("NA");
+        defaultGroup.setGroupName("N/A");
         addGroup(defaultGroup);
     }
 
@@ -67,7 +67,7 @@ public class GroupList {
 
         for (int i = 0; i < listOfGroup.size(); i++) {
             if (!listOfGroup.get(i).toString().equals("N/A")) {
-                output.append(i + 1);
+                output.append(i);
                 output.append(". " + listOfGroup.get(i).toString());
                 output.append(System.lineSeparator());
             }
