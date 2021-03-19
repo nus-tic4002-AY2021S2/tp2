@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.person.Address;
+import seedu.address.model.person.Date;
 import seedu.address.model.person.Description;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
@@ -21,7 +22,7 @@ import seedu.address.model.person.Phone;
 
 public class JsonAdaptedPersonTest {
     private static final String INVALID_NAME = "R@1hel";
-    private static final String INVALID_DATE = "21-02-2021";
+    private static final String INVALID_DATE = "55-02-2021";
     private static final String INVALID_DESCRIPTION = " ";
     private static final String INVALID_NRIC = "S1146H";
     private static final String INVALID_PHONE = "+651234";
@@ -63,6 +64,25 @@ public class JsonAdaptedPersonTest {
                     VALID_EMAIL, VALID_ADDRESS, VALID_DESCRIPTION, VALID_REMARK, VALID_TAGS);
 
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Name.class.getSimpleName());
+        assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
+    }
+
+    @Test
+    public void toModelType_invalidDate_throwsIllegalValueException() {
+        JsonAdaptedPerson person =
+                new JsonAdaptedPerson(VALID_NAME, INVALID_DATE, VALID_NRIC, VALID_PHONE,
+                        VALID_EMAIL, VALID_ADDRESS, VALID_DESCRIPTION, VALID_REMARK, VALID_TAGS);
+        String expectedMessage = Date.MESSAGE_DATE_CONSTRAINTS;
+        assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
+    }
+
+    @Test
+    public void toModelType_nullDate_throwsIllegalValueException() {
+        JsonAdaptedPerson person =
+                new JsonAdaptedPerson(VALID_NAME, null, VALID_NRIC, VALID_PHONE,
+                        VALID_EMAIL, VALID_ADDRESS, VALID_DESCRIPTION, VALID_REMARK, VALID_TAGS);
+
+        String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Date.class.getSimpleName());
         assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
     }
 
