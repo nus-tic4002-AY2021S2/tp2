@@ -40,7 +40,9 @@ public class RenameGroupCommand extends Command {
             throw new CommandException(MESSAGE_INVALID_INDEX);
         }
 
-        model.renameGroup(targetIndex.getOneBased(), group.toString());
+        //To '+1' here in the index is due to the groupList is start from 2. Index 1 is reserved for N/A,
+        // which shouldn't be renamed
+        model.renameGroup(targetIndex.getOneBased() + 1, group.toString());
         return new CommandResult(String.format(MESSAGE_SUCCESS, targetIndex.getOneBased(), group.toString()));
     }
 }
