@@ -124,4 +124,21 @@ public interface Model {
      */
     void addGroup(Group toAdd);
 
+    /**
+     * return the group at the index i in the group list.
+     * {@code i} an int index .
+     */
+    Group getGroupByIndex(int i);
+
+    /**
+     * return the group at the index i in the group list.
+     * {@code i} an int index .
+     */
+    void renameGroup(int i, String name);
+
+    /**
+     * get the group size of group list.
+     */
+    int getGroupSize();
+
 }
