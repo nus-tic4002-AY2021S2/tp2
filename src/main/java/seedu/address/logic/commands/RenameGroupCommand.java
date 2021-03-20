@@ -14,11 +14,11 @@ public class RenameGroupCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Rename the group identified by the index number used in the displayed group list and a specified "
             + "new name.\n"
-            + "Parameters: INDEX (must be a positive integer) " + PREFIX_GROUP + " GROUP_NAME\n"
-            + "Example: " + COMMAND_WORD + " 1" + PREFIX_GROUP + "NEW_GROUP_NAME";
+            + "Parameters: INDEX (must be a positive integer from 1 to the size of group list) "
+            + PREFIX_GROUP + " GROUP_NAME\n"
+            + "Example: " + COMMAND_WORD + " 1 " + PREFIX_GROUP + "NEW_GROUP_NAME";
 
     public static final String MESSAGE_SUCCESS = "Group index %1$d rename successfully: %2$s";
-    public static final String MESSAGE_INVALID_INDEX = "The index specified is invalid.";
 
     private final Index targetIndex;
     private final Group group;
@@ -36,8 +36,8 @@ public class RenameGroupCommand extends Command {
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
 
-        if (targetIndex.getOneBased() <= 0 || targetIndex.getOneBased() > model.getGroupSize()) {
-            throw new CommandException(MESSAGE_INVALID_INDEX);
+        if (targetIndex.getOneBased() <= 0 || targetIndex.getOneBased() >= model.getGroupSize()) {
+            throw new CommandException(MESSAGE_USAGE);
         }
 
         //To '+1' here in the index is due to the groupList is start from 2. Index 1 is reserved for N/A,
