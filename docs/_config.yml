@@ -1,5 +1,5 @@
 title: "Employee Tracker"
-theme: jekyll-theme-hacker
+theme: hacker
 
 header_pages:
   - UserGuide.md
