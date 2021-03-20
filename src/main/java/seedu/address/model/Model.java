@@ -128,12 +128,6 @@ public interface Model {
      * return the group at the index i in the group list.
      * {@code i} an int index .
      */
-    Group getGroupByIndex(int i);
-
-    /**
-     * return the group at the index i in the group list.
-     * {@code i} an int index .
-     */
     void renameGroup(int i, String name);
 
     /**

@@ -165,11 +165,6 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public Group getGroupByIndex(int i) {
-        return GroupList.getGroup(i);
-    }
-
-    @Override
     public int getGroupSize() {
         return GroupList.getGroupListSize();
     }
