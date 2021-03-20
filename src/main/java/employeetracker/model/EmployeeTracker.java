@@ -127,6 +127,9 @@ public class EmployeeTracker implements ReadOnlyEmployeeTracker {
         return employees.hashCode();
     }
 
+    /**
+     *  Print the user stats statements.
+     */
     public String getStatement() {
         String statement = "";
         statement += "Total Employees: " + employees.noOfemployees() + "\n";
@@ -136,7 +139,7 @@ public class EmployeeTracker implements ReadOnlyEmployeeTracker {
         statement += "Average Salary: $" + String.format("%.2f", employees.getAvgSalary()) + "\n";
         statement += "Longest Tenure: " + employees.getLongestTenure() + "\n";
         statement += "Shortest Tenure: " + employees.getShortestTenure() + "\n";
-        statement += "Average Tenure: " + employees.getAvgTenure() + "\n";
+        statement += "Average Tenure: " + employees.getAvgTenure();
         return statement;
     }
 }
