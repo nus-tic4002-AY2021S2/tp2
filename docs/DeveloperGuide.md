@@ -134,11 +134,11 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 ## **Implementation**
 This section describes some noteworthy details on how certain features are implemented.
 ### Add feature
+The `AddCommand` feature allows the user to add a new person and save it to the address book.
 #### Implementation
 Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("add n/John Doe d/22-02-2021 i/S2731125H p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 de/This man stole 3 times r/shop theft t/NeverCalled")` API call.
 ![Interactions Inside the Logic Component for the `add n/John Doe d/22-02-2021 i/S2731125H p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 de/This man stole 3 times r/shop theft t/NeverCalled` Command](images/AddCommandSequenceDiagram.png)
 <div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `AddCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-A regex validation check will be imposed upon the creation. Any checks that fails the validation would display an error message to guide the user .
 </div>
 <br>
 The following activity diagram summarizes what happens when a user executes addCommand feature:
@@ -146,18 +146,25 @@ The following activity diagram summarizes what happens when a user executes addC
 ![AddCommandActivityDiagram](images/AddCommandActivityDiagram.png)
 
 
-
 The `add` command facilitated by `AddClaimCommand`which extends the `Command` class and the `AddCommandParser` class, which implements the `Parser` class.
-This operation takes in an String input from the user that will create `Person` objects based on the following prefixes and parameters:
+This operation takes in a String input from the user that will create `Person` objects based on the following prefixes and parameters:
 n/`name`, d/`date`, i/`nric`, p/`phone`, e/`email`, a/`address` , de/`description` , r/`remark` , t/`tag`.  
 Meanwhile, the r/`remark` and t/`tag` are not compulsory to include.
+A regex validation check will be imposed upon the creation. Any checks that fails the validation would display an error message to guide the user.
+Parameters will be checked whether they are valid:
+* `name` uses `Name#isValidName()` to ensure that name only contain alphanumeric characters and spaces, and it should not be blank.
+* `nric` uses `Nric#isValidNric()` to ensure that nric only contain a capital letter,it should start with S, T, F or G,followed by 7 numerical numbers and a capital letter with alphabetical character. It should not be blank.
+* `date` uses `Date#isValidDate()` to ensure that date should follow date format 'dd-mm-yyyy' and it should be a valid calendar date.
+* `phone` uses `Phone#isValidPhone()` to ensure that phone numbers should only contain numbers, and it should be at least 3 digits long.
+* `email` uses `Email#isValidEmail()` to ensure correct email format.
+
 Upon receiving a user command that has `add` as the first word, the following object interactions will occur, resulting in the instantiation of an `AddCommand` object:
 
 1. `MainWindow` object calls `LogicManager#execute(input)`, where `input` is the user's input string;
 
 2. `LogicManager` object calls `AddressBookParser#parseCommand(commandText)` to parse the user command, where `commandText` is the user's input string;
 
-3. `AddressBookParser#parseCommand()` calls `AddCommandParser#parse(arguments)`, where `arguments` are the parameters in `commandText` such as `n/NRIC`;
+3. `AddressBookParser#parseCommand()` calls `AddCommandParser#parse(arguments)`, where `arguments` are the parameters in `commandText` such as `i/NRIC`;
 In this case, `AddClaimCommandParser#parse()`is being created, and the user's input will be passed in as a parameter.
 
 4. `AddCommandParser#parse()` will do a validation check on the user's input before creating and returning a`AddCommand` object with `Person` as its attribute.calls 
@@ -197,8 +204,12 @@ The following activity diagram summarizes what happens when a user executes a ne
           
 * **Alternative 2 :** unique name to the entire address book
   * Pros: Since each person have unique name, it can easily be retrieved from `UniquePersonList`.
-  * Cons: There may be a person that have the same name in the world.Therefore, it will have fake duplicate issue.
+  * Cons: There may be a person that have the same name in the world.Therefore, it will have "fake" duplicate issue.
 
+  <br>
+  We have decided to opt for the first option primarily because it reduces the number of potential bugs such as "fake" duplication issue 
+  and the complexities involved. Moreover, the implementation is still fast enough for small-scale organisations to pick up our app and use it, minimising the cons.
+  
 ##### Aspect: How delete command executes
 * **Alternative 1 (current choice):** deleting by index
   * Pros: Since each person's information has a unique index, any deletion by the index is less prone to bugs and easier to implement.
@@ -207,6 +218,9 @@ The following activity diagram summarizes what happens when a user executes a ne
 * **Alternative 2 :** deleting by NRIC
   * Pros: Since each person have unique NRIC, any deletion by the NRIC is less prone to bugs.
   * Cons: User will need to remember the specific person's NRIC, it is very inconvenient to user.
+
+  <br>
+  We have decided to opt for the first option primarily because it is more convenient to the user as compare to alternative 2. 
 _{more aspects and alternatives to be added}_
 
 
