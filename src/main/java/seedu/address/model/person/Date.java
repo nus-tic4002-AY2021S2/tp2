@@ -60,16 +60,8 @@ public class Date {
         int days = Integer.parseInt(date.substring(0, 2));
         int month = Integer.parseInt(date.substring(3, 5));
         int year = Integer.parseInt(date.substring(6, 10));
-        if (isLeapYear (year)) {
-            if (days > 29 && month == 2) {
-                return false;
-            }
-        } else {
-            if (days > 28 && month == 2) {
-                return false;
-            }
-        }
-        return true;
+        return (!isLeapYear(year) || days <= 29 || month != 2)
+            && (isLeapYear(year) || days <= 28 || month != 2);
     }
 
     /**
@@ -78,7 +70,7 @@ public class Date {
      * @return the number of days between start date and end date
      */
     public static float calculateDateDiff(String startDate, String endDate) {
-        SimpleDateFormat formatter = new SimpleDateFormat ("dd-mm-yyyy");
+        SimpleDateFormat formatter = new SimpleDateFormat ("dd-MM-yyyy");
         float daysBetween = 0;
         try {
             java.util.Date dateBefore = formatter.parse(startDate);
@@ -97,20 +89,12 @@ public class Date {
      * @return true or false if the given year is a leap year
      */
     public static boolean isLeapYear(int year) {
-        boolean isLeap = false;
         if (year % 4 == 0) {
-            if (year % 100 == 0) {
-                if (year % 400 == 0) {
-                    isLeap = true;
-                } else {
-                    isLeap = false;
-                }
-            } else {
-                isLeap = true;
-            }
-        } else {
-            isLeap = false;
+            return true;
         }
-        return isLeap;
+        if (year % 100 == 0) {
+            return year % 400 == 0;
+        }
+        return false;
     }
 }
