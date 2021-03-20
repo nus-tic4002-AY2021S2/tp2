@@ -48,13 +48,13 @@ deactivate AddressBookParser
 LogicManager -> AddCommand : execute()
 activate AddCommand
 
-AddCommand -> Model : hasPerson(person)
+AddCommand -> Model : hasPerson(toAdd)
 activate Model
 
 Model --> AddCommand
 deactivate Model
 
-AddCommand -> Model : addPerson(person)
+AddCommand -> Model : addPerson(toAdd)
 activate Model
 
 Model --> AddCommand
