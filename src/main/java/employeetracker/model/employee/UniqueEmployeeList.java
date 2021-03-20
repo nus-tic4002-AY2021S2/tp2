@@ -181,6 +181,9 @@ public class UniqueEmployeeList implements Iterable<Employee> {
         return totalSalary;
     }
 
+    /**
+     * Get the Highest Salary employee and employee's name in the list.
+     */
     public String getHighestSalary() {
         double highestSalary = 0;
         String highestSalaryEmployee = "";
@@ -195,6 +198,9 @@ public class UniqueEmployeeList implements Iterable<Employee> {
         return highestSalaryResult;
     }
 
+    /**
+     * Get the lowest Salary employee and employee's name in the list.
+     */
     public String getLowestSalary() {
         double lowestSalary = Double.parseDouble(internalList.get(0).getSalary().value);
         String lowestSalaryEmployee = internalList.get(0).getName().fullName;
@@ -209,12 +215,18 @@ public class UniqueEmployeeList implements Iterable<Employee> {
         return lowestSalaryResult;
     }
 
+    /**
+     * Get the average Salary expenses for all employee in the list.
+     */
     public double getAvgSalary() {
         double avgSalary;
         avgSalary = getTotalSalary() / internalList.size();
         return avgSalary;
     }
 
+    /**
+     * Get the Longest Tenure employee and employee's name in the list.
+     */
     public String getLongestTenure() {
         Date todaysDate = new Date();
         Date dateOfJoin;
@@ -240,10 +252,13 @@ public class UniqueEmployeeList implements Iterable<Employee> {
         int totalYears = (int) (longest / yearMiniSec);
         int days = (int) (longest / dayMiniSec - (totalYears * 365));
 
-        return totalYears + " Years " + days + " Days (" + employeeName + ")";
+        return totalYears + " Year(s) " + days + " Day(s) (" + employeeName + ")";
 
     }
 
+    /**
+     * Get the Shortest Tenure employee and employee's name in the list.
+     */
     public String getShortestTenure() {
         int totalYears = 0;
         int days = 0;
@@ -274,9 +289,12 @@ public class UniqueEmployeeList implements Iterable<Employee> {
         } catch (Exception e) {
             System.out.println(e.toString());
         }
-        return totalYears + " Years " + days + " Days (" + employeeName + ")";
+        return totalYears + " Year(s) " + days + " Day(s) (" + employeeName + ")";
     }
 
+    /**
+     * Get the Average Tenure for all employee in the list.
+     */
     public String getAvgTenure() {
         Date todaysDate = new Date();
         Date dateOfJoin;
@@ -298,7 +316,7 @@ public class UniqueEmployeeList implements Iterable<Employee> {
         avgTensure = totalMillies / internalList.size();
         int totalYears = (int) (avgTensure / yearMiniSec);
         int days = (int) (avgTensure / dayMiniSec - (totalYears * 365));
-        return totalYears + " Years " + days + " Days";
+        return totalYears + " Year(s) " + days + " Day(s)";
     }
 
 }
