@@ -183,7 +183,9 @@ public class AddCommandTest {
         @Override
         public int getGroupSize() {
             throw new AssertionError("This method should not be called.");
-        
+        }
+
+        @Override
         public ArrayList<Person> getPersonListInThisGroup(Group group) {
             return null;
         }
