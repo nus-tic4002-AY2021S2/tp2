@@ -103,6 +103,19 @@ Examples:
 * `add n/John Doe d/22-02-2021 i/S2731125H p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 de/This man is a construction site manager who flew a drone over the Istana, beyond the boundary of his nearby work site, at 8.35am. r/He could be just curious to see what the Istana looks like. t/NeverCalled t/HighPriority`
 * `add n/Betsy Crowe d/12-02-2021 i/S1234567A p/91234567 e/betsycrowe@example.com a/Newgate Prison de/She was molested by a Senior Investigations Officer at the Jurong Police Division Headquarters in the interview room around 9.00pm. r/She informed a policeman at the Police Cantonment Complex 5 days later. t/NeverCalled t/MediumPriority`
 
+### Adding a remark: `remark`
+Add remark to a person in the address book.
+
+Format `remark INDEX r/REMARK`
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+* Add remark at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
+</div>
+
+Examples:
+
+* `remark 1 r/shop theft`
+
 ### Listing all persons : `list`
 
 Shows a list of all persons in the address book.
@@ -125,6 +138,7 @@ Format: `edit INDEX [n/NAME] [d/DATE] [i/NRIC] [p/PHONE] [e/EMAIL] [a/ADDRESS] [
 Examples:
 *  `edit 1 p/91234567 i/S1111112B e/johndoe@example.com` Edits the phone number,NRIC, email address of the 1st person to be `91234567`, ` i/S1111112B` and johndoe@example.com` respectively.
 *  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
+*  `edit 2 n/Betsy Lim d/10-10-2021` Edits the name of the 2nd person to be `Betsy Lim` and edit the date as well.
 ### Locating persons by name: `find`
 
 Finds all fields contain any of the given keywords.
