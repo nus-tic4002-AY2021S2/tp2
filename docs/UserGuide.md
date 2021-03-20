@@ -29,11 +29,15 @@ Addressbook NS Edition (ABNS) is a **desktop app for managing contacts, optimize
    
    * **`listGroup all`** : Shows a list of all groups  in the address book.
 
-   * **`create -g`** : Creates a new group to the address book.
+   * **`create`** : Creates a new group to the address book.
 
-   * **`list -g [group name]`** : Lists all persons in a particular group.
+   * **`list g/[GROUP NAME]`** : Lists all persons in a particular group.
 
-   * **`delete -g`** : Deletes the specified group from the address book.
+   * **`delete`** : Deletes the specified group from the address book.
+
+   * **`assignptg`** : Assign a person by using his name to the specified group. 
+
+   * **`rename`** : Renaming an existing group to another name. 
 
    * **`list`** : Lists all contacts.
 
@@ -180,11 +184,11 @@ AddressBook data are saved as a JSON file `[JAR file location]/data/addressbook.
 If your changes to the data file makes its format invalid, AddressBook will discard all data and start with an empty data file at the next run.
 </div>
 
-### Creating a group: `create g/`
+### Creating a group: `create`
 
 Creates a new group to the Address book NS Edition
 
-Format: `create g/<group name>`
+Format: `create g/<GROUP NAME>`
 
 Examples:
 *  `create g/FITNESS` Creates a group called Fitness
@@ -199,26 +203,39 @@ Format: `show`
 Examples:
 *  `show` Lists all groups
 
-
-### Rename the group: `rename -g`
+### Rename the group: `rename`
 
 Rename an existing group to another name.
 
-Format: `rename INDEX [g/NAME]`
+Format: `rename <INDEX> g/<GROUP NAME>`
 
 * Rename the group at the specified INDEX
 * The index refers to the index number shown in the displayed group list.
 * The index must be a positive integer 1, 2, 3, …
 * Existing values will be updated to the input values.
+* Invalid index and command will trigger a message to tell the correct command format 
 
 Examples:
 *  `rename 1 g/PERFORMANCE ` Rename the group with index 1 into  PERFORMANCE.
 
-### List all persons in a group: `listfromgrp g/[group name]`
+### Assign a person to group: `assignptg`
+
+Assign a person to a specified group by using  person's name.
+
+Format: `assignptg n/<PERSON NAME> g/<GROUP NAME>`
+
+* Using the person's name to assign
+* Both person and group should exist.
+* Invalid command or format will trigger an error message
+
+Examples:
+*  `assignptg n/Alice g/TEST ` Assign Alice to the group TEST.
+
+### List all persons in a group: `listfromgrp`
 
 Lists all persons in a particular group.
 
-Format: `list g/[group_name]`
+Format: `list g/<GROUP NAME>`
 
 * The group name  is case-insensitive. e.g IPPT will match ippt
 
@@ -226,7 +243,7 @@ Examples:
 *  `list g/PERFORMANCE ` Lists all persons in PERFORMANCE.
 
 
-### Deleting a group: `deletegrp [Index Number]`
+### Deleting a group: `deletegrp`
 
 Deletes the specified group from the address book.
 
@@ -241,11 +258,11 @@ Examples:
 *  `List all` followed by `delete 1` deletes the 1st group in the results of the `find` command.
 
 
-### Deleting every person from a group: `deletepsngrp g/[Group Name]`
+### Deleting every person from a group: `deletepsngrp`
 
 Deletes every person from that group in the addressbook.
 
-Format: `deletepsngrp g/GroupA`
+Format: `deletepsngrp g/<GROUP NAME>`
 
 * Deletes every person currently assigned to that group.
 * If there is no person to delete, then nothing will happen.
