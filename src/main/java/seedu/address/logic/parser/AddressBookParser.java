@@ -11,6 +11,7 @@ import seedu.address.logic.commands.AddGroupCommand;
 import seedu.address.logic.commands.AssignPersonToGroupCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.Command;
+import seedu.address.logic.commands.DeleteAllPersonFromGroupCommand;
 import seedu.address.logic.commands.DeleteCommand;
 import seedu.address.logic.commands.DeleteGroupCommand;
 import seedu.address.logic.commands.EditCommand;
@@ -19,6 +20,7 @@ import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.ListAllFromGroupCommand;
 import seedu.address.logic.commands.ListCommand;
+import seedu.address.logic.commands.RenameGroupCommand;
 import seedu.address.logic.commands.ShowCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
@@ -62,6 +64,9 @@ public class AddressBookParser {
         case DeleteGroupCommand.COMMAND_WORD:
             return new DeleteGroupCommandParser().parse(arguments);
 
+        case RenameGroupCommand.COMMAND_WORD:
+            return new RenameGroupCommandParser().parse(arguments);
+
         case EditCommand.COMMAND_WORD:
             return new EditCommandParser().parse(arguments);
 
@@ -88,6 +93,9 @@ public class AddressBookParser {
 
         case HelpCommand.COMMAND_WORD:
             return new HelpCommand();
+
+        case DeleteAllPersonFromGroupCommand.COMMAND_WORD:
+            return new DeleteAllPersonFromGroupCommandParser().parse(arguments); // Delete everyone from a group
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);

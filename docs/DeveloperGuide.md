@@ -258,6 +258,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user                                       | delete a group                 | remove the groups that I no longer need                                |
 | `* * *`  | user                                       | list all groups                | keep track of what has been created in the system                      |
 | `* * *`  | user                                       | list all persons in a group    | give a punishment or a reward to soldiers in the specific group        |
+| `* * *`  | user                                       | load groups from json file     | the previous record will be maintained                                 |
 | `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
 | `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                |
 | `*`      | user with many persons in the address book | sort persons by name           | locate a person easily                                                 |

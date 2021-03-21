@@ -1,6 +1,7 @@
 package seedu.address.model;
 
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
@@ -123,5 +124,20 @@ public interface Model {
      * {@code group} must not already exist in the address book.
      */
     void addGroup(Group toAdd);
+
+    /**
+     * return the group at the index i in the group list.
+     * {@code i} an int index .
+     */
+    void renameGroup(int i, String name);
+
+    /**
+     * get the group size of group list.
+     */
+    int getGroupSize();
+
+    ArrayList<Person> getPersonListInThisGroup(Group group);
+
+    void unAssignPersonToGroup(Person person);
 
 }
