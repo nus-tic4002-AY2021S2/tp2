@@ -8,6 +8,8 @@ import java.util.Objects;
 import java.util.Set;
 
 import seedu.address.model.group.Group;
+import seedu.address.model.group.GroupList;
+import seedu.address.model.group.exceptions.GroupNotFoundException;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -29,13 +31,17 @@ public class Person {
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags, Group group) {
+    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags, Group group) throws GroupNotFoundException {
         requireAllNonNull(name, phone, email, address, tags, group);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
         this.tags.addAll(tags);
+        if (!GroupList.hasGroup(group)) {
+            throw new GroupNotFoundException();
+        }
+        assert GroupList.hasGroup(group);
         this.group.setGroupName(group.toString());
     }
 
