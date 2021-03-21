@@ -31,7 +31,8 @@ public class Person {
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags, Group group) throws GroupNotFoundException {
+    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags, Group group)
+            throws GroupNotFoundException {
         requireAllNonNull(name, phone, email, address, tags, group);
         this.name = name;
         this.phone = phone;
