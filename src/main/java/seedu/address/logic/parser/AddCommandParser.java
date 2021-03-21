@@ -50,7 +50,7 @@ public class AddCommandParser implements Parser<AddCommand> {
         Group group;
         if (argMultimap.getValue(PREFIX_GROUP).isEmpty()) {
             group = new Group();
-            group.setGroupName("NA");
+            group.setGroupName("N/A");
         } else {
             group = ParserUtil.parseGroup(argMultimap.getValue(PREFIX_GROUP).get());
         }

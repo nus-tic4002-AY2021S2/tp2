@@ -39,10 +39,10 @@ public class Person {
         this.email = email;
         this.address = address;
         this.tags.addAll(tags);
-        if (!GroupList.hasGroup(group)) {
+        if (!GroupList.hasGroup(group) && !group.toString().equals("N/A")) {
             throw new GroupNotFoundException();
         }
-        assert GroupList.hasGroup(group);
+        assert GroupList.hasGroup(group) || group.toString().equals("N/A");
         this.group.setGroupName(group.toString());
     }
 

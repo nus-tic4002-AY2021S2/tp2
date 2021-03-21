@@ -21,7 +21,7 @@ public class PersonBuilder {
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
-    public static final String DEFAULT_GROUP = "ABC";
+    public static final String DEFAULT_GROUP = "N/A";
 
     private Name name;
     private Phone phone;
@@ -51,7 +51,7 @@ public class PersonBuilder {
         email = personToCopy.getEmail();
         address = personToCopy.getAddress();
         tags = new HashSet<>(personToCopy.getTags());
-        group = new Group().setGroupName(personToCopy.getGroup().toString());
+        group = new Group().setGroupName(DEFAULT_GROUP);
     }
 
     /**
@@ -91,6 +91,15 @@ public class PersonBuilder {
      */
     public PersonBuilder withEmail(String email) {
         this.email = new Email(email);
+        return this;
+    }
+
+    /**
+     * Sets the {@code Group} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withGroup(String group) {
+        this.group = new Group();
+        this.group.setGroupName(group);
         return this;
     }
 

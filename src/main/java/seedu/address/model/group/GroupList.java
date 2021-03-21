@@ -24,7 +24,6 @@ public class GroupList {
      */
     public static boolean hasGroup (Group group) {
 
-
         for (int i = 0; i < listOfGroup.size(); i++) {
             if (listOfGroup.get(i).equals(group)) {
                 return true;
