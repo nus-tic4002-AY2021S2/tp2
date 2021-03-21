@@ -92,11 +92,14 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 A person can have any number of tags (including 0)
+A person who is created will have have default group created. The group shall be "N/A".
+If a person is created with a group, then it can be pre-assigned with a user given group.
 </div>
 
 Examples:
 * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
 * `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal`
+* * `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal g/GroupA` 
 
 ### Listing all persons : `list`
 
@@ -211,16 +214,16 @@ Format: `rename INDEX [n/NAME]`
 Examples:
 *  `rename 1 n/PERFORMANCE ` Rename the group with index 1 into  PERFORMANCE.
 
-### List all persons in a group: `list -g [group name]`
+### List all persons in a group: `listfromgrp g/[group name]`
 
 Lists all persons in a particular group.
 
-Format: `list -g [group_name]`
+Format: `list g/[group_name]`
 
 * The group name  is case-insensitive. e.g IPPT will match ippt
 
 Examples:
-*  `list -g PERFORMANCE ` Lists all persons in PERFORMANCE.
+*  `list g/PERFORMANCE ` Lists all persons in PERFORMANCE.
 
 
 ### Deleting a group: `deletegrp [Index Number]`
@@ -236,6 +239,16 @@ Format: `deletegrp INDEX`
 Examples:
 *  `show` followed by `delete 2` deletes the 2nd group in the address book.
 *  `List all` followed by `delete 1` deletes the 1st group in the results of the `find` command.
+
+
+### Deleting every person from a group: `deletepsngrp g/[Group Name]`
+
+Deletes every person from that group in the addressbook.
+
+Format: `deletepsngrp g/GroupA`
+
+* Deletes every person currently assigned to that group.
+* If there is no person to delete, then nothing will happen.
 
 
 ### Archiving data files `[coming in v2.0]`
