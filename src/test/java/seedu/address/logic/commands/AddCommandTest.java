@@ -176,6 +176,16 @@ public class AddCommandTest {
         }
 
         @Override
+        public void renameGroup(int i, String name) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public int getGroupSize() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public ArrayList<Person> getPersonListInThisGroup(Group group) {
             return null;
         }
