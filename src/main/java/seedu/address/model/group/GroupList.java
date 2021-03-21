@@ -10,6 +10,7 @@ public class GroupList {
         Group defaultGroup = new Group();
         defaultGroup.setGroupName("N/A");
         addGroup(defaultGroup);
+        assert !listOfGroup.isEmpty();
     }
 
     public static void addGroup (Group group) {
