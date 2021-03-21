@@ -75,4 +75,8 @@ public class GroupList {
         return output.toString();
     }
 
+    public static int getGroupListSize() {
+        return listOfGroup.size();
+    }
+
 }
