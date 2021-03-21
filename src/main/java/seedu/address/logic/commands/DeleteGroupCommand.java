@@ -9,6 +9,7 @@ import seedu.address.model.Model;
 import seedu.address.model.group.Group;
 import seedu.address.model.group.GroupList;
 
+import java.util.function.Predicate;
 
 
 /**
