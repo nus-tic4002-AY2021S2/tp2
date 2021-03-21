@@ -34,11 +34,11 @@ public class DeleteGroupCommand extends Command {
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
 
-        Group groupName = GroupList.getGroup(targetIndex.getOneBased());
+        Group groupName = GroupList.getGroup(targetIndex.getOneBased() + 1);
         if (model.countPersonInGroup(Model.predicateShowAllPersonsInGroup(groupName)) > 0) {
             throw new CommandException(Messages.MESSAGE_PERSON_IN_GROUP);
         }
-        GroupList.deleteGroup(targetIndex.getOneBased());
+        GroupList.deleteGroup(targetIndex.getOneBased() + 1);
         return new CommandResult(String.format(MESSAGE_SUCCESS, groupName.toString()));
     }
 }
