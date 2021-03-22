@@ -10,9 +10,13 @@ import static employeetracker.logic.commands.CommandTestUtil.DATE_OF_JOINING_DES
 import static employeetracker.logic.commands.CommandTestUtil.EMAIL_DESC_AMY;
 import static employeetracker.logic.commands.CommandTestUtil.EMAIL_DESC_BOB;
 import static employeetracker.logic.commands.CommandTestUtil.INVALID_ADDRESS_DESC;
+import static employeetracker.logic.commands.CommandTestUtil.INVALID_DATE_OF_BIRTH_DESC;
+import static employeetracker.logic.commands.CommandTestUtil.INVALID_DATE_OF_JOINING_DESC;
 import static employeetracker.logic.commands.CommandTestUtil.INVALID_EMAIL_DESC;
 import static employeetracker.logic.commands.CommandTestUtil.INVALID_NAME_DESC;
 import static employeetracker.logic.commands.CommandTestUtil.INVALID_PHONE_DESC;
+import static employeetracker.logic.commands.CommandTestUtil.INVALID_ROLE_DESC;
+import static employeetracker.logic.commands.CommandTestUtil.INVALID_SALARY_DESC;
 import static employeetracker.logic.commands.CommandTestUtil.INVALID_TAG_DESC;
 import static employeetracker.logic.commands.CommandTestUtil.NAME_DESC_AMY;
 import static employeetracker.logic.commands.CommandTestUtil.NAME_DESC_BOB;
@@ -27,9 +31,13 @@ import static employeetracker.logic.commands.CommandTestUtil.SALARY_DESC_BOB;
 import static employeetracker.logic.commands.CommandTestUtil.TAG_DESC_FRIEND;
 import static employeetracker.logic.commands.CommandTestUtil.TAG_DESC_HUSBAND;
 import static employeetracker.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
+import static employeetracker.logic.commands.CommandTestUtil.VALID_DATE_OF_BIRTH_BOB;
+import static employeetracker.logic.commands.CommandTestUtil.VALID_DATE_OF_JOINING_BOB;
 import static employeetracker.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 import static employeetracker.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static employeetracker.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
+import static employeetracker.logic.commands.CommandTestUtil.VALID_ROLE_BOB;
+import static employeetracker.logic.commands.CommandTestUtil.VALID_SALARY_BOB;
 import static employeetracker.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
 import static employeetracker.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static employeetracker.logic.parser.CommandParserTestUtil.assertParseFailure;
@@ -41,10 +49,14 @@ import org.junit.jupiter.api.Test;
 
 import employeetracker.logic.commands.AddCommand;
 import employeetracker.model.employee.Address;
+import employeetracker.model.employee.DateOfBirth;
+import employeetracker.model.employee.DateOfJoining;
 import employeetracker.model.employee.Email;
 import employeetracker.model.employee.Employee;
 import employeetracker.model.employee.Name;
 import employeetracker.model.employee.Phone;
+import employeetracker.model.employee.Role;
+import employeetracker.model.employee.Salary;
 import employeetracker.model.tag.Tag;
 import employeetracker.testutil.EmployeeBuilder;
 
@@ -65,8 +77,13 @@ public class AddCommandParserTest {
                 + EMAIL_DESC_BOB + ADDRESS_DESC_BOB + DATE_OF_BIRTH_DESC_BOB + DATE_OF_JOINING_DESC_BOB
                 + SALARY_DESC_BOB + TAG_DESC_FRIEND, new AddCommand(expectedEmployee));
 
+        // multiple roles - last role accepted
+        assertParseSuccess(parser, NAME_DESC_BOB + ROLE_DESC_AMY + ROLE_DESC_BOB + PHONE_DESC_BOB
+                + EMAIL_DESC_BOB + ADDRESS_DESC_BOB + DATE_OF_BIRTH_DESC_BOB + DATE_OF_JOINING_DESC_BOB
+                + SALARY_DESC_BOB + TAG_DESC_FRIEND, new AddCommand(expectedEmployee));
+
         // multiple phones - last phone accepted
-        assertParseSuccess(parser, NAME_DESC_BOB + ROLE_DESC_BOB + PHONE_DESC_BOB
+        assertParseSuccess(parser, NAME_DESC_BOB + ROLE_DESC_BOB + PHONE_DESC_AMY
                 + PHONE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_BOB + DATE_OF_BIRTH_DESC_BOB
                 + DATE_OF_JOINING_DESC_BOB + SALARY_DESC_BOB + TAG_DESC_FRIEND, new AddCommand(expectedEmployee));
 
@@ -79,6 +96,21 @@ public class AddCommandParserTest {
         assertParseSuccess(parser, NAME_DESC_BOB + ROLE_DESC_BOB + PHONE_DESC_BOB
                 + EMAIL_DESC_BOB + ADDRESS_DESC_AMY + ADDRESS_DESC_BOB + DATE_OF_BIRTH_DESC_BOB
                 + DATE_OF_JOINING_DESC_BOB + SALARY_DESC_BOB + TAG_DESC_FRIEND, new AddCommand(expectedEmployee));
+
+        // multiple dates of birth - last date of birth accepted
+        assertParseSuccess(parser, NAME_DESC_BOB + ROLE_DESC_BOB + PHONE_DESC_BOB
+                + EMAIL_DESC_BOB + ADDRESS_DESC_BOB + DATE_OF_BIRTH_DESC_AMY + DATE_OF_BIRTH_DESC_BOB
+                + DATE_OF_JOINING_DESC_BOB + SALARY_DESC_BOB + TAG_DESC_FRIEND, new AddCommand(expectedEmployee));
+
+        // multiple dates of joining - last date of joining accepted
+        assertParseSuccess(parser, NAME_DESC_BOB + ROLE_DESC_BOB + PHONE_DESC_BOB
+                + EMAIL_DESC_BOB + ADDRESS_DESC_BOB + DATE_OF_BIRTH_DESC_BOB + DATE_OF_JOINING_DESC_AMY
+                + DATE_OF_JOINING_DESC_BOB + SALARY_DESC_BOB + TAG_DESC_FRIEND, new AddCommand(expectedEmployee));
+
+        // multiple salaries - last salary accepted
+        assertParseSuccess(parser, NAME_DESC_BOB + ROLE_DESC_BOB + PHONE_DESC_BOB
+                + EMAIL_DESC_BOB + ADDRESS_DESC_BOB + DATE_OF_BIRTH_DESC_BOB + DATE_OF_JOINING_DESC_BOB
+                + SALARY_DESC_AMY + SALARY_DESC_BOB + TAG_DESC_FRIEND, new AddCommand(expectedEmployee));
 
         // multiple tags - all accepted
         Employee expectedEmployeeMultipleTags = new EmployeeBuilder(BOB).withTags(VALID_TAG_FRIEND, VALID_TAG_HUSBAND)
@@ -106,6 +138,11 @@ public class AddCommandParserTest {
                 + ADDRESS_DESC_BOB + DATE_OF_BIRTH_DESC_BOB + DATE_OF_JOINING_DESC_BOB + SALARY_DESC_BOB,
                 expectedMessage);
 
+        // missing role prefix
+        assertParseFailure(parser, NAME_DESC_BOB + VALID_ROLE_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
+                + ADDRESS_DESC_BOB + DATE_OF_BIRTH_DESC_BOB + DATE_OF_JOINING_DESC_BOB + SALARY_DESC_BOB,
+                expectedMessage);
+
         // missing phone prefix
         assertParseFailure(parser, NAME_DESC_BOB + ROLE_DESC_BOB + VALID_PHONE_BOB + EMAIL_DESC_BOB
                 + ADDRESS_DESC_BOB + DATE_OF_BIRTH_DESC_BOB + DATE_OF_JOINING_DESC_BOB + SALARY_DESC_BOB,
@@ -116,9 +153,24 @@ public class AddCommandParserTest {
                 + ADDRESS_DESC_BOB + DATE_OF_BIRTH_DESC_BOB + DATE_OF_JOINING_DESC_BOB + SALARY_DESC_BOB,
                 expectedMessage);
 
+        // missing date of birth prefix
+        assertParseFailure(parser, NAME_DESC_BOB + ROLE_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
+                + ADDRESS_DESC_BOB + VALID_DATE_OF_BIRTH_BOB + DATE_OF_JOINING_DESC_BOB + SALARY_DESC_BOB,
+                expectedMessage);
+
+        // missing date of joining prefix
+        assertParseFailure(parser, NAME_DESC_BOB + ROLE_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
+                + ADDRESS_DESC_BOB + DATE_OF_BIRTH_DESC_BOB + VALID_DATE_OF_JOINING_BOB + SALARY_DESC_BOB,
+                expectedMessage);
+
         // missing address prefix
         assertParseFailure(parser, NAME_DESC_BOB + ROLE_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
                 + VALID_ADDRESS_BOB + DATE_OF_BIRTH_DESC_BOB + DATE_OF_JOINING_DESC_BOB + SALARY_DESC_BOB,
+                expectedMessage);
+
+        // missing salary prefix
+        assertParseFailure(parser, NAME_DESC_BOB + ROLE_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
+                + ADDRESS_DESC_BOB + DATE_OF_BIRTH_DESC_BOB + DATE_OF_JOINING_DESC_BOB + VALID_SALARY_BOB,
                 expectedMessage);
 
         // all prefixes missing
@@ -134,6 +186,11 @@ public class AddCommandParserTest {
                 + ADDRESS_DESC_BOB + DATE_OF_BIRTH_DESC_BOB + DATE_OF_JOINING_DESC_BOB + SALARY_DESC_BOB
                 + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, Name.MESSAGE_CONSTRAINTS);
 
+        // invalid role
+        assertParseFailure(parser, NAME_DESC_BOB + INVALID_ROLE_DESC + PHONE_DESC_BOB + EMAIL_DESC_BOB
+                + ADDRESS_DESC_BOB + DATE_OF_BIRTH_DESC_BOB + DATE_OF_JOINING_DESC_BOB + SALARY_DESC_BOB
+                + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, Role.MESSAGE_CONSTRAINTS);
+
         // invalid phone
         assertParseFailure(parser, NAME_DESC_BOB + ROLE_DESC_BOB + INVALID_PHONE_DESC + EMAIL_DESC_BOB
                 + ADDRESS_DESC_BOB + DATE_OF_BIRTH_DESC_BOB + DATE_OF_JOINING_DESC_BOB + SALARY_DESC_BOB
@@ -148,6 +205,21 @@ public class AddCommandParserTest {
         assertParseFailure(parser, NAME_DESC_BOB + ROLE_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
                 + INVALID_ADDRESS_DESC + DATE_OF_BIRTH_DESC_BOB + DATE_OF_JOINING_DESC_BOB + SALARY_DESC_BOB
                 + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, Address.MESSAGE_CONSTRAINTS);
+
+        // invalid date of birth
+        assertParseFailure(parser, NAME_DESC_BOB + ROLE_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
+                + ADDRESS_DESC_BOB + INVALID_DATE_OF_BIRTH_DESC + DATE_OF_JOINING_DESC_BOB + SALARY_DESC_BOB
+                + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, DateOfBirth.MESSAGE_CONSTRAINTS);
+
+        // invalid date of joining
+        assertParseFailure(parser, NAME_DESC_BOB + ROLE_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
+                + ADDRESS_DESC_BOB + DATE_OF_BIRTH_DESC_BOB + INVALID_DATE_OF_JOINING_DESC + SALARY_DESC_BOB
+                + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, DateOfJoining.MESSAGE_CONSTRAINTS);
+
+        // invalid salary
+        assertParseFailure(parser, NAME_DESC_BOB + ROLE_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
+                + ADDRESS_DESC_BOB + DATE_OF_BIRTH_DESC_BOB + DATE_OF_JOINING_DESC_BOB + INVALID_SALARY_DESC
+                + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, Salary.MESSAGE_CONSTRAINTS);
 
         // invalid tag
         assertParseFailure(parser, NAME_DESC_BOB + ROLE_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
