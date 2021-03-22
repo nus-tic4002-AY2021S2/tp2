@@ -112,6 +112,12 @@ The `Model`,
 
 </div>
 
+Given below is the Sequence Diagram for the `execute("Edit")` API call.
+
+![Interactions Inside the Model Component for the `Edit` Command](images/EditSequenceDiagram.png)
+
+<div markdown="span" class="alert alert-info">:information_source: **Note:** New Person will be created once the data has been edited.
+</div>
 
 ### Storage component
 
