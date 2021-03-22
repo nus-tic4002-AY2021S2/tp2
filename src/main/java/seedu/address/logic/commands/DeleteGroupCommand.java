@@ -1,15 +1,17 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
-import seedu.address.commons.core.Messages;
+import java.util.ArrayList;
+
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.group.Group;
 import seedu.address.model.group.GroupList;
+import seedu.address.model.person.Person;
 
-import java.util.function.Predicate;
 
 
 /**
@@ -26,6 +28,7 @@ public class DeleteGroupCommand extends Command {
 
     public static final String MESSAGE_SUCCESS = "Group deleted successfully: %1$s";
     private final Index targetIndex;
+
     public DeleteGroupCommand(Index targetIndex) {
         this.targetIndex = targetIndex;
     }
@@ -36,7 +39,14 @@ public class DeleteGroupCommand extends Command {
 
         Group groupName = GroupList.getGroup(targetIndex.getOneBased() + 1);
         if (model.countPersonInGroup(Model.predicateShowAllPersonsInGroup(groupName)) > 0) {
-            throw new CommandException(Messages.MESSAGE_PERSON_IN_GROUP);
+            //throw new CommandException(Messages.MESSAGE_PERSON_IN_GROUP);
+            //new DeleteAllPersonFromGroupCommand(groupName);
+            ArrayList<Person> personInGroup = model.getPersonListInThisGroup(groupName);
+            for (int i = 0; i < personInGroup.size(); i++) {
+                Person person = personInGroup.get(i);
+                model.unAssignPersonToGroup(person);
+            }
+            model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         }
         GroupList.deleteGroup(targetIndex.getOneBased() + 1);
         return new CommandResult(String.format(MESSAGE_SUCCESS, groupName.toString()));
