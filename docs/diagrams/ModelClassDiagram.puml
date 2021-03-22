@@ -64,5 +64,6 @@ Date -[hidden]right-> Date
 Description-[hidden]right-> Description
 Remark -[hidden]right-> Remark
 
-ModelManager ----->" ~* filtered list" Person
+
+ModelManager -->"1" Person : filtered list
 @enduml

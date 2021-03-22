@@ -1,0 +1,24 @@
+@startuml
+start
+:User executes AddCommand;
+
+if () then ([input has invalid format])
+    :Display "Invalid command format" error message;
+else ([else])
+    :Parses input;
+    if () then ([input has invalid format in a field ])
+        :Display error message for the specific field;
+    else ([else])
+        :Attempts to add it;
+        if () then ([person's NRIC, email or phone \nnumber has exist in model])
+            :Display duplicate error message;
+        else ([else])
+        :Adds person's information to model;
+        :Display information of newly-added person;
+        endif
+    endif
+endif
+stop
+
+@enduml
+
