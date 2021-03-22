@@ -3,7 +3,7 @@ layout: page
 title: User Guide
 ---
 
-The Employee Tracker allows small business owners to keep track of their employees' data using a single platform instead of having to deal with multiple data management tools.
+The Employee Tracker allows small business owners to keep track of their employees information using a single platform instead of having to deal with multiple data management tools.
 Through a simple and intuitive graphical user interface, business owners can record and view their employees' information.
 
 * Table of Contents
