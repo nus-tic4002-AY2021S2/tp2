@@ -28,6 +28,7 @@ public class SalaryTest {
         assertFalse(Salary.isValidSalary("")); // empty string
         assertFalse(Salary.isValidSalary(" ")); // spaces only
         assertFalse(Salary.isValidSalary("Salary")); // non-numeric
+        assertFalse(Salary.isValidSalary("-1000")); // negative number
         assertFalse(Salary.isValidSalary("1000.00")); // decimal number
         assertFalse(Salary.isValidSalary("$6000")); // salary number with dollar sign
 
