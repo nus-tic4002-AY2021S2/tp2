@@ -43,6 +43,7 @@ public class Nric {
 
     @Override
     public String toString() {
+        assert(value != null);
         return value;
     }
 
@@ -55,6 +56,7 @@ public class Nric {
 
     @Override
     public int hashCode() {
+        assert(value != null);
         return value.hashCode();
     }
 
