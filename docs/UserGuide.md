@@ -155,8 +155,10 @@ Format: `find TYPE/KEYWORD…`
 * Employee records matching at least one keyword will be returned. E.g. keywords `John Wong` will return `John Lam` and `Bernice Wong`.
 
 Examples of usage:
-* `find n/John Bernice Andy` 
+* `find n/John Bernice Andy`
+  ![result for 'n/David Bernice'](images/findDavidBerniceResult.png)
 * `find r/Developer`
+  ![result for 'r/Developer'](images/findDeveloperResult.png)
 
 ### Clearing all employee records : `clear`
 
