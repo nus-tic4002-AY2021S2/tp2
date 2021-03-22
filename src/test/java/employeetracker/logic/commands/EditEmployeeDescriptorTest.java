@@ -3,9 +3,13 @@ package employeetracker.logic.commands;
 import static employeetracker.logic.commands.CommandTestUtil.DESC_AMY;
 import static employeetracker.logic.commands.CommandTestUtil.DESC_BOB;
 import static employeetracker.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
+import static employeetracker.logic.commands.CommandTestUtil.VALID_DATE_OF_BIRTH_BOB;
+import static employeetracker.logic.commands.CommandTestUtil.VALID_DATE_OF_JOINING_BOB;
 import static employeetracker.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 import static employeetracker.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static employeetracker.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
+import static employeetracker.logic.commands.CommandTestUtil.VALID_ROLE_BOB;
+import static employeetracker.logic.commands.CommandTestUtil.VALID_SALARY_BOB;
 import static employeetracker.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -39,6 +43,10 @@ public class EditEmployeeDescriptorTest {
                 .withName(VALID_NAME_BOB).build();
         assertFalse(DESC_AMY.equals(editedAmy));
 
+        // different role -> returns false
+        editedAmy = new EditEmployeeDescriptorBuilder(DESC_AMY).withRole(VALID_ROLE_BOB).build();
+        assertFalse(DESC_AMY.equals(editedAmy));
+
         // different phone -> returns false
         editedAmy = new EditEmployeeDescriptorBuilder(DESC_AMY).withPhone(VALID_PHONE_BOB).build();
         assertFalse(DESC_AMY.equals(editedAmy));
@@ -49,6 +57,18 @@ public class EditEmployeeDescriptorTest {
 
         // different address -> returns false
         editedAmy = new EditEmployeeDescriptorBuilder(DESC_AMY).withAddress(VALID_ADDRESS_BOB).build();
+        assertFalse(DESC_AMY.equals(editedAmy));
+
+        // different date of birth -> returns false
+        editedAmy = new EditEmployeeDescriptorBuilder(DESC_AMY).withDateOfBirth(VALID_DATE_OF_BIRTH_BOB).build();
+        assertFalse(DESC_AMY.equals(editedAmy));
+
+        // different date of joining -> returns false
+        editedAmy = new EditEmployeeDescriptorBuilder(DESC_AMY).withDateOfJoining(VALID_DATE_OF_JOINING_BOB).build();
+        assertFalse(DESC_AMY.equals(editedAmy));
+
+        // different salary -> returns false
+        editedAmy = new EditEmployeeDescriptorBuilder(DESC_AMY).withSalary(VALID_SALARY_BOB).build();
         assertFalse(DESC_AMY.equals(editedAmy));
 
         // different tags -> returns false
