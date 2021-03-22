@@ -1,9 +1,13 @@
 package employeetracker.model.employee;
 
 import static employeetracker.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
+import static employeetracker.logic.commands.CommandTestUtil.VALID_DATE_OF_BIRTH_BOB;
+import static employeetracker.logic.commands.CommandTestUtil.VALID_DATE_OF_JOINING_BOB;
 import static employeetracker.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 import static employeetracker.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static employeetracker.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
+import static employeetracker.logic.commands.CommandTestUtil.VALID_ROLE_BOB;
+import static employeetracker.logic.commands.CommandTestUtil.VALID_SALARY_BOB;
 import static employeetracker.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static employeetracker.testutil.Assert.assertThrows;
 import static employeetracker.testutil.TypicalEmployees.ALICE;
@@ -32,8 +36,10 @@ public class EmployeeTest {
         assertFalse(ALICE.isSameEmployee(null));
 
         // same name, all other attributes different -> returns true
-        Employee editedAlice = new EmployeeBuilder(ALICE).withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB)
-                .withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND).build();
+        Employee editedAlice = new EmployeeBuilder(ALICE).withRole(VALID_ROLE_BOB).withPhone(VALID_PHONE_BOB)
+                .withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB).withDateOfBirth(VALID_DATE_OF_BIRTH_BOB)
+                .withDateOfJoining(VALID_DATE_OF_JOINING_BOB).withSalary(VALID_SALARY_BOB).withTags(VALID_TAG_HUSBAND)
+                .build();
         assertTrue(ALICE.isSameEmployee(editedAlice));
 
         // different name, all other attributes same -> returns false
@@ -72,6 +78,10 @@ public class EmployeeTest {
         Employee editedAlice = new EmployeeBuilder(ALICE).withName(VALID_NAME_BOB).build();
         assertFalse(ALICE.equals(editedAlice));
 
+        // different role -> returns false
+        editedAlice = new EmployeeBuilder(ALICE).withRole(VALID_ROLE_BOB).build();
+        assertFalse(ALICE.equals(editedAlice));
+
         // different phone -> returns false
         editedAlice = new EmployeeBuilder(ALICE).withPhone(VALID_PHONE_BOB).build();
         assertFalse(ALICE.equals(editedAlice));
@@ -82,6 +92,18 @@ public class EmployeeTest {
 
         // different address -> returns false
         editedAlice = new EmployeeBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).build();
+        assertFalse(ALICE.equals(editedAlice));
+
+        // different date of birth -> returns false
+        editedAlice = new EmployeeBuilder(ALICE).withDateOfBirth(VALID_DATE_OF_BIRTH_BOB).build();
+        assertFalse(ALICE.equals(editedAlice));
+
+        // different date of joining -> returns false
+        editedAlice = new EmployeeBuilder(ALICE).withDateOfJoining(VALID_DATE_OF_JOINING_BOB).build();
+        assertFalse(ALICE.equals(editedAlice));
+
+        // different salary -> returns false
+        editedAlice = new EmployeeBuilder(ALICE).withSalary(VALID_SALARY_BOB).build();
         assertFalse(ALICE.equals(editedAlice));
 
         // different tags -> returns false
