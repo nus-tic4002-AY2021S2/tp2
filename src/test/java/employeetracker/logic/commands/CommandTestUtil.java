@@ -33,7 +33,7 @@ public class CommandTestUtil {
     public static final String VALID_NAME_AMY = "Amy Bee";
     public static final String VALID_NAME_BOB = "Bob Choo";
     public static final String VALID_ROLE_AMY = "Developer";
-    public static final String VALID_ROLE_BOB = "Finance Manager";
+    public static final String VALID_ROLE_BOB = "Account Manager";
     public static final String VALID_PHONE_AMY = "11111111";
     public static final String VALID_PHONE_BOB = "22222222";
     public static final String VALID_EMAIL_AMY = "amy@example.com";
@@ -69,13 +69,15 @@ public class CommandTestUtil {
     public static final String TAG_DESC_HUSBAND = " " + PREFIX_TAG + VALID_TAG_HUSBAND;
 
     public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + "James&"; // '&' not allowed in names
+    public static final String INVALID_ROLE_DESC = " " + PREFIX_ROLE + " "; // empty string not allowed for roles
     public static final String INVALID_PHONE_DESC = " " + PREFIX_PHONE + "911a"; // 'a' not allowed in phones
     public static final String INVALID_EMAIL_DESC = " " + PREFIX_EMAIL + "bob!yahoo"; // missing '@' symbol
     public static final String INVALID_ADDRESS_DESC = " " + PREFIX_ADDRESS; // empty string not allowed for addresses
     public static final String INVALID_DATE_OF_BIRTH_DESC =
             " " + PREFIX_DATE_OF_BIRTH + "1990/12/10"; // '/' not allowed in date of birth
     public static final String INVALID_DATE_OF_JOINING_DESC =
-            " " + PREFIX_DATE_OF_BIRTH + "2020/12/10"; // '/' not allowed in date of joining
+            " " + PREFIX_DATE_OF_JOINING + "2020/12/10"; // '/' not allowed in date of joining
+    public static final String INVALID_SALARY_DESC = " " + PREFIX_SALARY + "1000.00"; // '.' not allowed in salaries
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";

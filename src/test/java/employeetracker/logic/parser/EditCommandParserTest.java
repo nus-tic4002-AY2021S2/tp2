@@ -3,25 +3,45 @@ package employeetracker.logic.parser;
 import static employeetracker.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static employeetracker.logic.commands.CommandTestUtil.ADDRESS_DESC_AMY;
 import static employeetracker.logic.commands.CommandTestUtil.ADDRESS_DESC_BOB;
+import static employeetracker.logic.commands.CommandTestUtil.DATE_OF_BIRTH_DESC_AMY;
+import static employeetracker.logic.commands.CommandTestUtil.DATE_OF_BIRTH_DESC_BOB;
+import static employeetracker.logic.commands.CommandTestUtil.DATE_OF_JOINING_DESC_AMY;
+import static employeetracker.logic.commands.CommandTestUtil.DATE_OF_JOINING_DESC_BOB;
 import static employeetracker.logic.commands.CommandTestUtil.EMAIL_DESC_AMY;
 import static employeetracker.logic.commands.CommandTestUtil.EMAIL_DESC_BOB;
 import static employeetracker.logic.commands.CommandTestUtil.INVALID_ADDRESS_DESC;
+import static employeetracker.logic.commands.CommandTestUtil.INVALID_DATE_OF_BIRTH_DESC;
+import static employeetracker.logic.commands.CommandTestUtil.INVALID_DATE_OF_JOINING_DESC;
 import static employeetracker.logic.commands.CommandTestUtil.INVALID_EMAIL_DESC;
 import static employeetracker.logic.commands.CommandTestUtil.INVALID_NAME_DESC;
 import static employeetracker.logic.commands.CommandTestUtil.INVALID_PHONE_DESC;
+import static employeetracker.logic.commands.CommandTestUtil.INVALID_ROLE_DESC;
+import static employeetracker.logic.commands.CommandTestUtil.INVALID_SALARY_DESC;
 import static employeetracker.logic.commands.CommandTestUtil.INVALID_TAG_DESC;
 import static employeetracker.logic.commands.CommandTestUtil.NAME_DESC_AMY;
 import static employeetracker.logic.commands.CommandTestUtil.PHONE_DESC_AMY;
 import static employeetracker.logic.commands.CommandTestUtil.PHONE_DESC_BOB;
+import static employeetracker.logic.commands.CommandTestUtil.ROLE_DESC_AMY;
+import static employeetracker.logic.commands.CommandTestUtil.ROLE_DESC_BOB;
+import static employeetracker.logic.commands.CommandTestUtil.SALARY_DESC_AMY;
+import static employeetracker.logic.commands.CommandTestUtil.SALARY_DESC_BOB;
 import static employeetracker.logic.commands.CommandTestUtil.TAG_DESC_FRIEND;
 import static employeetracker.logic.commands.CommandTestUtil.TAG_DESC_HUSBAND;
 import static employeetracker.logic.commands.CommandTestUtil.VALID_ADDRESS_AMY;
 import static employeetracker.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
+import static employeetracker.logic.commands.CommandTestUtil.VALID_DATE_OF_BIRTH_AMY;
+import static employeetracker.logic.commands.CommandTestUtil.VALID_DATE_OF_BIRTH_BOB;
+import static employeetracker.logic.commands.CommandTestUtil.VALID_DATE_OF_JOINING_AMY;
+import static employeetracker.logic.commands.CommandTestUtil.VALID_DATE_OF_JOINING_BOB;
 import static employeetracker.logic.commands.CommandTestUtil.VALID_EMAIL_AMY;
 import static employeetracker.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 import static employeetracker.logic.commands.CommandTestUtil.VALID_NAME_AMY;
 import static employeetracker.logic.commands.CommandTestUtil.VALID_PHONE_AMY;
 import static employeetracker.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
+import static employeetracker.logic.commands.CommandTestUtil.VALID_ROLE_AMY;
+import static employeetracker.logic.commands.CommandTestUtil.VALID_ROLE_BOB;
+import static employeetracker.logic.commands.CommandTestUtil.VALID_SALARY_AMY;
+import static employeetracker.logic.commands.CommandTestUtil.VALID_SALARY_BOB;
 import static employeetracker.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
 import static employeetracker.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_TAG;
@@ -37,9 +57,13 @@ import employeetracker.commons.core.index.Index;
 import employeetracker.logic.commands.EditCommand;
 import employeetracker.logic.commands.EditCommand.EditEmployeeDescriptor;
 import employeetracker.model.employee.Address;
+import employeetracker.model.employee.DateOfBirth;
+import employeetracker.model.employee.DateOfJoining;
 import employeetracker.model.employee.Email;
 import employeetracker.model.employee.Name;
 import employeetracker.model.employee.Phone;
+import employeetracker.model.employee.Role;
+import employeetracker.model.employee.Salary;
 import employeetracker.model.tag.Tag;
 import employeetracker.testutil.EditEmployeeDescriptorBuilder;
 
@@ -82,9 +106,15 @@ public class EditCommandParserTest {
     @Test
     public void parse_invalidValue_failure() {
         assertParseFailure(parser, "1" + INVALID_NAME_DESC, Name.MESSAGE_CONSTRAINTS); // invalid name
+        assertParseFailure(parser, "1" + INVALID_ROLE_DESC, Role.MESSAGE_CONSTRAINTS); // invalid role
         assertParseFailure(parser, "1" + INVALID_PHONE_DESC, Phone.MESSAGE_CONSTRAINTS); // invalid phone
         assertParseFailure(parser, "1" + INVALID_EMAIL_DESC, Email.MESSAGE_CONSTRAINTS); // invalid email
         assertParseFailure(parser, "1" + INVALID_ADDRESS_DESC, Address.MESSAGE_CONSTRAINTS); // invalid address
+        // invalid date of birth
+        assertParseFailure(parser, "1" + INVALID_DATE_OF_BIRTH_DESC, DateOfBirth.MESSAGE_CONSTRAINTS);
+        // invalid date of joining
+        assertParseFailure(parser, "1" + INVALID_DATE_OF_JOINING_DESC, DateOfJoining.MESSAGE_CONSTRAINTS);
+        assertParseFailure(parser, "1" + INVALID_SALARY_DESC, Salary.MESSAGE_CONSTRAINTS); // invalid salary
         assertParseFailure(parser, "1" + INVALID_TAG_DESC, Tag.MESSAGE_CONSTRAINTS); // invalid tag
 
         // invalid phone followed by valid email
@@ -108,12 +138,14 @@ public class EditCommandParserTest {
     @Test
     public void parse_allFieldsSpecified_success() {
         Index targetIndex = INDEX_SECOND_EMPLOYEE;
-        String userInput = targetIndex.getOneBased() + PHONE_DESC_BOB + TAG_DESC_HUSBAND
-                + EMAIL_DESC_AMY + ADDRESS_DESC_AMY + NAME_DESC_AMY + TAG_DESC_FRIEND;
+        String userInput = targetIndex.getOneBased() + ROLE_DESC_BOB + PHONE_DESC_BOB + TAG_DESC_HUSBAND
+                + EMAIL_DESC_AMY + ADDRESS_DESC_AMY + DATE_OF_BIRTH_DESC_BOB + DATE_OF_JOINING_DESC_BOB
+                + NAME_DESC_AMY + TAG_DESC_FRIEND;
 
         EditCommand.EditEmployeeDescriptor descriptor = new EditEmployeeDescriptorBuilder().withName(VALID_NAME_AMY)
-                .withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_AMY).withAddress(VALID_ADDRESS_AMY)
-                .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
+                .withRole(VALID_ROLE_BOB).withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_AMY)
+                .withAddress(VALID_ADDRESS_AMY).withDateOfBirth(VALID_DATE_OF_BIRTH_BOB)
+                .withDateOfJoining(VALID_DATE_OF_JOINING_BOB).withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
         EditCommand expectedCommand = new EditCommand(targetIndex, descriptor);
 
         assertParseSuccess(parser, userInput, expectedCommand);
@@ -141,6 +173,12 @@ public class EditCommandParserTest {
         EditCommand expectedCommand = new EditCommand(targetIndex, descriptor);
         assertParseSuccess(parser, userInput, expectedCommand);
 
+        // role
+        userInput = targetIndex.getOneBased() + ROLE_DESC_AMY;
+        descriptor = new EditEmployeeDescriptorBuilder().withRole(VALID_ROLE_AMY).build();
+        expectedCommand = new EditCommand(targetIndex, descriptor);
+        assertParseSuccess(parser, userInput, expectedCommand);
+
         // phone
         userInput = targetIndex.getOneBased() + PHONE_DESC_AMY;
         descriptor = new EditEmployeeDescriptorBuilder().withPhone(VALID_PHONE_AMY).build();
@@ -159,6 +197,24 @@ public class EditCommandParserTest {
         expectedCommand = new EditCommand(targetIndex, descriptor);
         assertParseSuccess(parser, userInput, expectedCommand);
 
+        // date of birth
+        userInput = targetIndex.getOneBased() + DATE_OF_BIRTH_DESC_AMY;
+        descriptor = new EditEmployeeDescriptorBuilder().withDateOfBirth(VALID_DATE_OF_BIRTH_AMY).build();
+        expectedCommand = new EditCommand(targetIndex, descriptor);
+        assertParseSuccess(parser, userInput, expectedCommand);
+
+        // date of joining
+        userInput = targetIndex.getOneBased() + DATE_OF_JOINING_DESC_AMY;
+        descriptor = new EditEmployeeDescriptorBuilder().withDateOfJoining(VALID_DATE_OF_JOINING_AMY).build();
+        expectedCommand = new EditCommand(targetIndex, descriptor);
+        assertParseSuccess(parser, userInput, expectedCommand);
+
+        // salary
+        userInput = targetIndex.getOneBased() + SALARY_DESC_AMY;
+        descriptor = new EditEmployeeDescriptorBuilder().withSalary(VALID_SALARY_AMY).build();
+        expectedCommand = new EditCommand(targetIndex, descriptor);
+        assertParseSuccess(parser, userInput, expectedCommand);
+
         // tags
         userInput = targetIndex.getOneBased() + TAG_DESC_FRIEND;
         descriptor = new EditEmployeeDescriptorBuilder().withTags(VALID_TAG_FRIEND).build();
@@ -169,13 +225,17 @@ public class EditCommandParserTest {
     @Test
     public void parse_multipleRepeatedFields_acceptsLast() {
         Index targetIndex = INDEX_FIRST_EMPLOYEE;
-        String userInput = targetIndex.getOneBased() + PHONE_DESC_AMY + ADDRESS_DESC_AMY + EMAIL_DESC_AMY
-                + TAG_DESC_FRIEND + PHONE_DESC_AMY + ADDRESS_DESC_AMY + EMAIL_DESC_AMY + TAG_DESC_FRIEND
-                + PHONE_DESC_BOB + ADDRESS_DESC_BOB + EMAIL_DESC_BOB + TAG_DESC_HUSBAND;
+        String userInput = targetIndex.getOneBased() + ROLE_DESC_AMY + PHONE_DESC_AMY + ADDRESS_DESC_AMY
+                + EMAIL_DESC_AMY + DATE_OF_JOINING_DESC_AMY + DATE_OF_JOINING_DESC_AMY + SALARY_DESC_AMY
+                + TAG_DESC_FRIEND + ROLE_DESC_AMY + PHONE_DESC_AMY + ADDRESS_DESC_AMY + EMAIL_DESC_AMY
+                + DATE_OF_JOINING_DESC_AMY + DATE_OF_JOINING_DESC_AMY + SALARY_DESC_AMY + TAG_DESC_FRIEND
+                + ROLE_DESC_BOB + PHONE_DESC_BOB + ADDRESS_DESC_BOB + EMAIL_DESC_BOB + DATE_OF_BIRTH_DESC_BOB
+                + DATE_OF_JOINING_DESC_BOB + SALARY_DESC_BOB + TAG_DESC_HUSBAND;
 
         EditCommand.EditEmployeeDescriptor descriptor = new EditEmployeeDescriptorBuilder().withPhone(VALID_PHONE_BOB)
-                .withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_FRIEND, VALID_TAG_HUSBAND)
-                .build();
+                .withRole(VALID_ROLE_BOB).withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB)
+                .withDateOfBirth(VALID_DATE_OF_BIRTH_BOB).withDateOfJoining(VALID_DATE_OF_JOINING_BOB)
+                .withSalary(VALID_SALARY_BOB).withTags(VALID_TAG_FRIEND, VALID_TAG_HUSBAND).build();
         EditCommand expectedCommand = new EditCommand(targetIndex, descriptor);
 
         assertParseSuccess(parser, userInput, expectedCommand);
