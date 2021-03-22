@@ -94,7 +94,7 @@ public class JsonEmployeeTrackerStorageTest {
     }
 
     /**
-     * Saves {@code addressBook} at the specified {@code filePath}.
+     * Saves {@code EmployeeTracker} at the specified {@code filePath}.
      */
     private void saveEmployeeTracker(ReadOnlyEmployeeTracker addressBook, String filePath) {
         try {
