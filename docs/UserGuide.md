@@ -134,13 +134,14 @@ Sorts the list of employee records in the Employee Tracker.
 
 Format: `sort TYPE`
 * `TYPE` must be the letter n, s, j or b.
-* If `TYPE` is n, the employee records will be sorted based on name in alphabetical order.
+* If `TYPE` is n, the employee records will be sorted based by name in alphabetical order.
 * If `TYPE` is s, the employee records will be sorted based on salary in increasing order.
 * If `TYPE` is j, the employee records will be sorted based on date of joining from the earliest date to the latest date.
 * If `TYPE` is b, the employee records will be sorted based on date of birth from the earliest date to the latest date.
 
 Example of usage:
-* `sort d`
+* `sort n`
+![result for 'sort n'](images/sortEmployeesNameResult.PNG)
 
 ### Finding employee records : `find`
 
