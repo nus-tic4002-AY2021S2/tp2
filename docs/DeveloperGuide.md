@@ -273,10 +273,29 @@ The following sequence diagram shows how the find operation works:
 The following activity diagram summarizes what happens when a user executes a find command:
 ![ActivityDiagram_FindCommand](images/ActivityDiagram_FindCommand.png)
 
+### Sort feature
+#### Implementation of sort feature
 
+The `sort` command implemented using the `SortCommand` class, which extends the `Command` class, and the `sortCommandParser` class, which implements the `Parser<SortCommand>` class. Upon receiving an input string that has `sort` as the fist word, the `Employee Tracker` object will instantiate an `sortCommand` object with the `fullCommand` string, which is the input entered by the user. The user can sort the employee records by n, s, j, b.
 
+* `sort n` the employee records will be sorted based by name in alphabetical order.
+* `sort s` the employee records will be sorted based on salary in increasing order.
+* `sort j` the employee records will be sorted based on date of joining from the earliest date to the latest date.
+* `sort b` the employee records will be sorted based on date of birth from the earliest date to the latest date.
 
+These operations exposed in the `SortCommand()` class.
+* Step 1: The user executes `sort n` command to sort the employee records by name.
+* Step 2: The `LogicManager` object calls `EmployeeTrackerParser#parseCommand(commandText)` to parse the user command;
+* Step 3: The `EmployeeTrackerParser#parseCommand()` calls `sortCommandParser#parse(String args)`, where `args` is `n`;
+* Step 4: The `sortCommandParser#parse(args)` calls `sortCommand(args)` to instantiate an `sortCommand` object.
+* Step 5: The `sortCommand#execute()` calls `model#sortEmployee(sortField)` to sort employee records by name, where `sortField` is `n` .
+* Step 6: The `commandResult()` will feedback `MESSAGE_SORT_EMPLOYEE_SUCCESS` to user.
 
+The following sequence diagram shows how the sort operation works:
+![SequenceDiagram_SortCommand](images/SortSequenceDiagram.png)
+
+The following activity diagram summarizes what happens when a user executes a sort command:
+![ActivityDiagram_SortCommand](images/SortActivityDiagram.png)
 
 
 --------------------------------------------------------------------------------------------------------------------

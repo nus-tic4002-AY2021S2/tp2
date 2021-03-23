@@ -143,7 +143,8 @@ Format: `sort TYPE`
 * If `TYPE` is b, the employee records will be sorted based on date of birth from the earliest date to the latest date.
 
 Example of usage:
-* `sort d`
+* `sort n`
+![result for 'sort n'](images/sortEmployeesNameResult.PNG)
 
 ### Finding employee records : `find`
 
