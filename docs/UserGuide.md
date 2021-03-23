@@ -213,5 +213,5 @@ Action | Format, Examples
 **Edit** | `edit INDEX [n/NAME] [r/ROLE] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [b/DATE_OF_BIRTH] [j/DATE_OF_JOINING] [s/SALARY] [t/TAG]…` <br> E.g. `edit 1 p/91821748 s/8000 t/Mentor t/l33tCoder`
 **Delete** | `delete INDEX`<br> E.g. `delete 2`
 **Sort** | `sort TYPE` <br> E.g. `sort j`
-**Find** | `find TYPE/KEYWORD`<br> E.g. `find n/John Bernice Andy`,`find r/Developer`,`find a/ Serangoon`,`find b/ 1992-05-28`,`find p/ 910`
+**Find** | `find TYPE/KEYWORD`<br> E.g. `find n/John Bernice Andy`, `find r/Developer`, `find a/Serangoon`, `find b/1992-05-28`, `find p/910`
 **Clear** | `clear`
