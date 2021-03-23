@@ -79,4 +79,41 @@ public class NameContainsKeywordsPredicateTest {
         assertFalse(predicate.test(new EmployeeBuilder().withName("Alice").withPhone("12345")
                 .withEmail("alice@email.com").withAddress("Main Street").build()));
     }
+
+    @Test
+    public void test_roleContainsKeywords_returnsTrue() {
+        // One keyword
+        NameContainsKeywordsPredicate predicate = new NameContainsKeywordsPredicate(
+                Collections.singletonList("Finance"), "r/");
+        assertTrue(predicate.test(new EmployeeBuilder().withRole("Finance Manager").build()));
+
+        // Multiple keywords
+        predicate = new NameContainsKeywordsPredicate(Arrays.asList("Project", "Manager"), "r/");
+        assertTrue(predicate.test(new EmployeeBuilder().withRole("Project Manager").build()));
+
+        // Only one matching keyword
+        predicate = new NameContainsKeywordsPredicate(Arrays.asList("Manager", "Developer"), "r/");
+        assertTrue(predicate.test(new EmployeeBuilder().withRole("Project Manager").build()));
+
+        // Mixed-case keywords
+        predicate = new NameContainsKeywordsPredicate(Arrays.asList("finance", "mAnager"), "r/");
+        assertTrue(predicate.test(new EmployeeBuilder().withRole("Finance Manager").build()));
+    }
+
+    @Test
+    public void test_roleDoesNotContainKeywords_returnsFalse() {
+        // Zero keywords
+        NameContainsKeywordsPredicate predicate = new NameContainsKeywordsPredicate(Collections.emptyList(), "r/");
+        assertFalse(predicate.test(new EmployeeBuilder().withRole("Manager").build()));
+
+        // Non-matching keyword
+        predicate = new NameContainsKeywordsPredicate(Arrays.asList("Developer"), "r/");
+        assertFalse(predicate.test(new EmployeeBuilder().withRole("Finance Manager").build()));
+
+        // Keywords match phone, email and address, but does not match role
+        predicate = new NameContainsKeywordsPredicate(
+                Arrays.asList("12345", "alice@email.com", "Main", "Street"), "r/");
+        assertFalse(predicate.test(new EmployeeBuilder().withRole("Manager").withPhone("12345")
+                .withEmail("alice@email.com").withAddress("Main Street").build()));
+    }
 }
