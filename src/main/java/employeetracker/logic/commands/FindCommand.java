@@ -16,10 +16,16 @@ public class FindCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all persons whose names contain any of "
             + "the specified keywords (case-insensitive) and displays them as a list with index numbers.\n"
-            + "Parameters: TYPE (must be n or r)/KEYWORD...\n"
+            + "Parameters: TYPE (must be n or r or a or b or p)/KEYWORD...\n"
             + "Example: " + COMMAND_WORD + " n/ Roy Irfan"
             + " OR "
-            + COMMAND_WORD + " r/ Developer";
+            + COMMAND_WORD + " r/ Developer"
+            + " OR "
+            + COMMAND_WORD + " a/ Serangoon"
+            + " OR "
+            + COMMAND_WORD + " b/ 1992-05-28"
+            + " OR "
+            + COMMAND_WORD + " p/ 910 (at least 3 digits long)";
 
     private final NameContainsKeywordsPredicate predicate;
 

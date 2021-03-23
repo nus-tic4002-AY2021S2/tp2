@@ -254,10 +254,13 @@ The following activity diagram shows what happens when a user executes an add co
 
 The find operation is implemented using `FindCommand`, which extends `Command`.
 Upon receiving an input string that has `find` as the fist word, the `Employee Tracker` object will instantiate an `FindCommand` object with the `fullCommand` string, which is the input entered by the user.
-The user is flexible to find the keywords by name, by role.
+The user is flexible to find the keywords by name, by role, by address, by date of birth, by phone number.
 
-* `find n/ Alice`: find by name based on the keywords (e.g Alice).
-* `find r/ Developer`: find by role based on the keywords (e.g Developer).
+* `find n/ Alice`: find by name based on the keywords.
+* `find r/ Developer`: find by role based on the keywords. 
+* `find a/ Serangoon`: find by address based on the keywords.
+* `find b/ 1992-05-28`: find by date of birth based on the keywords.
+* `find p/ 910`: find by phone number based on the keywords with at least 3 digits long.
 
 
 These operations are exposed in the `FindCommand()` class.
