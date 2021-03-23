@@ -41,6 +41,7 @@ public class FindCommandParser implements Parser<FindCommand> {
                         PREFIX_ROLE, PREFIX_ADDRESS, PREFIX_DATE_OF_BIRTH, PREFIX_PHONE);
 
         String trimmedArgs = args.trim();
+        assert trimmedArgs != null : "trimmedArgs is null";
 
         if (trimmedArgs.isEmpty()) {
             throw new ParseException(
