@@ -1,6 +1,9 @@
 package employeetracker.model.employee;
 
+import static employeetracker.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static employeetracker.logic.parser.CliSyntax.PREFIX_DATE_OF_BIRTH;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_NAME;
+import static employeetracker.logic.parser.CliSyntax.PREFIX_PHONE;
 import static employeetracker.logic.parser.CliSyntax.PREFIX_ROLE;
 
 import java.util.List;
@@ -38,6 +41,23 @@ public class NameContainsKeywordsPredicate implements Predicate<Employee> {
                             String.valueOf(employee.getRole()), keyword));
 
         }
+        if (findBy.equals(String.valueOf(PREFIX_ADDRESS))) {
+            return keywords.stream()
+                    .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(
+                            String.valueOf(employee.getAddress()), keyword));
+        }
+        if (findBy.equals(String.valueOf(PREFIX_DATE_OF_BIRTH))) {
+            return keywords.stream()
+                    .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(
+                            String.valueOf(employee.getDateOfBirth()), keyword));
+        }
+        if (findBy.equals(String.valueOf(PREFIX_PHONE))) {
+            return keywords.stream()
+                    .anyMatch(keyword -> StringUtil.containsPartialWordIgnoreCase(
+                             String.valueOf(employee.getPhone()), keyword));
+        }
+
+
 
 
         return false;
