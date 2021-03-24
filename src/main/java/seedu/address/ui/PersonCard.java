@@ -87,7 +87,7 @@ public class PersonCard extends UiPart<Region> {
 
 
 
-        if (new DateUtil(person.getFollowUp().value, person.getDate().value).lastDay()) {
+        if (new DateUtil(person.getFollowUp().value, person.getDate().value).lastDay() && person.getFollowUp().value != "0") {
             displayIcon.setImage(new Image(ICON_EXCLAIMATION));
             callMessage.setText("Call Today!");
         }
