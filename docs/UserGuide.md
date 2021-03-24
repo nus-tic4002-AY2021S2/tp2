@@ -123,6 +123,10 @@ Format `followUp INDEX f/FOLLOWUP`
 
 * if the follow up date is on the last day it will show a red escalation icon
 
+Examples:
+
+* `followUp 2 f/3`
+
 ### Listing all persons : `list`
 
 Shows a list of all persons in the address book.
