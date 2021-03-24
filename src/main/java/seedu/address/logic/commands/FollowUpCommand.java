@@ -33,7 +33,7 @@ public class FollowUpCommand extends Command {
     private final FollowUp followUp;
 
     /**
-     * @param index of the person in the filtered person list to edit the remark
+     * @param index of the person in the filtered person list to edit the followUp
      * @param followUp of the person to be updated to
      */
     public FollowUpCommand(Index index, FollowUp followUp) {
@@ -45,8 +45,6 @@ public class FollowUpCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException {
 
-        System.out.println("i am followup" + followUp);
-
         List<Person> lastShownList = model.getFilteredPersonList();
 
         if (index.getZeroBased() >= lastShownList.size()) {
@@ -55,9 +53,9 @@ public class FollowUpCommand extends Command {
 
         Person personToEdit = lastShownList.get(index.getZeroBased());
 
-        Person editedPerson = new Person(personToEdit.getName(), personToEdit.getDate(),
+        Person editedPerson = new Person(personToEdit.getName(), personToEdit.getDate(), followUp,
                 personToEdit.getNric(), personToEdit.getPhone(), personToEdit.getEmail(),
-                personToEdit.getAddress(), personToEdit.getDescription(), personToEdit.getRemark(), followUp,
+                personToEdit.getAddress(), personToEdit.getDescription(), personToEdit.getRemark(),
                 personToEdit.getTags());
 
         model.setPerson(personToEdit, editedPerson);

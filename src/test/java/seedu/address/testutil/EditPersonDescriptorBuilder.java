@@ -9,6 +9,7 @@ import seedu.address.model.person.Address;
 import seedu.address.model.person.Date;
 import seedu.address.model.person.Description;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.FollowUp;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Nric;
 import seedu.address.model.person.Person;
@@ -37,6 +38,7 @@ public class EditPersonDescriptorBuilder {
         descriptor = new EditPersonDescriptor();
         descriptor.setName(person.getName());
         descriptor.setDate(person.getDate());
+        descriptor.setFollowUp(person.getFollowUp());
         descriptor.setNric(person.getNric());
         descriptor.setPhone(person.getPhone());
         descriptor.setEmail(person.getEmail());
@@ -59,6 +61,13 @@ public class EditPersonDescriptorBuilder {
      */
     public EditPersonDescriptorBuilder withDate(String date) {
         descriptor.setDate(new Date(date));
+        return this;
+    }
+    /**
+     * Sets the {@code FollowUp} of the {@code EditPersonDescriptor} that we are building.
+     */
+    public EditPersonDescriptorBuilder withFollowUp(String followUp) {
+        descriptor.setFollowUp(new FollowUp(followUp));
         return this;
     }
 
