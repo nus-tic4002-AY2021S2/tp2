@@ -121,7 +121,8 @@ Add number of days to follow up with the person.
 
 Format `followUp INDEX f/FOLLOWUP`
 
-* if the follow up date is on the last day it will show a red escalation icon
+* If the follow up date is on the last day it will show a red escalation icon
+* If you want to stop the follow up, you can set the number to 0.
 
 Examples:
 
