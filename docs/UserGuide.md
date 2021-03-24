@@ -175,7 +175,13 @@ Format: `clear`
 
 ### Viewing summary statistics : `stats`
 
-Shows summary statistics of employees.
+![result for 'stats'](images/showStats.png)
+
+Shows summary statistics of employees including:
+* Total employees.
+* Total salary.
+* Highest, lowest and average salary.
+* Longest, shortest and average tenure.
 
 Format: `stats`
 
@@ -214,4 +220,5 @@ Action | Format, Examples
 **Delete** | `delete INDEX`<br> E.g. `delete 2`
 **Sort** | `sort TYPE` <br> E.g. `sort j`
 **Find** | `find TYPE/KEYWORD`<br> E.g. `find n/John Bernice Andy`, `find r/Developer`, `find a/Serangoon`, `find b/1992-05-28`, `find p/910`
+**Stats** | `stats`
 **Clear** | `clear`
