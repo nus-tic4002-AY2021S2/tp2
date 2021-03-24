@@ -9,6 +9,7 @@
     "address" : "123, Jurong West Ave 6, #08-111",
     "description": "She was molested by a Senior Investigations Officer at the Jurong Police Division Headquarters in the interview room around 9.00pm.",
     "remark" : "",
+    "followUp" : "7",
     "tagged" : [ "NeverCalled" ]
   }, {
     "name" : "Benson Meier",
@@ -19,6 +20,7 @@
     "address" : "311, Clementi Ave 2, #02-25",
     "description": "This man is a construction site manager who flew a drone over the Istana, beyond the boundary of his nearby work site, at 8.35am.",
     "remark" : "",
+    "followUp" : "7",
     "tagged" : [ "LowPriority", "NeverCalled" ]
   }, {
     "name" : "Carl Kurz",
@@ -29,6 +31,7 @@
     "address" : "wall street",
     "description": "This man is a construction site manager who flew a drone over the Istana, beyond the boundary of his nearby work site, at 8.35am.",
     "remark" : "",
+    "followUp" : "7",
     "tagged" : [ ]
   }, {
     "name" : "Daniel Meier",
@@ -39,6 +42,7 @@
     "address" : "10th street",
     "description": "This man is a construction site manager who flew a drone over the Istana, beyond the boundary of his nearby work site, at 8.35am.",
     "remark" : "",
+    "followUp" : "7",
     "tagged" : [ "NeverCalled" ]
   }, {
     "name" : "Elle Meyer",
@@ -49,6 +53,7 @@
     "address" : "michegan ave",
     "description": "She was molested by a Senior Investigations Officer at the Jurong Police Division Headquarters in the interview room around 9.00pm.",
     "remark" : "",
+    "followUp" : "7",
     "tagged" : [ ]
   }, {
     "name" : "Fiona Kunz",
@@ -59,6 +64,7 @@
     "address" : "little tokyo",
     "description": "She was molested by a Senior Investigations Officer at the Jurong Police Division Headquarters in the interview room around 9.00pm.",
     "remark" : "",
+    "followUp" : "7",
     "tagged" : [ ]
   }, {
     "name" : "George Best",
@@ -69,6 +75,7 @@
     "address" : "4th street",
     "description": "This man is a construction site manager who flew a drone over the Istana, beyond the boundary of his nearby work site, at 8.35am.",
     "remark" : "",
+    "followUp" : "7",
     "tagged" : [ ]
   } ]
 }

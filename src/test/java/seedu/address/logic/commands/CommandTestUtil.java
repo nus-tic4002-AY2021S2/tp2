@@ -48,6 +48,8 @@ public class CommandTestUtil {
     public static final String VALID_REMARK_AMY = "She informed a policeman at the Police Cantonment Complex"
         + " 5 days later.";
     public static final String VALID_REMARK_BOB = "He could be just curious to see what the Istana looks like.";
+    public static final String VALID_FOLLOWUP_AMY = "8";
+    public static final String VALID_FOLLOWUP_BOB = "8";
     public static final String VALID_TAG_SEVERITY = "HighPriority";
     public static final String VALID_TAG_CALLED = "CalledOnce";
 

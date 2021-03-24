@@ -39,6 +39,7 @@
               <Label layoutX="10.0" layoutY="27.0" styleClass="cell_small_label" text="Mobile:" />
               <Label layoutX="10.0" layoutY="44.0" styleClass="cell_small_label" text="Address:" />
               <Label layoutX="10.0" layoutY="61.0" styleClass="cell_small_label" text="Email:" />
+              <Label layoutX="10.0" layoutY="61.0" styleClass="cell_small_label" text="Follow-Up:" />
             </VBox>
             <VBox prefHeight="200.0">
               <HBox>
@@ -54,6 +55,7 @@
               <Label fx:id="phone" styleClass="cell_small_label" text="\$phone" />
               <Label fx:id="address" styleClass="cell_small_label" text="\$address" />
               <Label fx:id="email" styleClass="cell_small_label" text="\$email" />
+              <Label fx:id="followUp" styleClass="cell_small_label" text="\$followUp" />
             </VBox>
           </HBox>
         </VBox>
