@@ -116,11 +116,12 @@ Examples:
 
 * `remark 1 r/shop theft`
 
-### Adding a remark: `remark`
-Add remark to a person in the address book.
+### Adding a followUp: `followUp`
+Add number of days to follow up with the person.
 
-Format `remark INDEX r/REMARK`
+Format `followUp INDEX f/FOLLOWUP`
 
+* if the follow up date is on the last day it will show a red escalation icon
 
 ### Listing all persons : `list`
 
@@ -132,7 +133,7 @@ Format: `list`
 
 Edits an existing person in the address book.
 
-Format: `edit INDEX [n/NAME] [d/DATE] [i/NRIC] [p/PHONE] [e/EMAIL] [a/ADDRESS] [de/DESCRIPTION] [r/REMARK] [t/TAG]…​`
+Format: `edit INDEX [n/NAME] [d/DATE] [i/NRIC] [p/PHONE] [e/EMAIL] [a/ADDRESS] [de/DESCRIPTION] [r/REMARK] [f/FOLLOWUP] [t/TAG]…​`
 
 * Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
@@ -237,4 +238,5 @@ Action | Format, Examples
 **List** | `list`
 **Help** | `help`
 **Remark** | `remark INDEX r/REMARK`<br> e.g., `remark 1 r/shop theft`
+**FollowUp** | `followUp INDEX f/FOLLOWUP`<br> e.g., `followUp 2 f/3`
 **send** | `send INDEX e/EMAIL`<br> e.g., `send 1 e/hellokitty@hotmail.com`
