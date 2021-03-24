@@ -17,7 +17,7 @@ import seedu.address.model.person.Person;
 public class FollowUpCommand extends Command {
 
     public static final String COMMAND_WORD = "followUp";
-
+    public static final String MESSAGE_INVALID = "The person index provided is invalid, must be numeric";
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the follow up of the person identified "
             + "by the index number used in the last person listing. "
             + "Existing follow up will be overwritten by the input.\n"
@@ -44,26 +44,29 @@ public class FollowUpCommand extends Command {
     }
     @Override
     public CommandResult execute(Model model) throws CommandException {
-
-        System.out.println("i am followup" + followUp);
-
-        List<Person> lastShownList = model.getFilteredPersonList();
-
-        if (index.getZeroBased() >= lastShownList.size()) {
-            throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+        
+        if (!followUp.value.matches("[0-9]+")){
+            return new CommandResult(String.format(MESSAGE_INVALID));
         }
+        else {
+            List<Person> lastShownList = model.getFilteredPersonList();
 
-        Person personToEdit = lastShownList.get(index.getZeroBased());
+            if (index.getZeroBased() >= lastShownList.size()) {
+                throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+            }
 
-        Person editedPerson = new Person(personToEdit.getName(), personToEdit.getDate(),
-                personToEdit.getNric(), personToEdit.getPhone(), personToEdit.getEmail(),
-                personToEdit.getAddress(), personToEdit.getDescription(), personToEdit.getRemark(), followUp,
-                personToEdit.getTags());
+            Person personToEdit = lastShownList.get(index.getZeroBased());
 
-        model.setPerson(personToEdit, editedPerson);
-        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+            Person editedPerson = new Person(personToEdit.getName(), personToEdit.getDate(),
+                    personToEdit.getNric(), personToEdit.getPhone(), personToEdit.getEmail(),
+                    personToEdit.getAddress(), personToEdit.getDescription(), personToEdit.getRemark(), followUp,
+                    personToEdit.getTags());
 
-        return new CommandResult(generateSuccessMessage(editedPerson));
+            model.setPerson(personToEdit, editedPerson);
+            model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+
+            return new CommandResult(generateSuccessMessage(editedPerson));
+        }
     }
 
 
