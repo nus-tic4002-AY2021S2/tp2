@@ -9,6 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
+import seedu.address.commons.util.DateUtil;
 import seedu.address.model.person.Person;
 
 /**
@@ -52,6 +53,8 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label remark;
     @FXML
+    private Label followUp;
+    @FXML
     private Label callMessage;
     @FXML
     private FlowPane tags;
@@ -78,13 +81,18 @@ public class PersonCard extends UiPart<Region> {
         description.setWrapText(true);
         remark.setText(person.getRemark().value);
         remark.setWrapText(true);
+        followUp.setText(person.getFollowUp().value);
         remarkTitle.setText("");
         callMessage.setText("");
 
-        if (!person.getRemark().value.equals("")) {
+
+
+        if (new DateUtil(person.getFollowUp().value, person.getDate().value).lastDay()
+                && person.getFollowUp().value != "0") {
             displayIcon.setImage(new Image(ICON_EXCLAIMATION));
             callMessage.setText("Call Today!");
         }
+
         if (!person.getRemark().value.equals("")) {
             remarkTitle.setText("Officer's Remark");
         }

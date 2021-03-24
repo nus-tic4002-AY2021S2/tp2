@@ -15,6 +15,7 @@ import seedu.address.model.person.Address;
 import seedu.address.model.person.Date;
 import seedu.address.model.person.Description;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.FollowUp;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Nric;
 import seedu.address.model.person.Phone;
@@ -170,6 +171,16 @@ public class ParserUtil {
         return new Remark(trimmedRemark);
     }
 
+    /**
+     * Parses a {@code String remark} into an {@code Remark}.
+     * Leading and trailing whitespaces will be trimmed.
+     */
+    public static FollowUp parseFollowUp(String followUp) {
+        requireNonNull(followUp);
+        String trimmedFollowUp = followUp.trim();
+
+        return new FollowUp(trimmedFollowUp);
+    }
     /**
      * Parses a {@code String tag} into a {@code Tag}.
      * Leading and trailing whitespaces will be trimmed.

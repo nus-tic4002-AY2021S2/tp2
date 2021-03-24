@@ -5,6 +5,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DATE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_FOLLOWUP;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NRIC;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
@@ -27,6 +28,7 @@ import seedu.address.model.person.Address;
 import seedu.address.model.person.Date;
 import seedu.address.model.person.Description;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.FollowUp;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Nric;
 import seedu.address.model.person.Person;
@@ -54,6 +56,7 @@ public class EditCommand extends Command {
         + "[" + PREFIX_ADDRESS + "ADDRESS] "
         + "[" + PREFIX_DESCRIPTION + "DESCRIPTION] "
         + "[" + PREFIX_REMARK + "REMARK] "
+        + "[" + PREFIX_FOLLOWUP + "FOLLOWUP] "
         + "[" + PREFIX_TAG + "TAG]\n"
         + "Example: " + COMMAND_WORD + " 1 "
         + PREFIX_PHONE + "91234567 "
@@ -95,10 +98,11 @@ public class EditCommand extends Command {
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
         Description updatedDescription = editPersonDescriptor.getDescription().orElse(personToEdit.getDescription());
         Remark updatedRemark = editPersonDescriptor.getRemark().orElse(personToEdit.getRemark());
+        FollowUp updateFollowUp = editPersonDescriptor.getFollowUp().orElse(personToEdit.getFollowUp());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
         return new Person(updatedName, updateDate, updatedNric, updatedPhone, updatedEmail,
-            updatedAddress, updatedDescription, updatedRemark, updatedTags);
+            updatedAddress, updatedDescription, updatedRemark, updateFollowUp, updatedTags);
     }
 
     @Override
@@ -153,6 +157,7 @@ public class EditCommand extends Command {
         private Address address;
         private Description description;
         private Remark remark;
+        private FollowUp followUp;
         private Set<Tag> tags;
 
         public EditPersonDescriptor() {
@@ -170,6 +175,7 @@ public class EditCommand extends Command {
             setAddress(toCopy.address);
             setDescription(toCopy.description);
             setRemark(toCopy.remark);
+            setFollowUp(toCopy.followUp);
             setTags(toCopy.tags);
         }
 
@@ -177,7 +183,8 @@ public class EditCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, nric, phone, date, email, address, tags, description, remark);
+            return CollectionUtil.isAnyNonNull(name, nric, phone, date,
+                    email, address, tags, description, remark, followUp);
         }
 
         public Optional<Name> getName() {
@@ -242,6 +249,14 @@ public class EditCommand extends Command {
 
         public void setRemark(Remark remark) {
             this.remark = remark;
+        }
+
+        public Optional<FollowUp> getFollowUp() {
+            return Optional.ofNullable(followUp);
+        }
+
+        public void setFollowUp(FollowUp followUp) {
+            this.followUp = followUp;
         }
 
         /**

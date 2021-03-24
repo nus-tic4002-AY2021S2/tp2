@@ -10,6 +10,7 @@ import seedu.address.model.person.Address;
 import seedu.address.model.person.Date;
 import seedu.address.model.person.Description;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.FollowUp;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Nric;
 import seedu.address.model.person.Person;
@@ -27,7 +28,7 @@ public class SampleDataUtil {
     public static Person[] getSamplePersons() {
         return new Person[] {
             new Person(new Name("Alex Yeoh"),
-                new Date("01-02-2021"),
+                new Date("24-03-2021"),
                 new Nric("S1234567A"),
                 new Phone("87438807"),
                 new Email("alexyeoh@example.com"),
@@ -35,6 +36,7 @@ public class SampleDataUtil {
                 new Description("This man is a construction site manager who flew a drone over the Istana, "
                     + "beyond the boundary of his nearby work site, at 8.35am."),
                 new Remark("He could be just curious to see what the Istana looks like."),
+                new FollowUp("7"),
                 getTagSet("HighPriority", "CalledOnce")),
             new Person(new Name("Bernice Yu"),
                 new Date("11-02-2021"),
@@ -45,6 +47,7 @@ public class SampleDataUtil {
                 new Description("She was molested by a Senior Investigations Officer "
                     + "at the Jurong Police Division Headquarters in the interview room around 9.00pm."),
                 new Remark("She informed a policeman at the Police Cantonment Complex 5 days later."),
+                new FollowUp("30"),
                 getTagSet("MediumPriority", "NeverCalled")),
             new Person(new Name("Charlotte Oliveiro"),
                 new Date("21-02-2021"),
@@ -55,6 +58,7 @@ public class SampleDataUtil {
                 new Description("This woman was caught drink-driving at Clarke Quay along the River Valley Road, "
                     + "at 3.03am."),
                 EMPTY_REMARK,
+                new FollowUp("7"),
                 getTagSet("LowPriority", "NeverCalled")),
             new Person(new Name("Irfan Ibrahim"),
                 new Date("25-02-2021"),
@@ -65,6 +69,7 @@ public class SampleDataUtil {
                 new Description("He is involved in a neighbour dispute with Roy Balakrishnan, about a huge "
                     + "potted plant that fell and broke into pieces at 6.45pm and requests for compensation."),
                 new Remark("He claims that Roy bumped into the plant while walking past."),
+                new FollowUp("7"),
                 getTagSet("LowPriority", "CalledOnce")),
             new Person(new Name("Roy Balakrishnan"),
                 new Date("25-02-2021"),
@@ -75,6 +80,7 @@ public class SampleDataUtil {
                 new Description("He is involved in a neighbour dispute with Irfan Ibrahim, about a huge "
                     + "potted plant that fell and broke into pieces at 6.45pm and requests for compensation."),
                 new Remark("He claims that there was a strong wind which toppled the plant."),
+                new FollowUp("7"),
                 getTagSet("LowPriority", "CalledOnce"))
         };
     }
