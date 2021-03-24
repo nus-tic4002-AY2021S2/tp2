@@ -26,15 +26,16 @@ public class Person {
     private final Address address;
     private final Description description;
     private final Remark remark;
+    private final FollowUp followUp;
     private final Set<Tag> tags = new HashSet<>();
 
     /**
      * Every field must be present and not null.
      */
 
-    public Person(Name name, Date date, Nric nric, Phone phone,
-                  Email email, Address address, Description description, Remark remark, Set<Tag> tags) {
-        requireAllNonNull(name, date, nric, phone, email, address, description, tags);
+    public Person(Name name, Date date, Nric nric, Phone phone, Email email,
+                  Address address, Description description, Remark remark, FollowUp followUp, Set<Tag> tags) {
+        requireAllNonNull(name, date, nric, phone, email, address, description, followUp, tags);
         this.name = name;
         this.date = date;
         this.nric = nric;
@@ -43,6 +44,7 @@ public class Person {
         this.address = address;
         this.description = description;
         this.remark = remark;
+        this.followUp = followUp;
         this.tags.addAll(tags);
 
     }
@@ -78,6 +80,9 @@ public class Person {
     public Remark getRemark() {
         return remark;
     }
+
+    public FollowUp getFollowUp() {
+        return followUp; }
 
     /**
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException} if modification is attempted.
@@ -128,7 +133,7 @@ public class Person {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, date, nric, phone, email, address, description, remark, tags);
+        return Objects.hash(name, date, nric, phone, email, address, description, remark, followUp, tags);
     }
 
     @Override
@@ -149,6 +154,8 @@ public class Person {
             .append(getDescription())
             .append(" Remark: ")
             .append(getRemark())
+            .append(" FollowUp: ")
+            .append(getFollowUp())
             .append(" Tags: ");
         getTags().forEach(builder::append);
         return builder.toString();
