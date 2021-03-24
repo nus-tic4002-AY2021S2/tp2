@@ -1,7 +1,7 @@
 package seedu.address.logic.commands;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_REMARK;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_FOLLOWUP;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
 import java.util.List;
@@ -10,42 +10,43 @@ import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.person.FollowUp;
 import seedu.address.model.person.Person;
-import seedu.address.model.person.Remark;
 
-/**
- * Changes the remark of an existing person in the address book.
- */
-public class RemarkCommand extends Command {
 
-    public static final String COMMAND_WORD = "remark";
+public class FollowUpCommand extends Command {
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the remark of the person identified "
-        + "by the index number used in the last person listing. "
-        + "Existing remark will be overwritten by the input.\n"
-        + "Parameters: INDEX (must be a positive integer) "
-        + PREFIX_REMARK + "[REMARK]\n"
-        + "Example: " + COMMAND_WORD + " 1 "
-        + PREFIX_REMARK + "He could be just curious to see what the Istana looks like.";
+    public static final String COMMAND_WORD = "followUp";
 
-    public static final String MESSAGE_ADD_REMARK_SUCCESS = "Added remark to Person: %1$s";
-    public static final String MESSAGE_DELETE_REMARK_SUCCESS = "Removed remark from Person: %1$s";
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the follow up of the person identified "
+            + "by the index number used in the last person listing. "
+            + "Existing follow up will be overwritten by the input.\n"
+            + "Parameters: INDEX (must be a positive integer) "
+            + PREFIX_FOLLOWUP + "[FOLLOW]\n"
+            + "Example: " + COMMAND_WORD + " 1 "
+            + PREFIX_FOLLOWUP + "7";
+
+    public static final String MESSAGE_ADD_FOLLOWUP_SUCCESS = "Added follow up to Person: %1$s";
+    public static final String MESSAGE_DELETE_FOLLOWUP_SUCCESS = "Removed follow up from Person: %1$s";
 
     private final Index index;
-    private final Remark remark;
+    private final FollowUp followUp;
 
     /**
      * @param index of the person in the filtered person list to edit the remark
-     * @param remark of the person to be updated to
+     * @param followUp of the person to be updated to
      */
-    public RemarkCommand(Index index, Remark remark) {
-        requireAllNonNull(index, remark);
+    public FollowUpCommand(Index index, FollowUp followUp) {
+        requireAllNonNull(index, followUp);
 
         this.index = index;
-        this.remark = remark;
+        this.followUp = followUp;
     }
     @Override
     public CommandResult execute(Model model) throws CommandException {
+
+        System.out.println("i am followup" + followUp);
+
         List<Person> lastShownList = model.getFilteredPersonList();
 
         if (index.getZeroBased() >= lastShownList.size()) {
@@ -56,7 +57,7 @@ public class RemarkCommand extends Command {
 
         Person editedPerson = new Person(personToEdit.getName(), personToEdit.getDate(),
                 personToEdit.getNric(), personToEdit.getPhone(), personToEdit.getEmail(),
-                personToEdit.getAddress(), personToEdit.getDescription(), remark, personToEdit.getFollowUp(),
+                personToEdit.getAddress(), personToEdit.getDescription(), personToEdit.getRemark(), followUp,
                 personToEdit.getTags());
 
         model.setPerson(personToEdit, editedPerson);
@@ -65,12 +66,13 @@ public class RemarkCommand extends Command {
         return new CommandResult(generateSuccessMessage(editedPerson));
     }
 
+
     /**
      * Generates a command execution success message based on whether the remark is added to or removed from
      * {@code personToEdit}.
      */
     private String generateSuccessMessage(Person personToEdit) {
-        String message = !remark.value.isEmpty() ? MESSAGE_ADD_REMARK_SUCCESS : MESSAGE_DELETE_REMARK_SUCCESS;
+        String message = !followUp.value.isEmpty() ? MESSAGE_ADD_FOLLOWUP_SUCCESS : MESSAGE_DELETE_FOLLOWUP_SUCCESS;
         return String.format(message, personToEdit);
     }
 
@@ -82,13 +84,13 @@ public class RemarkCommand extends Command {
         }
 
         // instanceof handles nulls
-        if (!(other instanceof RemarkCommand)) {
+        if (!(other instanceof FollowUpCommand)) {
             return false;
         }
 
         // state check
-        RemarkCommand e = (RemarkCommand) other;
+        FollowUpCommand e = (FollowUpCommand) other;
         return index.equals(e.index)
-            && remark.equals(e.remark);
+                && followUp.equals(e.followUp);
     }
 }
