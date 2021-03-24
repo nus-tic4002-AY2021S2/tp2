@@ -140,6 +140,7 @@ Format: `sort TYPE`
 * If `TYPE` is s, the employee records will be sorted based on salary in increasing order.
 * If `TYPE` is j, the employee records will be sorted based on date of joining from the earliest date to the latest date.
 * If `TYPE` is b, the employee records will be sorted based on date of birth from the earliest date to the latest date.
+* The `TYPE` is case-insensitive. E.g. sort type `N` will match `n`.
 
 Example of usage:
 * `sort n`

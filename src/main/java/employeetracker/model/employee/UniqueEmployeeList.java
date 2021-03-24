@@ -144,7 +144,7 @@ public class UniqueEmployeeList implements Iterable<Employee> {
      * The employee must exist in the list.
      */
     public void sortEmployee(String field) {
-        switch (field) {
+        switch (field.toLowerCase()) {
         case "n":
             internalList.sort((s1, s2) -> s1.getName().toString().compareToIgnoreCase(s2.getName().toString()));
             break;
