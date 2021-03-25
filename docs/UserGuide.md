@@ -176,13 +176,13 @@ Format: `clear`
 
 ### Viewing summary statistics : `stats`
 
-![result for 'stats'](images/showStats.png)
-
 Shows summary statistics of employees including:
 * Total employees.
 * Total salary.
 * Highest, lowest and average salary.
 * Longest, shortest and average tenure.
+
+![result for 'stats'](images/showStats.png)
 
 Format: `stats`
 
