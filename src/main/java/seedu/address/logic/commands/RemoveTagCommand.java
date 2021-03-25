@@ -54,7 +54,7 @@ public class RemoveTagCommand extends Command {
         }
 
         Person personToEdit = lastShownList.get(index.getZeroBased());
-        if (personToEdit.getTags().contains(tag)) {
+        if (personToEdit.getTags().contains(tag) && !personToEdit.getTags().isEmpty()) {
             Set<Tag> oldTags = personToEdit.getTags();
             List<Tag> newTags = new ArrayList<>(oldTags);
             newTags.remove(tag);
@@ -69,7 +69,8 @@ public class RemoveTagCommand extends Command {
 
             return new CommandResult(generateSuccessMessage(editedPerson));
         }
-        throw new CommandException("Incorrect tag name, please make sure the tag name is correct");
+        throw new CommandException("Incorrect tag name, please make sure the tag name is correct "
+                + "or the tag is empty, please add a new tag instead");
     }
 
     /**
