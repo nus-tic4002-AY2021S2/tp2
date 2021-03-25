@@ -185,7 +185,7 @@ This feature is meant to assist the Investigations Officer by reminding which pe
 
 The following activity diagram summarizes what happens when a user opens the application:
 
-![CallUpActivityDiagram](images/CallUpActivityDiagram.png)
+![CallTodayActivityDiagram](images/CallTodayActivityDiagram.png)
 
 The following activity diagram summarizes what happens when a user executes a new command:
 
