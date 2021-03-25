@@ -152,6 +152,27 @@ Examples:
 *  `edit 1 p/91234567 i/S1111112B e/johndoe@example.com` Edits the phone number,NRIC, email address of the 1st person to be `91234567`, ` i/S1111112B` and johndoe@example.com` respectively.
 *  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
 *  `edit 2 n/Betsy Lim d/10-10-2021` Edits the name of the 2nd person to be `Betsy Lim` and edit the date as well.
+
+### Add a new tag : `addTag`
+
+To add a new tag to the existing tags  
+
+Format: `addTag INDEX at/TAG`
+
+* Add new tag at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
+* New tag name should be enter after 'at/' only.
+* Only allow to add one tag each time.
+
+### Remove an existing tag : `removeTag`
+
+To remove a tag from the existing tags without overwritten all the tags 
+
+Format: `removeTag INDEX rt/TAG`
+
+* Add new tag at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
+* Tag to be removed should be enter after 'rt/' only.
+* Only allow to remove one tag each time.
+
 ### Locating persons by name: `find`
 
 Finds all fields contain any of the given keywords.
@@ -202,8 +223,8 @@ Format: `clear`
 sending email to user.
 
 Format: 
-`send [INDEX] e/[EMAIL]`<br>
-`send [INDEX] MESSAGE`
+`send INDEX e/EMAIL`<br>
+`send INDEX MESSAGE`
         
 * The email format will be validated.
 * The index must be numeric and within the list size.
@@ -244,7 +265,7 @@ If your changes to the data file makes its format invalid, Police Address Book w
 
 Action | Format, Examples
 --------|------------------
-**Add** | `add n/NAME d/DATE i/NRIC p/PHONE_NUMBER e/EMAIL a/ADDRESS r/REMARK [t/TAG]…​` <br> e.g., `add n/James Ho d/12-20-2012 i/S1234567A p/82224444 e/jamesho@example.com a/123, Clementi Rd, 1234665  de/This man is a construction site manager who flew a drone over the Istana, beyond the boundary of his nearby work site, at 8.35am. r/He could be just curious to see what the Istana looks like. t/NeverCalled t/HighPriority`
+**Add** | `add n/NAME d/DATE i/NRIC p/PHONE_NUMBER e/EMAIL a/ADDRESS r/REMARK [t/TAG]…​` <br> e.g., `add n/James Ho d/20-12-2012 f/3 i/S1234567Z p/82224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 de/This man is a construction site manager who flew a drone over the Istana, beyond the boundary of his nearby work site, at 8.35am. r/He could be just curious to see what the Istana looks like. t/NeverCalled t/HighPriority`
 **Clear** | `clear`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
 **Edit** | `edit INDEX [n/NAME] [d/DATE] [i/NRIC] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [de/DESCRIPTION] [r/REMARK] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
@@ -253,4 +274,6 @@ Action | Format, Examples
 **Help** | `help`
 **Remark** | `remark INDEX r/REMARK`<br> e.g., `remark 1 r/shop theft`
 **FollowUp** | `followUp INDEX f/FOLLOWUP`<br> e.g., `followUp 2 f/3`
-**send** | `send INDEX e/EMAIL`<br> e.g., `send 1 e/hellokitty@hotmail.com`
+**send** | `send INDEX e/EMAIL OR send INDEX MESSAGE`<br> e.g., `send 1 e/hellokitty@hotmail.com OR send 1 I am not able to contact you, please call me`
+**Add Tag** | `addTag INDEX at/TAG`<br> e.g., `addTag 1 at/CalledOnce`
+**Remove Tag** | `removeTag INDEX rt/TAG`<br> e.g., `removeTag 1 rt/CalledOnce`
