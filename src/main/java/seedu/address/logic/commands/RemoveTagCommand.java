@@ -15,9 +15,8 @@ import seedu.address.model.Model;
 import seedu.address.model.person.Person;
 import seedu.address.model.tag.Tag;
 
-
 /**
- * Changes the tags of an existing person in the address book.
+ * Removes a tag of an existing person in the address book.
  */
 public class RemoveTagCommand extends Command {
 
@@ -26,7 +25,7 @@ public class RemoveTagCommand extends Command {
             + "by the index number used in the last person listing. "
             + "Existing tags will be overwritten by the input.\n"
             + "Parameters: INDEX (must be a positive integer) "
-            + PREFIX_REMOVETAG + "[REMARK]\n"
+            + PREFIX_REMOVETAG + "[TAG]\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_REMOVETAG + "CalledTwice";
 
@@ -37,7 +36,7 @@ public class RemoveTagCommand extends Command {
 
     /**
      * @param index of the person in the filtered person list to edit the tag
-     * @param tag of the person to be added/removed
+     * @param tag of the person to be removed
      */
     public RemoveTagCommand(Index index, Tag tag) {
         requireAllNonNull(index, tag);
@@ -54,7 +53,7 @@ public class RemoveTagCommand extends Command {
         }
 
         Person personToEdit = lastShownList.get(index.getZeroBased());
-        if (personToEdit.getTags().contains(tag)) {
+        if (personToEdit.getTags().contains(tag) && !personToEdit.getTags().isEmpty()) {
             Set<Tag> oldTags = personToEdit.getTags();
             List<Tag> newTags = new ArrayList<>(oldTags);
             newTags.remove(tag);
@@ -69,11 +68,12 @@ public class RemoveTagCommand extends Command {
 
             return new CommandResult(generateSuccessMessage(editedPerson));
         }
-        throw new CommandException("Incorrect tag name, please make sure the tag name is correct");
+        throw new CommandException("Incorrect tag name, please make sure the tag name is correct "
+                + "or the tag is empty, please add a new tag instead");
     }
 
     /**
-     * Generates a command execution success message based on whether the remark is added to or removed from
+     * Generates a command execution success message based on whether the tag is added to or removed from
      * {@code personToEdit}.
      */
     private String generateSuccessMessage(Person personToEdit) {
