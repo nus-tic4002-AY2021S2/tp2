@@ -172,12 +172,15 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String remark} into an {@code Remark}.
+     * Parses a {@code String followUp} into an {@code FollowUp}.
      * Leading and trailing whitespaces will be trimmed.
      */
-    public static FollowUp parseFollowUp(String followUp) {
+    public static FollowUp parseFollowUp(String followUp) throws ParseException {
         requireNonNull(followUp);
         String trimmedFollowUp = followUp.trim();
+        if (!FollowUp.isValidFollowUp(trimmedFollowUp)) {
+            throw new ParseException(FollowUp.MESSAGE_FOLLOWUP_CONSTRAINTS);
+        }
 
         return new FollowUp(trimmedFollowUp);
     }

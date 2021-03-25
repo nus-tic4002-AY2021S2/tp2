@@ -33,7 +33,7 @@ public class FollowUpCommand extends Command {
     private final FollowUp followUp;
 
     /**
-     * @param index of the person in the filtered person list to edit the remark
+     * @param index of the person in the filtered person list to edit the followUp
      * @param followUp of the person to be updated to
      */
     public FollowUpCommand(Index index, FollowUp followUp) {
@@ -56,10 +56,10 @@ public class FollowUpCommand extends Command {
 
             Person personToEdit = lastShownList.get(index.getZeroBased());
 
-            Person editedPerson = new Person(personToEdit.getName(), personToEdit.getDate(),
-                    personToEdit.getNric(), personToEdit.getPhone(), personToEdit.getEmail(),
-                    personToEdit.getAddress(), personToEdit.getDescription(), personToEdit.getRemark(), followUp,
-                    personToEdit.getTags());
+        Person editedPerson = new Person(personToEdit.getName(), personToEdit.getDate(), followUp,
+                personToEdit.getNric(), personToEdit.getPhone(), personToEdit.getEmail(),
+                personToEdit.getAddress(), personToEdit.getDescription(), personToEdit.getRemark(),
+                personToEdit.getTags());
 
             model.setPerson(personToEdit, editedPerson);
             model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
@@ -67,7 +67,6 @@ public class FollowUpCommand extends Command {
             return new CommandResult(generateSuccessMessage(editedPerson));
         }
     }
-
 
     /**
      * Generates a command execution success message based on whether the remark is added to or removed from

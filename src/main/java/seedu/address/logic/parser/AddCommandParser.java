@@ -53,17 +53,18 @@ public class AddCommandParser implements Parser<AddCommand> {
     public AddCommand parse(String args) throws ParseException {
 
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_DATE, PREFIX_NRIC, PREFIX_PHONE,
-                        PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_DESCRIPTION, PREFIX_REMARK, PREFIX_FOLLOWUP, PREFIX_TAG);
+            ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_DATE, PREFIX_FOLLOWUP, PREFIX_NRIC, PREFIX_PHONE,
+                PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_DESCRIPTION, PREFIX_REMARK, PREFIX_TAG);
 
-        if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_DATE,
-                PREFIX_NRIC, PREFIX_ADDRESS, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_DESCRIPTION)
-                || !argMultimap.getPreamble().isEmpty()) {
+        if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_DATE, PREFIX_FOLLOWUP,
+            PREFIX_NRIC, PREFIX_ADDRESS, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_DESCRIPTION)
+            || !argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
         }
         try {
             Name name = ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).orElseThrow());
             Date date = ParserUtil.parseDate(argMultimap.getValue(PREFIX_DATE).orElseThrow());
+            FollowUp followUp = ParserUtil.parseFollowUp(argMultimap.getValue(PREFIX_FOLLOWUP).orElseThrow());
             Nric nric = ParserUtil.parseNric(argMultimap.getValue(PREFIX_NRIC)).orElseThrow();
             Phone phone = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).orElseThrow());
             Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).orElseThrow());
@@ -74,13 +75,9 @@ public class AddCommandParser implements Parser<AddCommand> {
             if (argMultimap.getValue(PREFIX_REMARK).isPresent()) {
                 remark = ParserUtil.parseRemark(argMultimap.getValue(PREFIX_REMARK).get());
             }
-            FollowUp followUp = new FollowUp("");
-            if (argMultimap.getValue(PREFIX_FOLLOWUP).isPresent()) {
-                followUp = ParserUtil.parseFollowUp(argMultimap.getValue(PREFIX_FOLLOWUP).get());
-            }
             Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
-            Person person = new Person(name, date, nric, phone, email, address, description, remark, followUp, tagList);
+            Person person = new Person(name, date, followUp, nric, phone, email, address, description, remark, tagList);
 
             return new AddCommand(person);
         } catch (IllegalValueException | NoSuchElementException e) {

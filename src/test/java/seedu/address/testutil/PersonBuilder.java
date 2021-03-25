@@ -30,17 +30,17 @@ public class PersonBuilder {
     public static final String DEFAULT_DESCRIPTION = "This woman is a construction site manager who flew a drone over"
         + " the Istana, beyond the boundary of his nearby work site, at 8.35am.";
     public static final String DEFAULT_REMARK = "She likes to fly drones.";
-    public static final String DEFAULT_FOLLOWUP = "7 days";
+    public static final String DEFAULT_FOLLOWUP = "7";
 
     private Name name;
     private Date date;
+    private FollowUp followUp;
     private Nric nric;
     private Phone phone;
     private Email email;
     private Address address;
     private Description description;
     private Remark remark;
-    private FollowUp followUp;
     private Set<Tag> tags;
 
     /**
@@ -49,13 +49,13 @@ public class PersonBuilder {
     public PersonBuilder() {
         name = new Name(DEFAULT_NAME);
         date = new Date(DEFAULT_DATE);
+        followUp = new FollowUp(DEFAULT_FOLLOWUP);
         nric = new Nric(DEFAULT_NRIC);
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
         address = new Address(DEFAULT_ADDRESS);
         description = new Description(DEFAULT_DESCRIPTION);
         remark = new Remark(DEFAULT_REMARK);
-        followUp = new FollowUp(DEFAULT_FOLLOWUP);
         tags = new HashSet<>();
     }
 
@@ -65,13 +65,13 @@ public class PersonBuilder {
     public PersonBuilder(Person personToCopy) {
         name = personToCopy.getName();
         date = personToCopy.getDate();
+        followUp = personToCopy.getFollowUp();
         nric = personToCopy.getNric();
         phone = personToCopy.getPhone();
         email = personToCopy.getEmail();
         address = personToCopy.getAddress();
         description = personToCopy.getDescription();
         remark = personToCopy.getRemark();
-        followUp = personToCopy.getFollowUp();
         tags = new HashSet<>(personToCopy.getTags());
     }
 
@@ -155,7 +155,7 @@ public class PersonBuilder {
     }
 
     public Person build() {
-        return new Person(name, date, nric, phone, email, address, description, remark, followUp, tags);
+        return new Person(name, date, followUp, nric, phone, email, address, description, remark, tags);
     }
 
 }
