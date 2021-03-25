@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
@@ -16,63 +17,78 @@
       </padding>
       <HBox prefHeight="100.0" prefWidth="200.0">
         <VBox.margin>
-          <Insets top="5.0"/>
+          <Insets top="5.0" />
         </VBox.margin>
         <VBox maxWidth="400.0" minWidth="400.0" prefHeight="200.0" prefWidth="400.0">
           <HBox alignment="CENTER_LEFT" spacing="5">
             <Label fx:id="id" styleClass="cell_big_label">
               <minWidth>
                 <!-- Ensures that the label text is never truncated -->
-                <Region fx:constant="USE_PREF_SIZE"/>
+                <Region fx:constant="USE_PREF_SIZE" />
               </minWidth>
               <HBox.margin>
-                <Insets/>
+                <Insets />
               </HBox.margin>
             </Label>
-            <Label fx:id="name" styleClass="cell_big_label" text="\$first"/>
+            <Label fx:id="name" styleClass="cell_big_label" text="\$first" />
           </HBox>
           <HBox prefHeight="100.0" prefWidth="200.0">
             <VBox maxWidth="70.0" minWidth="70.0" prefHeight="200.0" prefWidth="70.0">
-              <Label fx:id="date1" styleClass="cell_small_label" text="Date:"/>
-              <Label fx:id="date11" layoutX="10.0" layoutY="10.0" styleClass="cell_small_label" text="NRIC:"/>
-              <Label fx:id="date111" layoutX="10.0" layoutY="27.0" styleClass="cell_small_label" text="Mobile:"/>
-              <Label fx:id="date1111" layoutX="10.0" layoutY="44.0" styleClass="cell_small_label"
-                     text="Address:"/>
-              <Label fx:id="date11111" layoutX="10.0" layoutY="61.0" styleClass="cell_small_label" text="Email:"/>
+              <Label styleClass="cell_small_label" text="Date:" />
+              <Label layoutX="10.0" layoutY="10.0" styleClass="cell_small_label" text="NRIC:" />
+              <Label layoutX="10.0" layoutY="27.0" styleClass="cell_small_label" text="Mobile:" />
+              <Label layoutX="10.0" layoutY="44.0" styleClass="cell_small_label" text="Address:" />
+              <Label layoutX="10.0" layoutY="61.0" styleClass="cell_small_label" text="Email:" />
             </VBox>
             <VBox prefHeight="200.0">
-              <Label fx:id="date" styleClass="cell_small_label" text="\$date"/>
-              <Label fx:id="nric" styleClass="cell_small_label" text="\$nric"/>
-              <Label fx:id="phone" styleClass="cell_small_label" text="\$phone"/>
-              <Label fx:id="address" styleClass="cell_small_label" text="\$address"/>
-              <Label fx:id="email" styleClass="cell_small_label" text="\$email"/>
+              <HBox>
+                <Label fx:id="date" styleClass="cell_small_label" text="\$date" />
+                 <Label styleClass="cell_small_label" text="Follow-Up: ">
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding></Label>
+                 <Label fx:id="followUp" styleClass="cell_small_label" text="\$followUp" />
+              </HBox>
+              <Label fx:id="nric" styleClass="cell_small_label" text="\$nric" />
+              <Label fx:id="phone" styleClass="cell_small_label" text="\$phone" />
+              <Label fx:id="address" styleClass="cell_small_label" text="\$address" />
+              <Label fx:id="email" styleClass="cell_small_label" text="\$email" />
             </VBox>
           </HBox>
         </VBox>
         <VBox>
-          <FlowPane fx:id="tags"/>
+          <HBox prefHeight="10.0" prefWidth="500.0">
+            <StackPane>
+              <ImageView fx:id="displayIcon" fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" />
+            </StackPane>
+            <Label fx:id="callMessage" styleClass="cell_small_label" text="\$callMessage">
+                     <padding>
+                        <Insets left="5.0" right="5.0" />
+                     </padding></Label>
+            <FlowPane fx:id="tags" />
+          </HBox>
           <Label fx:id="description1" layoutX="10.0" layoutY="10.0" text="Description of Case Report">
             <font>
-              <Font name="System Italic" size="40.0"/>
+              <Font name="System Italic" size="40.0" />
             </font>
             <VBox.margin>
-              <Insets/>
+              <Insets />
             </VBox.margin>
           </Label>
           <Label fx:id="description" styleClass="cell_small_label" text="\$description">
             <VBox.margin>
-              <Insets/>
+              <Insets />
             </VBox.margin>
           </Label>
-          <Label fx:id="remarkTitle" layoutX="10.0" layoutY="10.0" text="\\$remarkTitle">
+          <Label fx:id="remarkTitle" layoutX="10.0" layoutY="10.0" text="\$remarkTitle">
             <font>
-              <Font name="System Bold" size="40.0"/>
+              <Font name="System Bold" size="40.0" />
             </font>
             <VBox.margin>
-              <Insets/>
+              <Insets />
             </VBox.margin>
           </Label>
-          <Label fx:id="remark" styleClass="cell_small_label" text="\$remark"/>
+          <Label fx:id="remark" styleClass="cell_small_label" text="\$remark" />
         </VBox>
       </HBox>
     </VBox>

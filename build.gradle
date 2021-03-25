@@ -40,6 +40,10 @@ task coverage(type: JacocoReport) {
     }
 }
 
+run {
+    enableAssertions = true
+}
+
 dependencies {
 
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.5.0'
@@ -71,7 +75,7 @@ dependencies {
 }
 
 shadowJar {
-    archiveName = 'addressbook.jar'
+    archiveName = 'PoliceAddressBook.jar'
 }
 
 defaultTasks 'clean', 'test'

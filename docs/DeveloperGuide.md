@@ -51,7 +51,7 @@ For example, the `Logic` component (see the class diagram given below) defines i
 
 **How the architecture components interact with each other**
 
-The *Sequence Diagram* below shows how the components interact with each other for the scenario where the user issues the command `delete 1`.
+The *Sequence Diagrams* below show how the components interact with each other for the scenario where the user issues the command `delete 1`.
 
 <img src="images/ArchitectureSequenceDiagram.png" width="574" />
 
@@ -93,6 +93,7 @@ Given below is the Sequence Diagram for interactions within the `Logic` componen
 <div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
 
+
 ### Model component
 
 ![Structure of the Model Component](images/ModelClassDiagram.png)
@@ -107,7 +108,8 @@ The `Model`,
 * does not depend on any of the other three components.
 
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `AddressBook`, which `Person` references. This allows `AddressBook` to only require one `Tag` object per unique `Tag`, instead of each `Person` needing their own `Tag` object.<br>
+<div markdown="span" class="alert alert-info">:information_source: **Note:** An example of alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `AddressBook`, which `Person` references. This allows `AddressBook` to only require one `Tag` object per unique `Tag`, instead of each `Person` needing their own `Tag` object.<br>
+
 ![BetterModelClassDiagram](images/BetterModelClassDiagram.png)
 
 </div>
@@ -130,92 +132,96 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Implementation**
-
 This section describes some noteworthy details on how certain features are implemented.
-
-### \[Proposed\] Undo/redo feature
-
-#### Proposed Implementation
-
-The proposed undo/redo mechanism is facilitated by `VersionedAddressBook`. It extends `AddressBook` with an undo/redo history, stored internally as an `addressBookStateList` and `currentStatePointer`. Additionally, it implements the following operations:
-
-* `VersionedAddressBook#commit()` — Saves the current address book state in its history.
-* `VersionedAddressBook#undo()` — Restores the previous address book state from its history.
-* `VersionedAddressBook#redo()` — Restores a previously undone address book state from its history.
-
-These operations are exposed in the `Model` interface as `Model#commitAddressBook()`, `Model#undoAddressBook()` and `Model#redoAddressBook()` respectively.
-
-Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.
-
-Step 1. The user launches the application for the first time. The `VersionedAddressBook` will be initialized with the initial address book state, and the `currentStatePointer` pointing to that single address book state.
-
-![UndoRedoState0](images/UndoRedoState0.png)
-
-Step 2. The user executes `delete 5` command to delete the 5th person in the address book. The `delete` command calls `Model#commitAddressBook()`, causing the modified state of the address book after the `delete 5` command executes to be saved in the `addressBookStateList`, and the `currentStatePointer` is shifted to the newly inserted address book state.
-
-![UndoRedoState1](images/UndoRedoState1.png)
-
-Step 3. The user executes `add n/David …​` to add a new person. The `add` command also calls `Model#commitAddressBook()`, causing another modified address book state to be saved into the `addressBookStateList`.
-
-![UndoRedoState2](images/UndoRedoState2.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If a command fails its execution, it will not call `Model#commitAddressBook()`, so the address book state will not be saved into the `addressBookStateList`.
-
+### Add feature
+The `AddCommand` feature allows the user to add a new person and save it to the address book.
+#### Implementation
+Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("add n/John Doe d/22-02-2021 i/S2731125H p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 de/This man stole 3 times r/shop theft t/NeverCalled")` API call.
+![Interactions Inside the Logic Component for the `add n/John Doe d/22-02-2021 i/S2731125H p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 de/This man stole 3 times r/shop theft t/NeverCalled` Command](images/AddCommandSequenceDiagram.png)
+<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `AddCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
+<br>
+The following activity diagram summarizes what happens when a user executes addCommand feature:
 
-Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the `undo` command. The `undo` command will call `Model#undoAddressBook()`, which will shift the `currentStatePointer` once to the left, pointing it to the previous address book state, and restores the address book to that state.
+![AddCommandActivityDiagram](images/AddCommandActivityDiagram.png)
 
-![UndoRedoState3](images/UndoRedoState3.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index 0, pointing to the initial AddressBook state, then there are no previous AddressBook states to restore. The `undo` command uses `Model#canUndoAddressBook()` to check if this is the case. If so, it will return an error to the user rather
-than attempting to perform the undo.
+The `add` command facilitated by `AddClaimCommand`which extends the `Command` class and the `AddCommandParser` class, which implements the `Parser` class.
+This operation takes in a String input from the user that will create `Person` objects based on the following prefixes and parameters:
+n/`name`, d/`date`, i/`nric`, p/`phone`, e/`email`, a/`address` , de/`description` , r/`remark` , t/`tag`.  
+Meanwhile, the r/`remark` and t/`tag` are not compulsory to include.
+A regex validation check will be imposed upon the creation. Any checks that fails the validation would display an error message to guide the user.
+Parameters will be checked whether they are valid:
+* `name` uses `Name#isValidName()` to ensure that name only contain alphanumeric characters and spaces, and it should not be blank.
+* `nric` uses `Nric#isValidNric()` to ensure that nric only contain a capital letter,it should start with S, T, F or G,followed by 7 numerical numbers and a capital letter with alphabetical character. It should not be blank.
+* `date` uses `Date#isValidDate()` to ensure that date should follow date format 'dd-mm-yyyy' and it should be a valid calendar date.
+* `phone` uses `Phone#isValidPhone()` to ensure that phone numbers should only contain numbers, and it should be at least 3 digits long.
+* `email` uses `Email#isValidEmail()` to ensure correct email format.
 
-</div>
+Upon receiving a user command that has `add` as the first word, the following object interactions will occur, resulting in the instantiation of an `AddCommand` object:
 
-The following sequence diagram shows how the undo operation works:
+1. `MainWindow` object calls `LogicManager#execute(input)`, where `input` is the user's input string;
 
-![UndoSequenceDiagram](images/UndoSequenceDiagram.png)
+2. `LogicManager` object calls `AddressBookParser#parseCommand(commandText)` to parse the user command, where `commandText` is the user's input string;
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `UndoCommand` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+3. `AddressBookParser#parseCommand()` calls `AddCommandParser#parse(arguments)`, where `arguments` are the parameters in `commandText` such as `i/NRIC`;
+In this case, `AddClaimCommandParser#parse()`is being created, and the user's input will be passed in as a parameter.
 
-</div>
+4. `AddCommandParser#parse()` will do a validation check on the user's input before creating and returning a`AddCommand` object with `Person` as its attribute.calls 
 
-The `redo` command does the opposite — it calls `Model#redoAddressBook()`, which shifts the `currentStatePointer` once to the right, pointing to the previously undone state, and restores the address book to that state.
+Next, the following object interactions will occur to save the new person information to the `Model` object;
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index `addressBookStateList.size() - 1`, pointing to the latest address book state, then there are no undone AddressBook states to restore. The `redo` command uses `Model#canRedoAddressBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
+1. `LogicManager` object calls `AddCommand#execute(model)`, where `model` is the `Model` object and checking whether there is an existing Person
 
-</div>
+2. `AddCommand#execute()` calls `Model#addPerson(toAdd)` to add the new `Person`, where `toAdd` is the `Person` object to be stored.
+It will return a `CommandResult` to the `LogicManager` that will return to user.
 
-Step 5. The user then decides to execute the command `list`. Commands that do not modify the address book, such as `list`, will usually not call `Model#commitAddressBook()`, `Model#undoAddressBook()` or `Model#redoAddressBook()`. Thus, the `addressBookStateList` remains unchanged.
 
-![UndoRedoState4](images/UndoRedoState4.png)
+### Follow up Calls feature
 
-Step 6. The user executes `clear`, which calls `Model#commitAddressBook()`. Since the `currentStatePointer` is not pointing at the end of the `addressBookStateList`, all address book states after the `currentStatePointer` will be purged. Reason: It no longer makes sense to redo the `add n/David …​` command. This is the behavior that most modern desktop applications follow.
+#### Implementation
 
-![UndoRedoState5](images/UndoRedoState5.png)
+This feature is meant to assist the Investigations Officer by reminding which persons are to be called up on the day itself, by showing a notification icon and a message.
+
+The following activity diagram summarizes what happens when a user opens the application:
+
+![CallTodayActivityDiagram](images/CallTodayActivityDiagram.png)
 
 The following activity diagram summarizes what happens when a user executes a new command:
 
 ![CommitActivityDiagram](images/CommitActivityDiagram.png)
 
+
+
 #### Design consideration:
 
-##### Aspect: How undo & redo executes
+##### Aspect: How add command executes
+* **Alternative 1 (current choice):** unique NRIC, phone number or email to the entire address book.
+  * Pros: Since each person have unique NRIC, phone number or email, it can easily be retrieved from `UniquePersonList`.
+  This will reduce coupling when the person is to be updated.
+  * Cons: Every time we retrieve a person using its `Nric`,`phone number` or `email`, we have to search through the whole `UniquePersonList` to find
+          the associated person. As the list gets bigger, this may take more time.
+          
+* **Alternative 2 :** unique name to the entire address book
+  * Pros: Since each person have unique name, it can easily be retrieved from `UniquePersonList`.
+  * Cons: There may be a person that have the same name in the world.Therefore, it will have "fake" duplicate issue.
 
-* **Alternative 1 (current choice):** Saves the entire address book.
-  * Pros: Easy to implement.
-  * Cons: May have performance issues in terms of memory usage.
+  <br>
+  We have decided to opt for the first option primarily because it reduces the number of potential bugs such as "fake" duplication issue 
+  and the complexities involved. Moreover, the implementation is still fast enough for small-scale organisations to pick up our app and use it, minimising the cons.
+  
+##### Aspect: How delete command executes
+* **Alternative 1 (current choice):** deleting by index
+  * Pros: Since each person's information has a unique index, any deletion by the index is less prone to bugs and easier to implement.
+  * Cons: User will have to scroll the list for the data entry and look for its index which can be inconvenient.
+          
+* **Alternative 2 :** deleting by NRIC
+  * Pros: Since each person have unique NRIC, any deletion by the NRIC is less prone to bugs.
+  * Cons: User will need to remember the specific person's NRIC, it is very inconvenient to user.
 
-* **Alternative 2:** Individual command knows how to undo/redo by
-  itself.
-  * Pros: Will use less memory (e.g. for `delete`, just save the person being deleted).
-  * Cons: We must ensure that the implementation of each individual command are correct.
-
+  <br>
+  We have decided to opt for the first option primarily because it is more convenient to the user as compare to alternative 2. 
 _{more aspects and alternatives to be added}_
-
-### \[Proposed\] Data archiving
-
-_{Explain here how the data archiving feature will be implemented}_
 
 
 --------------------------------------------------------------------------------------------------------------------

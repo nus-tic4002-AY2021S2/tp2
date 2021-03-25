@@ -14,6 +14,7 @@ import seedu.address.model.person.Address;
 import seedu.address.model.person.Date;
 import seedu.address.model.person.Description;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.FollowUp;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Nric;
 import seedu.address.model.person.Person;
@@ -36,6 +37,7 @@ class JsonAdaptedPerson {
     private final String address;
     private final String description;
     private final String remark;
+    private final String followUp;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
 
     /**
@@ -46,6 +48,7 @@ class JsonAdaptedPerson {
                              @JsonProperty("nric") String nric, @JsonProperty("phone") String phone,
                              @JsonProperty("email") String email, @JsonProperty("address") String address,
                              @JsonProperty("description") String description, @JsonProperty("remark") String remark,
+                             @JsonProperty("followUp") String followUp,
                              @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
         this.name = name;
         this.date = date;
@@ -55,6 +58,7 @@ class JsonAdaptedPerson {
         this.address = address;
         this.description = description;
         this.remark = remark;
+        this.followUp = followUp;
         if (tagged != null) {
             this.tagged.addAll(tagged);
         }
@@ -72,6 +76,7 @@ class JsonAdaptedPerson {
         address = source.getAddress().value;
         description = source.getDescription().value;
         remark = source.getRemark().value;
+        followUp = source.getFollowUp().value;
         tagged.addAll(source.getTags().stream()
             .map(JsonAdaptedTag::new)
             .collect(Collectors.toList()));
@@ -151,9 +156,15 @@ class JsonAdaptedPerson {
         }
         final Remark modelRemark = new Remark(remark);
 
+        if (followUp == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    FollowUp.class.getSimpleName()));
+        }
+        final FollowUp modelFollowUp = new FollowUp(followUp);
+
         final Set<Tag> modelTags = new HashSet<>(personTags);
 
-        return new Person(modelName, modelDate, modelNric, modelPhone,
+        return new Person(modelName, modelDate, modelFollowUp, modelNric, modelPhone,
                 modelEmail, modelAddress, modelDescription, modelRemark, modelTags);
     }
 

@@ -30,39 +30,39 @@ import seedu.address.model.person.Person;
  */
 public class TypicalPersons {
 
-    public static final Person ALICE = new PersonBuilder().withName("Alice Pauline").withNric("S1234567B")
-        .withAddress("123, Jurong West Ave 6, #08-111").withEmail("alice@example.com")
-        .withPhone("94351253").withRemark("She likes aardvarks.")
+    public static final Person ALICE = new PersonBuilder().withName("Alice Pauline").withDate("02-02-2021")
+        .withNric("S1234567B").withAddress("123, Jurong West Ave 6, #08-111").withEmail("alice@example.com")
+        .withPhone("94351253").withRemark("She likes aardvarks.").withFollowUp("7")
         .withDescription("She was molested by a Senior Investigations Officer "
             + "at the Jurong Police Division Headquarters in the interview room around 9.00pm.")
         .withTags("NeverCalled").build();
-    public static final Person BENSON = new PersonBuilder().withName("Benson Meier").withNric("S1234569B")
-        .withAddress("311, Clementi Ave 2, #02-25").withRemark("He can't take beer!")
-        .withEmail("johnd@example.com").withPhone("98765432")
+    public static final Person BENSON = new PersonBuilder().withName("Benson Meier").withDate("02-02-2021")
+        .withNric("S1234569B").withAddress("311, Clementi Ave 2, #02-25").withRemark("He can't take beer!")
+        .withEmail("johnd@example.com").withPhone("98765432").withFollowUp("7")
         .withDescription("This man is a construction site manager who flew a drone over the Istana, "
             + "beyond the boundary of his nearby work site, at 8.35am.")
         .withTags("LowPriority", "NeverCalled").build();
-    public static final Person CARL = new PersonBuilder().withName("Carl Kurz")
+    public static final Person CARL = new PersonBuilder().withName("Carl Kurz").withDate("02-02-2021")
         .withNric("S1234567C").withPhone("95352563")
         .withDescription("This man is a construction site manager who flew a drone over the Istana, "
             + "beyond the boundary of his nearby work site, at 8.35am.")
         .withEmail("heinz@example.com").withAddress("wall street").build();
-    public static final Person DANIEL = new PersonBuilder().withName("Daniel Meier")
+    public static final Person DANIEL = new PersonBuilder().withName("Daniel Meier").withDate("02-02-2021")
         .withNric("S1234565E").withPhone("87652533")
         .withDescription("This man is a construction site manager who flew a drone over the Istana, "
             + "beyond the boundary of his nearby work site, at 8.35am.")
         .withEmail("cornelia@example.com").withAddress("10th street").withTags("NeverCalled").build();
-    public static final Person ELLE = new PersonBuilder().withName("Elle Meyer")
+    public static final Person ELLE = new PersonBuilder().withName("Elle Meyer").withDate("02-02-2021")
         .withNric("S2234567B").withPhone("94822241")
         .withDescription("She was molested by a Senior Investigations Officer "
             + "at the Jurong Police Division Headquarters in the interview room around 9.00pm.")
         .withEmail("werner@example.com").withAddress("michegan ave").build();
-    public static final Person FIONA = new PersonBuilder().withName("Fiona Kunz")
+    public static final Person FIONA = new PersonBuilder().withName("Fiona Kunz").withDate("02-02-2021")
         .withNric("S3234567B").withPhone("94824272")
         .withDescription("She was molested by a Senior Investigations Officer "
             + "at the Jurong Police Division Headquarters in the interview room around 9.00pm.")
         .withEmail("lydia@example.com").withAddress("little tokyo").build();
-    public static final Person GEORGE = new PersonBuilder().withName("George Best")
+    public static final Person GEORGE = new PersonBuilder().withName("George Best").withDate("02-02-2021")
         .withNric("S1234567F").withPhone("94824423")
         .withDescription("This man is a construction site manager who flew a drone over the Istana, "
             + "beyond the boundary of his nearby work site, at 8.35am.")

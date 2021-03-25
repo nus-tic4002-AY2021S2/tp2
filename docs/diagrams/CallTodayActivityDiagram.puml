@@ -1,0 +1,18 @@
+@startuml
+start
+:User opens application;
+:AddressBook checks
+through Persons in the list;
+:DateUtil adds FollowUp days to ReportDate;
+
+
+if () then ([Last day of FollowUp date
+is same as today's date])
+:Show Call Notification Icon;
+:Display Message
+"Call Today!";
+
+else ([else])
+endif
+stop
+@enduml

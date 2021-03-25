@@ -28,7 +28,7 @@ It is designed to help them manage their investigation cases better by reminding
 
     * **`list`** : Lists all contacts.
 
-    * **`add`**`add n/John Doe d/22-02-2021 i/S2731125H p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 de/This man is a construction site manager who flew a drone over the Istana, beyond the boundary of his nearby work site, at 8.35am. r/He could be just curious to see what the Istana looks like. t/NeverCalled t/HighPriority` : Adds a contact named `John Doe` to the Police Address Book.
+    * **`add`** : Adds a contact named `John Doe` to the Police Address Book.
     
     * **`find`** `n/John`:Find the person with the specific name in the current list.
 
@@ -72,16 +72,16 @@ It is designed to help them manage their investigation cases better by reminding
 * Date should be a valid calendar date, date out of range will not be accepted.
   e.g. `23-02-2021` is a valid calendar date, `33-02-2021` is an invalid date format. 
   
-* NRIC format should be `1 alphanumeric characters( It should start with S, T, F or G),followed by 7 numerical numbers and a checksum letter. It should not be blank.`, other NRIC format will not be accepted.
+* NRIC format should be `1 capital letter that start with S, T, F or G,followed by 7 numerical numbers and a capital letter with alphanumeric characters . It should not be blank.`, other NRIC format will not be accepted.
     e.g. `S1234567B` is a valid NRIC format, `s2222b` or `s11111111` is an invalid NRIC format. 
     
-* Every data must be unique NRIC, phone number or email.
+* Every person must contain a unique NRIC, phone number or email.
  
 </div>
 
 ### Viewing help : `help`
 
-Shows a message explaning how to access the help page.
+Shows a message explaining how to access the help page.
 
 ![help message](images/helpMessage.png)
 
@@ -92,7 +92,7 @@ Format: `help`
 
 Adds a person to the address book.
 
-Format: `add n/NAME d/DATE i/NRIC p/PHONE_NUMBER e/EMAIL a/ADDRESS de/DESCRIPTION [r/REMARK] [t/TAG]…​`
+Format: `add n/NAME d/DATE f/FOLLOWUP i/NRIC p/PHONE_NUMBER e/EMAIL a/ADDRESS de/DESCRIPTION [r/REMARK] [t/TAG]…​`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 A person can have any number of tags (including 0)
@@ -100,8 +100,34 @@ A person can have any number of tags (including 0)
 
 Examples:
 
-* `add n/John Doe d/22-02-2021 i/S2731125H p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 de/This man is a construction site manager who flew a drone over the Istana, beyond the boundary of his nearby work site, at 8.35am. r/He could be just curious to see what the Istana looks like. t/NeverCalled t/HighPriority`
-* `add n/Betsy Crowe d/12-02-2021 i/S1234567A p/91234567 e/betsycrowe@example.com a/Newgate Prison de/She was molested by a Senior Investigations Officer at the Jurong Police Division Headquarters in the interview room around 9.00pm. r/She informed a policeman at the Police Cantonment Complex 5 days later. t/NeverCalled t/MediumPriority`
+* `add n/John Doe d/22-02-2021 f/7 i/S2731125H p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 de/This man is a construction site manager who flew a drone over the Istana, beyond the boundary of his nearby work site, at 8.35am. r/He could be just curious to see what the Istana looks like. t/NeverCalled t/HighPriority`
+* `add n/Betsy Crowe d/12-03-2021 f/14 i/S1234567A p/91234567 e/betsycrowe@example.com a/Blk 415 Woodlands Street 41, #17-35 de/She was molested by a Senior Investigations Officer at the Jurong Police Division Headquarters in the interview room around 9.00pm. r/She informed a policeman at the Police Cantonment Complex 5 days later. t/NeverCalled t/MediumPriority`
+
+### Adding a remark: `remark`
+Add remark to a person in the address book.
+
+Format `remark INDEX r/REMARK`
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+* Add remark at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
+</div>
+
+Examples:
+
+* `remark 1 r/shop theft`
+
+### Editing a followUp: `followUp`
+Edits number of days for recursive follow-up calls with the person.
+
+Format `followUp INDEX f/FOLLOWUP`
+
+* A red exclamation icon will appear with a "Call Today!" message when the last day of the follow-up date is the same as today.
+* You can stop the follow-up by setting it to 0.
+
+Examples:
+
+* `followUp 2 f/3`
+* `followUp 1 f/0`
 
 ### Listing all persons : `list`
 
@@ -113,7 +139,7 @@ Format: `list`
 
 Edits an existing person in the address book.
 
-Format: `edit INDEX [n/NAME] [d/DATE] [i/NRIC] [p/PHONE] [e/EMAIL] [a/ADDRESS] [de/DESCRIPTION] [r/REMARK] [t/TAG]…​`
+Format: `edit INDEX [n/NAME] [d/DATE] [i/NRIC] [p/PHONE] [e/EMAIL] [a/ADDRESS] [de/DESCRIPTION] [r/REMARK] [f/FOLLOWUP] [t/TAG]…​`
 
 * Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
@@ -125,6 +151,28 @@ Format: `edit INDEX [n/NAME] [d/DATE] [i/NRIC] [p/PHONE] [e/EMAIL] [a/ADDRESS] [
 Examples:
 *  `edit 1 p/91234567 i/S1111112B e/johndoe@example.com` Edits the phone number,NRIC, email address of the 1st person to be `91234567`, ` i/S1111112B` and johndoe@example.com` respectively.
 *  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
+*  `edit 2 n/Betsy Lim d/10-10-2021` Edits the name of the 2nd person to be `Betsy Lim` and edit the date as well.
+
+### Add a new tag : `addTag`
+
+To add a new tag to the existing tags  
+
+Format: `addTag INDEX at/TAG`
+
+* Add new tag at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
+* New tag name should be enter after 'at/' only.
+* Only allow to add one tag each time.
+
+### Remove an existing tag : `removeTag`
+
+To remove a tag from the existing tags without overwritten all the tags 
+
+Format: `removeTag INDEX rt/TAG`
+
+* Add new tag at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
+* Tag to be removed should be enter after 'rt/' only.
+* Only allow to remove one tag each time.
+
 ### Locating persons by name: `find`
 
 Finds all fields contain any of the given keywords.
@@ -135,12 +183,20 @@ Format: `find KEYWORD [n/MORE_KEYWORDS] [d/DATE] [i/NRIC] [p/PHONE] [e/EMAIL] [a
 
 * The search is case-insensitive. e.g `n/hans` will match `Hans`
 * The order of the keywords does not matter. e.g. `n\Hans` will match `Bo Hans`
-* The search apply on all the fields.
+* The search applies on all the fields.
 
 Examples:
-* `find n\John` returns `john` and `John Doe`
-* `find n\alex david` returns `Alex Yeoh`, `David Li`<br>
-  ![result for 'find alex david'](images/findAlexDavidResult.png)
+* `find n/alex bernice` returns `Alex Yeoh`, `Bernice Yu`<br>
+* `find d/-02-` returns `Bernice Yu`, `Charlotte Oliveiro`
+* `find f/7` returns `Alex Yeoh`, `Irfan Ibrahim`, `Roy Balakrishnan`
+* `find i/567` returns `Alex Yeoh`, `Charlotte Oliveiro`, `Irfan Ibrahim`
+* `find p/321` returns `Charlotte Oliveiro`
+* `find a/tampines serangoon` returns `Bernice Yu`, `Irfan Ibrahim`, `Roy Balakrishnan`
+* `find r/police` returns `Bernice Yu`
+* `find t/lowPriority` returns `Charlotte Oliveiro`, `Irfan Ibrahim`, `Roy Balakrishnan`
+* `find t/never` returns `Bernice Yu`, `Charlotte Oliveiro`
+* `find de/plant` returns `Irfan Ibrahim`, `Roy Balakrishnan`
+  ![result for 'find plant'](images/findPlantResult.png)
 
 ### Deleting a person : `delete`
 
@@ -167,8 +223,8 @@ Format: `clear`
 sending email to user.
 
 Format: 
-`send [INDEX] e/[EMAIL]`<br>
-`send [INDEX] MESSAGE`
+`send INDEX e/EMAIL`<br>
+`send INDEX MESSAGE`
         
 * The email format will be validated.
 * The index must be numeric and within the list size.
@@ -209,7 +265,7 @@ If your changes to the data file makes its format invalid, Police Address Book w
 
 Action | Format, Examples
 --------|------------------
-**Add** | `add n/NAME d/DATE i/NRIC p/PHONE_NUMBER e/EMAIL a/ADDRESS r/REMARK [t/TAG]…​` <br> e.g., `add n/James Ho d/12-20-2012 i/S1234567A p/82224444 e/jamesho@example.com a/123, Clementi Rd, 1234665  de/This man is a construction site manager who flew a drone over the Istana, beyond the boundary of his nearby work site, at 8.35am. r/He could be just curious to see what the Istana looks like. t/NeverCalled t/HighPriority`
+**Add** | `add n/NAME d/DATE i/NRIC p/PHONE_NUMBER e/EMAIL a/ADDRESS r/REMARK [t/TAG]…​` <br> e.g., `add n/James Ho d/20-12-2012 f/3 i/S1234567Z p/82224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 de/This man is a construction site manager who flew a drone over the Istana, beyond the boundary of his nearby work site, at 8.35am. r/He could be just curious to see what the Istana looks like. t/NeverCalled t/HighPriority`
 **Clear** | `clear`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
 **Edit** | `edit INDEX [n/NAME] [d/DATE] [i/NRIC] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [de/DESCRIPTION] [r/REMARK] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
@@ -217,4 +273,7 @@ Action | Format, Examples
 **List** | `list`
 **Help** | `help`
 **Remark** | `remark INDEX r/REMARK`<br> e.g., `remark 1 r/shop theft`
-**send** | `send INDEX e/EMAIL`<br> e.g., `send 1 e/hellokitty@hotmail.com`
+**FollowUp** | `followUp INDEX f/FOLLOWUP`<br> e.g., `followUp 2 f/3`
+**send** | `send INDEX e/EMAIL OR send INDEX MESSAGE`<br> e.g., `send 1 e/hellokitty@hotmail.com OR send 1 I am not able to contact you, please call me`
+**Add Tag** | `addTag INDEX at/TAG`<br> e.g., `addTag 1 at/CalledOnce`
+**Remove Tag** | `removeTag INDEX rt/TAG`<br> e.g., `removeTag 1 rt/CalledOnce`

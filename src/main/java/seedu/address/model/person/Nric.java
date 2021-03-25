@@ -9,9 +9,10 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class Nric {
     public static final String MESSAGE_NRIC_CONSTRAINTS =
-            "Patient NRIC should follow the following format:\n"
-                    + "NRICs should only contain alphanumeric characters. It should start with S, T, F or G"
-                    + " followed by 7 numerical numbers and a checksum letter. It should not be blank.\n";
+            "NRIC should follow the following format:\n"
+                    + "A capital letter,it should start with S, T, F or G,"
+                    + "followed by 7 numerical numbers,"
+                    + "and a capital letter with alphabetical character. It should not be blank.\n";
 
 
     /**
@@ -42,6 +43,7 @@ public class Nric {
 
     @Override
     public String toString() {
+        assert(value != null);
         return value;
     }
 
@@ -54,6 +56,7 @@ public class Nric {
 
     @Override
     public int hashCode() {
+        assert(value != null);
         return value.hashCode();
     }
 

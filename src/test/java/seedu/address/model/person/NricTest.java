@@ -29,8 +29,9 @@ public class NricTest {
         assertFalse(Nric.isValidNric("^"));
         assertFalse(Nric.isValidNric("11111111B"));
         assertFalse(Nric.isValidNric("S11111111B"));
+        assertFalse(Nric.isValidNric("Q1111111B"));
 
-        // valid Nric,1 alphabet, 7 digits, 1 alphabet and it should not be blank
+        // valid Nric, a capital alphabet, start with S,F,G,T, 7 digits, 1 capital alphabet and it should not be blank
         assertTrue(Nric.isValidNric("S1234567B"));
     }
 }

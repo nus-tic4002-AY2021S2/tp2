@@ -10,6 +10,7 @@ import seedu.address.model.person.Address;
 import seedu.address.model.person.Date;
 import seedu.address.model.person.Description;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.FollowUp;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Nric;
 import seedu.address.model.person.Person;
@@ -27,7 +28,8 @@ public class SampleDataUtil {
     public static Person[] getSamplePersons() {
         return new Person[] {
             new Person(new Name("Alex Yeoh"),
-                new Date("01-02-2021"),
+                new Date("17-03-2021"),
+                new FollowUp("7"),
                 new Nric("S1234567A"),
                 new Phone("87438807"),
                 new Email("alexyeoh@example.com"),
@@ -37,7 +39,8 @@ public class SampleDataUtil {
                 new Remark("He could be just curious to see what the Istana looks like."),
                 getTagSet("HighPriority", "CalledOnce")),
             new Person(new Name("Bernice Yu"),
-                new Date("11-02-2021"),
+                new Date("22-02-2021"),
+                new FollowUp("30"),
                 new Nric("S7654321B"),
                 new Phone("99272758"),
                 new Email("berniceyu@example.com"),
@@ -48,6 +51,7 @@ public class SampleDataUtil {
                 getTagSet("MediumPriority", "NeverCalled")),
             new Person(new Name("Charlotte Oliveiro"),
                 new Date("21-02-2021"),
+                new FollowUp("14"),
                 new Nric("S5671234C"),
                 new Phone("93210283"),
                 new Email("charlotte@example.com"),
@@ -57,7 +61,8 @@ public class SampleDataUtil {
                 EMPTY_REMARK,
                 getTagSet("LowPriority", "NeverCalled")),
             new Person(new Name("Irfan Ibrahim"),
-                new Date("25-02-2021"),
+                new Date("20-03-2021"),
+                new FollowUp("7"),
                 new Nric("S2456752E"),
                 new Phone("92492021"),
                 new Email("irfan@example.com"),
@@ -67,7 +72,8 @@ public class SampleDataUtil {
                 new Remark("He claims that Roy bumped into the plant while walking past."),
                 getTagSet("LowPriority", "CalledOnce")),
             new Person(new Name("Roy Balakrishnan"),
-                new Date("25-02-2021"),
+                new Date("20-03-2021"),
+                new FollowUp("7"),
                 new Nric("S2486752F"),
                 new Phone("92624417"),
                 new Email("royb@example.com"),

@@ -18,9 +18,6 @@ public class NameContainsKeywordsPredicate implements Predicate<Person> {
 
     @Override
     public boolean test(Person person) {
-
-
-
         if (keywords.isEmpty()) {
             return keywords.stream()
                     .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(person.getName().fullName, keyword));
@@ -30,6 +27,12 @@ public class NameContainsKeywordsPredicate implements Predicate<Person> {
             if (obj.contains("n/")) {
                 return keywords.stream()
                         .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(person.getName().fullName, keyword));
+            } else if (obj.contains("de/")) {
+                return keywords.stream()
+                    .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(person.getDescription().value, keyword));
+            } else if (obj.contains("d/")) {
+                return keywords.stream()
+                        .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(person.getDate().value, keyword));
             } else if (obj.contains("i/")) {
                 return keywords.stream()
                         .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(person.getNric().value, keyword));
@@ -42,6 +45,15 @@ public class NameContainsKeywordsPredicate implements Predicate<Person> {
             } else if (obj.contains("a/")) {
                 return keywords.stream()
                         .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(person.getAddress().value, keyword));
+            } else if (obj.contains("r/")) {
+                return keywords.stream()
+                        .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(person.getRemark().value, keyword));
+            } else if (obj.contains("f/")) {
+                return keywords.stream()
+                        .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(person.getFollowUp().value, keyword));
+            } else if (obj.contains("t/")) {
+                return keywords.stream()
+                        .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(person.getTags().toString(), keyword));
             } else {
                 return keywords.stream()
                         .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(person.getName().fullName, keyword));

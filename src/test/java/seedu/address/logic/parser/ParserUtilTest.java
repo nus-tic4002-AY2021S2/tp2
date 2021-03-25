@@ -77,7 +77,7 @@ public class ParserUtilTest {
     }
 
     @Test
-    public void parseIC_validValueWithWhitespace_returnsTrimmedIc() throws Exception {
+    public void parseNric_validValueWithWhitespace_returnsTrimmedIc() throws Exception {
         String icWithWhitespace = WHITESPACE + VALID_NRIC + WHITESPACE;
         Nric expectedNric = new Nric(VALID_NRIC);
         assertEquals(expectedNric, ParserUtil.parseNric(icWithWhitespace));

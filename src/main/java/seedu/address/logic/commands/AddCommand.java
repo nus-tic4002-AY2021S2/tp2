@@ -5,6 +5,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DATE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_FOLLOWUP;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NRIC;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
@@ -26,6 +27,7 @@ public class AddCommand extends Command {
             + "Parameters: "
             + PREFIX_NAME + "NAME "
             + PREFIX_DATE + "DATE "
+            + PREFIX_FOLLOWUP + "FOLLOWUP "
             + PREFIX_NRIC + "NRIC "
             + PREFIX_PHONE + "PHONE "
             + PREFIX_EMAIL + "EMAIL "
@@ -36,6 +38,7 @@ public class AddCommand extends Command {
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_NAME + "John Doe "
             + PREFIX_DATE + "22-02-2021 "
+            + PREFIX_FOLLOWUP + "7 "
             + PREFIX_NRIC + "S2731125H "
             + PREFIX_PHONE + "98765432 "
             + PREFIX_EMAIL + "johnd@example.com "
@@ -47,7 +50,8 @@ public class AddCommand extends Command {
             + PREFIX_TAG + "HighPriority ";
 
     public static final String MESSAGE_SUCCESS = "New person added: %1$s";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book";
+    public static final String MESSAGE_DUPLICATE_PERSON =
+        "This person has a duplicate NRIC, phone number or email as another person.";
 
     private final Person toAdd;
 

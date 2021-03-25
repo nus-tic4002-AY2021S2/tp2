@@ -7,6 +7,7 @@ import seedu.address.model.person.Address;
 import seedu.address.model.person.Date;
 import seedu.address.model.person.Description;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.FollowUp;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Nric;
 import seedu.address.model.person.Person;
@@ -29,9 +30,11 @@ public class PersonBuilder {
     public static final String DEFAULT_DESCRIPTION = "This woman is a construction site manager who flew a drone over"
         + " the Istana, beyond the boundary of his nearby work site, at 8.35am.";
     public static final String DEFAULT_REMARK = "She likes to fly drones.";
+    public static final String DEFAULT_FOLLOWUP = "7";
 
     private Name name;
     private Date date;
+    private FollowUp followUp;
     private Nric nric;
     private Phone phone;
     private Email email;
@@ -46,6 +49,7 @@ public class PersonBuilder {
     public PersonBuilder() {
         name = new Name(DEFAULT_NAME);
         date = new Date(DEFAULT_DATE);
+        followUp = new FollowUp(DEFAULT_FOLLOWUP);
         nric = new Nric(DEFAULT_NRIC);
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
@@ -61,6 +65,7 @@ public class PersonBuilder {
     public PersonBuilder(Person personToCopy) {
         name = personToCopy.getName();
         date = personToCopy.getDate();
+        followUp = personToCopy.getFollowUp();
         nric = personToCopy.getNric();
         phone = personToCopy.getPhone();
         email = personToCopy.getEmail();
@@ -141,9 +146,16 @@ public class PersonBuilder {
         this.remark = new Remark(remark);
         return this;
     }
+    /**
+     * Sets the {@code FollowUp} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withFollowUp(String followUp) {
+        this.followUp = new FollowUp(followUp);
+        return this;
+    }
 
     public Person build() {
-        return new Person(name, date, nric, phone, email, address, description, remark, tags);
+        return new Person(name, date, followUp, nric, phone, email, address, description, remark, tags);
     }
 
 }

@@ -10,12 +10,16 @@ UniqueTagList -[hidden]down- UniquePersonList
 UniqueTagList -[hidden]down- UniquePersonList
 
 UniqueTagList *-right-> "*" Tag
-UniquePersonList o-right-> Person
+UniquePersonList o-right-> "*" Person
 
 Person -up-> "*" Tag
 
-Person *--> Name
-Person *--> Phone
-Person *--> Email
-Person *--> Address
+Person *--> "1" Name
+Person *--> "1" Nric
+Person *--> "1" Date
+Person *--> "1" Description
+Person *--> "1" Phone
+Person *--> "1" Email
+Person *--> "1" Address
+Person *--> "1" Remark
 @enduml

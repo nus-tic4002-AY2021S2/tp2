@@ -15,6 +15,7 @@ import seedu.address.model.person.Address;
 import seedu.address.model.person.Date;
 import seedu.address.model.person.Description;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.FollowUp;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Nric;
 import seedu.address.model.person.Phone;
@@ -68,8 +69,11 @@ public class ParserUtil {
         String trimmedDate = date.trim();
         if (!Date.isValidDate(trimmedDate)) {
             throw new IllegalValueException(Date.MESSAGE_DATE_CONSTRAINTS);
+        } else if (!Date.isValidCalendarDate(trimmedDate)) {
+            throw new IllegalValueException(Date.MESSAGE_DATE_CONSTRAINTS);
+        } else {
+            return new Date(trimmedDate);
         }
-        return new Date(trimmedDate);
     }
 
     /**
@@ -168,6 +172,19 @@ public class ParserUtil {
     }
 
     /**
+     * Parses a {@code String followUp} into an {@code FollowUp}.
+     * Leading and trailing whitespaces will be trimmed.
+     */
+    public static FollowUp parseFollowUp(String followUp) throws ParseException {
+        requireNonNull(followUp);
+        String trimmedFollowUp = followUp.trim();
+        if (!FollowUp.isValidFollowUp(trimmedFollowUp)) {
+            throw new ParseException(FollowUp.MESSAGE_FOLLOWUP_CONSTRAINTS);
+        }
+
+        return new FollowUp(trimmedFollowUp);
+    }
+    /**
      * Parses a {@code String tag} into a {@code Tag}.
      * Leading and trailing whitespaces will be trimmed.
      *
@@ -193,5 +210,4 @@ public class ParserUtil {
         }
         return tagSet;
     }
-
 }
