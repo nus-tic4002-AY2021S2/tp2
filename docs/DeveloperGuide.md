@@ -247,21 +247,26 @@ _{Explain here how the data archiving feature will be implemented}_
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                 | I want to …​                | So that I can…​                                                           |
-| -------- | ------------------------------------------ | ------------------------------ | -----------------------------------------------------------------------------|
-| `* * *`  | new user                                   | see usage instructions         | refer to instructions when I forget how to use the App                       |
-| `* * *`  | user                                       | add a new patient              | insert patient entries into the PatientBook                                  |
-| `* * *`  | user                                       | view the lists of patients     | shows a list of all patients in the PatientBook                              |
-| `* * *`  | user                                       | edit a patient personal details| modify entries in the PatientBook                                            |
-| `* * *`  | user                                       | delete a patient               | remove entries that I no longer need                                         |
-| `* * *`  | user                                       | find a patient by keyword      | locate details of patient without having to go through the entire list       |
-| `* * *`  | user                                       | add tags onto a patient's data | search using the tag                                                         |
-| `* * *`  | user                                       | add a new appointment          | insert appointment entries into the PatientBook                              |
-| `* * *`  | user                                       | view the lists of appointments | shows a list of all appointments a patient has in the PatientBook            |
-| `* * *`  | user                                       | find a appointment by date     | view and reference information related to the appointment in the PatientBook |
-| `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                      |
-| `* *`    | user                                       | view patient appointment       | track patient appointment and give patient notification calls                  |
-| `*`      | user with many patients in the patient book| sort patients by name          | locate a patient easily                                                      |
+| Priority | As a …​                                 | I want to …​                   | So that I can…​                                                           |
+| -------- | ------------------------------------------ | --------------------------------- | -----------------------------------------------------------------------------|
+| `* * *`  | new user                                   | see usage instructions            | refer to instructions when I forget how to use the App                       |
+| `* * *`  | user                                       | add a new patient                 | insert patient entries into the PatientBook                                  |
+| `* * *`  | user                                       | view the lists of patients        | shows a list of all patients in the PatientBook                              |
+| `* * *`  | user                                       | edit a patient personal details   | modify entries in the PatientBook                                            |
+| `* * *`  | user                                       | delete a patient                  | remove entries that I no longer need                                         |
+| `* * *`  | user                                       | find a patient by keyword         | locate details of patient without having to go through the entire list       |
+| `* * *`  | user                                       | add tags onto a patient's data    | search using the tag                                                         |
+| `* * *`  | user                                       | add a new appointment             | insert appointment entries into the PatientBook                              |
+| `* * *`  | user                                       | view the lists of appointments    | shows a list of all appointments a patient has in the PatientBook            |
+| `* * *`  | user                                       | delete appointments               | delete appointments a patient has in the PatientBook                         |            
+| `* * *`  | user                                       | add a new medical records         | insert medical records entries into the PatientBook                          |
+| `* * *`  | user                                       | view the lists of medical records | shows a list of medical records a patient has in the PatientBook             |
+| `* * *`  | user                                       | delete medical records            | delete medical records of a patient has in the PatientBook                   |
+| `* * *`  | user                                       | view all appointments today       | view appointments of all patient in the PatientBook that schedule for today  |
+| `* * *`  | user                                       | find a appointment by date        | view and reference information related to the appointment in the PatientBook |
+| `* *`    | user                                       | hide private contact details      | minimize chance of someone else seeing them by accident                      |
+| `* *`    | user                                       | view patient appointment          | track patient appointment and give patient notification calls                |
+| `*`      | user with many patients in the patient book| sort patients by name             | locate a patient easily                                                      |
 
 ### Use cases
 
@@ -323,6 +328,8 @@ Use case ends.
   
 Use case ends.
 
+---
+
 *Use case: Delete a patient*
 
 *MSS*
@@ -346,6 +353,130 @@ Use case ends.
       Use case resumes at step 2.
       
 Use case ends.
+
+---
+
+*Use case: Edit patient details in PatientBook*
+
+*MSS*
+
+1.  User requests to list all Patients
+2.  User enter the index of patient and all parameters user want to modify
+3.  PatientBook will update the patients details
+4.  Show successfully updated
+
+    Use case ends.
+
+*Extensions*
+
+* 1a. Edit a non existing perons's appointment.
+  Use case go back to step1 and restart by key in the correct index
+
+  2a. No patient in the list
+  Use case end.
+
+    23. Edit parameter is not formated correctly
+        Use case go back to step1 and restart by key in the correct information
+
+  Use case ends.
+
+---
+
+*Use case: Delete an appointment*
+
+*MSS*
+
+1.  User requests to list patient
+2.  PatientBook shows a list of patients
+3.  Staff requests to delete a specific appointment from specified patient in the list
+4.  PatientBook deletes the appointment of the patient successfully.
+
+*Extensions*
+
+* 2a. The PatientBook is empty.
+
+  Use case ends.
+
+* 3a. The given index is invalid.
+
+    * 3a1. PatientBook shows an error message.
+
+      Use case resumes at step 2.
+
+Use case ends.
+
+---
+
+**Use case: View medical records in PatientBook**
+
+**MSS**
+
+1.  User requests to list all Patients
+2.  User view medical records by patients index
+3.  PatientBook show all medical records of the patient
+
+Use case ends.
+
+**Extensions**
+
+* 1a. View a non existing perons's appointment.
+  Use case go back to step1 and restart by key in the correct name
+
+  2a. No appointment in this patient
+
+Use case ends.
+
+---
+
+*Use case: Delete medical records in PatientBook*
+
+*MSS*
+
+1.  User requests to list patient
+2.  PatientBook shows a list of patients
+3.  Staff requests to delete a specific medical record from specified patient in the list
+4.  PatientBook deletes the medical record of the patient successfully.
+
+*Extensions*
+
+* 2a. The PatientBook is empty.
+
+  Use case ends.
+
+* 3a. The given index is invalid.
+
+    * 3a1. PatientBook shows an error message.
+
+      Use case resumes at step 2.
+
+Use case ends.
+
+---
+
+*Use case: Add medical records in PatientBook*
+
+*MSS*
+
+1.  User requests to list patient
+2.  PatientBook shows a list of patients
+3.  Staff requests to add a specific medical record to a specified patient in the list
+4.  PatientBook added the medical record to the patient successfully.
+
+*Extensions*
+
+* 2a. The PatientBook is empty.
+
+  Use case ends.
+
+* 3a. The given index is invalid.
+
+    * 3a1. PatientBook shows an error message.
+
+      Use case resumes at step 2.
+
+Use case ends.
+
+---
 
 ### Non-Functional Requirements
 
