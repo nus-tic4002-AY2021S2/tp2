@@ -151,6 +151,33 @@ Examples:
 *  `edit 1 p/91234567 i/S1111112B e/johndoe@example.com` Edits the phone number,NRIC, email address of the 1st person to be `91234567`, ` i/S1111112B` and johndoe@example.com` respectively.
 *  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
 *  `edit 2 n/Betsy Lim d/10-10-2021` Edits the name of the 2nd person to be `Betsy Lim` and edit the date as well.
+
+### Add a new tag : `addTag`
+
+To add a new tag to the existing tags  
+
+Format: `addTag INDEX at/TAG`
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+* Add new tag at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
+* New tag name should be enter after 'at/' only.
+* Only allow to add one tag each time.
+</div>
+
+### Remove an existing tag : `removeTag`
+
+To remove a tag from the existing tags without overwritten all the tags 
+
+Format: `removeTag INDEX rt/TAG`
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+* Add new tag at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
+* Tag to be removed should be enter after 'rt/' only.
+* Only allow to remove one tag each time.
+</div>
+
+
+
 ### Locating persons by name: `find`
 
 Finds all fields contain any of the given keywords.
@@ -244,4 +271,6 @@ Action | Format, Examples
 **Help** | `help`
 **Remark** | `remark INDEX r/REMARK`<br> e.g., `remark 1 r/shop theft`
 **FollowUp** | `followUp INDEX f/FOLLOWUP`<br> e.g., `followUp 2 f/3`
+**Add Tag** | `addTag INDEX at/TAG`<br> e.g., `addTag 1 at/CalledOnce`
+**Remove Tag** | `removeTag INDEX rt/TAG`<br> e.g., `removeTag 1 rt/CalledOnce`
 **send** | `send INDEX e/EMAIL`<br> e.g., `send 1 e/hellokitty@hotmail.com`

@@ -56,7 +56,7 @@ public class FollowUpCommand extends Command {
 
             Person personToEdit = lastShownList.get(index.getZeroBased());
 
-        Person editedPerson = new Person(personToEdit.getName(), personToEdit.getDate(), followUp,
+            Person editedPerson = new Person(personToEdit.getName(), personToEdit.getDate(), followUp,
                 personToEdit.getNric(), personToEdit.getPhone(), personToEdit.getEmail(),
                 personToEdit.getAddress(), personToEdit.getDescription(), personToEdit.getRemark(),
                 personToEdit.getTags());

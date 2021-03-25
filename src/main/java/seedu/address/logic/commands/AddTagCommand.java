@@ -57,9 +57,9 @@ public class AddTagCommand extends Command {
         newTags.add(tag);
         Set<Tag> updatedTags = Set.copyOf(newTags);
         Person editedPerson = new Person(personToEdit.getName(), personToEdit.getDate(),
-                    personToEdit.getNric(), personToEdit.getPhone(), personToEdit.getEmail(),
-                    personToEdit.getAddress(), personToEdit.getDescription(), personToEdit.getRemark(),
-                    personToEdit.getFollowUp(), updatedTags);
+                personToEdit.getFollowUp(), personToEdit.getNric(), personToEdit.getPhone(),
+                personToEdit.getEmail(), personToEdit.getAddress(), personToEdit.getDescription(),
+                personToEdit.getRemark(), updatedTags);
 
         model.setPerson(personToEdit, editedPerson);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
