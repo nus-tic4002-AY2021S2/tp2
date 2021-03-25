@@ -158,11 +158,9 @@ To add a new tag to the existing tags
 
 Format: `addTag INDEX at/TAG`
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 * Add new tag at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * New tag name should be enter after 'at/' only.
 * Only allow to add one tag each time.
-</div>
 
 ### Remove an existing tag : `removeTag`
 
@@ -170,13 +168,9 @@ To remove a tag from the existing tags without overwritten all the tags
 
 Format: `removeTag INDEX rt/TAG`
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 * Add new tag at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * Tag to be removed should be enter after 'rt/' only.
 * Only allow to remove one tag each time.
-</div>
-
-
 
 ### Locating persons by name: `find`
 
