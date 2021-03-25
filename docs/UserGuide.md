@@ -255,9 +255,30 @@ Exits the program.
 Format: `exit`
 
 ### Saving the data
+PatientBook data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
+### Editing the data file
+
+AddressBook data are saved as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
+
+<div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
+If your changes to the data file makes its format invalid, AddressBook will discard all data and start with an empty data file at the next run.
+</div>
+
+### Commands Table
+
+Action | Format, Examples
+--------|------------------
+**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
+**Clear** | `clear`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
 **Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **List** | `list`
+**viewApp** | `viewApp INDEX` <br> e.g., `viewApp 1`
+**addApp** | `addApp INDEX /d DESCRIPTION /t DATETIME` <br> e.g., `addApp 2 /d Check-up /d 2021-03-18 10:00:00`
+**deleteApp** | `deleteApp USERINDEX APPOINTMENTINDEX` <br> e.g., `deleteApp 1 3`
+**viewMed** | `viewMed INDEX` <br> e.g., `viewMed 1`
+**addMed** | `addMed INDEX /d DESCRIPTION` <br> e.g., `addMed 1 /d Surgery`
+**deleteMed** | `deleteMed USERINDEX RECORDINDEX` <br> e.g., `deleteMed 1 3`
 **Help** | `help`
