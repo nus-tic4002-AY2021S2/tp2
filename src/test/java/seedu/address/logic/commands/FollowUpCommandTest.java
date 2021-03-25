@@ -47,21 +47,6 @@ public class FollowUpCommandTest {
         assertCommandSuccess(followUpCommand, model, expectedMessage, expectedModel);
     }
 
-    @Test
-    public void execute_deleteFollowUpUnfilteredList_success() {
-        Person firstPerson = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
-        Person editedPerson = new PersonBuilder(firstPerson).withFollowUp("").build();
-
-        FollowUpCommand followUpCommand = new FollowUpCommand(INDEX_FIRST_PERSON,
-                new FollowUp(editedPerson.getFollowUp().toString()));
-
-        String expectedMessage = String.format(FollowUpCommand.MESSAGE_DELETE_FOLLOWUP_SUCCESS, editedPerson);
-
-        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
-        expectedModel.setPerson(firstPerson, editedPerson);
-
-        assertCommandSuccess(followUpCommand, model, expectedMessage, expectedModel);
-    }
 
     @Test
     public void execute_filteredList_success() {
