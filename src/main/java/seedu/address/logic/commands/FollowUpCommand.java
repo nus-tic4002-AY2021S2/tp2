@@ -46,7 +46,7 @@ public class FollowUpCommand extends Command {
     public CommandResult execute(Model model) throws CommandException {
 
         if (!followUp.value.matches("[0-9]+")) {
-            return new CommandResult(String.format(MESSAGE_INVALID));
+            return new CommandResult(MESSAGE_INVALID);
         } else {
             List<Person> lastShownList = model.getFilteredPersonList();
 
@@ -56,7 +56,7 @@ public class FollowUpCommand extends Command {
 
             Person personToEdit = lastShownList.get(index.getZeroBased());
 
-        Person editedPerson = new Person(personToEdit.getName(), personToEdit.getDate(), followUp,
+            Person editedPerson = new Person(personToEdit.getName(), personToEdit.getDate(), followUp,
                 personToEdit.getNric(), personToEdit.getPhone(), personToEdit.getEmail(),
                 personToEdit.getAddress(), personToEdit.getDescription(), personToEdit.getRemark(),
                 personToEdit.getTags());
