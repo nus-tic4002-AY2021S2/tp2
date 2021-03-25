@@ -108,9 +108,13 @@ Format `remark INDEX r/REMARK`
 * Add remark at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 </div>
 
+* You can clear the remark by not typing the prefix `r/` or leaving the remark in `r/` blank.
+
 Examples:
 
-* `remark 1 r/shop theft`
+* `remark 1 r/He works from 8.30am to 5.30pm. I have to call after working hours.`
+* `remark 1` clears the existing remark from the person at index 1.
+* `remark 1 r/` also clears the existing remark from the person at index 1.
 
 ### Editing a followUp: `followUp`
 Edits number of days for recursive follow-up calls with the person.
@@ -141,13 +145,14 @@ Format: `edit INDEX [n/NAME] [d/DATE] [i/NRIC] [p/PHONE] [e/EMAIL] [a/ADDRESS] [
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
 * When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
-* You can remove all the person’s tags by typing `t/` without
-  specifying any tags after it.
+* You can remove all the person’s tags by typing `t/` without specifying any tags after it.
+* You can remove the remark by typing `r/` without specifying any remark after it.
 
 Examples:
 *  `edit 1 p/91234567 i/S1111112B e/johndoe@example.com` Edits the phone number,NRIC, email address of the 1st person to be `91234567`, ` i/S1111112B` and johndoe@example.com` respectively.
 *  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
 *  `edit 2 n/Betsy Lim d/10-10-2021` Edits the name of the 2nd person to be `Betsy Lim` and edit the date as well.
+*  `edit 1 r/` clears the existing remark from the person at index 1.
 
 ### Add a new tag : `addTag`
 
@@ -276,7 +281,7 @@ Action | Format, Examples
 **Find** | `find KEYWORD [n/MORE_KEYWORDS][d/DATE] [i/NRIC] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [de/DESCRIPTION] [r/REMARK]  [t/TAG]…`<br> e.g., `find n/James`
 **List** | `list`
 **Help** | `help`
-**Remark** | `remark INDEX r/REMARK`<br> e.g., `remark 1 r/shop theft`
+**Remark** | `remark INDEX r/REMARK`<br> e.g., `remark 1 r/He works from 8.30am to 5.30pm. I have to call after working hours.`
 **FollowUp** | `followUp INDEX f/FOLLOWUP`<br> e.g., `followUp 2 f/3`
 **send** | `send INDEX e/EMAIL OR send INDEX MESSAGE`<br> e.g., `send 1 e/hellokitty@hotmail.com OR send 1 I am not able to contact you, please call me`
 **Add Tag** | `addTag INDEX at/TAG`<br> e.g., `addTag 1 at/CalledOnce`
