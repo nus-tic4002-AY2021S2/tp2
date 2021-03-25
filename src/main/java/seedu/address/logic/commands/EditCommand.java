@@ -61,7 +61,7 @@ public class EditCommand extends Command {
         + "Example: " + COMMAND_WORD + " 1 "
         + PREFIX_PHONE + "91234567 "
         + PREFIX_EMAIL + "johndoe@example.com "
-        + PREFIX_REMARK + "He works from 8.30am to 5.30pm.";
+        + PREFIX_REMARK + "He works from 8.30am to 5.30pm. I have to call after working hours.";
 
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Person: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
