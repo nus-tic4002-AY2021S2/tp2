@@ -28,7 +28,7 @@ It is designed to help them manage their investigation cases better by reminding
 
     * **`list`** : Lists all contacts.
 
-    * **`add`**`add n/John Doe d/22-02-2021 i/S2731125H p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 de/This man is a construction site manager who flew a drone over the Istana, beyond the boundary of his nearby work site, at 8.35am. r/He could be just curious to see what the Istana looks like. t/NeverCalled t/HighPriority` : Adds a contact named `John Doe` to the Police Address Book.
+    * **`add`**`add n/John Doe d/22-02-2021 f/7 i/S2731125H p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 de/This man is a construction site manager who flew a drone over the Istana, beyond the boundary of his nearby work site, at 8.35am. r/He could be just curious to see what the Istana looks like. t/NeverCalled t/HighPriority` : Adds a contact named `John Doe` to the Police Address Book.
     
     * **`find`** `n/John`:Find the person with the specific name in the current list.
 
@@ -100,8 +100,8 @@ A person can have any number of tags (including 0)
 
 Examples:
 
-* `add n/John Doe d/22-02-2021 i/S2731125H p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 de/This man is a construction site manager who flew a drone over the Istana, beyond the boundary of his nearby work site, at 8.35am. r/He could be just curious to see what the Istana looks like. f/10 t/NeverCalled t/HighPriority`
-* `add n/Betsy Crowe d/12-02-2021 i/S1234567A p/91234567 e/betsycrowe@example.com a/Newgate Prison de/She was molested by a Senior Investigations Officer at the Jurong Police Division Headquarters in the interview room around 9.00pm. r/She informed a policeman at the Police Cantonment Complex 5 days later. f/10 t/NeverCalled t/MediumPriority`
+* `add n/John Doe d/22-02-2021 f/10 i/S2731125H p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 de/This man is a construction site manager who flew a drone over the Istana, beyond the boundary of his nearby work site, at 8.35am. r/He could be just curious to see what the Istana looks like. t/NeverCalled t/HighPriority`
+* `add n/Betsy Crowe d/12-02-2021 f/10 i/S1234567A p/91234567 e/betsycrowe@example.com a/Newgate Prison de/She was molested by a Senior Investigations Officer at the Jurong Police Division Headquarters in the interview room around 9.00pm. r/She informed a policeman at the Police Cantonment Complex 5 days later. t/NeverCalled t/MediumPriority`
 
 ### Adding a remark: `remark`
 Add remark to a person in the address book.

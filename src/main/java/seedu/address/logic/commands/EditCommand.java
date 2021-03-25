@@ -50,13 +50,13 @@ public class EditCommand extends Command {
         + "Parameters: INDEX (must be a positive integer) "
         + "[" + PREFIX_NAME + "NAME] "
         + "[" + PREFIX_DATE + "DATE] "
+        + "[" + PREFIX_FOLLOWUP + "FOLLOWUP] "
         + "[" + PREFIX_NRIC + "NRIC] "
         + "[" + PREFIX_PHONE + "PHONE] "
         + "[" + PREFIX_EMAIL + "EMAIL] "
         + "[" + PREFIX_ADDRESS + "ADDRESS] "
         + "[" + PREFIX_DESCRIPTION + "DESCRIPTION] "
         + "[" + PREFIX_REMARK + "REMARK] "
-        + "[" + PREFIX_FOLLOWUP + "FOLLOWUP] "
         + "[" + PREFIX_TAG + "TAG]\n"
         + "Example: " + COMMAND_WORD + " 1 "
         + PREFIX_PHONE + "91234567 "
@@ -101,8 +101,8 @@ public class EditCommand extends Command {
         FollowUp updateFollowUp = editPersonDescriptor.getFollowUp().orElse(personToEdit.getFollowUp());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
-        return new Person(updatedName, updateDate, updatedNric, updatedPhone, updatedEmail,
-            updatedAddress, updatedDescription, updatedRemark, updateFollowUp, updatedTags);
+        return new Person(updatedName, updateDate, updateFollowUp, updatedNric, updatedPhone,
+            updatedEmail, updatedAddress, updatedDescription, updatedRemark, updatedTags);
     }
 
     @Override
@@ -184,7 +184,7 @@ public class EditCommand extends Command {
          */
         public boolean isAnyFieldEdited() {
             return CollectionUtil.isAnyNonNull(name, nric, phone, date,
-                    email, address, tags, description, remark, followUp);
+                email, address, tags, description, remark, followUp);
         }
 
         public Optional<Name> getName() {
@@ -295,7 +295,8 @@ public class EditCommand extends Command {
                 && getEmail().equals(e.getEmail())
                 && getAddress().equals(e.getAddress())
                 && getDescription().equals(e.getDescription())
-                && getTags().equals(e.getTags());
+                && getTags().equals(e.getTags())
+                && getFollowUp().equals(e.getFollowUp());
         }
 
     }
