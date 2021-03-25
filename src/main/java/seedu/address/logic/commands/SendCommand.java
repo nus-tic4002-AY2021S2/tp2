@@ -15,7 +15,7 @@ public class SendCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": send person data to a colleague "
             + "or an email to the person in the list\n"
-            + "Parameters: Send INDEX e/[EMAIL] or send [INDEX] MESSAGE\n"
+            + "Parameters: Send INDEX e/EMAIL or send INDEX MESSAGE\n"
             + "Example: send 1 e/hellokitty@hotmail.com OR send 1 I am not able to contact you, please call me";
 
     public static final String MESSAGE_INVALID = "The person index provided is invalid";

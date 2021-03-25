@@ -27,14 +27,10 @@ It is designed to help them manage their investigation cases better by reminding
    Some example commands you can try:
 
     * **`list`** : Lists all contacts.
-
-    * **`add`** : Adds a contact named `John Doe` to the Police Address Book.
     
-    * **`find`** `n/John`:Find the person with the specific name in the current list.
+    * **`find`** `John`:Find the person with the specific name in the current list.
 
     * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
-
-    * **`clear`** : Deletes all contacts.
 
     * **`exit`** : Exits the app.
 
@@ -160,8 +156,12 @@ To add a new tag to the existing tags
 Format: `addTag INDEX at/TAG`
 
 * Add new tag at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
-* New tag name should be enter after 'at/' only.
-* Only allow to add one tag each time.
+* New tag name should be entered after 'at/' only.
+* Only one tag is allowed to be added each time.
+
+Examples:
+*  `addTag 1 at/CalledTwice` Adds the tag CalledTwice to the person at index 1.
+*  `addTag 2 at/Closed` Adds the tag Closed to the person at index 2.
 
 ### Remove an existing tag : `removeTag`
 
@@ -170,9 +170,13 @@ To remove a tag from the existing tags without overwritten all the tags
 Format: `removeTag INDEX rt/TAG`
 
 * Add new tag at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
-* Tag to be removed should be enter after 'rt/' only.
-* Only allow to remove one tag each time.
+* Tag to be removed should be entered after 'rt/' only.
+* Only one tag is allowed to be removed each time.
 
+Examples:
+*  `removeTag 1 rt/CalledTwice` Removes the tag CalledTwice from the person at index 1.
+*  `removeTag 2 rt/Closed` Removes the tag Closed from the person at index 2.
+*  
 ### Locating persons by name: `find`
 
 Finds all fields contain any of the given keywords.
