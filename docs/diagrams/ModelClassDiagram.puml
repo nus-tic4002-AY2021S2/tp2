@@ -21,6 +21,7 @@ Class Date
 Class Description
 Class Nric
 Class Remark
+Class FollowUp
 Class Address
 Class Email
 Class Name
@@ -54,6 +55,7 @@ Person *--> Phone
 Person *--> Email
 Person *--> Address
 Person *--> Remark
+Person *--> FollowUp
 Person *--> "*" Tag
 
 Name -[hidden]right-> Phone
@@ -62,8 +64,8 @@ Address -[hidden]right-> Email
 Nric -[hidden]right-> Nric
 Date -[hidden]right-> Date
 Description-[hidden]right-> Description
+FollowUp -[hidden]right-> FollowUp
 Remark -[hidden]right-> Remark
-
 
 ModelManager -->"1" Person : filtered list
 @enduml
