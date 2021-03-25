@@ -46,7 +46,7 @@ public class FollowUpCommand extends Command {
     public CommandResult execute(Model model) throws CommandException {
 
         if (!followUp.value.matches("[0-9]+")) {
-            return new CommandResult(String.format(MESSAGE_INVALID));
+            return new CommandResult(MESSAGE_INVALID);
         } else {
             List<Person> lastShownList = model.getFilteredPersonList();
 
