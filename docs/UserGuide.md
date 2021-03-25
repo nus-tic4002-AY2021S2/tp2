@@ -265,6 +265,6 @@ Action | Format, Examples
 **Help** | `help`
 **Remark** | `remark INDEX r/REMARK`<br> e.g., `remark 1 r/shop theft`
 **FollowUp** | `followUp INDEX f/FOLLOWUP`<br> e.g., `followUp 2 f/3`
+**send** | `send INDEX e/EMAIL`<br> e.g., `send 1 e/hellokitty@hotmail.com OR send 1 I am not able to contact you, please call me`
 **Add Tag** | `addTag INDEX at/TAG`<br> e.g., `addTag 1 at/CalledOnce`
 **Remove Tag** | `removeTag INDEX rt/TAG`<br> e.g., `removeTag 1 rt/CalledOnce`
-**send** | `send INDEX e/EMAIL`<br> e.g., `send 1 e/hellokitty@hotmail.com`
