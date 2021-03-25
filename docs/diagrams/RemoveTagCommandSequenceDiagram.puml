@@ -1,0 +1,78 @@
+@startuml
+!include style.puml
+
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
+participant ":RemoveTagCommandParser" as RemoveTagCommandParser LOGIC_COLOR
+participant "a:RemoveTagCommand" as RemoveTagCommand LOGIC_COLOR
+participant ":CommandResult" as CommandResult LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant ":Model" as Model MODEL_COLOR
+end box
+
+[-> LogicManager : execute("removeTag 1 at/CalledOnce")
+activate LogicManager
+
+LogicManager -> AddressBookParser : parseCommand("removeTag 1 at/CalledOnc")
+activate AddressBookParser
+
+create RemoveTagCommandParser
+AddressBookParser -> RemoveTagCommandParser
+activate RemoveTagCommandParser
+
+RemoveTagCommandParser --> AddressBookParser
+deactivate RemoveTagCommandParser
+
+AddressBookParser -> RemoveTagCommandParser : parse("removeTag 1 at/CalledOnce")
+activate RemoveTagCommandParser
+
+create RemoveTagCommand
+RemoveTagCommandParser -> RemoveTagCommand
+activate RemoveTagCommand
+
+RemoveTagCommand --> RemoveTagCommandParser : a
+deactivate RemoveTagCommand
+
+RemoveTagCommandParser --> AddressBookParser : a
+deactivate RemoveTagCommandParser
+'Hidden arrow to position the destroy marker below the end of the activation bar.
+RemoveTagCommandParser -[hidden]-> AddressBookParser
+destroy RemoveTagCommandParser
+
+AddressBookParser --> LogicManager : a
+deactivate AddressBookParser
+
+LogicManager -> RemoveTagCommand : execute()
+activate RemoveTagCommand
+
+RemoveTagCommand -> Model : New personToEdit
+activate Model
+
+RemoveTagCommand -> Model : New editedPerson
+activate Model
+
+Model --> RemoveTagCommand
+deactivate Model
+
+RemoveTagCommand -> Model : setPerson(personToEdit, editedPerson)
+activate Model
+
+Model --> RemoveTagCommand
+deactivate Model
+
+create CommandResult
+RemoveTagCommand -> CommandResult
+activate CommandResult
+
+CommandResult --> RemoveTagCommand
+deactivate CommandResult
+
+RemoveTagCommand --> LogicManager : result
+deactivate RemoveTagCommand
+
+[<--LogicManager
+deactivate LogicManager
+@enduml

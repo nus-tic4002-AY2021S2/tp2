@@ -191,7 +191,21 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 ![CommitActivityDiagram](images/CommitActivityDiagram.png)
 
+### Add/Remove Tag feature
 
+This feature provides an alternative way for the uer to add/remove a specified tag.
+The Edit tag feature `edit t/[Tag]` will overwrite the entire set of tags. 
+In other words, if there are few tags, and user only wants to udpate a specified tag, the user will need to re-enter all the tags in the `edit t/[Tag]` command, which is tedious and time consuming.
+With the `Add/Remove Tag feature`, the user will be able to remove a specified tag and add in a new tag, or just simply add in a new tag directly.
+
+#### Implementation
+
+Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("addTag 1 at/CalledOnce") or execute("removeTag 1 at/CalledOnce")` API call.
+![Interactions Inside the Logic Component for the `execute("addTag 1 at/CalledOnce")` Command](images/AddTagCommandSequenceDiagram.png)
+![Interactions Inside the Logic Component for the `execute("removeTag 1 at/CalledOnce")` Command](images/RemoveTagCommandSequenceDiagram.png)
+<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `AddTagCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+</div>
+<br>
 
 #### Design consideration:
 
