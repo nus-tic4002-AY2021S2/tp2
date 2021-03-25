@@ -200,7 +200,7 @@ With the `Add/Remove Tag feature`, the user will be able to remove a specified t
 
 #### Implementation
 
-Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("addTag 1 at/CalledOnce") or execute("removeTag 1 at/CalledOnce")` API call.
+Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("addTag 1 at/CalledOnce") and execute("removeTag 1 at/CalledOnce")` API call.
 ![Interactions Inside the Logic Component for the `execute("addTag 1 at/CalledOnce")` Command](images/AddTagCommandSequenceDiagram.png)
 ![Interactions Inside the Logic Component for the `execute("removeTag 1 at/CalledOnce")` Command](images/RemoveTagCommandSequenceDiagram.png)
 <div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `AddTagCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
