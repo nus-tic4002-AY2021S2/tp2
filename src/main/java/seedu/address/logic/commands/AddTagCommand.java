@@ -15,6 +15,9 @@ import seedu.address.model.Model;
 import seedu.address.model.person.Person;
 import seedu.address.model.tag.Tag;
 
+/**
+ * Adds a tag to an existing person in the address book.
+ */
 public class AddTagCommand extends Command {
 
     public static final String COMMAND_WORD = "addTag";
@@ -22,7 +25,7 @@ public class AddTagCommand extends Command {
             + "by the index number used in the last person listing. "
             + "New tag will be added by the input.\n"
             + "Parameters: INDEX (must be a positive integer) "
-            + PREFIX_ADDTAG + "[REMARK]\n"
+            + PREFIX_ADDTAG + "[TAG]\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_ADDTAG + "CalledTwice";
 
@@ -34,7 +37,7 @@ public class AddTagCommand extends Command {
 
     /**
      * @param index of the person in the filtered person list to edit the tag
-     * @param tag of the person to be added/removed
+     * @param tag of the person to be added
      */
     public AddTagCommand(Index index, Tag tag) {
         requireAllNonNull(index, tag);
