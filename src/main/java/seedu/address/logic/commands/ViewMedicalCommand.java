@@ -23,7 +23,13 @@ public class ViewMedicalCommand extends Command {
 
     public static final String COMMAND_WORD = "viewMed";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": View all medical records of this person";
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all medical history of this person, "
+            + "please enter"
+            + " the id of the person you want \nto view medical history, for example : \n"
+            + "usage 'viewMed 1'";
+
+    public static final String SUCCESS_MESSAGE_USAGE = COMMAND_WORD + ": This person's medical history "
+            + "details has been listed.";
 
     private final Index targetIndex;
 
@@ -53,7 +59,7 @@ public class ViewMedicalCommand extends Command {
 
         }
 
-        return new CommandResult(String.format(MESSAGE_USAGE, personToShowMedicalHistory),
+        return new CommandResult(String.format(SUCCESS_MESSAGE_USAGE, personToShowMedicalHistory),
                 viewMedicalHistory.toString());
     }
 
