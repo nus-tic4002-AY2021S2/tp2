@@ -112,6 +112,12 @@ The `Model`,
 
 </div>
 
+Given below is the Sequence Diagram for the `execute("Edit")` API call.
+
+![Interactions Inside the Model Component for the `Edit` Command](images/EditSequenceDiagram.png)
+
+<div markdown="span" class="alert alert-info">:information_source: **Note:** New Person will be created once the data has been edited.
+</div>
 
 ### Storage component
 
@@ -256,8 +262,11 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user                                       | update a person                | update entries that has changed information                            |
 | `* * *`  | user                                       | create a new group             | classify soldiers by the groups for different purposes                 |
 | `* * *`  | user                                       | delete a group                 | remove the groups that I no longer need                                |
+| `* * *`  | user                                       | assign a person to group                 | change the group that the person belongs to                                |
+| `* * *`  | user                                       | rename a group                 | change the group name without making migration in the group people                               |
 | `* * *`  | user                                       | list all groups                | keep track of what has been created in the system                      |
 | `* * *`  | user                                       | list all persons in a group    | give a punishment or a reward to soldiers in the specific group        |
+| `* * *`  | user                                       | load groups from json file     | the previous record will be maintained                                 |
 | `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
 | `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                |
 | `*`      | user with many persons in the address book | sort persons by name           | locate a person easily                                                 |
@@ -300,6 +309,30 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 2.  AddressBook shows a list of groups
 3.  User requests to delete a specific group in the list
 4.  AddressBook deletes the group
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+
+* 3a. The given index is invalid.
+
+    * 3a1. AddressBook shows an error message.
+
+      Use case resumes at step 2.
+
+
+**Use case: rename a group**
+
+**MSS**
+
+1.  User requests to list group
+2.  AddressBook shows a list of groups
+3.  User requests to rename a specific group in the list by using the group index 
+4.  AddressBook rename the group
 
     Use case ends.
 

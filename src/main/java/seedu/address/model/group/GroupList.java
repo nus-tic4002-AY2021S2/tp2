@@ -10,6 +10,7 @@ public class GroupList {
         Group defaultGroup = new Group();
         defaultGroup.setGroupName("N/A");
         addGroup(defaultGroup);
+        assert !listOfGroup.isEmpty();
     }
 
     public static void addGroup (Group group) {
@@ -22,7 +23,6 @@ public class GroupList {
      * @return true if exist, false otherwise
      */
     public static boolean hasGroup (Group group) {
-
 
         for (int i = 0; i < listOfGroup.size(); i++) {
             if (listOfGroup.get(i).equals(group)) {
@@ -73,6 +73,10 @@ public class GroupList {
             }
         }
         return output.toString();
+    }
+
+    public static int getGroupListSize() {
+        return listOfGroup.size();
     }
 
 }

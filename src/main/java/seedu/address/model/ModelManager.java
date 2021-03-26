@@ -181,6 +181,16 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public int getGroupSize() {
+        return GroupList.getGroupListSize();
+    }
+
+    @Override
+    public void renameGroup(int i, String name) {
+        GroupList.getGroup(i).setGroupName(name);
+    }
+
+    @Override
     public boolean equals(Object obj) {
         // short circuit if same object
         if (obj == this) {
