@@ -17,7 +17,13 @@ public class AddAppointmentCommand extends Command {
 
     public static final String COMMAND_WORD = "addApp";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": add appointment to this person";
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": To add appointments to patient, please enter"
+            + " the id of the person you want to add appointments,\nand follow by '\\d +  appointment description'"
+            + " and follow by '\\t YYYY-MM-DD HH:mm:ss' \ndate format must be exactly correct. For example : \n"
+            + "usage 'addApp 1 \\d Meeting doctor for medical checkup \\t 2021-03-04 10:00:00'";
+
+    public static final String SUCCESS_MESSAGE_USAGE = COMMAND_WORD + ": Appointment has been successfully added  "
+            + "to this patient.";
 
     private final Index targetIndex;
 
@@ -53,8 +59,8 @@ public class AddAppointmentCommand extends Command {
         model.setPerson(personToAddApp, editedPerson);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
 
-        return new CommandResult(String.format(MESSAGE_USAGE, personToAddApp),
-                MESSAGE_USAGE);
+        return new CommandResult(String.format(SUCCESS_MESSAGE_USAGE, personToAddApp),
+                SUCCESS_MESSAGE_USAGE);
     }
 
 }
