@@ -66,6 +66,8 @@ PatientBook is a **desktop app for managing contacts and appointments. It also h
 * Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
+* Do note that for viewApp and viewMed related commands, 2nd index is referring to the patient list and 3rd index is referring to the "appointment" or "medical history" list. 
+  e.g if you want to delete the 2nd appointment from the first person in the list `deleteApp 1 2`. The parameter is **FIXED**
 </div>
 
 ### Viewing help : `help`
@@ -265,6 +267,11 @@ AddressBook data are saved as a JSON file `[JAR file location]/data/addressbook.
 If your changes to the data file makes its format invalid, AddressBook will discard all data and start with an empty data file at the next run.
 </div>
 
+###FAQ
+**Q**: How do I transfer my data to another Computer?<br>
+**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous AddressBook home folder.
+### Commands Table
+
 Action | Format, Examples
 --------|------------------
 **Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
@@ -276,4 +283,9 @@ Action | Format, Examples
 **viewApp** | `viewApp INDEX` <br> e.g., `viewApp 1`
 **addApp** | `addApp INDEX /d DESCRIPTION /t DATETIME` <br> e.g., `addApp 2 /d Check-up /d 2021-03-18 10:00:00`
 **deleteApp** | `deleteApp USERINDEX APPOINTMENTINDEX` <br> e.g., `deleteApp 1 3`
+**viewMed** | `viewMed INDEX` <br> e.g., `viewMed 1`
+**addMed** | `addMed INDEX /d DESCRIPTION` <br> e.g., `addMed 1 /d Surgery`
+**deleteMed** | `deleteMed USERINDEX RECORDINDEX` <br> e.g., `deleteMed 1 3`
+**appNotification** | `appNotification` <br> e.g., `appNotification`
 **Help** | `help`
+
