@@ -20,7 +20,13 @@ import seedu.address.model.person.appointment.Appointment;
 public class DeleteAppointmentCommand extends Command {
     public static final String COMMAND_WORD = "deleteApp";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": delete appointment for this person";
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": To delete appointment for patient, please enter"
+            + " the first id of the person you \nwant to delete appointment, and follow by 'appointment id' for patient"
+            + " For example : \n"
+            + "usage 'deleteApp 1 2'";
+
+    public static final String SUCCESS_MESSAGE_USAGE = COMMAND_WORD + ": Appointment has been successfully deleted"
+            + " for this patient.";
 
     private final Index targetIndex;
 
@@ -55,8 +61,8 @@ public class DeleteAppointmentCommand extends Command {
         model.setPerson(personToDelApp, editedPerson);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
 
-        return new CommandResult(String.format(MESSAGE_USAGE, personToDelApp),
-                MESSAGE_USAGE);
+        return new CommandResult(String.format(SUCCESS_MESSAGE_USAGE, personToDelApp),
+                SUCCESS_MESSAGE_USAGE);
     }
 
 }
