@@ -3,7 +3,6 @@ package seedu.address.logic.parser;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 import seedu.address.commons.core.index.Index;
-import seedu.address.logic.commands.AddAppointmentCommand;
 import seedu.address.logic.commands.AddMedicalCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
@@ -25,10 +24,15 @@ public class AddMedicalCommandParser implements Parser<AddMedicalCommand> {
 
             String description = s.substring(s.indexOf("/d") + 3);
 
-            return new AddMedicalCommand(index, description, "");
+            if (!description.equals("") && description != null) {
+                return new AddMedicalCommand(index, description.trim(), "");
+            } else {
+                throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+                        AddMedicalCommand.MESSAGE_USAGE));
+            }
         } catch (ParseException pe) {
             throw new ParseException(
-                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddAppointmentCommand.MESSAGE_USAGE), pe);
+                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddMedicalCommand.MESSAGE_USAGE), pe);
         }
     }
 

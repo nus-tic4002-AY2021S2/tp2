@@ -19,8 +19,14 @@ import seedu.address.model.person.medical.MedicalHistory;
 public class DeleteMedicalCommand extends Command {
     public static final String COMMAND_WORD = "deleteMed";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": delete medical history for this person";
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": To delete medical history for patient, please enter"
+            + " the first id of the person you \nwant to delete medical history"
+            + ", and follow by 'medical history id' for patient" + " For example : \n"
+            + "usage 'deleteMed 1 2'";
 
+    public static final String SUCCESS_MESSAGE_USAGE = COMMAND_WORD + ": Medical history has been successfully "
+            + "deleted"
+            + " for this patient.";
     private final Index targetIndex;
 
     private final Integer secondIndex;
@@ -54,8 +60,8 @@ public class DeleteMedicalCommand extends Command {
         model.setPerson(personToDelApp, editedPerson);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
 
-        return new CommandResult(String.format(MESSAGE_USAGE, personToDelApp),
-                MESSAGE_USAGE);
+        return new CommandResult(String.format(SUCCESS_MESSAGE_USAGE, personToDelApp),
+                SUCCESS_MESSAGE_USAGE);
     }
 
 }

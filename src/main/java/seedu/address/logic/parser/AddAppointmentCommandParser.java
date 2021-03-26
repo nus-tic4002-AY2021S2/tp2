@@ -27,10 +27,13 @@ public class AddAppointmentCommandParser implements Parser<AddAppointmentCommand
 
             String dateString = s.substring(s.indexOf("/t") + 3);
 
-            return new AddAppointmentCommand(index, description, dateString);
+            return new AddAppointmentCommand(index, description.trim(), dateString);
         } catch (ParseException pe) {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddAppointmentCommand.MESSAGE_USAGE), pe);
+        } catch (Exception e) {
+            throw new ParseException(
+                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddAppointmentCommand.MESSAGE_USAGE), e);
         }
     }
 
