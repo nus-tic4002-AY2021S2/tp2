@@ -286,4 +286,6 @@ Action | Format, Examples
 **viewMed** | `viewMed INDEX` <br> e.g., `viewMed 1`
 **addMed** | `addMed INDEX /d DESCRIPTION` <br> e.g., `addMed 1 /d Surgery`
 **deleteMed** | `deleteMed USERINDEX RECORDINDEX` <br> e.g., `deleteMed 1 3`
+**appNotification** | `appNotification` <br> e.g., `appNotification`
 **Help** | `help`
+
