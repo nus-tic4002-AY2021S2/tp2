@@ -94,8 +94,13 @@ public class Employee {
             return true;
         }
 
-        return otherEmployee != null
-                && otherEmployee.getName().equals(getName());
+        if (otherEmployee == null) {
+            return false;
+        }
+
+        boolean isSameName = otherEmployee.getName().equals(getName());
+        boolean isSameDateOfBirth = otherEmployee.getDateOfBirth().equals(getDateOfBirth());
+        return isSameName && isSameDateOfBirth;
     }
 
     /**

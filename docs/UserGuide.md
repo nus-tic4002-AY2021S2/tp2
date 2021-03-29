@@ -69,6 +69,7 @@ Format: `help`
 Adds an employee record to the Employee Tracker.
 
 Format: `add n/NAME r/ROLE p/PHONE_NUMBER e/EMAIL a/ADDRESS b/DATE_OF_BIRTH j/DATE_OF_JOINING s/SALARY [t/TAG]…`
+* `NAME` must only contain alphanumeric characters and spaces. E.g. `John Doe`.
 * `PHONE_NUMBER` must be a number that is at least 3-digit long. E.g. `98714821`, `67617361`.
 * `EMAIL` must be in local-part@domain format. E.g. `andy@f18tech.com.sg`.
 * `DATE_OF_BIRTH` must be in yyyy-MM-dd format. E.g. `1990-12-25`.
@@ -76,8 +77,13 @@ Format: `add n/NAME r/ROLE p/PHONE_NUMBER e/EMAIL a/ADDRESS b/DATE_OF_BIRTH j/DA
 * `SALARY` must be a positive integer. E.g. `4000`, `3000`.
 * `TAG` must be alphanumeric. E.g. `Founder`, `l33tCoder`.
 
+<div markdown="span" class="alert alert-primary">:bulb: **Note:**
+All employee records must have a unique combination of name and date of birth.
+A new employee record will not be added if there is an existing employee record with the same name and date of birth.
+</div>
+
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-An employee can have any number of tags (including 0)
+An employee record can have any number of tags (including 0).
 </div>
 
 Example of usage:
@@ -102,6 +108,7 @@ Format: `edit INDEX [n/NAME] [r/ROLE] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [b/
 * `INDEX` must a positive integer. E.g. `1`, `2`, `3`…
 * At least one of the optional parameters must be provided.
 * The employee record indicated by the index number will be edited.
+* `NAME` must only contain alphanumeric characters and spaces. E.g. `John Doe`.
 * `PHONE_NUMBER` must be a number that is at least 3-digit long. E.g. `98714821`, `67617361`.
 * `EMAIL` must be in local-part@domain format. E.g. `andy@f18tech.com.sg`.
 * `DATE_OF_BIRTH` must be in yyyy-MM-dd format. E.g. `1990-12-25`.
