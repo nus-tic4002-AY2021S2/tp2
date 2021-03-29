@@ -68,7 +68,7 @@ public class DeleteCommandTest {
         showEmployeeAtIndex(model, INDEX_FIRST_EMPLOYEE);
 
         Index outOfBoundIndex = INDEX_SECOND_EMPLOYEE;
-        // ensures that outOfBoundIndex is still in bounds of address book list
+        // ensures that outOfBoundIndex is still in bounds of Employee Tracker list
         assertTrue(outOfBoundIndex.getZeroBased() < model.getEmployeeTracker().getEmployeeList().size());
 
         DeleteCommand deleteCommand = new DeleteCommand(outOfBoundIndex);

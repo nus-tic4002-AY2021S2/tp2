@@ -64,7 +64,7 @@ public class JsonEmployeeTrackerStorageTest {
 
     @Test
     public void readAndSaveEmployeeTracker_allInOrder_success() throws Exception {
-        Path filePath = testFolder.resolve("TempAddressBook.json");
+        Path filePath = testFolder.resolve("TempEmployeeTracker.json");
         EmployeeTracker original = getTypicalEmployeeTracker();
         JsonEmployeeTrackerStorage jsonEmployeeTrackerStorage = new JsonEmployeeTrackerStorage(filePath);
 
@@ -96,10 +96,10 @@ public class JsonEmployeeTrackerStorageTest {
     /**
      * Saves {@code EmployeeTracker} at the specified {@code filePath}.
      */
-    private void saveEmployeeTracker(ReadOnlyEmployeeTracker addressBook, String filePath) {
+    private void saveEmployeeTracker(ReadOnlyEmployeeTracker employeeTracker, String filePath) {
         try {
             new JsonEmployeeTrackerStorage(Paths.get(filePath))
-                    .saveEmployeeTracker(addressBook, addToTestDataPathIfNotNull(filePath));
+                    .saveEmployeeTracker(employeeTracker, addToTestDataPathIfNotNull(filePath));
         } catch (IOException ioe) {
             throw new AssertionError("There should not be an error writing to the file.", ioe);
         }

@@ -6,6 +6,6 @@ package employeetracker.model.employee.exceptions;
  */
 public class DuplicateEmployeeException extends RuntimeException {
     public DuplicateEmployeeException() {
-        super("Operation would result in duplicate persons");
+        super("Operation would result in duplicate employees");
     }
 }

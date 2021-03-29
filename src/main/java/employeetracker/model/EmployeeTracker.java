@@ -106,7 +106,7 @@ public class EmployeeTracker implements ReadOnlyEmployeeTracker {
 
     @Override
     public String toString() {
-        return employees.asUnmodifiableObservableList().size() + " persons";
+        return employees.asUnmodifiableObservableList().size() + " employees";
         // TODO: refine later
     }
 

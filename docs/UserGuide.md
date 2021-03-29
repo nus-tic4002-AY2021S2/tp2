@@ -213,7 +213,7 @@ Click `Yes` if the system prompts you for confirmation of overwriting.
 Action | Format, Examples
 --------|------------------
 **Help** | `help`
-**Add** | `add n/NAME e/EMAIL r/ROLE a/ADDRESS c/CONTACT_NUMBER s/SALARY d/DATE_OF_EMPLOYMENT b/DATE_OF_BIRTH` <br> E.g. `add n/Rachel Lee e/rachel@f18solutions.com.sg r/Designer a/BLK 730 Woodlands Road #15-150 c/91648917 d/2020-09-01 b/1988-01-02`
+**Add** | `add n/NAME r/ROLE p/PHONE_NUMBER e/EMAIL a/ADDRESS b/DATE_OF_BIRTH j/DATE_OF_JOINING s/SALARY [t/TAG]…` <br> E.g. `add n/Rachel Lee r/Designer p/91648917 e/rachel@f18tech.com.sg a/BLK 730 Woodlands Road #15-150 b/1988-01-02 j/2020-09-01 s/8000 t/Founder t/l33tCoder`
 **List** | `list`
 **Edit** | `edit INDEX [n/NAME] [r/ROLE] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [b/DATE_OF_BIRTH] [j/DATE_OF_JOINING] [s/SALARY] [t/TAG]…` <br> E.g. `edit 1 p/91821748 s/8000 t/Mentor t/l33tCoder`
 **Delete** | `delete INDEX`<br> E.g. `delete 2`

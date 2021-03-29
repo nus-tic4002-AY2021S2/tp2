@@ -24,7 +24,7 @@ class JsonSerializableEmployeeTracker {
     private final List<JsonAdaptedEmployee> employees = new ArrayList<>();
 
     /**
-     * Constructs a {@code JsonSerializableEmployeeTracker} with the given persons.
+     * Constructs a {@code JsonSerializableEmployeeTracker} with the given employees.
      */
     @JsonCreator
     public JsonSerializableEmployeeTracker(@JsonProperty("employees") List<JsonAdaptedEmployee> employees) {
@@ -41,7 +41,7 @@ class JsonSerializableEmployeeTracker {
     }
 
     /**
-     * Converts this address book into the model's {@code EmployeeTracker} object.
+     * Converts this Employee Tracker into the model's {@code EmployeeTracker} object.
      *
      * @throws IllegalValueException if there were any data constraints violated.
      */

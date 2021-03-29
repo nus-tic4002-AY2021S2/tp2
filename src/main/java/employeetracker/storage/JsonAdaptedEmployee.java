@@ -83,9 +83,9 @@ class JsonAdaptedEmployee {
      * @throws IllegalValueException if there were any data constraints violated in the adapted employee.
      */
     public Employee toModelType() throws IllegalValueException {
-        final List<Tag> personTags = new ArrayList<>();
+        final List<Tag> employeeTags = new ArrayList<>();
         for (JsonAdaptedTag tag : tagged) {
-            personTags.add(tag.toModelType());
+            employeeTags.add(tag.toModelType());
         }
 
         if (name == null) {
@@ -155,7 +155,7 @@ class JsonAdaptedEmployee {
         }
         final Salary modelSalary = new Salary(salary);
 
-        final Set<Tag> modelTags = new HashSet<>(personTags);
+        final Set<Tag> modelTags = new HashSet<>(employeeTags);
         return new Employee(modelName, modelRole, modelPhone, modelEmail, modelAddress, modelDateOfBirth,
                 modelDateOfJoining, modelSalary, modelTags);
     }
