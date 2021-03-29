@@ -76,19 +76,19 @@ public class MainApp extends Application {
      * Employee Tracker.
      */
     private Model initModelManager(Storage storage, ReadOnlyUserPrefs userPrefs) {
-        Optional<ReadOnlyEmployeeTracker> addressBookOptional;
+        Optional<ReadOnlyEmployeeTracker> employeeTrackerOptional;
         ReadOnlyEmployeeTracker initialData;
         try {
-            addressBookOptional = storage.readEmployeeTracker();
-            if (!addressBookOptional.isPresent()) {
-                logger.info("Data file not found. Will be starting with a sample EmployeeTracker");
+            employeeTrackerOptional = storage.readEmployeeTracker();
+            if (!employeeTrackerOptional.isPresent()) {
+                logger.info("Data file not found. Will be starting with a sample Employee Tracker");
             }
-            initialData = addressBookOptional.orElseGet(SampleDataUtil::getSampleEmployeeTracker);
+            initialData = employeeTrackerOptional.orElseGet(SampleDataUtil::getSampleEmployeeTracker);
         } catch (DataConversionException e) {
-            logger.warning("Data file not in the correct format. Will be starting with an empty EmployeeTracker");
+            logger.warning("Data file not in the correct format. Will be starting with an empty Employee Tracker");
             initialData = new EmployeeTracker();
         } catch (IOException e) {
-            logger.warning("Problem while reading from the file. Will be starting with an empty EmployeeTracker");
+            logger.warning("Problem while reading from the file. Will be starting with an empty Employee Tracker");
             initialData = new EmployeeTracker();
         }
 

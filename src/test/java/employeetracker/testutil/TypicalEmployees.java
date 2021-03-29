@@ -76,7 +76,7 @@ public class TypicalEmployees {
     private TypicalEmployees() {} // prevents instantiation
 
     /**
-     * Returns an {@code EmployeeTracker} with all the typical persons.
+     * Returns an {@code EmployeeTracker} with all the typical employees.
      */
     public static EmployeeTracker getTypicalEmployeeTracker() {
         EmployeeTracker ab = new EmployeeTracker();

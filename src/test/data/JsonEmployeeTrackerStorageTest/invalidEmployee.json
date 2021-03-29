@@ -1,6 +1,6 @@
 {
   "employees": [ {
-    "name": "Person with invalid name field: Ha!ns Mu@ster",
+    "name": "Employee with invalid name field: Ha!ns Mu@ster",
     "role": "Developer",
     "phone": "9482424",
     "email": "hans@example.com",

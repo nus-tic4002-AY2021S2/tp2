@@ -87,7 +87,7 @@ public class Employee {
 
     /**
      * Returns true if both employees have the same name.
-     * This defines a weaker notion of equality between two persons.
+     * This defines a weaker notion of equality between two employees.
      */
     public boolean isSameEmployee(Employee otherEmployee) {
         if (otherEmployee == this) {
@@ -105,7 +105,7 @@ public class Employee {
 
     /**
      * Returns true if both employees have the same identity and data fields.
-     * This defines a stronger notion of equality between two persons.
+     * This defines a stronger notion of equality between two employees.
      */
     @Override
     public boolean equals(Object other) {

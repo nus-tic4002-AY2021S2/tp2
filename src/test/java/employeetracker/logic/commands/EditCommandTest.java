@@ -50,16 +50,16 @@ public class EditCommandTest {
 
     @Test
     public void execute_someFieldsSpecifiedUnfilteredList_success() {
-        Index indexLastPerson = Index.fromOneBased(model.getFilteredEmployeeList().size());
-        Employee lastEmployee = model.getFilteredEmployeeList().get(indexLastPerson.getZeroBased());
+        Index indexLastEmployee = Index.fromOneBased(model.getFilteredEmployeeList().size());
+        Employee lastEmployee = model.getFilteredEmployeeList().get(indexLastEmployee.getZeroBased());
 
-        EmployeeBuilder personInList = new EmployeeBuilder(lastEmployee);
-        Employee editedEmployee = personInList.withName(VALID_NAME_BOB).withPhone(VALID_PHONE_BOB)
+        EmployeeBuilder employeeInList = new EmployeeBuilder(lastEmployee);
+        Employee editedEmployee = employeeInList.withName(VALID_NAME_BOB).withPhone(VALID_PHONE_BOB)
                 .withTags(VALID_TAG_HUSBAND).build();
 
         EditEmployeeDescriptor descriptor = new EditEmployeeDescriptorBuilder().withName(VALID_NAME_BOB)
                 .withPhone(VALID_PHONE_BOB).withTags(VALID_TAG_HUSBAND).build();
-        EditCommand editCommand = new EditCommand(indexLastPerson, descriptor);
+        EditCommand editCommand = new EditCommand(indexLastEmployee, descriptor);
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_EMPLOYEE_SUCCESS, editedEmployee);
 
@@ -137,7 +137,7 @@ public class EditCommandTest {
     public void execute_invalidEmployeeIndexFilteredList_failure() {
         showEmployeeAtIndex(model, INDEX_FIRST_EMPLOYEE);
         Index outOfBoundIndex = INDEX_SECOND_EMPLOYEE;
-        // ensures that outOfBoundIndex is still in bounds of address book list
+        // ensures that outOfBoundIndex is still in bounds of Employee Tracker list
         assertTrue(outOfBoundIndex.getZeroBased() < model.getEmployeeTracker().getEmployeeList().size());
 
         EditCommand editCommand = new EditCommand(outOfBoundIndex,

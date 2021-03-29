@@ -30,7 +30,7 @@ public class ModelManager implements Model {
         super();
         requireAllNonNull(employeeTracker, userPrefs);
 
-        logger.fine("Initializing with address book: " + employeeTracker + " and user prefs " + userPrefs);
+        logger.fine("Initializing with Employee Tracker: " + employeeTracker + " and user prefs " + userPrefs);
 
         this.employeeTracker = new EmployeeTracker(employeeTracker);
         this.userPrefs = new UserPrefs(userPrefs);
@@ -122,7 +122,7 @@ public class ModelManager implements Model {
 
     /**
      * Returns an unmodifiable view of the list of {@code Employee} backed by the internal list of
-     * {@code versionedAddressBook}
+     * {@code versionedEmployeeTracker}
      */
     @Override
     public ObservableList<Employee> getFilteredEmployeeList() {

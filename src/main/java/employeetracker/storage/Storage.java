@@ -27,6 +27,6 @@ public interface Storage extends EmployeeTrackerStorage, UserPrefsStorage {
     Optional<ReadOnlyEmployeeTracker> readEmployeeTracker() throws DataConversionException, IOException;
 
     @Override
-    void saveEmployeeTracker(ReadOnlyEmployeeTracker addressBook) throws IOException;
+    void saveEmployeeTracker(ReadOnlyEmployeeTracker employeeTracker) throws IOException;
 
 }
