@@ -24,8 +24,8 @@ Through a simple and intuitive graphical user interface, business owners can rec
     - `list`: Lists all employee records.
     - `delete 3`: Deletes the 3rd employee record shown in the current list.
     - `sort n`: Sorts all employee records based on `Name` in alphabetical order.
-    - `find n/Rachel` : Finds all employee records with `Rachel` in its `Name` field
-   - `find r/Developer` : Finds all employee records with `Developer` in its `Role` field
+    - `find n/Rachel`: Finds all employee records with `Rachel` in its `Name` field.
+    - `stats`: Shows summary statistics of employees.
 7. Refer to **Features** below for details of each command.
 
 --------------------------------------------------------------------------------------------------------------------
@@ -42,7 +42,7 @@ Through a simple and intuitive graphical user interface, business owners can rec
 * Parameters in square brackets are optional.
   E.g. The parameter `[s/SALARY]` in `edit INDEX [n/NAME] [r/ROLE] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [b/DATE_OF_BIRTH] [j/DATE_OF_JOINING] [s/SALARY] [t/TAG]…`
   
-* Parameters with `…` after them can be included multiple times<br>
+* Parameters with `…` after them can be included multiple times.<br>
   E.g. The parameter `KEYWORD` in the command `find TYPE/KEYWORD…`.
 
 * Parameters can be in any order.<br>
@@ -51,7 +51,7 @@ Through a simple and intuitive graphical user interface, business owners can rec
 * If a parameter is expected only once in the command but is specified multiple times, only the last occurrence of this parameter will be taken.<br>
   E.g. If `n/John Lam n/John Lee` is specified in the `add` command, only `n/John Lee` will be taken.
 
-* Unneeded parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
+* Unneeded parameters for commands that do not take in parameters (such as `help`, `list`, `exit` , `stats` and `clear`) will be ignored.<br>
   E.g. The command `help 123` will be interpreted as `help`.
 
 </div>
@@ -72,7 +72,7 @@ Format: `add n/NAME r/ROLE p/PHONE_NUMBER e/EMAIL a/ADDRESS b/DATE_OF_BIRTH j/DA
 * `PHONE_NUMBER` must be a number that is at least 3-digit long. E.g. `98714821`, `67617361`.
 * `EMAIL` must be in local-part@domain format. E.g. `andy@f18tech.com.sg`.
 * `DATE_OF_BIRTH` must be in yyyy-MM-dd format. E.g. `1990-12-25`.
-* `DATE_OF_JOINING` must be in yyyy-MM-dd format. E.g. `2020-09-1`.
+* `DATE_OF_JOINING` must be in yyyy-MM-dd format. E.g. `2020-09-01`.
 * `SALARY` must be a positive integer. E.g. `4000`, `3000`.
 * `TAG` must be alphanumeric. E.g. `Founder`, `l33tCoder`.
 
@@ -105,7 +105,7 @@ Format: `edit INDEX [n/NAME] [r/ROLE] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [b/
 * `PHONE_NUMBER` must be a number that is at least 3-digit long. E.g. `98714821`, `67617361`.
 * `EMAIL` must be in local-part@domain format. E.g. `andy@f18tech.com.sg`.
 * `DATE_OF_BIRTH` must be in yyyy-MM-dd format. E.g. `1990-12-25`.
-* `DATE_OF_JOINING` must be in yyyy-MM-dd format. E.g. `2020-09-1`.
+* `DATE_OF_JOINING` must be in yyyy-MM-dd format. E.g. `2020-09-01`.
 * `SALARY` must be a positive integer. E.g. `4000`, `3000`.
 * `TAG` must be alphanumeric. E.g. `Founder`, `l33tCoder`.
 * All existing tags for this employee record will be removed if `TAG` is not provided in the `[t/TAG]` parameter. E.g. `edit 1 t/`.
