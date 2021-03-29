@@ -126,6 +126,9 @@ public class ParserUtil {
         if (!DateOfBirth.isValidDateOfBirth(trimmedDateOfBirth)) {
             throw new ParseException(DateOfBirth.MESSAGE_CONSTRAINTS);
         }
+        if (DateOfBirth.isFutureDate(trimmedDateOfBirth)) {
+            throw new ParseException(DateOfBirth.DATE_CONSTRAINT);
+        }
         return new DateOfBirth(trimmedDateOfBirth);
     }
 
