@@ -404,7 +404,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 5a1. Employee Tracker shows an error message.<br>
       Use case ends.
 
-**Use case: Sort an employee record by name**
+**Use case: Sort employee records by name**
 
 **MSS**
 1. User requests to sort employee records by name.
