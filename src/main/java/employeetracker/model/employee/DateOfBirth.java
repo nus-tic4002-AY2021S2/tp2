@@ -43,7 +43,7 @@ public class DateOfBirth {
         assert(test != null);
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         String currentDate = dtf.format(LocalDate.now());
-        return test.compareTo(currentDate) == 1 ? true : false;
+        return test.compareTo(currentDate) > 0 ? true : false;
     }
 
     @Override
