@@ -132,14 +132,14 @@ public class EmployeeTracker implements ReadOnlyEmployeeTracker {
      */
     public String getStatement() {
         String statement = "";
-        statement += "Total Employees: " + employees.noOfemployees() + "\n";
+        statement += "Total Employees: " + employees.getNoOfemployees() + "\n";
         statement += "Total Salary: $" + String.format("%.2f", employees.getTotalSalary()) + "\n";
         statement += "Highest Salary: $" + employees.getHighestSalary() + "\n";
         statement += "Lowest Salary: $" + employees.getLowestSalary() + "\n";
-        statement += "Average Salary: $" + String.format("%.2f", employees.getAvgSalary()) + "\n";
+        statement += "Average Salary: $" + String.format("%.2f", employees.getAverageSalary()) + "\n";
         statement += "Longest Tenure: " + employees.getLongestTenure() + "\n";
         statement += "Shortest Tenure: " + employees.getShortestTenure() + "\n";
-        statement += "Average Tenure: " + employees.getAvgTenure();
+        statement += "Average Tenure: " + employees.getAverageTenure();
         return statement;
     }
 }

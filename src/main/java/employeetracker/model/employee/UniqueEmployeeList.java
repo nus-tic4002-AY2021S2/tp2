@@ -163,14 +163,14 @@ public class UniqueEmployeeList implements Iterable<Employee> {
     }
 
     /**
-     * Get the number of employees in the list.
+     * Gets the number of employees in the list.
      */
-    public int noOfemployees() {
+    public int getNoOfemployees() {
         return this.internalList.size();
     }
 
     /**
-     * Get the total Salary expenses for all employee in the list.
+     * Gets the total Salary expenses for all employee in the list.
      */
     public double getTotalSalary() {
         double totalSalary = 0;
@@ -182,7 +182,7 @@ public class UniqueEmployeeList implements Iterable<Employee> {
     }
 
     /**
-     * Get the Highest Salary employee and employee's name in the list.
+     * Gets the Highest Salary employee and employee's name in the list.
      */
     public String getHighestSalary() {
         double highestSalary = 0;
@@ -192,6 +192,8 @@ public class UniqueEmployeeList implements Iterable<Employee> {
             if (highestSalary < Double.parseDouble(internalList.get(i).getSalary().value)) {
                 highestSalary = Double.parseDouble(internalList.get(i).getSalary().value);
                 highestSalaryEmployee = internalList.get(i).getName().fullName;
+            } else if (highestSalary == Double.parseDouble(internalList.get(i).getSalary().value)){
+                highestSalaryEmployee += ", " + internalList.get(i).getName().fullName;
             }
         }
         highestSalaryResult = String.format("%.2f", highestSalary) + " (" + highestSalaryEmployee + ")";
@@ -199,7 +201,7 @@ public class UniqueEmployeeList implements Iterable<Employee> {
     }
 
     /**
-     * Get the lowest Salary employee and employee's name in the list.
+     * Gets the lowest Salary employee and employee's name in the list.
      */
     public String getLowestSalary() {
         double lowestSalary = Double.parseDouble(internalList.get(0).getSalary().value);
@@ -209,6 +211,8 @@ public class UniqueEmployeeList implements Iterable<Employee> {
             if (lowestSalary > Double.parseDouble(internalList.get(i).getSalary().value)) {
                 lowestSalary = Double.parseDouble(internalList.get(i).getSalary().value);
                 lowestSalaryEmployee = internalList.get(i).getName().fullName;
+            } else if (lowestSalary == Double.parseDouble(internalList.get(i).getSalary().value)){
+                lowestSalaryEmployee += ", " + internalList.get(i).getName().fullName;
             }
         }
         lowestSalaryResult = String.format("%.2f", lowestSalary) + " (" + lowestSalaryEmployee + ")";
@@ -216,16 +220,16 @@ public class UniqueEmployeeList implements Iterable<Employee> {
     }
 
     /**
-     * Get the average Salary expenses for all employee in the list.
+     * Gets the average Salary expenses for all employee in the list.
      */
-    public double getAvgSalary() {
-        double avgSalary;
-        avgSalary = getTotalSalary() / internalList.size();
-        return avgSalary;
+    public double getAverageSalary() {
+        double averageSalary;
+        averageSalary = getTotalSalary() / internalList.size();
+        return averageSalary;
     }
 
     /**
-     * Get the Longest Tenure employee and employee's name in the list.
+     * Gets the Longest Tenure employee and employee's name in the list.
      */
     public String getLongestTenure() {
         Date todaysDate = new Date();
@@ -243,6 +247,8 @@ public class UniqueEmployeeList implements Iterable<Employee> {
                 if (longest < diffInMillies) {
                     longest = diffInMillies;
                     employeeName = internalList.get(i).getName().fullName;
+                } else if (longest == diffInMillies){
+                    employeeName += ", " + internalList.get(i).getName().fullName;
                 }
             }
         } catch (Exception e) {
@@ -257,7 +263,7 @@ public class UniqueEmployeeList implements Iterable<Employee> {
     }
 
     /**
-     * Get the Shortest Tenure employee and employee's name in the list.
+     * Gets the Shortest Tenure employee and employee's name in the list.
      */
     public String getShortestTenure() {
         int totalYears = 0;
@@ -278,6 +284,8 @@ public class UniqueEmployeeList implements Iterable<Employee> {
                 if (shortest > diffInMillies) {
                     shortest = diffInMillies;
                     employeeName = internalList.get(i).getName().fullName;
+                } else if (shortest == diffInMillies)){
+                    employeeName += ", " + internalList.get(i).getName().fullName;
                 }
             }
 
@@ -293,16 +301,16 @@ public class UniqueEmployeeList implements Iterable<Employee> {
     }
 
     /**
-     * Get the Average Tenure for all employee in the list.
+     * Gets the Average Tenure for all employee in the list.
      */
-    public String getAvgTenure() {
+    public String getAverageTenure() {
         Date todaysDate = new Date();
         Date dateOfJoin;
         long diffInMillies;
         long yearMiniSec = Long.parseLong("31536000000");
         long dayMiniSec = Long.parseLong("86400000");
         long totalMillies = 0;
-        long avgTensure = 0;
+        long averageTensure = 0;
 
         try {
             for (int i = 0; i < internalList.size(); i++) {
@@ -313,9 +321,9 @@ public class UniqueEmployeeList implements Iterable<Employee> {
         } catch (Exception e) {
             System.out.println(e.toString());
         }
-        avgTensure = totalMillies / internalList.size();
-        int totalYears = (int) (avgTensure / yearMiniSec);
-        int days = (int) (avgTensure / dayMiniSec - (totalYears * 365));
+        averageTensure = totalMillies / internalList.size();
+        int totalYears = (int) (averageTensure / yearMiniSec);
+        int days = (int) (averageTensure / dayMiniSec - (totalYears * 365));
         return totalYears + " Year(s) " + days + " Day(s)";
     }
 
