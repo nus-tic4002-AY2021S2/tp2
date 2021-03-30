@@ -192,7 +192,7 @@ public class UniqueEmployeeList implements Iterable<Employee> {
             if (highestSalary < Double.parseDouble(internalList.get(i).getSalary().value)) {
                 highestSalary = Double.parseDouble(internalList.get(i).getSalary().value);
                 highestSalaryEmployee = internalList.get(i).getName().fullName;
-            } else if (highestSalary == Double.parseDouble(internalList.get(i).getSalary().value)){
+            } else if (highestSalary == Double.parseDouble(internalList.get(i).getSalary().value)) {
                 highestSalaryEmployee += ", " + internalList.get(i).getName().fullName;
             }
         }
@@ -211,7 +211,7 @@ public class UniqueEmployeeList implements Iterable<Employee> {
             if (lowestSalary > Double.parseDouble(internalList.get(i).getSalary().value)) {
                 lowestSalary = Double.parseDouble(internalList.get(i).getSalary().value);
                 lowestSalaryEmployee = internalList.get(i).getName().fullName;
-            } else if (lowestSalary == Double.parseDouble(internalList.get(i).getSalary().value)){
+            } else if (lowestSalary == Double.parseDouble(internalList.get(i).getSalary().value)) {
                 lowestSalaryEmployee += ", " + internalList.get(i).getName().fullName;
             }
         }
@@ -247,7 +247,7 @@ public class UniqueEmployeeList implements Iterable<Employee> {
                 if (longest < diffInMillies) {
                     longest = diffInMillies;
                     employeeName = internalList.get(i).getName().fullName;
-                } else if (longest == diffInMillies){
+                } else if (longest == diffInMillies) {
                     employeeName += ", " + internalList.get(i).getName().fullName;
                 }
             }
@@ -284,7 +284,7 @@ public class UniqueEmployeeList implements Iterable<Employee> {
                 if (shortest > diffInMillies) {
                     shortest = diffInMillies;
                     employeeName = internalList.get(i).getName().fullName;
-                } else if (shortest == diffInMillies)){
+                } else if (shortest == diffInMillies) {
                     employeeName += ", " + internalList.get(i).getName().fullName;
                 }
             }
