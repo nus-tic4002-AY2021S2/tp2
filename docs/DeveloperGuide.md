@@ -403,7 +403,19 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 5a. The command entered is in the wrong format.
     * 5a1. Employee Tracker shows an error message.<br>
       Use case ends.
-      
+
+**Use case: Sort an employee record by name**
+
+**MSS**
+1. User requests to sort employee records by name.
+2. Employee Tracker displays a success message together with the sorted employee records.<br>
+   Use case ends.
+
+**Extensions**
+* 6a. The command entered is in the wrong format.
+    * 6a1. Employee Tracker shows an error message.<br>
+      Use case ends.
+            
 *{More to be added}*
 
 
