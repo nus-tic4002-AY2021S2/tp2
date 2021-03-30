@@ -132,7 +132,7 @@ public class EmployeeTracker implements ReadOnlyEmployeeTracker {
      */
     public String getStatement() {
         String statement = "";
-        statement += "Total Employees: " + employees.getNoOfemployees() + "\n";
+        statement += "Total Employees: " + employees.getNoOfEmployees() + "\n";
         statement += "Total Salary: $" + String.format("%.2f", employees.getTotalSalary()) + "\n";
         statement += "Highest Salary: $" + employees.getHighestSalary() + "\n";
         statement += "Lowest Salary: $" + employees.getLowestSalary() + "\n";

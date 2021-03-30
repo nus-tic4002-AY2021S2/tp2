@@ -165,7 +165,7 @@ public class UniqueEmployeeList implements Iterable<Employee> {
     /**
      * Gets the number of employees in the list.
      */
-    public int getNoOfemployees() {
+    public int getNoOfEmployees() {
         return this.internalList.size();
     }
 
@@ -310,7 +310,7 @@ public class UniqueEmployeeList implements Iterable<Employee> {
         long yearMiniSec = Long.parseLong("31536000000");
         long dayMiniSec = Long.parseLong("86400000");
         long totalMillies = 0;
-        long averageTensure = 0;
+        long averageTenure = 0;
 
         try {
             for (int i = 0; i < internalList.size(); i++) {
@@ -321,9 +321,9 @@ public class UniqueEmployeeList implements Iterable<Employee> {
         } catch (Exception e) {
             System.out.println(e.toString());
         }
-        averageTensure = totalMillies / internalList.size();
-        int totalYears = (int) (averageTensure / yearMiniSec);
-        int days = (int) (averageTensure / dayMiniSec - (totalYears * 365));
+        averageTenure = totalMillies / internalList.size();
+        int totalYears = (int) (averageTenure / yearMiniSec);
+        int days = (int) (averageTenure / dayMiniSec - (totalYears * 365));
         return totalYears + " Year(s) " + days + " Day(s)";
     }
 
