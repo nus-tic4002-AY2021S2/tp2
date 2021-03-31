@@ -150,15 +150,15 @@ Example of usage:
 Finds employee records that have any of the given keywords in their name/role/address/date of birth/phone number.
 
 Format: `find TYPE/KEYWORD…`
-* `TYPE` must be the letter `n` or `r` or `a` or `b` or `p`.
+* `TYPE` must be the letter `n`, `r`, `a`, `b` or `p`.
 * If `TYPE` is `n`, the search will be based on name.
 * If `TYPE` is `r`, the search will be based on role.
 * If `TYPE` is `a`, the search will be based on address.
 * If `TYPE` is `b`, the search will be based on date of birth.
 * If `TYPE` is `p`, the search will be based on phone number.
 * The search is case-insensitive. E.g. keyword `john` will match `John`.
-* Only exact words will be matched. E.g. keyword `Jon` will not match `John`.
-* Exception for the phone number search, it allows a partial match of value at least 3 digits long.
+* Only exact words will be matched. E.g. keyword `Joh` will not match `John`.
+* Exception for the phone number search: it allows a partial match of value at least 3 digits long.
 * Employee records matching at least one keyword will be returned. E.g. keywords `John Wong` will return `John Lam` and `Bernice Wong`.
 
 Examples of usage:
@@ -218,6 +218,6 @@ Action | Format, Examples
 **Edit** | `edit INDEX [n/NAME] [r/ROLE] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [b/DATE_OF_BIRTH] [j/DATE_OF_JOINING] [s/SALARY] [t/TAG]…` <br> E.g. `edit 1 p/91821748 s/8000 t/Mentor t/l33tCoder`
 **Delete** | `delete INDEX`<br> E.g. `delete 2`
 **Sort** | `sort TYPE` <br> E.g. `sort n`
-**Find** | `find TYPE/KEYWORD`<br> E.g. `find n/John Bernice Andy`, `find r/Developer`, `find a/Serangoon`, `find b/1992-05-28`, `find p/910`
+**Find** | `find TYPE/KEYWORD`<br> E.g. `find n/David Bernice`, `find r/Developer`, `find a/Serangoon`, `find b/1992-05-28`, `find p/910`
 **Stats** | `stats`
 **Clear** | `clear`
