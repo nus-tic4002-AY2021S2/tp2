@@ -123,6 +123,7 @@ Format `followUp INDEX f/FOLLOWUP`
 
 * A red exclamation icon will appear with a "Call Today!" message when the last day of the follow-up date is the same as today.
 * You can stop the follow-up by setting it to 0.
+* The follow up days must be between 0 to 365;
 
 Examples:
 
