@@ -51,7 +51,7 @@ public class SendCommand extends Command {
                     number = Integer.parseInt(obj.toString().trim());
                     numberExsit = true;
                 } else {
-                    if (email == "") {
+                    if (email.equals("")) {
                         message = message.concat(obj.toString() + " ");
                     }
                 }
@@ -60,13 +60,17 @@ public class SendCommand extends Command {
 
 
         if (number > model.getFilteredPersonList().size() || number <= 0) {
-            return new CommandResult(String.format(MESSAGE_INVALID));
+            return new CommandResult(String.format(MESSAGE_USAGE));
         } else {
-            if (email == "") {
+            if (email.equals("") && !message.equals("")) {
                 email = getEmail(model.getFilteredPersonList().get(number - 1).toString());
+            } else {
+                return new CommandResult(String.format(MESSAGE_USAGE));
             }
-            if (message == "") {
+            if (message.equals("") && !email.equals("")) {
                 message = model.getFilteredPersonList().get(number - 1).toString();
+            } else {
+                return new CommandResult(String.format(MESSAGE_INVALID));
             }
             System.out.println(" email is " + email);
             System.out.println(" Message is " + message);

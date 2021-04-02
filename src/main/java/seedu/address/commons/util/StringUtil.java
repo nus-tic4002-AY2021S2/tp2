@@ -30,10 +30,16 @@ public class StringUtil {
 
         //System.out.println(word);
         String preppedWord = word.trim().toLowerCase();
+        System.out.println("preppedWord" +preppedWord);
 
         if (preppedWord.contains("/")) {
             obj = preppedWord.split("/", 2);
+            System.out.println("hi" + obj[0]);
+            System.out.println("2" + obj[1]);
             preppedWord = obj[1];
+            if (preppedWord.equals("")) {
+                return false;
+            }
         }
 
         checkArgument(!preppedWord.isEmpty(), "Word parameter cannot be empty");
