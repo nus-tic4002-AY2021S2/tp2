@@ -19,12 +19,10 @@ public class NameContainsKeywordsPredicate implements Predicate<Person> {
     @Override
     public boolean test(Person person) {
         if (keywords.isEmpty()) {
-            System.out.println("lol");
             keywords.stream().anyMatch(
                 keyword -> StringUtil.containsWordIgnoreCase(person.getName().fullName, keyword));
             return false;
         } else {
-            System.out.println("lo2");
             String obj = keywords.get(0).toLowerCase();
             if (obj.substring(obj.indexOf("/") + 1).trim().isEmpty()) {
                 return true;

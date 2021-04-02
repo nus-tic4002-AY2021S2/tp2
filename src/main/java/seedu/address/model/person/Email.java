@@ -3,6 +3,9 @@ package seedu.address.model.person;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
+import seedu.address.commons.util.EmailUtil;
+
+
 /**
  * Represents a Person's email in the address book.
  * Guarantees: immutable; is valid as declared in {@link #isValidEmail(String)}
@@ -44,7 +47,7 @@ public class Email {
      * Returns if a given string is a valid email.
      */
     public static boolean isValidEmail(String test) {
-        return test.matches(VALIDATION_REGEX);
+        return new EmailUtil(test).checkEmail();
     }
 
     @Override

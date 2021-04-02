@@ -39,7 +39,7 @@ public class FollowUpCommandTest {
         FollowUpCommand followUpCommand = new FollowUpCommand(INDEX_FIRST_PERSON,
                 new FollowUp(editedPerson.getFollowUp().value));
 
-        String expectedMessage = String.format(FollowUpCommand.MESSAGE_ADD_FOLLOWUP_SUCCESS, editedPerson);
+        String expectedMessage = "The follow up days has been changed.";
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setPerson(firstPerson, editedPerson);
@@ -58,7 +58,7 @@ public class FollowUpCommandTest {
 
         FollowUpCommand followUpCommand = new FollowUpCommand(INDEX_FIRST_PERSON,
                 new FollowUp(editedPerson.getFollowUp().toString()));
-        String expectedMessage = String.format(FollowUpCommand.MESSAGE_ADD_FOLLOWUP_SUCCESS, editedPerson);
+        String expectedMessage = "The follow up days has been changed.";
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setPerson(firstPerson, editedPerson);

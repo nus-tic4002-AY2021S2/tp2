@@ -7,6 +7,7 @@ import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
 import org.junit.jupiter.api.Test;
 
+import seedu.address.commons.util.EmailUtil;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
@@ -21,11 +22,9 @@ public class SendCommandTest {
     public void invalidEmailAddress() {
 
         String email = "hello.com";
-        String[] command = new String[0];
 
-        SendCommand sendCommand = new SendCommand(command);
         try {
-            assertEquals(sendCommand.getEmail(email), "No valid email address found");
+            assertEquals(new EmailUtil(email).getEmail(), "No valid email address found");
         } catch (CommandException e) {
             e.printStackTrace();
         }

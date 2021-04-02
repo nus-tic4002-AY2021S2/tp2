@@ -2,9 +2,7 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
+import seedu.address.commons.util.EmailUtil;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.notification.SendEmail;
@@ -38,10 +36,9 @@ public class SendCommand extends Command {
         int number = 0;
 
         for (Object obj : keywords) {
-            System.out.println(obj);
             if (obj.toString().contains("e/")) {
                 String[] data = obj.toString().split("e/", 2);
-                email = getEmail(data[1].trim());
+                email = new EmailUtil(data[1].trim()).getEmail();
                 message = "";
                 if (number != 0) {
                     break;
@@ -60,17 +57,17 @@ public class SendCommand extends Command {
 
 
         if (number > model.getFilteredPersonList().size() || number <= 0) {
-            return new CommandResult(String.format(MESSAGE_USAGE));
+            return new CommandResult(String.format(MESSAGE_INVALID));
         } else {
             if (email.equals("") && !message.equals("")) {
-                email = getEmail(model.getFilteredPersonList().get(number - 1).toString());
+                email = new EmailUtil(model.getFilteredPersonList().get(number - 1).toString()).getEmail();
             } else {
                 return new CommandResult(String.format(MESSAGE_USAGE));
             }
             if (message.equals("") && !email.equals("")) {
                 message = model.getFilteredPersonList().get(number - 1).toString();
             } else {
-                return new CommandResult(String.format(MESSAGE_INVALID));
+                return new CommandResult(String.format(MESSAGE_USAGE));
             }
             System.out.println(" email is " + email);
             System.out.println(" Message is " + message);
@@ -81,16 +78,6 @@ public class SendCommand extends Command {
         }
     }
 
-    public String getEmail(String email) throws CommandException {
-        String regex = ".*(\\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}\\b).*";
-        Pattern p = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
-        Matcher m = p.matcher(email);
-        if (m.matches()) {
-            return m.group(1);
-        } else {
-            throw new CommandException("No valid email address found");
-        }
-    }
 
     /**
      * checking the number
