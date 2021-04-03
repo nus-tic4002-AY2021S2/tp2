@@ -28,12 +28,12 @@ public class StringUtil {
         requireNonNull(word);
         String[] obj;
 
-        //System.out.println(word);
         String preppedWord = word.trim().toLowerCase();
 
         if (preppedWord.contains("/")) {
             obj = preppedWord.split("/", 2);
             preppedWord = obj[1];
+
         }
 
         checkArgument(!preppedWord.isEmpty(), "Word parameter cannot be empty");

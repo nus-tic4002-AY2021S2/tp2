@@ -30,11 +30,15 @@ public class FollowUpTest {
         assertFalse(FollowUp.isValidFollowUp("9011p041")); // alphabets within digits
         assertFalse(FollowUp.isValidFollowUp("@%"));
         assertFalse(FollowUp.isValidFollowUp("9312 1534")); // spaces within digits
+        assertFalse(FollowUp.isValidFollowUp("366"));
+        assertFalse(FollowUp.isValidFollowUp("-1"));
+
 
         // valid followUp
         assertTrue(FollowUp.isValidFollowUp("3")); // exactly 3 numbers
-        assertTrue(FollowUp.isValidFollowUp("93121534"));
-        assertTrue(FollowUp.isValidFollowUp("124293842033123")); // long phone numbers
+        assertTrue(FollowUp.isValidFollowUp("0")); // exactly 3 numbers
+        assertTrue(FollowUp.isValidFollowUp("365")); // exactly 3 numbers
+
     }
 
 }
