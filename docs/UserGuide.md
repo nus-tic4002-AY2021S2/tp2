@@ -24,30 +24,30 @@ Addressbook NS Edition (ABNS) is a **desktop app for managing contacts, optimize
 1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
 
-  
-   * **`help`** : Shows a message explaining how to access the help page.
-   
-   * **`listGroup all`** : Shows a list of all groups  in the address book.
 
-   * **`create`** : Creates a new group to the address book.
+* **`help`** : Shows a message explaining how to access the help page.
 
-   * **`list g/[GROUP NAME]`** : Lists all persons in a particular group.
+* **`show`** : Shows a list of all groups  in the address book.
 
-   * **`delete`** : Deletes the specified group from the address book.
+* **`create`**`g/[GROUP NAME]` : Creates a new group to the address book.
 
-   * **`assignptg`** : Assign a person by using his name to the specified group. 
+* **`listfromgrp`**`g/[GROUP NAME]` : Lists all persons in a particular group.
 
-   * **`rename`** : Renaming an existing group to another name. 
+* **`deletegrp`**`[GROUP INDEX]` : Deletes the specified group from the address book.
 
-   * **`list`** : Lists all contacts.
+* **`assignptg`**`n/[PERSON NAME] g/[GROUP NAME]` : Assign a person by using his name to the specified group.
 
-   * **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the Address Book.
+* **`rename`**`[GROUP INDEX] g/[NEW GROUP NAME]` : Renaming an existing group to another name.
 
-   * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
+* **`list`** : Lists all contacts.
 
-   * **`clear`** : Deletes all contacts.
+* **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 g/A` : Adds a contact named `John Doe` to the Address Book.
 
-   * **`exit`** : Exits the app.
+* **`delete`**`3` : Deletes the 3rd contact shown in the current list.
+
+* **`clear`** : Deletes all contacts.
+
+* **`exit`** : Exits the app.
 
 1. Refer to the [Features](#features) below for details of each command.
 

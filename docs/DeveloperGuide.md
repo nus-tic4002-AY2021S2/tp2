@@ -262,6 +262,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user                                       | update a person                | update entries that has changed information                            |
 | `* * *`  | user                                       | create a new group             | classify soldiers by the groups for different purposes                 |
 | `* * *`  | user                                       | delete a group                 | remove the groups that I no longer need                                |
+| `* * *`  | user                                       | assign a person to group                 | change the group that the person belongs to                                |
+| `* * *`  | user                                       | rename a group                 | change the group name without making migration in the group people                               |
 | `* * *`  | user                                       | list all groups                | keep track of what has been created in the system                      |
 | `* * *`  | user                                       | list all persons in a group    | give a punishment or a reward to soldiers in the specific group        |
 | `* * *`  | user                                       | load groups from json file     | the previous record will be maintained                                 |
@@ -307,6 +309,52 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 2.  AddressBook shows a list of groups
 3.  User requests to delete a specific group in the list
 4.  AddressBook deletes the group
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+
+* 3a. The given index is invalid.
+
+    * 3a1. AddressBook shows an error message.
+
+      Use case resumes at step 2.
+
+**Use case: Delete all person from group**
+
+**MSS**
+
+1.  User requests to list groups
+2.  AddressBook shows a list of groups
+3.  User requests to assign person to a specific group in the list
+4.  user request to delete all person in that group
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+
+* 3a. The given index is invalid.
+
+    * 3a1. AddressBook shows an error message.
+
+      Use case resumes at step 2.
+
+**Use case: rename a group**
+
+**MSS**
+
+1.  User requests to list group
+2.  AddressBook shows a list of groups
+3.  User requests to rename a specific group in the list by using the group index 
+4.  AddressBook rename the group
 
     Use case ends.
 
