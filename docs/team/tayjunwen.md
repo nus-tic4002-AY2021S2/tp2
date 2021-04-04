@@ -2,17 +2,15 @@
 
 ## Objectives
 
-A software Engineering project focusing on the implementation of a Green Field Project with an empahsis on Team work with different team members that adopts a software iterative approach to development. This software underwent 3 iteration during its development.
+A software Engineering project focusing on the implementation of a Brown Field Project with an empahsis on Team work with different team members that adopts a software iterative approach to development. This software underwent 4 iteration during its development.
 
 ## Overview
 
-### Project: IT logger
+### Project: NS Addressbook
 
-Developed using JAVA, IT Logger is a desktop app for managing software issues during development and production. It is used for tracking issue resolution from defect inception till resolution via a Command Line Interface (CLI).
+Developed using JAVA, IT Logger is a desktop app for managing military personel during regular operation. It is used for tracking the personel details and the respective grouping they belong to via a Command Line Input panel (CLI) and displays the contact details in a Graphical User interface (GUI).
 
-It can be used for managing the Quality Control (QC) of different project during its SDLC.
-
-It has features similar to most defect tracking softwares such as JIRA & HP ALM.
+It can be used for managing the different attributes of the serviceman by placing them into groups which represent those common attribute.
 
 The project is built based on the User Story collected.
 
