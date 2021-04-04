@@ -300,6 +300,27 @@ The following sequence diagram shows how the sort operation works:
 The following activity diagram summarizes what happens when a user executes a sort command:
 ![ActivityDiagram_SortCommand](images/SortActivityDiagram.png)
 
+### Stats feature
+#### Implementation of stats feature
+
+The `stats` command implemented using the `StatsCommand` class, which extends the `Command` class, and the `statsCommandParser` class, which implements the `Parser<StatsCommand>` class. Upon receiving an input string that has `stats` as the fist word, the `Employee Tracker` object will instantiate an `stats` object with the `statement` string. The user can see stats for all employee.
+
+* `stats` the stats of all employee will be state on the UI.
+
+These operations exposed in the `StatsCommand()` class.
+* Step 1: The user executes `stats` command to see employee stats.
+* Step 2: The `LogicManager` object calls `EmployeeTrackerParser#parseCommand(commandText)` to parse the user command;
+* Step 3: The `EmployeeTrackerParser#parseCommand()` calls `statsCommandParser#parse()`;
+* Step 4: The `statsCommandParser#parse()` calls `statsCommand()` to instantiate an `statsCommand` object.
+* Step 5: The `statsCommand#execute()` calls `model#UniqueEmployeeList` to state stats for all employee.
+* Step 6: The `util#EmoloyeeTracker` will call the `getStatements()` and state the stats on UI.
+
+The following sequence diagram shows how the stats operation works:
+![SequenceDiagram_StatsCommand](images/statsCommandSequenceDiagram.png)
+
+The following activity diagram summarizes what happens when a user executes a stats command:
+![ActivityDiagram_StatsCommand](images/statsActivityDiagram.png)
+
 
 --------------------------------------------------------------------------------------------------------------------
 
