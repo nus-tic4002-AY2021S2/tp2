@@ -55,6 +55,20 @@
     "address" : "John street, block 123, #01-01",
     "tagged" : [ ],
     "group" : "N/A"
+  }, {
+    "name" : "Betsy Crowe",
+    "phone" : "1234567",
+    "email" : "betsycrowe@example.com",
+    "address" : "Newgate Prison",
+    "tagged" : [ "friend" ],
+    "group" : "N/A"
+  }, {
+    "name" : "Pokky Chan",
+    "phone" : "1234567",
+    "email" : "betsycrowe@example.com",
+    "address" : "Newgate Prison",
+    "tagged" : [ "friend", "criminal" ],
+    "group" : "A"
   } ],
   "groups" : [ {
     "group" : "N/A"
@@ -64,5 +78,13 @@
     "group" : "B"
   }, {
     "group" : "C"
+  }, {
+    "group" : "D"
+  }, {
+    "group" : "K"
+  }, {
+    "group" : "P"
+  }, {
+    "group" : "J"
   } ]
 }
