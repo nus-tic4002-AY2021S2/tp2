@@ -129,7 +129,7 @@ public class ParserUtil {
      */
     public static Group parseGroup(String group) throws ParseException {
         String checkedGroup = group.trim();
-        if(checkedGroup.isEmpty()) {
+        if (checkedGroup.isEmpty()) {
             throw new ParseException(MESSAGE_EMPTY_INPUT);
         }
         requireNonNull(checkedGroup);
