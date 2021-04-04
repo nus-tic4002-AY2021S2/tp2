@@ -51,7 +51,11 @@ public class AssignPersonToGroupCommand extends Command {
         }
 
         model.assignPersonToGroup(this.group, person);
-        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+
+        if (model.countPersonInGroup(Model.predicateShowAllPersonsInGroup(this.group)) > 0) {
+            model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+        }
+
         return new CommandResult(String.format(MESSAGE_SUCCESS, name, group));
     }
 }
