@@ -1,9 +1,15 @@
 package seedu.address.logic.parser;
 
+import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TIME;
+
+import java.text.SimpleDateFormat;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.AddAppointmentCommand;
+import seedu.address.logic.commands.AddMedicalCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 
@@ -19,21 +25,31 @@ public class AddAppointmentCommandParser implements Parser<AddAppointmentCommand
      * @throws ParseException if the user input does not conform the expected format
      */
     public AddAppointmentCommand parse(String args) throws ParseException {
+        requireNonNull(args);
+        ArgumentMultimap argMultimap =
+                ArgumentTokenizer.tokenize(args, PREFIX_TIME, PREFIX_DESCRIPTION);
+        Index index;
+
         try {
-            Index index = ParserUtil.parseIndex(args.trim().split(" ")[0]);
-            String s = args;
+            index = ParserUtil.parseIndex(argMultimap.getPreamble());
 
-            String description = s.substring(s.indexOf("/d") + 3, s.indexOf("/t"));
-
-            String dateString = s.substring(s.indexOf("/t") + 3);
-
-            return new AddAppointmentCommand(index, description.trim(), dateString);
-        } catch (ParseException pe) {
-            throw new ParseException(
-                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddAppointmentCommand.MESSAGE_USAGE), pe);
-        } catch (Exception e) {
-            throw new ParseException(
-                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddAppointmentCommand.MESSAGE_USAGE), e);
+            if (argMultimap.getValue(PREFIX_TIME).isPresent() && argMultimap.getValue(PREFIX_DESCRIPTION).isPresent()) {
+                String timeString = argMultimap.getValue(PREFIX_TIME).get();
+                String description = argMultimap.getValue(PREFIX_DESCRIPTION).get();
+                if (description.equals("") || description == null) {
+                    throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+                            AddMedicalCommand.MESSAGE_USAGE));
+                }
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY-MM-DD HH:mm:ss");
+                simpleDateFormat.parse(timeString);
+                return new AddAppointmentCommand(index, description.trim(), timeString);
+            } else {
+                throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+                        AddAppointmentCommand.MESSAGE_USAGE));
+            }
+        } catch (ParseException | java.text.ParseException pe) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+                    AddAppointmentCommand.MESSAGE_USAGE), pe);
         }
     }
 
