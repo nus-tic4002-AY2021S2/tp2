@@ -281,33 +281,32 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1.  User requests to list groups
-2.  AddressBook shows a list of groups
-3.  User requests to assign person to a specific group in the list
-4.  user request to delete all person in that group
+1.  User wants to create a group
+2.  User enter the create group command
+3.  NS Addressbook create group
 
     Use case ends.
 
 **Extensions**
 
-* 2a. The list is empty.
+* 2a. The create group name is empty.
 
-  Use case ends.
+    * 2a1. AddressBook shows an error message.
+    
+* 2b. The create group function is used wrongly.
 
-* 3a. The given index is invalid.
+    * 2b1. AddressBook shows an error message.
 
-    * 3a1. AddressBook shows an error message.
+* 2c. The group aready exists.
 
-      Use case resumes at step 2.
+    * 2c1. AddressBook shows an error message.
 
 **Use case: Show all group**
 
 **MSS**
 
-1.  User requests to list groups
+1.  User requests to list all groups
 2.  AddressBook shows a list of groups
-3.  User requests to assign person to a specific group in the list
-4.  user request to delete all person in that group
 
     Use case ends.
 
@@ -316,12 +315,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 2a. The list is empty.
 
   Use case ends.
-
-* 3a. The given index is invalid.
-
-    * 3a1. AddressBook shows an error message.
-
-      Use case resumes at step 2.
 
 **Use case: Delete a person**
 
@@ -376,22 +369,19 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 1.  User requests to list groups
 2.  AddressBook shows a list of groups
-3.  User requests to assign person to a specific group in the list
-4.  user request to delete all person in that group
+3.  user request to delete all person in that group
 
     Use case ends.
 
 **Extensions**
 
-* 2a. The list is empty.
+* 2a. The list of all group is empty.
 
   Use case ends.
 
-* 3a. The given index is invalid.
+* 3a. No one is assigned to that group.
 
-    * 3a1. AddressBook shows an error message.
-
-      Use case resumes at step 2.
+  Use case ends.
 
 **Use case: rename a group**
 
