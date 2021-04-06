@@ -57,7 +57,7 @@ public class DeleteMedicalCommand extends Command {
         Person editedPerson = personToDelApp;
         List<MedicalHistory> sortedList = new ArrayList<>(editedPerson.getMedicalHistories());
         Collections.sort(sortedList);
-        if (secondIndex > sortedList.size()){
+        if (secondIndex > sortedList.size()) {
             return new CommandResult(String.format(OUT_INDEX_MESSAGE_USAGE, personToDelApp),
                     OUT_INDEX_MESSAGE_USAGE);
         }

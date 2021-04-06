@@ -58,7 +58,7 @@ public class DeleteAppointmentCommand extends Command {
         Person editedPerson = personToDelApp;
         List<Appointment> sortedList = new ArrayList<>(editedPerson.getAppointments());
         Collections.sort(sortedList);
-        if (secondIndex > sortedList.size()){
+        if (secondIndex > sortedList.size()) {
             return new CommandResult(String.format(OUT_INDEX_MESSAGE_USAGE, editedPerson),
                     OUT_INDEX_MESSAGE_USAGE);
         }
