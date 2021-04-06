@@ -324,6 +324,28 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case resumes at step 2.
 
+**Use case: Delete all person from group**
+
+**MSS**
+
+1.  User requests to list groups
+2.  AddressBook shows a list of groups
+3.  User requests to assign person to a specific group in the list
+4.  user request to delete all person in that group
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+
+* 3a. The given index is invalid.
+
+    * 3a1. AddressBook shows an error message.
+
+      Use case resumes at step 2.
 
 **Use case: rename a group**
 
