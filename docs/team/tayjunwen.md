@@ -30,19 +30,19 @@ Implemented the following new function/feature:
 | Show all group created | ```show``` |
 | delete person from group | ```deletepsngrp g/<groupName>``` |
  
- ```create``` (Pull request:[#25]())
+ ```create``` (Pull request:[#25](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/25))
  * What it does:
     * It allows user to create different grouping to categorise serviceman.
  * Justification:
     * This makes it convienent to identify which serviceman have common attribute.
  
- ```show``` (Pull request: [#25]())
+ ```show``` (Pull request: [#25](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/25))
  * What it does: 
     * It allows user to display all groups that was created in Addressbook App.
  * Justification:
     * It allows user to gain an overview of which groups already exists in Addressbook App.
  
- ```deletepsngrp``` (Pull request: [#51]())
+ ```deletepsngrp``` (Pull request: [#51](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/51))
  * What it does:
     * It allows user to remove all contact placed in a particular group.
  * Justification:
@@ -56,9 +56,10 @@ Implemented the following new function/feature:
 
 ### Community Contribution
 
-* PRs reviewed [#26](), [#39](), [#61](), [#92]()
-* Reported Bugs (that was not from PE/PE trial) [#93](), [#48](), [#47]()
+* PRs reviewed [#26](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/26), [#39](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/39), [#61](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/61), [#92](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/92)
+* Reported Bugs (that was not from PE/PE trial) [#93](https://github.com/AY2021S2-TIC4002-F18-3/tp2/issues/93), [#48](https://github.com/AY2021S2-TIC4002-F18-3/tp2/issues/48), [#47](https://github.com/AY2021S2-TIC4002-F18-3/tp2/issues/47)
 * The some parts of the ```deletepsngrp``` function I wrote was adopted by Team Mate Januarius Jang for his own deletion implementation.
+* Fixed Bugs [#90](https://github.com/AY2021S2-TIC4002-F18-3/tp2/issues/90), [#84](https://github.com/AY2021S2-TIC4002-F18-3/tp2/issues/84), [#74](https://github.com/AY2021S2-TIC4002-F18-3/tp2/issues/74), [#72](https://github.com/AY2021S2-TIC4002-F18-3/tp2/issues/72), [#65](https://github.com/AY2021S2-TIC4002-F18-3/tp2/issues/65)
 
 ### Contributions to documentation:
 
