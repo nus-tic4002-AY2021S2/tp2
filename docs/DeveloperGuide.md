@@ -277,6 +277,52 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 (For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
 
+**Use case: Create a group**
+
+**MSS**
+
+1.  User requests to list groups
+2.  AddressBook shows a list of groups
+3.  User requests to assign person to a specific group in the list
+4.  user request to delete all person in that group
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+
+* 3a. The given index is invalid.
+
+    * 3a1. AddressBook shows an error message.
+
+      Use case resumes at step 2.
+
+**Use case: Show all group**
+
+**MSS**
+
+1.  User requests to list groups
+2.  AddressBook shows a list of groups
+3.  User requests to assign person to a specific group in the list
+4.  user request to delete all person in that group
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+
+* 3a. The given index is invalid.
+
+    * 3a1. AddressBook shows an error message.
+
+      Use case resumes at step 2.
+
 **Use case: Delete a person**
 
 **MSS**
