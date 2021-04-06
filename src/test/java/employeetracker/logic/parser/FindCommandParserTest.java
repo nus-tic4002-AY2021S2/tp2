@@ -68,6 +68,7 @@ public class FindCommandParserTest {
         assertParseSuccess(parser, "find b/          1990-01-01   \t", expectedFindCommand);
     }
 
+
     @Test
     public void parse_validArgsPhone_returnsFindCommand() {
         // no leading and trailing whitespaces
