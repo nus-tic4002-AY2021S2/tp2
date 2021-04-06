@@ -23,11 +23,20 @@ public class DeleteAppointmentCommandParser implements Parser<DeleteAppointmentC
             Index index = ParserUtil.parseIndex(args.trim().split(" ")[0]);
             Integer secondInd = Integer.parseInt(args.trim().split(" ")[1].trim());
 
+            if (secondInd == null) {
+                throw new ParseException(
+                        String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteAppointmentCommand.MESSAGE_USAGE));
+            }
+
             return new DeleteAppointmentCommand(index, secondInd);
         } catch (ParseException pe) {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteAppointmentCommand.MESSAGE_USAGE), pe);
+        } catch (Exception pe) {
+            throw new ParseException(
+                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteAppointmentCommand.MESSAGE_USAGE), pe);
         }
+
     }
 
 }

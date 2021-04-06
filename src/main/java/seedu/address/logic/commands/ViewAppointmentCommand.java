@@ -30,7 +30,12 @@ public class ViewAppointmentCommand extends Command {
 
     public static final String COMMAND_WORD = "viewApp";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all appointment of this person";
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all appointment of this person, please enter"
+            + " the id of the person you want to \nview appointments, for example : \n"
+            + "usage 'viewApp 1'";
+
+    public static final String SUCCESS_MESSAGE_USAGE = COMMAND_WORD + ": This person's appointment "
+            + "details has been listed.";
 
     private final Index targetIndex;
 
@@ -57,8 +62,8 @@ public class ViewAppointmentCommand extends Command {
         editedPerson.setViewAppInd(true);
         model.setPerson(personToShowAppointment, editedPerson);
 
-        return new CommandResult(String.format(MESSAGE_USAGE, personToShowAppointment),
-                MESSAGE_USAGE);
+        return new CommandResult(String.format(SUCCESS_MESSAGE_USAGE, personToShowAppointment),
+                SUCCESS_MESSAGE_USAGE);
     }
 
     private static Person createEditedPerson(Person personToEdit,
