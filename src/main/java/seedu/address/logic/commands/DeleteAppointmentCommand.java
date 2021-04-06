@@ -28,6 +28,9 @@ public class DeleteAppointmentCommand extends Command {
     public static final String SUCCESS_MESSAGE_USAGE = COMMAND_WORD + ": Appointment has been successfully deleted"
             + " for this patient.";
 
+    public static final String OUT_INDEX_MESSAGE_USAGE = COMMAND_WORD + ": Appointment index is out of bound, please "
+            + "check again.";
+
     private final Index targetIndex;
 
     private final Integer secondIndex;
@@ -55,6 +58,10 @@ public class DeleteAppointmentCommand extends Command {
         Person editedPerson = personToDelApp;
         List<Appointment> sortedList = new ArrayList<>(editedPerson.getAppointments());
         Collections.sort(sortedList);
+        if (secondIndex > sortedList.size()) {
+            return new CommandResult(String.format(OUT_INDEX_MESSAGE_USAGE, editedPerson),
+                    OUT_INDEX_MESSAGE_USAGE);
+        }
         sortedList.remove(secondIndex - 1);
         Set<Appointment> editedSet = new HashSet<>(sortedList);
         editedPerson.setAppointments(editedSet);
