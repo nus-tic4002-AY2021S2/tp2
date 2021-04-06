@@ -303,7 +303,7 @@ The following activity diagram summarizes what happens when a user executes a so
 ### Stats feature
 #### Implementation of stats feature
 
-The `stats` command implemented using the `StatsCommand` class, which extends the `Command` class, and the `statsCommandParser` class, which implements the `Parser<StatsCommand>` class. Upon receiving an input string that has `stats` as the fist word, the `Employee Tracker` object will instantiate an `stats` object with the `statement` string. The user can see stats for all employee.
+The `stats` command implemented using the `StatsCommand` class, which extends the `Command` class, and the `statsCommandParser` class, which implements the `Parser<StatsCommand>` class. Upon receiving an input string that has `stats`, the `Employee Tracker` object will instantiate an `stats` object with the `statement` string. The user can see stats for all employee.
 
 * `stats` the stats of all employee will be state on the UI.
 
