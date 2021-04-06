@@ -8,7 +8,7 @@ A software Engineering project focusing on the implementation of a Brown Field P
 
 ### Project: NS Addressbook
 
-Developed using JAVA, IT Logger is a desktop app for managing military personel during regular operation. It is used for tracking the personel details and the respective grouping they belong to via a Command Line Input panel (CLI) and displays the contact details in a Graphical User interface (GUI).
+Developed using JAVA, NS Addressbook is a desktop app for managing military personel during regular operation. It is used for tracking the personel details and the respective grouping they belong to via a Command Line Input panel (CLI) and displays the contact details in a Graphical User interface (GUI).
 
 It can be used for managing the different attributes of the serviceman by placing them into groups which represent those common attribute.
 
@@ -16,7 +16,7 @@ The project is built based on the User Story collected.
 
 ### Code Contributed
 
-* [Link to RepoSense](https://nus-tic4001-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=&sort=groupTitle&sortWithin=title&since=2020-08-14&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other&tabOpen=true&tabType=authorship&tabAuthor=tototto&tabRepo=AY2021S1-TIC4001-3%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code)
+* [Link to RepoSense](https://nus-tic4002-ay2021s2.github.io/tp-dashboard/?search=&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code~other&since=&tabOpen=true&tabType=authorship&tabAuthor=tototto&tabRepo=AY2021S2-TIC4002-F18-3%2Ftp2%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTyacpes=docs~functional-code~test-code~other)
 
 ### Enhancements implemented:
 
@@ -24,20 +24,22 @@ Implemented the following function:
 
 |Action|Format, Examples|
 |--------|----------|
-| list | ```list``` |
-| Search| ```search /title /<title>``` <br> ```search /status /<status>``` <br>``` search /severity /<severityNum>``` <br> ```search /owner /<owner> ```<br> ```search /deadline /<deadlineDateString(dd-MM-yyyy)>``` |
+| Create a group | ```create g/<groupName>``` |
+| Show all group created | ```show``` |
+| delete person from group | ```deletepsngrp g/<groupName>``` |
   
- The ```list``` function was created to allow different users to view the total list of defects present in the IT Logger
- It was subsequently enhanced to perform listing based on different types & category such as severity, deadline and etc. It is a must have feature in for usage.
+ The ```create``` function was created to allow different users to create different ways of categorising serviceman.
  
- The ```search``` function was created to allow users to look up all defects present in the IT Logger that meets certain search criteria. The list of which can be found   above.
+ The ```show``` function was created to allow users to look up all group created in the IT Logger.
+ 
+ The ```deletepsngrp``` function was created to allow users to remove all users from an assigned group. This is to clear the group of any users.
 
 ### Contributions to documentation:
 
 ##### Contribution to the User Guide:
 
 Assisted to produce the Feature & Command Summary Section.
-Also Collaborated & Worked together with the team on the remaining parts of the UG. Jiancheng consolidated the submission to teams repo.
+Also Collaborated & Worked together with the team on the remaining parts of the UG.
 
 ##### Contributions to the Developer Guide:
 
@@ -49,16 +51,12 @@ Also Collaborated & Collaborated & Worked together with the team for the rest of
 
  1. Setup the Repo in preparation for the project (e.g. creating the Repo, implementing Repo security setup, etc)
  2. Advising and reminding team to utilise project tools such as style guide checker to avoid Continuous Integration failure.
- 3. Setting up of Team mile stone, creating incidents and moving User stories into them for easy tracking
- 4. Perform basic manual testing during early stages of development. Raised bugs and issues.
- 5. Contributed ideas during discussions in weekly meetings.
- 6. Set forward each iteration task and planning to ensure smooth project progress.
- 7. Perform code enhancement for Logging and Assertion.
- 8. Assist to create the setup of additional Junit Testcases.
-
-### Review/mentoring contributions: 
-
-Assisted team members to resolve technical issue and provided articles to assist in their problem resolution within Team's internal chat.
+ 3. Setting up of first Team mile stone, creating incidents and moving User stories into them for easy tracking
+ 4. Created and used GitHub Project Management Tool (under Repo Project tab) to track project task and managed their status (inprogress, completed, which milestone they belong to).
+ 5. Perform basic manual testing during early stages of development. Raised bugs and issues.
+ 6. Contributed ideas during discussions in weekly meetings during project conception.
+ 7. Set forward each iteration sprint task and planning to ensure smooth project progress.
+ 8. Contributed to pair programming with Jian Cheng during first week of project by when He was building the project skeleton.
 
 ### Contributions beyond the project team:
 
