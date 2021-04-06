@@ -32,4 +32,51 @@ public class FindCommandParserTest {
         assertParseSuccess(parser, "find n/  Alice      Bob  \t", expectedFindCommand);
     }
 
+    @Test
+    public void parse_validArgsRole_returnsFindCommand() {
+        // no leading and trailing whitespaces
+        FindCommand expectedFindCommand =
+                new FindCommand(new NameContainsKeywordsPredicate(Arrays.asList("Developer", "Manager"), "r/"));
+
+        assertParseSuccess(parser, "find r/ Developer Manager", expectedFindCommand);
+
+        // multiple whitespaces between keywords
+        assertParseSuccess(parser, "find r/  Developer      Manager  \t", expectedFindCommand);
+    }
+
+    @Test
+    public void parse_validArgsAddress_returnsFindCommand() {
+        // no leading and trailing whitespaces
+        FindCommand expectedFindCommand =
+                new FindCommand(new NameContainsKeywordsPredicate(Arrays.asList("Block", "Street"), "a/"));
+
+        assertParseSuccess(parser, "find a/ Block Street", expectedFindCommand);
+
+        // multiple whitespaces between keywords
+        assertParseSuccess(parser, "find a/  Block       Street   \t", expectedFindCommand);
+    }
+
+    @Test
+    public void parse_validArgsBirthday_returnsFindCommand() {
+        // no leading and trailing whitespaces
+        FindCommand expectedFindCommand =
+                new FindCommand(new NameContainsKeywordsPredicate(Arrays.asList("1990-01-01"), "b/"));
+
+        assertParseSuccess(parser, "find b/ 1990-01-01", expectedFindCommand);
+
+        // multiple whitespaces between keywords
+        assertParseSuccess(parser, "find b/          1990-01-01   \t", expectedFindCommand);
+    }
+
+    @Test
+    public void parse_validArgsPhone_returnsFindCommand() {
+        // no leading and trailing whitespaces
+        FindCommand expectedFindCommand =
+                new FindCommand(new NameContainsKeywordsPredicate(Arrays.asList("123456789"), "p/"));
+
+        assertParseSuccess(parser, "find p/ 123456789 ", expectedFindCommand);
+
+        // multiple whitespaces between keywords
+        assertParseSuccess(parser, "find p/ 123456789            \t", expectedFindCommand);
+    }
 }
