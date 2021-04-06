@@ -30,19 +30,19 @@ Implemented the following new function/feature:
 | Show all group created | ```show``` |
 | delete person from group | ```deletepsngrp g/<groupName>``` |
  
- ```create``` (Pull request: #25)
+ ```create``` (Pull request:[#25]())
  * What it does:
     * It allows user to create different grouping to categorise serviceman.
  * Justification:
     * This makes it convienent to identify which serviceman have common attribute.
  
- ```show``` (Pull request: #25)
+ ```show``` (Pull request: [#25]())
  * What it does: 
     * It allows user to display all groups that was created in Addressbook App.
  * Justification:
     * It allows user to gain an overview of which groups already exists in Addressbook App.
  
- ```deletepsngrp``` (Pull request: #51)
+ ```deletepsngrp``` (Pull request: [#51]())
  * What it does:
     * It allows user to remove all contact placed in a particular group.
  * Justification:
@@ -56,8 +56,8 @@ Implemented the following new function/feature:
 
 ### Community Contribution
 
-* PRs reviewed #26, #39, #61, #92
-* Reported Bugs (that was not from PE/PE trial) #93, #48, #47
+* PRs reviewed [#26](), [#39](), [#61](), [#92]()
+* Reported Bugs (that was not from PE/PE trial) [#93](), [#48](), [#47]()
 * The some parts of the ```deletepsngrp``` function I wrote was adopted by Team Mate Januarius Jang for his own deletion implementation.
 
 ### Contributions to documentation:
@@ -70,7 +70,10 @@ Also Collaborated & Worked together with the team on the remaining parts of the 
 
 ##### Contributions to the Developer Guide:
 
-Assisted to upload members UML object diagram's, created description for the developer guide and created Class diagram to illustrate program for ```UI``` and ```Finder``` component. Added the implementation of ```search``` function and feature of ItLogger such as the description, sequence diagram & design consideration. 
+* Worked on the User Stories 
+* Worked on the Use Case (UC) for Deleting All Person From Group
+* Worked on the Use Case (UC) for Create Group
+* Worked on the Use Case (UC) for Show Group
 
 Also Collaborated & Collaborated & Worked together with the team for the rest of the items. Jiancheng consolidated the remaning submission to teams repo.
 
