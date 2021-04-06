@@ -2,7 +2,7 @@
 
 ## Objectives
 
-A software Engineering project focusing on the implementation of a Brown Field Project with an empahsis on Team work with different team members that adopts a software iterative approach to development. This software underwent 4 iteration during its development.
+A software Engineering project focusing on the implementation of a Brown Field Project with an empahsis on Team work with different team members that adopts a software iterative approach to development. This software underwent 4 iteration during its development. It is written in JAVA.
 
 ## Overview
 
@@ -14,31 +14,58 @@ It can be used for managing the different attributes of the serviceman by placin
 
 The project is built based on the User Story collected.
 
+Given below are my contribution to the project:
+
 ### Code Contributed
 
 * [Link to RepoSense](https://nus-tic4002-ay2021s2.github.io/tp-dashboard/?search=&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code~other&since=&tabOpen=true&tabType=authorship&tabAuthor=tototto&tabRepo=AY2021S2-TIC4002-F18-3%2Ftp2%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTyacpes=docs~functional-code~test-code~other)
 
 ### Enhancements implemented:
 
-Implemented the following function:
+Implemented the following new function/feature:
 
 |Action|Format, Examples|
 |--------|----------|
 | Create a group | ```create g/<groupName>``` |
 | Show all group created | ```show``` |
 | delete person from group | ```deletepsngrp g/<groupName>``` |
-  
- The ```create``` function was created to allow different users to create different ways of categorising serviceman.
  
- The ```show``` function was created to allow users to look up all group created in the IT Logger.
+ ```create``` (Pull request: #25)
+ * What it does:
+    * It allows user to create different grouping to categorise serviceman.
+ * Justification:
+    * This makes it convienent to identify which serviceman have common attribute.
  
- The ```deletepsngrp``` function was created to allow users to remove all users from an assigned group. This is to clear the group of any users.
+ ```show``` (Pull request: #25)
+ * What it does: 
+    * It allows user to display all groups that was created in Addressbook App.
+ * Justification:
+    * It allows user to gain an overview of which groups already exists in Addressbook App.
+ 
+ ```deletepsngrp``` (Pull request: #51)
+ * What it does:
+    * It allows user to remove all contact placed in a particular group.
+ * Justification:
+    * It provides the convinence to the user in a sense that it allows them to remove ALL user beloning to a group all at once. user do not have to delete individual contact from a group one by one.
+
+### Contributions to Project Management:
+
+* Managed release ```v1.2 tP trial JAR release``` on Github
+* Created and managed the first milestone ```v1.1``` and some parts of ```v1.2```
+* Created and managed the Project Progress using the ```Project``` function of GitHub to track project task progress and their completion using project cards for ```v1.1``` to ```v1.4```
+
+### Community Contribution
+
+* PRs reviewed #26, #39, #61, #92
+* Reported Bugs (that was not from PE/PE trial) #93, #48, #47
+* The some parts of the ```deletepsngrp``` function I wrote was adopted by Team Mate Januarius Jang for his own deletion implementation.
 
 ### Contributions to documentation:
 
 ##### Contribution to the User Guide:
 
 Assisted to produce the Feature & Command Summary Section.
+* Added documentation for ```create```, ```show``` and ```deletepsngrp```
 Also Collaborated & Worked together with the team on the remaining parts of the UG.
 
 ##### Contributions to the Developer Guide:
