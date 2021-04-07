@@ -2,11 +2,16 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_GROUP;
+import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
+
+import java.util.ArrayList;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.group.Group;
+import seedu.address.model.group.GroupList;
+import seedu.address.model.person.Person;
 
 public class RenameGroupCommand extends Command {
     public static final String COMMAND_WORD = "rename";
@@ -41,6 +46,18 @@ public class RenameGroupCommand extends Command {
         }
 
         assert model.hasGroup(this.group);
+
+        Group groupName = GroupList.getGroup(targetIndex.getOneBased() + 1);
+        if (model.countPersonInGroup(Model.predicateShowAllPersonsInGroup(groupName)) > 0) {
+            //throw new CommandException(Messages.MESSAGE_PERSON_IN_GROUP);
+            //new DeleteAllPersonFromGroupCommand(groupName);
+            ArrayList<Person> personInGroup = model.getPersonListInThisGroup(groupName);
+            for (int i = 0; i < personInGroup.size(); i++) {
+                Person person = personInGroup.get(i);
+                model.assignPersonToGroup(this.group, person);
+            }
+            model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+        }
 
         //To '+1' here in the index is due to the groupList is start from 2. Index 1 is reserved for N/A,
         // which shouldn't be renamed
