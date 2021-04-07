@@ -220,7 +220,7 @@ _{Explain here how the data archiving feature will be implemented}_
 --------------------------------------------------------------------------------------------------------------------
 
 ### Add feature
-#### Implementation
+#### Implementation of add feature
 
 The `add` command is implemented using the `AddCommand` class, which extends the `Command` class; and the `AddCommandParser` class, which implements the `Parser` class. Upon receiving a user command that has `add` as the first word, the following object interactions will occur, resulting in the instantiation of an `AddCommand` object:
 
@@ -363,7 +363,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user                                       | sort employee records by name            | view employee records in alphabetical order                       |
 | `* * *`  | user                                       | sort employee records by date of joining | find the employees who stayed the shortest/longest in the company |
 | `* * *`  | user                                       | sort employee records by date of birth   | find the youngest/oldest employees in the company                 |
-| `* * *`  | user                                       | list all employee records      | view all my employees' information                                     |
 | `* * *`  | user                                       | view summary statistics     | obtain a basic overview of my workforce                                   |
 
 *{More to be added}*
