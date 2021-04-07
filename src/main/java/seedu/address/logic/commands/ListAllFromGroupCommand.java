@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_GROUP;
 import static seedu.address.model.Model.predicateShowAllPersonsInGroup;
 
+import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.group.Group;
 
@@ -14,7 +15,7 @@ public class ListAllFromGroupCommand extends Command {
 
     public static final String COMMAND_WORD = "listfromgrp";
 
-    public static final String MESSAGE_SUCCESS = "Listed all persons from the group";
+    public static final String MESSAGE_SUCCESS = "Listed all persons from the group: ";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": List persons in the group. "
             + "Parameters: " + PREFIX_GROUP + "NAME ";
@@ -30,9 +31,12 @@ public class ListAllFromGroupCommand extends Command {
     }
 
     @Override
-    public CommandResult execute(Model model) {
+    public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
+        if (!model.hasGroup(toList)) {
+            throw new CommandException("This group does not exist.");
+        }
         model.updateFilteredPersonList(predicateShowAllPersonsInGroup(toList));
-        return new CommandResult(MESSAGE_SUCCESS);
+        return new CommandResult(MESSAGE_SUCCESS + toList.toString());
     }
 }
