@@ -60,7 +60,8 @@ public class Appointment implements Comparable<Appointment> {
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof Appointment // instanceof handles nulls
-                && appointmentDescription.equals(((Appointment) other).appointmentDescription)); // state check
+                && appointmentDescription.equals(((Appointment) other).appointmentDescription)
+                && date.equals(((Appointment) other).date)); // state check
     }
 
     @Override

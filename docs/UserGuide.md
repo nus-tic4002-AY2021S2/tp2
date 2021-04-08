@@ -175,7 +175,7 @@ Format: `addApp INDEX /d DESCRIPTION /t DATETIME`
 * The index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
-* `list` followed by `addApp 2 /d Check-up /d 2021-03-18 10:00:00` add checkup appointment on datetime to the 2nd patient in the patient book.
+* `list` followed by `addApp 2 /d Check-up /t 2021-03-18 10:00:00` add checkup appointment on datetime to the 2nd patient in the patient book.
 
 ### Deleting Appointment from Patient : `deleteApp`
 
@@ -190,7 +190,7 @@ Format: `deleteApp USERINDEX APPOINTMENTINDEX`
 * The userIndex and appointmentIndex **must be a positive integer** 1, 2, 3, …​
 
 Examples:
-* `view Betsy` followed by `deleteApp 1 3` deletes the 3rd appointment from 1st patient in the results of the `view` command.
+* `find Betsy` followed by `deleteApp 1 3` deletes the 3rd appointment from 1st patient in the results of the `find` command.
 
 ### Viewing Medical Record of Patient : `viewMed`
 
