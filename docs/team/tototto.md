@@ -28,7 +28,7 @@ Implemented the following new function/feature:
 |--------|----------|
 | Create a group | ```create g/<groupName>``` |
 | Show all group created | ```show``` |
-| delete person from group | ```deletepsngrp g/<groupName>``` |
+| delete every person from a group | ```deletepsngrp g/<groupName>``` |
  
  ```create``` (Pull request:[#25](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/25))
  * What it does:
