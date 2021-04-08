@@ -45,10 +45,13 @@
  * Landpage updating
  * Project milstone close
  * Issue assign and help others debug issue.
+ * Helping others to review bugs and verify them
+ * Checking UG and close all UG bugs ( issue #77, #78, #79, #80, #83)
  
  ### Contribution to DG:
  
- * Generate Architecture class diagram
- * Generate IssueList component diagram
- * In charge of description of IssueList component and Common component
- * Generate Update sequence diagram
+ * Add use cases on assign a person to group and rename group
+
+ ### Contribution to UG:
+ * Checking UG and close all UG bugs ( issue #77, #78, #79, #80, #83)
+ * Fining UG and make sure the info tally with what implemented.
