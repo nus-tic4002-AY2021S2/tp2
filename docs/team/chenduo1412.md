@@ -16,10 +16,10 @@ Given below are my contributions to the project.
   * Highlights: This function needs to traverse the entire list and calculate the required data. The calculation of tenure is more complicated, by comparing the milliseconds between two dates and converting them into days. At the same time, there are many people with the same salary/tenure, and find the matching names by traversing the list.
 
 
-* **Code contributed**: 
-  [chenduo1412/tp2.git](https://github.com/chenduo1412/tp2)  
+* **Code contributed**:
+  [chenduo1412/tp2.git](https://github.com/chenduo1412/tp2)
   [RepoSense link](https://nus-tic4002-ay2021s2.github.io/tp-dashboard/#breakdown=true&search=chenduo1412)
-  
+
 * **Documentation**:
   * User Guide:
     * Added documentation for the features `stats`. (Pull requests [\#57](https://github.com/AY2021S2-TIC4002-F18-2/tp2/pull/57), [\#98](https://github.com/AY2021S2-TIC4002-F18-2/tp2/pull/98) )
@@ -27,10 +27,8 @@ Given below are my contributions to the project.
   * Developer Guide:
     * Added implementation details of the `stats` feature. (Pull requests [\#22](https://github.com/AY2021S2-TIC4002-F18-2/tp2/pull/22), [\#151](https://github.com/AY2021S2-TIC4002-F18-2/tp2/pull/151) )
     * Added User Stories of the `stats` feature. (Pull requests [\#38](https://github.com/AY2021S2-TIC4002-F18-2/tp2/pull/38), [\#54](https://github.com/AY2021S2-TIC4002-F18-2/tp2/pull/54))
-    
+
 * **Community**:
   * Contributed to forum discussions (examples: [1](https://github.com/chenduo1412/ped/issues/1), [2](https://github.com/chenduo1412/ped/issues/2), [3](https://github.com/chenduo1412/ped/issues/3), [4](https://github.com/chenduo1412/ped/issues/4), [5](https://github.com/chenduo1412/ped/issues/5), [6](https://github.com/chenduo1412/ped/issues/6), [7](https://github.com/chenduo1412/ped/issues/7), [8](https://github.com/chenduo1412/ped/issue/8), [9](https://github.com/chenduo1412/ped/issues/9))
 
 
- 
-   
