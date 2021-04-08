@@ -190,7 +190,7 @@ Format: `deleteApp USERINDEX APPOINTMENTINDEX`
 * The userIndex and appointmentIndex **must be a positive integer** 1, 2, 3, …​
 
 Examples:
-* `view Betsy` followed by `deleteApp 1 3` deletes the 3rd appointment from 1st patient in the results of the `view` command.
+* `find Betsy` followed by `deleteApp 1 3` deletes the 3rd appointment from 1st patient in the results of the `find` command.
 
 ### Viewing Medical Record of Patient : `viewMed`
 
