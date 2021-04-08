@@ -149,7 +149,7 @@ Examples:
 * `list` followed by `delete 2` deletes the 2nd patient in the patient book.
 * `find Betsy` followed by `delete 1` deletes the 1st patient in the results of the `find` command.
 
-### Adding Appointment to Patient : `viewApp`
+### Viewing Appointment of Patient : `viewApp`
 
 View appointment of a specified patient from the Patient book.
 
@@ -175,7 +175,7 @@ Format: `addApp INDEX /d DESCRIPTION /t DATETIME`
 * The index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
-* `list` followed by `addApp 2 /d Check-up /d 2021-03-18 10:00:00` add checkup appointment on datetime to the 2nd patient in the patient book.
+* `list` followed by `addApp 2 /d Check-up /t 2021-03-18 10:00:00` add checkup appointment on datetime to the 2nd patient in the patient book.
 
 ### Deleting Appointment from Patient : `deleteApp`
 
@@ -192,7 +192,7 @@ Format: `deleteApp USERINDEX APPOINTMENTINDEX`
 Examples:
 * `view Betsy` followed by `deleteApp 1 3` deletes the 3rd appointment from 1st patient in the results of the `view` command.
 
-### Adding Appointment to Patient : `viewMed`
+### Viewing Medical Record of Patient : `viewMed`
 
 View medical records of a specified patient from the Patient book.
 
@@ -206,9 +206,9 @@ Examples:
 * `list` followed by `viewMed 2` display all medical records of 2nd patient in the patient book.
 * `find Betsy` followed by `viewMed 1` display all medical records of the 1st patient in the results of the `find` command.
 
-### Adding Appointment to Patient : `addMed`
+### Adding Medical Record to Patient : `addMed`
 
-Adds a medical records to specified patient from the Patient book.
+Add a medical record to specified patient from the Patient book.
 
 Format: `addMed INDEX /d DESCRIPTION`
 
@@ -220,9 +220,9 @@ Examples:
 * `list` followed by `addMed 2 /d Surgery` add medical records to 2nd patient in the patient book.
 * `find Betsy` followed by `addMed 1 /d Surgery` add medical records to 1st patient in the results of the `find` command.
 
-### Deleting Appointment from Patient : `deleteMed`
+### Deleting Medical Record from Patient : `deleteMed`
 
-Deletes the specified medical records from specified patient from the Patient book.
+Delete the specified medical records from specified patient from the Patient book.
 
 Format: `deleteMed USERINDEX RECORDINDEX`
 
@@ -235,7 +235,7 @@ Examples:
 * `list` followed by `deleteMed 2 1` deletes the 1st medical record of the 2nd patient in the patient book.
 * `view Betsy` followed by `deleteMed 1 3` deletes the 3rd medical records from 1st patient in the results of the `view` command.
 
-### View of Appointment on Today : `appNotification`
+### View of Notification on Today : `appNotification`
 
 View all appointments in the Patient Book that are scheduled for today.
 
