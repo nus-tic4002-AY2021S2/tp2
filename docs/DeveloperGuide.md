@@ -406,6 +406,29 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case resumes at step 2.
 
+**Use case: assign a person to group**
+
+**MSS**
+
+1.  User requests to list group
+2.  AddressBook shows a list of groups
+3.  User requests to assign a specific person to group in the list by using the person name and group name
+4.  AddressBook assign the person to the group
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+
+* 3a. The given person name or group name is invalid.
+
+    * 3a1. AddressBook shows an error message.
+
+      Use case resumes at step 2.
+
 *{More to be added}*
 
 ### Non-Functional Requirements

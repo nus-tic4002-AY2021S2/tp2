@@ -29,19 +29,21 @@ Addressbook NS Edition (ABNS) is a **desktop app for managing contacts, optimize
 
 * **`show`** : Shows a list of all groups  in the address book.
 
-* **`create`**`g/[GROUP NAME]` : Creates a new group to the address book.
+* **`create`**`g/GROUP_NAME` : Creates a new group to the address book.
 
-* **`listfromgrp`**`g/[GROUP NAME]` : Lists all persons in a particular group.
+* **`listfromgrp`**`g/GROUP_NAME` : Lists all persons in a particular group.
 
-* **`deletegrp`**`[GROUP INDEX]` : Deletes the specified group from the address book.
+* **`deletegrp`**`GROUP_INDEX` : Deletes the specified group from the address book.
 
-* **`assignptg`**`n/[PERSON NAME] g/[GROUP NAME]` : Assign a person by using his name to the specified group.
+* **`assignptg`**`n/PERSON_NAME g/GROUP_NAME` : Assign a person by using his name to the specified group.
 
-* **`rename`**`[GROUP INDEX] g/[NEW GROUP NAME]` : Renaming an existing group to another name.
+* **`rename`**`GROUP_INDEX g/GROUP_NAME` : Renaming the existing group at the index to another name.
 
 * **`list`** : Lists all contacts.
 
-* **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 g/A` : Adds a contact named `John Doe` to the Address Book.
+* **`add`**n/NAME p/CONTACT_NUMBER e/EMAIL a/ADDRESS [t/TAG]... [g/GROUP] : Adds a contact named to the Address Book.
+* E.g_1: `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #1-01 g/A`
+* E.g_2: `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #1-01 t/B`
 
 * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
 
@@ -92,7 +94,7 @@ Format: `help`
 
 Adds a person to the address book.
 
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
+Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​ [g/GROUP]`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 A person can have any number of tags (including 0)
@@ -115,7 +117,7 @@ Format: `list`
 
 Edits an existing person in the address book.
 
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
+Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​[g/GROUP]`
 
 * Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
@@ -123,6 +125,7 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
 * When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
 * You can remove all the person’s tags by typing `t/` without
     specifying any tags after it.
+* Edit group, eg: `edit 1 g/A1` is allowed but make sure the group does exist. Otherwise there's nothing will happen. 
 
 Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
@@ -237,12 +240,12 @@ Examples:
 
 Lists all persons in a particular group.
 
-Format: `list g/<GROUP NAME>`
+Format: `listfromgrp g/<GROUP NAME>`
 
 * The group name  is case-insensitive. e.g IPPT will match ippt
 
 Examples:
-*  `list g/PERFORMANCE ` Lists all persons in PERFORMANCE.
+*  `listfromgrp g/PERFORMANCE ` Lists all persons in PERFORMANCE.
 
 
 ### Deleting a group: `deletegrp`
@@ -287,10 +290,17 @@ _Details coming soon ..._
 
 Action | Format, Examples
 --------|------------------
-**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
+**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG] [g/GROUP]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`<br>`add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #1-01 g/A`
 **Clear** | `clear`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
 **Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **List** | `list`
 **Help** | `help`
+**create** | `create g/GROUP`<br> e.g.`create g/Testing A`
+**show** | `show`<br> e.g.`show`
+**assignptg** | `assignptg n/NAME g/GROUP`<br> e.g.`assignptg n/John g/AA`
+**rename** | `rename INDEX g/GROUP`<br> e.g.`rename 1 g/testing`
+**deletegrp** | `deletegrp INDEX`<br> e.g.`deletegrp 1`
+**deletepsngrp** | `deletepsngrp g/GROUP`<br> e.g.`deletepsngrp g/BB`
+**listfromgrp** | `listfromgrp g/GROUP`<br> e.g.`listfromgrp g/CC`
