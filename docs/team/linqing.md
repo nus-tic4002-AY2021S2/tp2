@@ -41,7 +41,7 @@ This app helps to manage their investigative cases by having people’s detailed
 * Add use case for delete a person, edit a person and send email to the person[#63](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/63/files)
 * Did cosmetic tweaks to existing documentation.
 
-### Contributions to team-based tasks*:
+### Contributions to team-based tasks:
 * Setting up tools e.g., Github webpage, assertion-enabled in build.gradle
 * Maintaining the issue tracker to create issue in version 1.1, 1.3, 1.4 and  close issue tacker in version 1.1, 1.2, 1.2b, 1.3, and put a label on it.
 * Maintaining the milestone to create milestone with deadline in version 1.2, 1,3, 1.4 and close the milestone in version 1.1, 1.2, 1.3.
@@ -49,8 +49,7 @@ This app helps to manage their investigative cases by having people’s detailed
 * Updating developer docs that are not specific to a feature such as command summary
 * Delete irrelevant picture(png) in our project
 
-* *Community*:
-
+### Community:
 * PRs reviewed (with non-trivial review comments): [#107](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/107), [#18](https://github.com/AY2021S2-TIC4002-F18-1/tp2/issues/18), [#36](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/36)
 * Reported bugs and suggestions: [#129](https://github.com/AY2021S2-TIC4002-F18-1/tp2/issues/129),[#128](https://github.com/AY2021S2-TIC4002-F18-1/tp2/issues/128),[#127](https://github.com/AY2021S2-TIC4002-F18-1/tp2/issues/127),[#126](https://github.com/AY2021S2-TIC4002-F18-1/tp2/issues/126),[#124](https://github.com/AY2021S2-TIC4002-F18-1/tp2/issues/124)
 
@@ -132,3 +131,4 @@ It will return a `CommandResult` to the `LogicManager` that will return to user.
 
   <br>
   We have decided to opt for the first option primarily because it is more convenient to the user as compare to alternative 2. 
+  
