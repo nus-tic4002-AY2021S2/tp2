@@ -56,19 +56,19 @@
     "tagged" : [ ],
     "group" : "N/A"
   }, {
-    "name" : "Betsy Crowe",
-    "phone" : "1234567",
-    "email" : "betsycrowe@example.com",
-    "address" : "Newgate Prison",
-    "tagged" : [ "friend" ],
-    "group" : "N/A"
-  }, {
     "name" : "Pokky Chan",
     "phone" : "1234567",
     "email" : "betsycrowe@example.com",
     "address" : "Newgate Prison",
     "tagged" : [ "friend", "criminal" ],
     "group" : "A"
+  }, {
+    "name" : "Betsy Crowe",
+    "phone" : "1234567",
+    "email" : "betsycrowe@example.com",
+    "address" : "Newgate Prison",
+    "tagged" : [ ],
+    "group" : "N/A"
   } ],
   "groups" : [ {
     "group" : "N/A"

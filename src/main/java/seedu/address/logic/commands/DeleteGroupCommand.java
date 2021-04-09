@@ -27,6 +27,7 @@ public class DeleteGroupCommand extends Command {
             + "Example: " + COMMAND_WORD + " 1";
 
     public static final String MESSAGE_SUCCESS = "Group deleted successfully: %1$s";
+    public static final String MESSAGE_WARNING = "This index is not valid. Please check";
     private final Index targetIndex;
 
     public DeleteGroupCommand(Index targetIndex) {
@@ -36,7 +37,10 @@ public class DeleteGroupCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-
+        if (targetIndex.getOneBased() > (GroupList.getGroupListSize() - 1)) {
+            //group size has one hidden element, the N/A group. This needs to be deducted.
+            return new CommandResult(String.format(MESSAGE_WARNING));
+        }
         Group groupName = GroupList.getGroup(targetIndex.getOneBased() + 1);
         if (model.countPersonInGroup(Model.predicateShowAllPersonsInGroup(groupName)) > 0) {
             //throw new CommandException(Messages.MESSAGE_PERSON_IN_GROUP);
@@ -49,6 +53,7 @@ public class DeleteGroupCommand extends Command {
             model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         }
         GroupList.deleteGroup(targetIndex.getOneBased() + 1);
+        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         return new CommandResult(String.format(MESSAGE_SUCCESS, groupName.toString()));
     }
 }

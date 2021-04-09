@@ -40,7 +40,7 @@ public class Person {
         this.address = address;
         this.tags.addAll(tags);
         if (!GroupList.hasGroup(group) && !group.toString().equals("N/A")) {
-            throw new GroupNotFoundException();
+            throw new GroupNotFoundException("The group is not exist");
         }
         assert GroupList.hasGroup(group) || group.toString().equals("N/A");
         this.group.setGroupName(group.toString());
