@@ -27,7 +27,7 @@ public class FollowUpCommandParser implements Parser<FollowUpCommand> {
             index = ParserUtil.parseIndex(argMultimap.getPreamble());
             ParserUtil.parseFollowUp(argMultimap.getValue(PREFIX_FOLLOWUP).orElseThrow());
         } catch (IllegalValueException | NoSuchElementException e) {
-            throw new ParseException(FollowUpCommand.MESSAGE_INVALID, e);
+            throw new ParseException(FollowUpCommand.MESSAGE_USAGE, e);
         }
 
         String followUp = argMultimap.getValue(PREFIX_FOLLOWUP).orElse("");
