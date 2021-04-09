@@ -49,7 +49,8 @@ Implemented the following new function/feature:
 
 ### Contributions to Project Management:
 
-* Managed release ```v1.2 tP trial JAR release``` on Github
+* Managed release ```v1.4 tP Final JAR release``` on Github
+* Managed release ```v1.2 tP Trial JAR release``` on Github
 * Created and managed the first milestone ```v1.1``` and some parts of ```v1.2```
 * Created and managed the Project Progress using the ```Project``` function of GitHub to track project task progress and their completion using project cards for ```v1.1``` to ```v1.4```
 
