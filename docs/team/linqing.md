@@ -57,21 +57,21 @@ This app helps to manage their investigative cases by having people’s detailed
 ### Contributions to the Developer Guide (Extracts):
 
 * *Update*
-![Structure of the Model Component](images/ModelClassDiagram.png)
-![BetterModelClassDiagram](images/BetterModelClassDiagram.png)
+[Structure of the Model Component](https://github.com/linqing42/tp2/blob/master/docs/images/ModelClassDiagram.png)
+[BetterModelClassDiagram](https://github.com/linqing42/tp2/blob/master/docs/images/BetterModelClassDiagram.pngg)
 
 * *Add feature*:
 The `AddCommand` feature allows the user to add a new person and save it to the address book.
 
 #### Implementation
 Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("add n/John Doe d/22-02-2021 i/S2731125H p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 de/This man stole 3 times r/shop theft t/NeverCalled")` API call.
-![Interactions Inside the Logic Component for the `add n/John Doe d/22-02-2021 i/S2731125H p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 de/This man stole 3 times r/shop theft t/NeverCalled` Command](images/AddCommandSequenceDiagram.png)
+[Interactions Inside the Logic Component for the `add n/John Doe d/22-02-2021 i/S2731125H p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 de/This man stole 3 times r/shop theft t/NeverCalled` Command](https://github.com/linqing42/tp2/blob/master/docs/images/AddCommandSequenceDiagram.png)
 <div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `AddCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
 <br>
 The following activity diagram summarizes what happens when a user executes addCommand feature:
 
-![AddCommandActivityDiagram](images/AddCommandActivityDiagram.png)
+[AddCommandActivityDiagram](https://github.com/linqing42/tp2/blob/master/docs/images/AddCommandActivityDiagram.png)
 
 The `add` command facilitated by `AddClaimCommand`which extends the `Command` class and the `AddCommandParser` class, which implements the `Parser` class.
 This operation takes in a String input from the user that will create `Person` objects based on the following prefixes and parameters:
