@@ -314,31 +314,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 2a. The list is empty.
 
-  Use case ends.
-
-**Use case: Delete a person**
-
-**MSS**
-
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
-
-    Use case ends.
-
-**Extensions**
-
-* 2a. The list is empty.
-
-  Use case ends.
-
-* 3a. The given index is invalid.
-
-    * 3a1. AddressBook shows an error message.
-
-      Use case resumes at step 2.
-      
+  Use case ends.   
 
 **Use case: Delete a group**
 
@@ -362,6 +338,24 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 3a1. AddressBook shows an error message.
 
       Use case resumes at step 2.
+      
+**Use case: List all persons from a group**
+
+**MSS**
+
+1.  User requests to list all groups
+2.  AddressBook shows a list of groups
+3.  User requests to list all persons from a specific group.
+4.  AddressBook shows the persons from this group.
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The group is not exist.
+    * 2a1. AddressBook shows an error message.
+
+  Use case ends.    
 
 **Use case: Delete all person from group**
 
@@ -401,6 +395,29 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
   Use case ends.
 
 * 3a. The given index is invalid.
+
+    * 3a1. AddressBook shows an error message.
+
+      Use case resumes at step 2.
+
+**Use case: assign a person to group**
+
+**MSS**
+
+1.  User requests to list group
+2.  AddressBook shows a list of groups
+3.  User requests to assign a specific person to group in the list by using the person name and group name
+4.  AddressBook assign the person to the group
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+
+* 3a. The given person name or group name is invalid.
 
     * 3a1. AddressBook shows an error message.
 

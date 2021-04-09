@@ -1,6 +1,5 @@
-# Tay Jun Wen - Project Portfolio Page
 
-## Objectives
+## Objectives 
 
 A software Engineering project focusing on the implementation of a Brown Field Project with an empahsis on Team work with different team members that adopts a software iterative approach to development. This software underwent 4 iteration during its development. It is written in JAVA.
 
@@ -50,7 +49,8 @@ Implemented the following new function/feature:
 
 ### Contributions to Project Management:
 
-* Managed release ```v1.2 tP trial JAR release``` on Github
+* Managed release ```v1.4 tP Final JAR release``` on Github
+* Managed release ```v1.2 tP Trial JAR release``` on Github
 * Created and managed the first milestone ```v1.1``` and some parts of ```v1.2```
 * Created and managed the Project Progress using the ```Project``` function of GitHub to track project task progress and their completion using project cards for ```v1.1``` to ```v1.4```
 
