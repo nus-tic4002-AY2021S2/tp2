@@ -15,7 +15,7 @@
       <padding>
         <Insets bottom="5" left="15" right="5" top="5" />
       </padding>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox prefWidth="200.0">
         <VBox.margin>
           <Insets top="5.0" />
         </VBox.margin>
@@ -40,7 +40,7 @@
               <Label layoutX="10.0" layoutY="44.0" styleClass="cell_small_label" text="Address:" />
               <Label layoutX="10.0" layoutY="61.0" styleClass="cell_small_label" text="Email:" />
             </VBox>
-            <VBox prefHeight="200.0">
+            <VBox prefWidth="400.0">
               <HBox>
                 <Label fx:id="date" styleClass="cell_small_label" text="\$date" />
                  <Label styleClass="cell_small_label" text="Follow-Up: ">

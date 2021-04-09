@@ -11,7 +11,6 @@ import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
@@ -70,7 +69,8 @@ public class FollowUpCommandTest {
     public void execute_invalidPersonIndexUnfilteredList_failure() {
         Index outOfBoundIndex = Index.fromOneBased(model.getFilteredPersonList().size() + 1);
         FollowUpCommand followUpCommand = new FollowUpCommand(outOfBoundIndex, new FollowUp(VALID_FOLLOWUP_BOB));
-        assertCommandFailure(followUpCommand, model, Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+        assertCommandFailure(followUpCommand, model, "Please enter a valid index number from 1 to "
+            + model.getAddressBook().getPersonList().size() + ".");
     }
 
     /**
@@ -86,7 +86,8 @@ public class FollowUpCommandTest {
 
         FollowUpCommand followUpCommand = new FollowUpCommand(outOfBoundIndex, new FollowUp(VALID_FOLLOWUP_BOB));
 
-        assertCommandFailure(followUpCommand, model, Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+        assertCommandFailure(followUpCommand, model, "Please enter a valid index number from 1 to "
+            + model.getAddressBook().getPersonList().size() + ".");
     }
 
 }
