@@ -4,12 +4,10 @@ title: Lin Qing's Project Portfolio Page
 ---
 
 ## Objectives
-
 A software Engineering project focusing on the implementation of a Brown Field Project with an empahsis on Team work with different team members that adopts a software iterative approach to development.
 
 ## Overview
 ### Project: Police address book
-
 A Police Address Book (PAB) is a desktop app. It is meant for Police Investigation Officers, optimized for use via a Command Line Interface (CLI) with a Graphical User Interface (GUI).
 This app helps to manage their investigative cases by having people’s detailed information, assisting in sending case detail emails to colleagues or call notification emails to people in the contact list and able to remind them to follow up on the case
 
@@ -17,7 +15,6 @@ This app helps to manage their investigative cases by having people’s detailed
 * *Code contributed*: [RepoSense link](https://nus-tic4002-ay2021s2.github.io/tp-dashboard/?search=&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs&since=&tabOpen=true&tabType=authorship&tabAuthor=linqing42&tabRepo=AY2021S2-TIC4002-F18-1%2Ftp2%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs)
 
 ### Enhancements implemented:
-
 * Add NRIC[#12](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/12/commits/7f0f89e695875f798962e907730cb7adba31b992)
 * Add or update AddCommand, EditCommand, NRIC Testcase[#12](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/12/commits/7f0f89e695875f798962e907730cb7adba31b992)
 * Show NRIC in the display app[#11](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/11/commits/5720199d60a7dd3cb124df46556856f2e65da626)
@@ -30,9 +27,10 @@ This app helps to manage their investigative cases by having people’s detailed
 * Debug the date, description and remark in editCommand feature[#85](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/85/commits)
 
 ### Contribution to Documentation:
-* *User Guide*:Did cosmetic tweaks to existing documentation of features and Contribute to documents regarding the NRIC,  help feature image, remark feature, adding a person feature, editing a person feature, find feature and command summary.[#12](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/12/commits/7f0f89e695875f798962e907730cb7adba31b992),[#40](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/40),
+#### User Guide:
+Did cosmetic tweaks to existing documentation of features and Contribute to documents regarding the NRIC,  help feature image, remark feature, adding a person feature, editing a person feature, find feature and command summary.[#12](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/12/commits/7f0f89e695875f798962e907730cb7adba31b992),[#40](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/40),
   [#37](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/37/files),[#63](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/63/files),[#93](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/93),[#11](https://github.com/AY2021S2-TIC4002-F18-1/tp2/commit/66bd69152821cde9491f172333aed676b117863e)[#29](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/29)
-* *Developer Guide*:
+#### Developer Guide:
 * Update ModelClassDiagram, BetterModelClassDiagram[#83](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/83/files),[#91](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/91/files)
 * Add AddCommandActivityDIagram,AddCommandSequenceDiagram [#83](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/83/files),[#91](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/91/files)
 * Add Implementation for add feature and all documents for addCommand feature.
