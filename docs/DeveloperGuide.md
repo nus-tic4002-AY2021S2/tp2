@@ -338,6 +338,24 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 3a1. AddressBook shows an error message.
 
       Use case resumes at step 2.
+      
+**Use case: List all persons from a group**
+
+**MSS**
+
+1.  User requests to list all groups
+2.  AddressBook shows a list of groups
+3.  User requests to list all persons from a specific group.
+4.  AddressBook shows the persons from this group.
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The group is not exist.
+    * 2a1. AddressBook shows an error message.
+
+  Use case ends.    
 
 **Use case: Delete all person from group**
 
