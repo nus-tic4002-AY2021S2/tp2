@@ -8,7 +8,7 @@ title: Lin Qing's Project Portfolio Page
 A software Engineering project focusing on the implementation of a Brown Field Project with an empahsis on Team work with different team members that adopts a software iterative approach to development.
 
 ## Overview
-=== Project: Police address book
+### Project: Police address book
 
 A Police Address Book (PAB) is a desktop app. It is meant for Police Investigation Officers, optimized for use via a Command Line Interface (CLI) with a Graphical User Interface (GUI).
 This app helps to manage their investigative cases by having people’s detailed information, assisting in sending case detail emails to colleagues or call notification emails to people in the contact list and able to remind them to follow up on the case
