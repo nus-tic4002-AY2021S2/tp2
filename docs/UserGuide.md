@@ -195,6 +195,8 @@ Format: `create g/<GROUP NAME>`
 
 Note: The create group will accept all characters as a valid name for the group. This includes special characters. Group name such as "!!!" or ".?" and etc. are considered valid group name. The purpose is to allow for flexibility such as the use of symbol in representing Groups. (e.g.) "!!!" could be a non-direct internal term or lingo for people in the military to refer to a group for something Highly Important.
 
+The group name is also case sensitive. 'A' is not the same as 'a'.
+
 Examples:
 *  `create g/FITNESS` Creates a group called Fitness
 *  `create g/COMBAT` Creates a group called COMBAT
