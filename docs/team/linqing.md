@@ -55,9 +55,8 @@ This app helps to manage their investigative cases by having people’s detailed
 
 ### Contributions to the Developer Guide (Extracts):
 
-* *Update*
-[Structure of the Model Component](https://github.com/linqing42/tp2/blob/master/docs/images/ModelClassDiagram.png)
-[BetterModelClassDiagram](https://github.com/linqing42/tp2/blob/master/docs/images/BetterModelClassDiagram.pngg)
+* [Structure of the Model Component](https://github.com/linqing42/tp2/blob/master/docs/images/ModelClassDiagram.png)
+* [BetterModelClassDiagram](https://github.com/linqing42/tp2/blob/master/docs/images/BetterModelClassDiagram.pngg)
 
 * *Add feature*:
 The `AddCommand` feature allows the user to add a new person and save it to the address book.
