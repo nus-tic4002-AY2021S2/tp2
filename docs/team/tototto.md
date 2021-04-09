@@ -1,5 +1,3 @@
-# Tay Jun Wen - Personal Portfolio Page
-
 ## Objectives
 
 A software Engineering project focusing on the implementation of a Brown Field Project with an empahsis on Team work with different team members that adopts a software iterative approach to development. This software underwent 4 iteration during its development. It is written in JAVA.
