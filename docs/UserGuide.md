@@ -161,7 +161,7 @@ Format: `find TYPE/KEYWORD…`
 * Exception for the phone number search: it allows a partial match of value at least 3 digits long.
 * Employee records matching at least one keyword will be returned. E.g. keywords `John Wong` will return `John Lam` and `Bernice Wong`.
 
-Examples of usage:
+Example of usage:
 * `find n/David Bernice`
   ![result for 'n/David Bernice'](images/findDavidBerniceResult.png)
 
