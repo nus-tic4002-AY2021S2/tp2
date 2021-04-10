@@ -225,9 +225,9 @@ The following activity diagram summarizes what happens when a user executes a st
 
 ### Product scope
 
-**Target user profile**: This app is targeted towards small business owners who wish to keep track of employee data such as salary, role and days of leave taken.
+**Target user profile**: This app is targeted towards small business owners who wish to keep track of their employees information such as name, phone number, salary and role.
 
-**Value proposition**: This app shall allow users to consolidate employee data on a single platform. This increases their productivity because they no longer need to access multiple data sources to retrieve/update employee data.
+**Value proposition**: This app shall allow users to consolidate employees information on a single platform. This increases their productivity because they no longer need to access multiple data sources to retrieve/update employees information.
 
 ### User stories
 
