@@ -56,7 +56,7 @@ It is designed to help them manage their investigation cases better by reminding
 * Parameters can be in any order.<br>
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
 
-* If a parameter is expected only once in the command but you specified it multiple times, only the last occurrence of the parameter will be taken.<br>
+* If a parameter is expected only once in the command, but you specified it multiple times, only the last occurrence of the parameter will be taken.<br>
   e.g. if you specify `p/12341234 p/56785678`, only `p/56785678` will be taken.
 
 * Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
@@ -70,7 +70,9 @@ It is designed to help them manage their investigation cases better by reminding
   
 * NRIC format should be `1 capital letter that start with S, T, F or G,followed by 7 numerical numbers and a capital letter with alphanumeric characters . It should not be blank.`, other NRIC format will not be accepted.
     e.g. `S1234567B` is a valid NRIC format, `s2222b` or `s11111111` is an invalid NRIC format. 
-    
+  
+* Phone numbers should only contain numbers, and it should be 3-15 digits long.
+  
 * Every person must contain a unique NRIC, phone number or email.
  
 </div>
@@ -163,6 +165,7 @@ Format: `addTag INDEX at/TAG`
 
 * Add new tag at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * New tag name should be entered after 'at/' only.
+* Tag name cannot be empty and should not contain space in between.
 * Only one tag is allowed to be added each time.
 
 Examples:
@@ -177,6 +180,7 @@ Format: `removeTag INDEX rt/TAG`
 
 * Add new tag at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * Tag to be removed should be entered after 'rt/' only.
+* Tag name cannot be empty and should not contain space in between.
 * Only one tag is allowed to be removed each time.
 
 Examples:

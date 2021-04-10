@@ -16,8 +16,8 @@ import seedu.address.model.person.Person;
 public class FollowUpCommand extends Command {
 
     public static final String COMMAND_WORD = "followUp";
-    public static final String MESSAGE_INVALID = "FollowUp should only contain positive integers,must less than 366 "
-            + "days and it should not be blank";
+    public static final String MESSAGE_INVALID = "FollowUp should only contain positive integers, must be less than 366"
+            + " days and it should not be blank";
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the follow up of the person identified "
             + "by the index number used in the last person listing. "
             + "Existing follow up will be overwritten by the input.\n"
