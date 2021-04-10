@@ -329,8 +329,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 4. After using each command for at least `5` times, a user with no cognitive disability should be able to
    use all the app features without having to reference the user guide.
 
-*{More to be added}*
-
 ### Glossary
 
 * *Mainstream OS* - Windows 7, Windows 10, Linux, Unix, OS-X
@@ -382,18 +380,21 @@ testers are expected to do more *exploratory* testing.
     1. Test case (Duplicate employee): Repeat the same command used in the previous test case.<br>
        Expected: No employee is added. Error details are shown in the command box.
        
-    1. Test case (Missing mandatory field): `add n/Rachel Lee r/Designer e/rachel@example.com a/BLK 730 Woodlands Road #15-150 b/1988-01-02 j/2020-09-01 s/8000 t/Founder t/l33tCoder`
+    1. Test case (Missing mandatory field): `add n/Rachel Lee r/Designer e/rachel@example.com a/BLK 730 Woodlands Road #15-150 b/1988-01-02 j/2020-09-01 s/8000 t/Founder t/l33tCoder`<br>
        Expected: No employee is added. Error details are shown in the command box.
 
-    1. Test case (Invalid value): `add n/Rachel Lee r/Designer p/91648917 e/rachel@example.com a/BLK 730 Woodlands Road #15-150 b/1988/01/02 j/2020-09-01 s/8000 t/Founder t/l33tCoder`
+    1. Test case (Invalid value): `add n/Rachel Lee r/Designer p/91648917 e/rachel@example.com a/BLK 730 Woodlands Road #15-150 b/1988/01/02 j/2020-09-01 s/8000 t/Founder t/l33tCoder`<br>
        Expected: No employee is added. Error details are shown in the command box.
        
 ### Listing all employee records
 
 1. Showing all employee records
     
-    1. Test case: `list`
-       Expected: All employee records are displayed. 
+    1. Test case: `list`<br>
+       Expected: All employee records are displayed.
+       
+    1. Test case (Redundant parameter): `list abc`<br>
+       Expected: All employee records are displayed.
        
 ### Finding employee records
 
@@ -405,10 +406,10 @@ testers are expected to do more *exploratory* testing.
     1. Test case (Invalid value): `find n/`<br>
        Expected: List of employee records is not updated. Error details are shown in the command box.
        
-    1. Test case (Missing `TYPE` parameter): `find David Bernice`
+    1. Test case (Missing `TYPE` parameter): `find David Bernice`<br>
        Expected: List of employee records is not updated. Error details are shown in the command box.
        
-    1. Test case (Missing `TYPE` parameter and value): `find`
+    1. Test case (Missing `TYPE` parameter and value): `find`<br>
        Expected: List of employee records is not updated. Error details are shown in the command box.
 
 1. Finding employee records by role
@@ -425,10 +426,10 @@ testers are expected to do more *exploratory* testing.
    
     1. Prerequisites: List all employees using the `list` command. Ensure that there is at least one employee record in the list.
     
-    1. Test case: `edit 1 p/91821748 s/9000 t/Mentor t/l33tCoder`
+    1. Test case: `edit 1 p/91821748 s/9000 t/Mentor t/l33tCoder`<br>
        Expected: First employee record is updated with the new phone number, salary and tags.
        
-    1. Test case (Invalid value): `edit 1 p/91 s/9000 t/Mentor t/l33tCoder`
+    1. Test case (Invalid value): `edit 1 p/91 s/9000 t/Mentor t/l33tCoder`<br>
        Expected: No employee is edited. Error details are shown in the command box.
 
     1. Other incorrect edit commands to try: `edit`, `edit x`, `...` (where x is larger than the list size)<br>
@@ -446,7 +447,7 @@ testers are expected to do more *exploratory* testing.
     1. Test case (Invalid index): `delete 0`<br>
        Expected: No employee record is deleted. Error details are shown in the command box.
    
-    1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
+    1. Other incorrect delete commands to try: `delete`, `delete x` (where x is larger than the list size)<br>
        Expected: No employee is deleted. Error details are shown in the command box.
        
 ### Sorting employee records
@@ -458,3 +459,13 @@ testers are expected to do more *exploratory* testing.
        
     1. Test case (Missing `TYPE` parameter): `sort`<br>
        Expected: List of employee records is not updated. Error details are shown in the command box.
+
+### Viewing summary statistics
+
+1. Displaying summary statistics
+   
+    1. Test case: `stats`<br>
+       Expected: Summary statistics is shown in the command box.
+
+    1. Test case (Redundant parameter): `stats abc`<br>
+       Expected: Summary statistics is shown in the command box.
