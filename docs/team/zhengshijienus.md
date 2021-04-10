@@ -55,7 +55,7 @@ It is
   * Work together with all teammates. Contributing ideas during discussion 
 
 
- ### Contributions to team-based tasks:
+### Contributions to team-based tasks:
 
  * Updating project title, aboutUs.md, readme.md,index.md etc. 
 
@@ -66,7 +66,7 @@ It is
  * Helping others to review bugs and doing double verification. 
 
 
- ### Review/mentoring contributions:
+### Review/mentoring contributions:
  
 * PRs reviewed: [#16](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/16),  [#20](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/20), [#32](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/32), [#36](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/36), [#49](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/49), [#50](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/50), [#58](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/58), [#97](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/97), [#105](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/105), [#108](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/108)
 
