@@ -115,7 +115,7 @@ Format: `edit INDEX [n/NAME] [r/ROLE] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [b/
 * Editing tags will remove all existing tags for this employee record. E.g. If an employee record 1 has tags `Mentor` and `l33tCoder`, `edit 1 t/WiseGuy` will result in this employee record only having the tag `WiseGuy`.
 
 Example of usage:
-* `edit 1 p/91821748 s/8000 t/Mentor t/l33tCoder`
+* `edit 1 p/91821748 s/9000 t/Mentor t/l33tCoder`
 
 ### Deleting an employee record : `delete`
 
@@ -213,7 +213,7 @@ Action | Format, Examples
 **Help** | `help`
 **Add** | `add n/NAME r/ROLE p/PHONE_NUMBER e/EMAIL a/ADDRESS b/DATE_OF_BIRTH j/DATE_OF_JOINING s/SALARY [t/TAG]…` <br> E.g. `add n/Rachel Lee r/Designer p/91648917 e/rachel@example.com a/BLK 730 Woodlands Road #15-150 b/1988-01-02 j/2020-09-01 s/8000 t/Founder t/l33tCoder`
 **List** | `list`
-**Edit** | `edit INDEX [n/NAME] [r/ROLE] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [b/DATE_OF_BIRTH] [j/DATE_OF_JOINING] [s/SALARY] [t/TAG]…` <br> E.g. `edit 1 p/91821748 s/8000 t/Mentor t/l33tCoder`
+**Edit** | `edit INDEX [n/NAME] [r/ROLE] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [b/DATE_OF_BIRTH] [j/DATE_OF_JOINING] [s/SALARY] [t/TAG]…` <br> E.g. `edit 1 p/91821748 s/9000 t/Mentor t/l33tCoder`
 **Delete** | `delete INDEX`<br> E.g. `delete 2`
 **Sort** | `sort TYPE` <br> E.g. `sort n`
 **Find** | `find TYPE/KEYWORD`<br> E.g. `find n/David Bernice`, `find r/Developer`, `find a/Serangoon`, `find b/1992-05-28`, `find p/910`
