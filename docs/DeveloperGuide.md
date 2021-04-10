@@ -458,4 +458,3 @@ testers are expected to do more *exploratory* testing.
        
     1. Test case (Missing `TYPE` parameter): `sort`<br>
        Expected: List of employee records is not updated. Error details are shown in the command box.
-       
