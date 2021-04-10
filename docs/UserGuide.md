@@ -164,7 +164,7 @@ Format: `find TYPE/KEYWORD…`
 Examples of usage:
 * `find n/David Bernice`
   ![result for 'n/David Bernice'](images/findDavidBerniceResult.png)
-* `find r/Developer`
+
 
 ### Clearing all employee records : `clear`
 
