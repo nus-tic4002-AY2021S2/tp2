@@ -56,7 +56,7 @@ It is designed to help them manage their investigation cases better by reminding
 * Parameters can be in any order.<br>
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
 
-* If a parameter is expected only once in the command but you specified it multiple times, only the last occurrence of the parameter will be taken.<br>
+* If a parameter is expected only once in the command, but you specified it multiple times, only the last occurrence of the parameter will be taken.<br>
   e.g. if you specify `p/12341234 p/56785678`, only `p/56785678` will be taken.
 
 * Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
@@ -70,7 +70,9 @@ It is designed to help them manage their investigation cases better by reminding
   
 * NRIC format should be `1 capital letter that start with S, T, F or G,followed by 7 numerical numbers and a capital letter with alphanumeric characters . It should not be blank.`, other NRIC format will not be accepted.
     e.g. `S1234567B` is a valid NRIC format, `s2222b` or `s11111111` is an invalid NRIC format. 
-    
+  
+* Phone numbers should only contain numbers, and it should be 3-15 digits long.
+  
 * Every person must contain a unique NRIC, phone number or email.
  
 </div>
@@ -108,9 +110,13 @@ Format `remark INDEX r/REMARK`
 * Add remark at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 </div>
 
+* You can clear the remark by not typing the prefix `r/` or leaving the remark in `r/` blank.
+
 Examples:
 
-* `remark 1 r/shop theft`
+* `remark 1 r/He works from 8.30am to 5.30pm. I have to call after working hours.`
+* `remark 1` clears the existing remark from the person at index 1.
+* `remark 1 r/` also clears the existing remark from the person at index 1.
 
 ### Editing a followUp: `followUp`
 Edits number of days for recursive follow-up calls with the person.
@@ -119,6 +125,7 @@ Format `followUp INDEX f/FOLLOWUP`
 
 * A red exclamation icon will appear with a "Call Today!" message when the last day of the follow-up date is the same as today.
 * You can stop the follow-up by setting it to 0.
+* The follow up days must be between 0 to 365;
 
 Examples:
 
@@ -141,13 +148,14 @@ Format: `edit INDEX [n/NAME] [d/DATE] [i/NRIC] [p/PHONE] [e/EMAIL] [a/ADDRESS] [
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
 * When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
-* You can remove all the person’s tags by typing `t/` without
-  specifying any tags after it.
+* You can remove all the person’s tags by typing `t/` without specifying any tags after it.
+* You can remove the remark by typing `r/` without specifying any remark after it.
 
 Examples:
 *  `edit 1 p/91234567 i/S1111112B e/johndoe@example.com` Edits the phone number,NRIC, email address of the 1st person to be `91234567`, ` i/S1111112B` and johndoe@example.com` respectively.
 *  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
 *  `edit 2 n/Betsy Lim d/10-10-2021` Edits the name of the 2nd person to be `Betsy Lim` and edit the date as well.
+*  `edit 1 r/` clears the existing remark from the person at index 1.
 
 ### Add a new tag : `addTag`
 
@@ -182,12 +190,16 @@ Examples:
 Finds all fields contain any of the given keywords.
 
 
-Format: `find KEYWORD [n/MORE_KEYWORDS] [d/DATE] [i/NRIC] [p/PHONE] [e/EMAIL] [a/ADDRESS] [de/DESCRIPTION] [r/REMARK] [t/TAG]…`
+Format: 
+`find KEYWORD`<br>
+`find [n/MORE_KEYWORDS] [d/DATE] [i/NRIC] [p/PHONE] [e/EMAIL] [a/ADDRESS] [de/DESCRIPTION] [r/REMARK] [t/TAG]…`
 
 
 * The search is case-insensitive. e.g `n/hans` will match `Hans`
 * The order of the keywords does not matter. e.g. `n\Hans` will match `Bo Hans`
 * The search applies on all the fields.
+* The default find command is finding the name field: e.g. `find john`
+* Only find one filed at a time. Mutilple find input does not support. `find n\john`
 
 Examples:
 * `find n/alex bernice` returns `Alex Yeoh`, `Bernice Yu`<br>
@@ -232,6 +244,8 @@ Format:
         
 * The email format will be validated.
 * The index must be numeric and within the list size.
+* Any email address with empty space after e\ will treat as invalid email.
+* Any empty space between email format will treated as MESSAGE.
 
 
 Examples:
@@ -276,7 +290,7 @@ Action | Format, Examples
 **Find** | `find KEYWORD [n/MORE_KEYWORDS][d/DATE] [i/NRIC] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [de/DESCRIPTION] [r/REMARK]  [t/TAG]…`<br> e.g., `find n/James`
 **List** | `list`
 **Help** | `help`
-**Remark** | `remark INDEX r/REMARK`<br> e.g., `remark 1 r/shop theft`
+**Remark** | `remark INDEX r/REMARK`<br> e.g., `remark 1 r/He works from 8.30am to 5.30pm. I have to call after working hours.`
 **FollowUp** | `followUp INDEX f/FOLLOWUP`<br> e.g., `followUp 2 f/3`
 **send** | `send INDEX e/EMAIL OR send INDEX MESSAGE`<br> e.g., `send 1 e/hellokitty@hotmail.com OR send 1 I am not able to contact you, please call me`
 **Add Tag** | `addTag INDEX at/TAG`<br> e.g., `addTag 1 at/CalledOnce`

@@ -12,9 +12,9 @@ We are a team based in the [School of Computing, National University of Singapor
 <img src="images/linqing42.png" width="200px">
 
 [[github](https://github.com/linqing42/tp2)]
-[[portfolio](team/linqing.md)]
+[[portfolio](team/linqing42.md)]
 
-* Role: Team member
+* Role: Developer
 
 ### Wang Zhenquan
 

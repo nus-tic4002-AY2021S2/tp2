@@ -148,15 +148,16 @@ The following activity diagram summarizes what happens when a user executes addC
 
 The `add` command facilitated by `AddClaimCommand`which extends the `Command` class and the `AddCommandParser` class, which implements the `Parser` class.
 This operation takes in a String input from the user that will create `Person` objects based on the following prefixes and parameters:
-n/`name`, d/`date`, i/`nric`, p/`phone`, e/`email`, a/`address` , de/`description` , r/`remark` , t/`tag`.  
+n/`name`, d/`date`, f/`followUp`, i/`nric`, p/`phone`, e/`email`, a/`address` , de/`description` , r/`remark` , t/`tag`.  
 Meanwhile, the r/`remark` and t/`tag` are not compulsory to include.
 A regex validation check will be imposed upon the creation. Any checks that fails the validation would display an error message to guide the user.
 Parameters will be checked whether they are valid:
 * `name` uses `Name#isValidName()` to ensure that name only contain alphanumeric characters and spaces, and it should not be blank.
 * `nric` uses `Nric#isValidNric()` to ensure that nric only contain a capital letter,it should start with S, T, F or G,followed by 7 numerical numbers and a capital letter with alphabetical character. It should not be blank.
-* `date` uses `Date#isValidDate()` to ensure that date should follow date format 'dd-mm-yyyy' and it should be a valid calendar date.
-* `phone` uses `Phone#isValidPhone()` to ensure that phone numbers should only contain numbers, and it should be at least 3 digits long.
+* `date` uses `Date#isValidDate()` to ensure that date should follow date format 'dd-mm-yyyy', and it should be a valid calendar date.
+* `phone` uses `Phone#isValidPhone()` to ensure that phone numbers should only contain numbers, and it should be 3-15 digits long.
 * `email` uses `Email#isValidEmail()` to ensure correct email format.
+* `followUp` uses `FollowUp#isValidFollowUp()` to ensure that FollowUp should only contain positive integers, and it should not be blank.
 
 Upon receiving a user command that has `add` as the first word, the following object interactions will occur, resulting in the instantiation of an `AddCommand` object:
 

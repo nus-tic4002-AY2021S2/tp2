@@ -19,7 +19,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.commands.exceptions.CommandException;
@@ -61,7 +60,7 @@ public class EditCommand extends Command {
         + "Example: " + COMMAND_WORD + " 1 "
         + PREFIX_PHONE + "91234567 "
         + PREFIX_EMAIL + "johndoe@example.com "
-        + PREFIX_REMARK + "He works from 8.30am to 5.30pm.";
+        + PREFIX_REMARK + "He works from 8.30am to 5.30pm. I have to call after working hours.";
 
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Person: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
@@ -111,7 +110,8 @@ public class EditCommand extends Command {
         List<Person> lastShownList = model.getFilteredPersonList();
 
         if (index.getZeroBased() >= lastShownList.size()) {
-            throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+            throw new CommandException("Please enter a valid index number from 1 to "
+                + model.getAddressBook().getPersonList().size() + ".");
         }
 
         Person personToEdit = lastShownList.get(index.getZeroBased());
