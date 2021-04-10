@@ -10,7 +10,7 @@ Interface EmployeeTrackerStorage <<Interface>>
 
 Class StorageManager
 Class JsonUserPrefsStorage
-Class JsonAddressBookStorage
+Class JsonEmployeeTrackerStorage
 
 StorageManager .left.|> Storage
 StorageManager o-right-> UserPrefsStorage
@@ -21,7 +21,7 @@ Storage -|> EmployeeTrackerStorage
 
 JsonUserPrefsStorage .left.|> UserPrefsStorage
 JsonEmployeeTrackerStorage .left.|> EmployeeTrackerStorage
-JsonEmployeeTrackerStorage .down.> JsonSerializableAddressBook
+JsonEmployeeTrackerStorage .down.> JsonSerializableEmployeeTracker
 JsonSerializableEmployeeTracker .right.> JsonAdaptedEmployee
 JsonAdaptedEmployee .right.> JsonAdaptedTag
 @enduml
