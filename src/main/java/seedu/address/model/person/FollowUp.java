@@ -10,7 +10,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 public class FollowUp {
 
     public static final String MESSAGE_FOLLOWUP_CONSTRAINTS =
-        "FollowUp should only contain positive integers, and it should not be blank";
+        "FollowUp should only contain positive integers, must be 365 days or less and it should not be blank";
     public static final String VALIDATION_REGEX = "[0-9]+";
     public final String value;
     /**
@@ -33,7 +33,16 @@ public class FollowUp {
      * Returns true if a given string is a valid name.
      */
     public static boolean isValidFollowUp(String test) {
-        return test.matches(VALIDATION_REGEX);
+        if (test.matches(VALIDATION_REGEX)) {
+            int days = Integer.parseInt(test);
+            if (test.matches(VALIDATION_REGEX) && days < 366) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
 
     @Override

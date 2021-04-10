@@ -56,7 +56,7 @@ It is designed to help them manage their investigation cases better by reminding
 * Parameters can be in any order.<br>
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
 
-* If a parameter is expected only once in the command but you specified it multiple times, only the last occurrence of the parameter will be taken.<br>
+* If a parameter is expected only once in the command, but you specified it multiple times, only the last occurrence of the parameter will be taken.<br>
   e.g. if you specify `p/12341234 p/56785678`, only `p/56785678` will be taken.
 
 * Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
@@ -70,7 +70,9 @@ It is designed to help them manage their investigation cases better by reminding
   
 * NRIC format should be `1 capital letter that start with S, T, F or G,followed by 7 numerical numbers and a capital letter with alphanumeric characters . It should not be blank.`, other NRIC format will not be accepted.
     e.g. `S1234567B` is a valid NRIC format, `s2222b` or `s11111111` is an invalid NRIC format. 
-    
+  
+* Phone numbers should only contain numbers, and it should be 3-15 digits long.
+  
 * Every person must contain a unique NRIC, phone number or email.
  
 </div>
@@ -123,6 +125,7 @@ Format `followUp INDEX f/FOLLOWUP`
 
 * A red exclamation icon will appear with a "Call Today!" message when the last day of the follow-up date is the same as today.
 * You can stop the follow-up by setting it to 0.
+* The follow up days must be between 0 to 365;
 
 Examples:
 
@@ -187,12 +190,16 @@ Examples:
 Finds all fields contain any of the given keywords.
 
 
-Format: `find KEYWORD [n/MORE_KEYWORDS] [d/DATE] [i/NRIC] [p/PHONE] [e/EMAIL] [a/ADDRESS] [de/DESCRIPTION] [r/REMARK] [t/TAG]…`
+Format: 
+`find KEYWORD`<br>
+`find [n/MORE_KEYWORDS] [d/DATE] [i/NRIC] [p/PHONE] [e/EMAIL] [a/ADDRESS] [de/DESCRIPTION] [r/REMARK] [t/TAG]…`
 
 
 * The search is case-insensitive. e.g `n/hans` will match `Hans`
 * The order of the keywords does not matter. e.g. `n\Hans` will match `Bo Hans`
 * The search applies on all the fields.
+* The default find command is finding the name field: e.g. `find john`
+* Only find one filed at a time. Mutilple find input does not support. `find n\john`
 
 Examples:
 * `find n/alex bernice` returns `Alex Yeoh`, `Bernice Yu`<br>
@@ -237,6 +244,8 @@ Format:
         
 * The email format will be validated.
 * The index must be numeric and within the list size.
+* Any email address with empty space after e\ will treat as invalid email.
+* Any empty space between email format will treated as MESSAGE.
 
 
 Examples:
