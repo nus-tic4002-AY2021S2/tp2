@@ -4,13 +4,6 @@ title: Developer Guide
 ---
 * Table of Contents
 {:toc}
-
---------------------------------------------------------------------------------------------------------------------
-
-## **Setting up, getting started**
-
-Refer to the guide [_Setting up and getting started_](SettingUp.md).
-
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Design**
@@ -23,11 +16,11 @@ The ***Architecture Diagram*** given above explains the high-level design of the
 
 <div markdown="span" class="alert alert-primary">
 
-:bulb: **Tip:** The `.puml` files used to create diagrams in this document can be found in the [diagrams](https://github.com/se-edu/addressbook-level3/tree/master/docs/diagrams/) folder. Refer to the [_PlantUML Tutorial_ at se-edu/guides](https://se-education.org/guides/tutorials/plantUml.html) to learn how to create and edit diagrams.
+:bulb: **Tip:** The `.puml` files used to create diagrams in this document can be found in the [diagrams](https://github.com/AY2021S2-TIC4002-F18-2/tp2/tree/master/docs/diagrams/) folder. Refer to the [_PlantUML Tutorial_ at se-edu/guides](https://se-education.org/guides/tutorials/plantUml.html) to learn how to create and edit diagrams.
 
 </div>
 
-**`Main`** has two classes called [`Main`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/Main.java) and [`MainApp`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/MainApp.java). It is responsible for,
+**`Main`** has two classes called [`Main`](https://github.com/AY2021S2-TIC4002-F18-2/tp2/blob/master/src/main/java/employeetracker/Main.java) and [`MainApp`](https://github.com/AY2021S2-TIC4002-F18-2/tp2/blob/master/src/main/java/employeetracker/MainApp.java). It is responsible for,
 * At app launch: Initializes the components in the correct sequence, and connects them up with each other.
 * At shut down: Shuts down the components and invokes cleanup methods where necessary.
 
@@ -64,7 +57,7 @@ The sections below give more details of each component.
 **API** :
 [`Ui.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java)
 
-The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class.
+The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `EmployeeListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class.
 
 The `UI` component uses JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml)
 
@@ -78,9 +71,9 @@ The `UI` component,
 ![Structure of the Logic Component](images/LogicClassDiagram.png)
 
 **API** :
-[`Logic.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/logic/Logic.java)
+[`Logic.java`](https://github.com/AY2021S2-TIC4002-F18-2/tp2/blob/master/src/main/java/employeetracker/logic/Logic.java)
 
-1. `Logic` uses the `AddressBookParser` class to parse the user command.
+1. `Logic` uses the `EmployeeTrackerParser` class to parse the user command.
 1. This results in a `Command` object which is executed by the `LogicManager`.
 1. The command execution can affect the `Model` (e.g. adding a employee).
 1. The result of the command execution is encapsulated as a `CommandResult` object which is passed back to the `Ui`.
@@ -97,21 +90,14 @@ Given below is the Sequence Diagram for interactions within the `Logic` componen
 
 ![Structure of the Model Component](images/ModelClassDiagram.png)
 
-**API** : [`Model.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java)
+**API** : [`Model.java`](https://github.com/AY2021S2-TIC4002-F18-2/tp2/blob/master/src/main/java/employeetracker/model/Model.java)
 
 The `Model`,
 
 * stores a `UserPref` object that represents the user’s preferences.
 * stores the address book data.
-* exposes an unmodifiable `ObservableList<Person>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
+* exposes an unmodifiable `ObservableList<Employee>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
 * does not depend on any of the other three components.
-
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `AddressBook`, which `Person` references. This allows `AddressBook` to only require one `Tag` object per unique `Tag`, instead of each `Person` needing their own `Tag` object.<br>
-![BetterModelClassDiagram](images/BetterModelClassDiagram.png)
-
-</div>
-
 
 ### Storage component
 
@@ -121,103 +107,15 @@ The `Model`,
 
 The `Storage` component,
 * can save `UserPref` objects in json format and read it back.
-* can save the address book data in json format and read it back.
+* can save the Employee Tracker data in json format and read it back.
 
 ### Common classes
 
-Classes used by multiple components are in the `seedu.addressbook.commons` package.
+Classes used by multiple components are in the `employeetracker.commons` package.
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Implementation**
-
-This section describes some noteworthy details on how certain features are implemented.
-
-### \[Proposed\] Undo/redo feature
-
-#### Proposed Implementation
-
-The proposed undo/redo mechanism is facilitated by `VersionedAddressBook`. It extends `AddressBook` with an undo/redo history, stored internally as an `addressBookStateList` and `currentStatePointer`. Additionally, it implements the following operations:
-
-* `VersionedAddressBook#commit()` — Saves the current address book state in its history.
-* `VersionedAddressBook#undo()` — Restores the previous address book state from its history.
-* `VersionedAddressBook#redo()` — Restores a previously undone address book state from its history.
-
-These operations are exposed in the `Model` interface as `Model#commitAddressBook()`, `Model#undoAddressBook()` and `Model#redoAddressBook()` respectively.
-
-Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.
-
-Step 1. The user launches the application for the first time. The `VersionedAddressBook` will be initialized with the initial address book state, and the `currentStatePointer` pointing to that single address book state.
-
-![UndoRedoState0](images/UndoRedoState0.png)
-
-Step 2. The user executes `delete 5` command to delete the 5th employee in the address book. The `delete` command calls `Model#commitAddressBook()`, causing the modified state of the address book after the `delete 5` command executes to be saved in the `addressBookStateList`, and the `currentStatePointer` is shifted to the newly inserted address book state.
-
-![UndoRedoState1](images/UndoRedoState1.png)
-
-Step 3. The user executes `add n/David …​` to add a new employee. The `add` command also calls `Model#commitAddressBook()`, causing another modified address book state to be saved into the `addressBookStateList`.
-
-![UndoRedoState2](images/UndoRedoState2.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If a command fails its execution, it will not call `Model#commitAddressBook()`, so the address book state will not be saved into the `addressBookStateList`.
-
-</div>
-
-Step 4. The user now decides that adding the employee was a mistake, and decides to undo that action by executing the `undo` command. The `undo` command will call `Model#undoAddressBook()`, which will shift the `currentStatePointer` once to the left, pointing it to the previous address book state, and restores the address book to that state.
-
-![UndoRedoState3](images/UndoRedoState3.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index 0, pointing to the initial AddressBook state, then there are no previous AddressBook states to restore. The `undo` command uses `Model#canUndoAddressBook()` to check if this is the case. If so, it will return an error to the user rather
-than attempting to perform the undo.
-
-</div>
-
-The following sequence diagram shows how the undo operation works:
-
-![UndoSequenceDiagram](images/UndoSequenceDiagram.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `UndoCommand` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-
-</div>
-
-The `redo` command does the opposite — it calls `Model#redoAddressBook()`, which shifts the `currentStatePointer` once to the right, pointing to the previously undone state, and restores the address book to that state.
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index `addressBookStateList.size() - 1`, pointing to the latest address book state, then there are no undone AddressBook states to restore. The `redo` command uses `Model#canRedoAddressBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-
-</div>
-
-Step 5. The user then decides to execute the command `list`. Commands that do not modify the address book, such as `list`, will usually not call `Model#commitAddressBook()`, `Model#undoAddressBook()` or `Model#redoAddressBook()`. Thus, the `addressBookStateList` remains unchanged.
-
-![UndoRedoState4](images/UndoRedoState4.png)
-
-Step 6. The user executes `clear`, which calls `Model#commitAddressBook()`. Since the `currentStatePointer` is not pointing at the end of the `addressBookStateList`, all address book states after the `currentStatePointer` will be purged. Reason: It no longer makes sense to redo the `add n/David …​` command. This is the behavior that most modern desktop applications follow.
-
-![UndoRedoState5](images/UndoRedoState5.png)
-
-The following activity diagram summarizes what happens when a user executes a new command:
-
-![CommitActivityDiagram](images/CommitActivityDiagram.png)
-
-#### Design consideration:
-
-##### Aspect: How undo & redo executes
-
-* **Alternative 1 (current choice):** Saves the entire address book.
-  * Pros: Easy to implement.
-  * Cons: May have performance issues in terms of memory usage.
-
-* **Alternative 2:** Individual command knows how to undo/redo by
-  itself.
-  * Pros: Will use less memory (e.g. for `delete`, just save the employee being deleted).
-  * Cons: We must ensure that the implementation of each individual command are correct.
-
-_{more aspects and alternatives to be added}_
-
-### \[Proposed\] Data archiving
-
-_{Explain here how the data archiving feature will be implemented}_
-
---------------------------------------------------------------------------------------------------------------------
 
 ### Add feature
 #### Implementation of add feature
@@ -321,17 +219,6 @@ The following sequence diagram shows how the stats operation works:
 The following activity diagram summarizes what happens when a user executes a stats command:
 ![ActivityDiagram_StatsCommand](images/statsActivityDiagram.png)
 
-
---------------------------------------------------------------------------------------------------------------------
-
-## **Documentation, logging, testing, configuration, dev-ops**
-
-* [Documentation guide](Documentation.md)
-* [Testing guide](Testing.md)
-* [Logging guide](Logging.md)
-* [Configuration guide](Configuration.md)
-* [DevOps guide](DevOps.md)
-
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Appendix: Requirements**
@@ -364,8 +251,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user                                       | sort employee records by date of joining | find the employees who stayed the shortest/longest in the company |
 | `* * *`  | user                                       | sort employee records by date of birth   | find the youngest/oldest employees in the company                 |
 | `* * *`  | user                                       | view summary statistics     | obtain a basic overview of my workforce                                   |
-
-*{More to be added}*
 
 ### Use cases
 
@@ -435,10 +320,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 6a. The command entered is in the wrong format.
     * 6a1. Employee Tracker shows an error message.<br>
       Use case ends.
-            
-*{More to be added}*
-
-
+      
 ### Non-Functional Requirements
 
 1. The app should work on any mainstream OS with Java `11` or above installed.
@@ -468,40 +350,112 @@ testers are expected to do more *exploratory* testing.
 
 1. Initial launch
 
-   1. Download the jar file and copy into an empty folder
+   1. Download the jar file and copy into an empty folder.
 
-   1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
+   1. Double-click the jar file.<br>
+      Expected: Shows the GUI with a set of sample employee records. The window size may not be optimum.
 
 1. Saving window preferences
 
    1. Resize the window to an optimum size. Move the window to a different location. Close the window.
 
    1. Re-launch the app by double-clicking the jar file.<br>
-       Expected: The most recent window size and location is retained.
+      Expected: The most recent window size and location is retained.
 
-1. _{ more test cases …​ }_
+### Viewing help
 
-### Deleting a employee
+1. Accessing the user guide
+   
+    1. Test case: `help`
+       Expected: A help window is presented.
+       
+    1. Click on the copy url button, paste the url in your browser's address bar and access this website.<br>
+       Expected: The Employee Tracker product website is displayed.
+       
+### Adding an employee record
 
-1. Deleting a employee while all employees are being shown
+1. Adding a new employee record
+   
+    1. Test case: `add n/Rachel Lee r/Designer p/91648917 e/rachel@example.com a/BLK 730 Woodlands Road #15-150 b/1988-01-02 j/2020-09-01 s/8000 t/Founder t/l33tCoder`<br>
+       Expected: A new employee record is be added to the end of the list.
+       
+    1. Test case (Duplicate employee): Repeat the same command used in the previous test case.<br>
+       Expected: No employee is added. Error details are shown in the command box.
+       
+    1. Test case (Missing mandatory field): `add n/Rachel Lee r/Designer e/rachel@example.com a/BLK 730 Woodlands Road #15-150 b/1988-01-02 j/2020-09-01 s/8000 t/Founder t/l33tCoder`
+       Expected: No employee is added. Error details are shown in the command box.
 
-   1. Prerequisites: List all employees using the `list` command. Multiple employees in the list.
+    1. Test case (Invalid value): `add n/Rachel Lee r/Designer p/91648917 e/rachel@example.com a/BLK 730 Woodlands Road #15-150 b/1988/01/02 j/2020-09-01 s/8000 t/Founder t/l33tCoder`
+       Expected: No employee is added. Error details are shown in the command box.
+       
+### Listing all employee records
 
-   1. Test case: `delete 1`<br>
-      Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
+1. Showing all employee records
+    
+    1. Test case: `list`
+       Expected: All employee records are displayed. 
+       
+### Finding employee records
 
-   1. Test case: `delete 0`<br>
-      Expected: No employee is deleted. Error details shown in the status message. Status bar remains the same.
+1. Finding employee records by name
+    
+    1. Test case: `find n/David Bernice`<br>
+       Expected: Employee records with `David` and/or `Bernice` in its role is displayed.
+       
+    1. Test case (Invalid value): `find n/`<br>
+       Expected: List of employee records is not updated. Error details are shown in the command box.
+       
+    1. Test case (Missing `TYPE` parameter): `find David Bernice`
+       Expected: List of employee records is not updated. Error details are shown in the command box.
+       
+    1. Test case (Missing `TYPE` parameter and value): `find`
+       Expected: List of employee records is not updated. Error details are shown in the command box.
 
-   1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
-      Expected: Similar to previous.
+1. Finding employee records by role
 
-1. _{ more test cases …​ }_
+    1. Test case: `find r/Developer`<br>
+       Expected: Employee records with `Developer` in its role are displayed.
+       
+    1. Test case (Invalid value): `find r/`<br>
+       Expected: List of employee records is not updated. Error details are shown in the command box.
+       
+### Editing an employee record
 
-### Saving data
+1. Editing an employee record while all employee records are being shown
+   
+    1. Prerequisites: List all employees using the `list` command. Ensure that there is at least one employee record in the list.
+    
+    1. Test case: `edit 1 p/91821748 s/9000 t/Mentor t/l33tCoder`
+       Expected: First employee record is updated with the new phone number, salary and tags.
+       
+    1. Test case (Invalid value): `edit 1 p/91 s/9000 t/Mentor t/l33tCoder`
+       Expected: No employee is edited. Error details are shown in the command box.
 
-1. Dealing with missing/corrupted data files
+    1. Other incorrect edit commands to try: `edit`, `edit x`, `...` (where x is larger than the list size)<br>
+       Expected: No employee is edited. Error details are shown in the command box.
 
-   1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
+### Deleting an employee record
 
-1. _{ more test cases …​ }_
+1. Deleting an employee record while all employee records are being shown
+   
+    1. Prerequisites: List all employees using the `list` command. Ensure that there is at least one employee record in the list.
+    
+    1. Test case: `delete 1`<br>
+       Expected: First employee record is deleted from the list. Details of the deleted employee is shown in the command box.
+   
+    1. Test case (Invalid index): `delete 0`<br>
+       Expected: No employee record is deleted. Error details are shown in the command box.
+   
+    1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
+       Expected: No employee is deleted. Error details are shown in the command box.
+       
+### Sorting employee records
+
+1. Sorting employee records by name
+    
+    1. Test case: `sort n`<br>
+       Expected: Employee records is sorted based on name in alphabetical order.
+       
+    1. Test case (Missing `TYPE` parameter): `sort`<br>
+       Expected: List of employee records is not updated. Error details are shown in the command box.
+       
