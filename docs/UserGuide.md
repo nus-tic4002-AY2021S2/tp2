@@ -165,6 +165,7 @@ Format: `addTag INDEX at/TAG`
 
 * Add new tag at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * New tag name should be entered after 'at/' only.
+* Tag name cannot be empty and should not contain space in between.
 * Only one tag is allowed to be added each time.
 
 Examples:
@@ -179,6 +180,7 @@ Format: `removeTag INDEX rt/TAG`
 
 * Add new tag at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * Tag to be removed should be entered after 'rt/' only.
+* Tag name cannot be empty and should not contain space in between.
 * Only one tag is allowed to be removed each time.
 
 Examples:
