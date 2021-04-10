@@ -1,5 +1,7 @@
-
+---
 # Zheng Shijie - Project Portfolio Page
+
+---
 
 ## Overview: Addressbook NS Edition (ABNS)
 
@@ -30,9 +32,11 @@ It is
   * What it does: allows user to rename a specific group name and automatically update all fields related accordingly.
   * Highlights: Same as the last feature, the hard part is how to synchronize with other part accordingly. Synchronizing all info of those people under this renamed group is hard part for me. 
  
+
 ### Code contributed: 
 
 * [Link to RepoSense](https://nus-tic4002-ay2021s2.github.io/tp-dashboard/?search=&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code~other&since=&tabOpen=true&tabType=authorship&tabAuthor=ZhengShijieNUS&tabRepo=AY2021S2-TIC4002-F18-3%2Ftp2%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code)
+
 
 ### Documentation contribution:
 
@@ -50,13 +54,19 @@ It is
 
   * Work together with all teammates. Contributing ideas during discussion 
 
- ### Contributions to team-based tasks:
+
+### Contributions to team-based tasks:
+
  * Updating project title, aboutUs.md, readme.md,index.md etc. 
+
  * Project milstone close
+
  * Issues assigning and helping others debug issues. 
+
  * Helping others to review bugs and doing double verification. 
 
- ### Review/mentoring contributions:: 
+
+### Review/mentoring contributions:
  
 * PRs reviewed: [#16](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/16),  [#20](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/20), [#32](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/32), [#36](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/36), [#49](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/49), [#50](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/50), [#58](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/58), [#97](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/97), [#105](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/105), [#108](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/108)
 
