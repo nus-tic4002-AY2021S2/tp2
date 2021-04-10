@@ -40,7 +40,7 @@ It is
 
   * Work together with all teammates. Contributing ideas during discussion
 
- * Checking UG and close all UG bugs ( issue #77, #78, #79, #80, #83)
+ * Checking UG and close all UG bugs ( issue [#77](https://github.com/AY2021S2-TIC4002-F18-3/tp2/issues/77), [#78](https://github.com/AY2021S2-TIC4002-F18-3/tp2/issues/78), [#79](https://github.com/AY2021S2-TIC4002-F18-3/tp2/issues/79), [#80](https://github.com/AY2021S2-TIC4002-F18-3/tp2/issues/80), [#83](https://github.com/AY2021S2-TIC4002-F18-3/tp2/issues/83))
 
  * Fining UG and make sure the info tally with what implemented.
   
@@ -58,7 +58,7 @@ It is
 
  ### Review/mentoring contributions:: 
  
-* PRs reviewed: #16, #20, #32, #36, #49,#50,#58,#97
+* PRs reviewed: [#16](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/16),  [#20](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/20), [#32](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/32), [#36](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/36), [#49](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/49), [#50](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/50), [#58](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/58), [#97](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/97), [#105](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/105), [#108](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/108)
 
 * Reported bugs and suggestions to others code: [#28](https://github.com/AY2021S2-TIC4002-F18-3/tp2/issues/28) , [#37](https://github.com/AY2021S2-TIC4002-F18-3/tp2/issues/37), [#56](https://github.com/AY2021S2-TIC4002-F18-3/tp2/issues/56), [#57](https://github.com/AY2021S2-TIC4002-F18-3/tp2/issues/57), [#98](https://github.com/AY2021S2-TIC4002-F18-3/tp2/issues/98)
 
