@@ -33,7 +33,7 @@ Given below are my contributions to the project.
     * Did cosmetic tweaks to existing UG documentation of features `sort`.(Pull requests [\#73](https://github.com/AY2021S2-TIC4002-F18-2/tp2/pull/73))
   * Developer Guide:
     * Added Developer Guide documentation for the features `sort`.(Pull requests [\#31](https://github.com/AY2021S2-TIC4002-F18-2/tp2/pull/31))
-    * Added implementation details of the `sort` feature. (Pull requests [\#31][\#94](https://github.com/AY2021S2-TIC4002-F18-2/tp2/pull/94))
+    * Added implementation details of the `sort` feature. (Pull requests [\#94](https://github.com/AY2021S2-TIC4002-F18-2/tp2/pull/94))
     * Did cosmetic tweaks to existing DG documentation of features `sort`.(Pull requests [\#142](https://github.com/AY2021S2-TIC4002-F18-2/tp2/pull/142))
    
 * **Community**:
