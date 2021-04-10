@@ -16,8 +16,8 @@ We are a team based in the [School of Continuing And Lifelong Education, Nationa
 
 You can reach me at the email `e0264456@u.nus.edu`
 
-* Role: Project Advisor
-* Responsibilities: UI
+* Role: Developer
+* Responsibilities: Development
 
 ### Tay Jun Wen
 
@@ -28,8 +28,8 @@ You can reach me at the email `e0264456@u.nus.edu`
 
 You can reach me at the email `junwen.tay@u.nus.edu`
 
-* Role: Team Lead
-* Responsibilities: UI
+* Role: Developer
+* Responsibilities: Development
 
 ### Januarius Jang
 
@@ -41,7 +41,7 @@ You can reach me at the email `junwen.tay@u.nus.edu`
 You can reach me at the email `e0261976@u.nus.edu`
 
 * Role: Developer
-* Responsibilities: Data
+* Responsibilities: Development
 
 ### Zheng Shi Jie
 
@@ -53,5 +53,5 @@ You can reach me at the email `e0261976@u.nus.edu`
 You can reach me at the email `e0263963@u.nus.edu`
 
 * Role: Developer
-* Responsibilities: Dev Ops + Threading
+* Responsibilities: Development
 

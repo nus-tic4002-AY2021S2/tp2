@@ -23,6 +23,8 @@ public class RenameGroupCommand extends Command {
             + PREFIX_GROUP + " GROUP_NAME\n"
             + "Example: " + COMMAND_WORD + " 1 " + PREFIX_GROUP + "NEW_GROUP_NAME";
 
+    public static final String MESSAGE_DUPLICATE_GROUP = "The group name is duplicated.";
+
     public static final String MESSAGE_SUCCESS = "Group index %1$d rename successfully: %2$s";
 
     private final Index targetIndex;
@@ -43,6 +45,10 @@ public class RenameGroupCommand extends Command {
 
         if (targetIndex.getOneBased() <= 0 || targetIndex.getOneBased() >= model.getGroupSize()) {
             throw new CommandException(MESSAGE_USAGE);
+        }
+
+        if (model.hasGroup(this.group)) {
+            throw new CommandException(MESSAGE_DUPLICATE_GROUP);
         }
 
         assert model.hasGroup(this.group);

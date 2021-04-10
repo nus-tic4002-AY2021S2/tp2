@@ -1,4 +1,6 @@
+
 [![CI Status](https://github.com/AY2021S2-TIC4002-F18-3/tp2/workflows/Java%20CI/badge.svg)](https://github.com/AY2021S2-TIC4002-F18-3/tp2/actions)
+
 
 ![Ui](docs/images/Ui.png)
 
