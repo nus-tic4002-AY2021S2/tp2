@@ -329,8 +329,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 4. After using each command for at least `5` times, a user with no cognitive disability should be able to
    use all the app features without having to reference the user guide.
 
-*{More to be added}*
-
 ### Glossary
 
 * *Mainstream OS* - Windows 7, Windows 10, Linux, Unix, OS-X
