@@ -20,7 +20,7 @@ Through a simple and intuitive graphical user interface, business owners can rec
    ![Ui](images/Ui.png)
 6. Type the command in the command box and press `Enter` to execute it.
    <br>Some example commands you can try:
-    - `add n/Rachel Lee r/Designer p/91648917 e/rachel@f18tech.com.sg a/BLK 730 Woodlands Road #15-150 b/1988-01-02 j/2020-09-01 s/8000 t/Founder t/l33tCoder`: Adds an employee record.
+    - `add n/Rachel Lee r/Designer p/91648917 e/rachel@example.com a/BLK 730 Woodlands Road #15-150 b/1988-01-02 j/2020-09-01 s/8000 t/Founder t/l33tCoder`: Adds an employee record.
     - `list`: Lists all employee records.
     - `delete 3`: Deletes the 3rd employee record shown in the current list.
     - `sort n`: Sorts all employee records based on `Name` in alphabetical order.
@@ -71,7 +71,7 @@ Adds an employee record to the Employee Tracker.
 Format: `add n/NAME r/ROLE p/PHONE_NUMBER e/EMAIL a/ADDRESS b/DATE_OF_BIRTH j/DATE_OF_JOINING s/SALARY [t/TAG]…`
 * `NAME` must only contain alphanumeric characters and spaces. E.g. `John Doe`.
 * `PHONE_NUMBER` must be a number that is at least 3-digit long. E.g. `98714821`, `67617361`.
-* `EMAIL` must be in local-part@domain format. E.g. `andy@f18tech.com.sg`.
+* `EMAIL` must be in local-part@domain format. E.g. `andy@example.com`.
 * `DATE_OF_BIRTH` must be in yyyy-MM-dd format. E.g. `1990-12-25`.
 * `DATE_OF_JOINING` must be in yyyy-MM-dd format. E.g. `2020-09-01`.
 * `SALARY` must be a positive integer. E.g. `4000`, `3000`.
@@ -87,7 +87,7 @@ An employee record can have any number of tags (including 0).
 </div>
 
 Example of usage:
-* `add n/Rachel Lee r/Designer p/91648917 e/rachel@f18tech.com.sg a/BLK 730 Woodlands Road #15-150 b/1988-01-02 j/2020-09-01 s/8000 t/Founder t/l33tCoder`
+* `add n/Rachel Lee r/Designer p/91648917 e/rachel@example.com a/BLK 730 Woodlands Road #15-150 b/1988-01-02 j/2020-09-01 s/8000 t/Founder t/l33tCoder`
 
 ### Listing all employee records : `list`
 
@@ -106,7 +106,7 @@ Format: `edit INDEX [n/NAME] [r/ROLE] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [b/
 * The employee record indicated by the index number will be edited.
 * `NAME` must only contain alphanumeric characters and spaces. E.g. `John Doe`.
 * `PHONE_NUMBER` must be a number that is at least 3-digit long. E.g. `98714821`, `67617361`.
-* `EMAIL` must be in local-part@domain format. E.g. `andy@f18tech.com.sg`.
+* `EMAIL` must be in local-part@domain format. E.g. `andy@example.com`.
 * `DATE_OF_BIRTH` must be in yyyy-MM-dd format and must not be in the future. E.g. `1990-12-25`.
 * `DATE_OF_JOINING` must be in yyyy-MM-dd format. E.g. `2020-09-01`.
 * `SALARY` must be a positive integer. E.g. `4000`, `3000`.
@@ -211,7 +211,7 @@ Click `Yes` if the system prompts you for confirmation of overwriting.
 Action | Format, Examples
 --------|------------------
 **Help** | `help`
-**Add** | `add n/NAME r/ROLE p/PHONE_NUMBER e/EMAIL a/ADDRESS b/DATE_OF_BIRTH j/DATE_OF_JOINING s/SALARY [t/TAG]…` <br> E.g. `add n/Rachel Lee r/Designer p/91648917 e/rachel@f18tech.com.sg a/BLK 730 Woodlands Road #15-150 b/1988-01-02 j/2020-09-01 s/8000 t/Founder t/l33tCoder`
+**Add** | `add n/NAME r/ROLE p/PHONE_NUMBER e/EMAIL a/ADDRESS b/DATE_OF_BIRTH j/DATE_OF_JOINING s/SALARY [t/TAG]…` <br> E.g. `add n/Rachel Lee r/Designer p/91648917 e/rachel@example.com a/BLK 730 Woodlands Road #15-150 b/1988-01-02 j/2020-09-01 s/8000 t/Founder t/l33tCoder`
 **List** | `list`
 **Edit** | `edit INDEX [n/NAME] [r/ROLE] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [b/DATE_OF_BIRTH] [j/DATE_OF_JOINING] [s/SALARY] [t/TAG]…` <br> E.g. `edit 1 p/91821748 s/8000 t/Mentor t/l33tCoder`
 **Delete** | `delete INDEX`<br> E.g. `delete 2`
