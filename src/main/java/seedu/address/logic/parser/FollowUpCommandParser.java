@@ -1,6 +1,7 @@
 package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_FOLLOWUP;
 
 import java.util.NoSuchElementException;
@@ -27,7 +28,8 @@ public class FollowUpCommandParser implements Parser<FollowUpCommand> {
             index = ParserUtil.parseIndex(argMultimap.getPreamble());
             ParserUtil.parseFollowUp(argMultimap.getValue(PREFIX_FOLLOWUP).orElseThrow());
         } catch (IllegalValueException | NoSuchElementException e) {
-            throw new ParseException(FollowUpCommand.MESSAGE_INVALID, e);
+            throw new ParseException(
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, FollowUpCommand.MESSAGE_USAGE));
         }
 
         String followUp = argMultimap.getValue(PREFIX_FOLLOWUP).orElse("");

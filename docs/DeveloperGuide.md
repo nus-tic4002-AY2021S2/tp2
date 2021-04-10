@@ -154,8 +154,8 @@ A regex validation check will be imposed upon the creation. Any checks that fail
 Parameters will be checked whether they are valid:
 * `name` uses `Name#isValidName()` to ensure that name only contain alphanumeric characters and spaces, and it should not be blank.
 * `nric` uses `Nric#isValidNric()` to ensure that nric only contain a capital letter,it should start with S, T, F or G,followed by 7 numerical numbers and a capital letter with alphabetical character. It should not be blank.
-* `date` uses `Date#isValidDate()` to ensure that date should follow date format 'dd-mm-yyyy' and it should be a valid calendar date.
-* `phone` uses `Phone#isValidPhone()` to ensure that phone numbers should only contain numbers, and it should be at least 3 digits long.
+* `date` uses `Date#isValidDate()` to ensure that date should follow date format 'dd-mm-yyyy', and it should be a valid calendar date.
+* `phone` uses `Phone#isValidPhone()` to ensure that phone numbers should only contain numbers, and it should be 3-15 digits long.
 * `email` uses `Email#isValidEmail()` to ensure correct email format.
 * `followUp` uses `FollowUp#isValidFollowUp()` to ensure that FollowUp should only contain positive integers, and it should not be blank.
 

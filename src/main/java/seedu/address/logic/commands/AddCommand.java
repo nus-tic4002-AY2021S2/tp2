@@ -51,7 +51,7 @@ public class AddCommand extends Command {
 
     public static final String MESSAGE_SUCCESS = "New person added: %1$s";
     public static final String MESSAGE_DUPLICATE_PERSON =
-        "This person has a duplicate NRIC, phone number or email as another person.";
+        "Please change the duplicated NRIC, phone number or email of the person you are trying to add.";
 
     private final Person toAdd;
 
