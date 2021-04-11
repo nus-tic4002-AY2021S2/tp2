@@ -4,6 +4,7 @@ import static employeetracker.commons.util.CollectionUtil.requireAllNonNull;
 import static java.util.Objects.requireNonNull;
 
 import java.text.SimpleDateFormat;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -149,7 +150,7 @@ public class UniqueEmployeeList implements Iterable<Employee> {
             internalList.sort((s1, s2) -> s1.getName().toString().compareToIgnoreCase(s2.getName().toString()));
             break;
         case "s":
-            internalList.sort((s1, s2) -> s1.getSalary().value.compareToIgnoreCase(s2.getSalary().value));
+            internalList.sort(Comparator.comparingInt(s -> Integer.parseInt(s.getSalary().value)));
             break;
         case "j":
             internalList.sort((s1, s2) -> s1.getDateOfJoining().value.compareToIgnoreCase(s2.getDateOfJoining().value));
