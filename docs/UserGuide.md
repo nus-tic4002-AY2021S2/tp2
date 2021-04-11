@@ -281,7 +281,7 @@ Action | Format, Examples
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **List** | `list`
 **viewApp** | `viewApp INDEX` <br> e.g., `viewApp 1`
-**addApp** | `addApp INDEX /d DESCRIPTION /t DATETIME` <br> e.g., `addApp 2 /d Check-up /d 2021-03-18 10:00:00`
+**addApp** | `addApp INDEX /d DESCRIPTION /t DATETIME` <br> e.g., `addApp 2 /d Check-up /t 2021-03-18 10:00:00`
 **deleteApp** | `deleteApp USERINDEX APPOINTMENTINDEX` <br> e.g., `deleteApp 1 3`
 **viewMed** | `viewMed INDEX` <br> e.g., `viewMed 1`
 **addMed** | `addMed INDEX /d DESCRIPTION` <br> e.g., `addMed 1 /d Surgery`
