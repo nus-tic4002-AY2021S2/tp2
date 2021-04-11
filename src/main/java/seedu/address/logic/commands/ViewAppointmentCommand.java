@@ -13,8 +13,8 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.FullnamePredicate;
 import seedu.address.model.person.Name;
-import seedu.address.model.person.NameContainsKeywordsPredicate;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.appointment.Appointment;
@@ -54,9 +54,11 @@ public class ViewAppointmentCommand extends Command {
 
         Person personToShowAppointment = lastShownList.get(targetIndex.getZeroBased());
 
-        String[] listName = personToShowAppointment.getName().fullName.split(" ");
+        String fullName = personToShowAppointment.getName().fullName;
+
+        String[] listName = {fullName};
         ArrayList<String> arrayList = new ArrayList(Arrays.asList(listName));
-        NameContainsKeywordsPredicate predicate = new NameContainsKeywordsPredicate(arrayList);
+        FullnamePredicate predicate = new FullnamePredicate(arrayList);
         model.updateFilteredPersonList(predicate);
         Person editedPerson = personToShowAppointment;
         editedPerson.setViewAppInd(true);
