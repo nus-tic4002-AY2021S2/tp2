@@ -23,7 +23,6 @@
           <HBox alignment="CENTER_LEFT" spacing="5">
             <Label fx:id="id" styleClass="cell_big_label">
               <minWidth>
-                <!-- Ensures that the label text is never truncated -->
                 <Region fx:constant="USE_PREF_SIZE" />
               </minWidth>
               <HBox.margin>
@@ -34,61 +33,53 @@
           </HBox>
           <HBox>
             <VBox>
-                     <HBox>
-                        <children>
+                <HBox>
                     <Label minWidth="70.0" styleClass="cell_small_label" text="Date:">
-                              <HBox.margin>
-                                 <Insets />
-                              </HBox.margin>
-                              <padding>
-                                 <Insets right="20.0" />
-                              </padding></Label>
-                   <Label fx:id="date" styleClass="cell_small_label" text="\$date" />
-                        </children>
-                     </HBox>
-                     <HBox>
-                        <children>
-                    <Label minWidth="70.0" styleClass="cell_small_label" text="NRIC:" />
-                    <Label fx:id="nric" styleClass="cell_small_label" text="\$nric" />
-                        </children>
-                     </HBox>
-                     <HBox>
-                        <children>
-                    <Label minWidth="70.0" styleClass="cell_small_label" text="Mobile:" />
-                    <Label fx:id="phone" styleClass="cell_small_label" text="\$phone" />
-                        </children>
-                     </HBox>
-                     <HBox>
-                        <children>
-                    <Label minWidth="70.0" styleClass="cell_small_label" text="Follow-Up: " />
-                    <Label fx:id="followUp" styleClass="cell_small_label" text="\$followUp" />
-                        </children>
-                     </HBox>
-                     <HBox>
-                        <children>
-                    <Label minWidth="70.0" styleClass="cell_small_label" text="Email:" />
-                    <Label fx:id="email" minWidth="300.0" styleClass="cell_small_label" text="\$email" />
-                        </children>
-                     </HBox>
-                     <HBox>
-                        <children>
-                    <Label minWidth="70.0" styleClass="cell_small_label" text="Address:" />
-                    <Label fx:id="address" minWidth="300.0" styleClass="cell_small_label" text="\$address" />
-                        </children>
-                     </HBox>
+                        <HBox.margin>
+                            <Insets/>
+                        </HBox.margin>
+                        <padding>
+                            <Insets right="20.0"/>
+                        </padding>
+                    </Label>
+                    <Label fx:id="date" styleClass="cell_small_label" text="\$date"/>
+                </HBox>
+                <HBox>
+                    <Label minWidth="70.0" styleClass="cell_small_label" text="NRIC:"/>
+                    <Label fx:id="nric" styleClass="cell_small_label" text="\$nric"/>
+                </HBox>
+                <HBox>
+                    <Label minWidth="70.0" styleClass="cell_small_label" text="Mobile:"/>
+                    <Label fx:id="phone" styleClass="cell_small_label" text="\$phone"/>
+                </HBox>
+                <HBox>
+                    <Label minWidth="70.0" styleClass="cell_small_label" text="Follow-Up: "/>
+                    <Label fx:id="followUp" styleClass="cell_small_label" text="\$followUp"/>
+                </HBox>
+                <HBox>
+                    <Label minWidth="70.0" styleClass="cell_small_label" text="Email:"/>
+                    <Label fx:id="email" minWidth="300.0" styleClass="cell_small_label" text="\$email"/>
+                </HBox>
+                <HBox>
+                    <Label minWidth="70.0" styleClass="cell_small_label" text="Address:"/>
+                    <Label fx:id="address" minWidth="300.0" styleClass="cell_small_label" text="\$address"/>
+                </HBox>
             </VBox>
           </HBox>
         </VBox>
         <VBox>
-          <HBox prefWidth="500.0">
+          <HBox>
             <StackPane>
-              <ImageView fx:id="displayIcon" fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" />
+              <ImageView fx:id="displayIcon" fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_LEFT" />
             </StackPane>
             <Label fx:id="callMessage" styleClass="cell_small_label" text="\$callMessage">
-                     <padding>
+                     <HBox.margin>
                         <Insets left="5.0" right="5.0" />
-                     </padding></Label>
-            <FlowPane fx:id="tags" />
+                     </HBox.margin></Label>
+            <FlowPane fx:id="tags">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin></FlowPane>
           </HBox>
           <Label fx:id="description1" layoutX="10.0" layoutY="10.0" text="Description of Case Report">
             <font>
