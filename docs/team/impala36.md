@@ -16,7 +16,7 @@ Given below are my contributions to the project.
   * Justification: Supposedly after a follow-up call with the person, the officer develops his own opinion on how to handle the case afterwards.
   * Highlights: When no remarks are found for a case, the Officer's Remark title will not show as well.
   
-* **New Feature**: Added the Description field [\#6](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/6)
+* **New Feature**: Added the Description field [\#66](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/66)
   * What it does: Allows in-depth description of a case.
   * Justification: By showing a clear description of the case, the officer has no doubts about what, where and when it happened, and who were involved.
   
