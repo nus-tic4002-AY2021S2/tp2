@@ -27,7 +27,6 @@ ACTION | SYNTAX / Format
 
 
 * **Project management**:
-  * Managed releases `v1.3` - `v1.4` (2 releases) on GitHub
   * Did product demo during v1.2 and v1.3 on Teams. 
   
 
@@ -37,13 +36,12 @@ ACTION | SYNTAX / Format
 
 * **Documentation**:
   * User Guide:
-    * Wrote the initial version of the user guide.
     * Added documentation for the features `deletegrp Index`
   * Developer Guide:
     * Wrote use cases with details of the `deletegrp` feature.
 
 * **Community**:
-  * PRs reviewed (with non-trivial review comments)
+  * PRs reviewed (with non-trivial review comments) [\#6](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/6), [\#59](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/59), [\#63](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/63), [\#64](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/64), [\#95](https://github.com/AY2021S2-TIC4002-F18-3/tp2/pull/95)
   * Reported bugs and suggestions for other project team members
   * Participated in Team discussions and coding sessions.
   * Brain storming sessions with teammates .
