@@ -30,7 +30,7 @@ We are a team based in the [School of Computing, National University of Singapor
 <img src="images/binbinhui.png" width="200px">
 
 [[github](http://github.com/binbinhui/tp2)]
-[[portfolio](team/binhui.md)]
+[[portfolio](team/binbinhui.md)]
 
 * Role: Team member
 
