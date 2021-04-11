@@ -263,6 +263,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 (For all use cases below, the **System** is the `PatientBook` and the **Actor** is the `Staff`, unless specified otherwise)
 
+###### Use Case Diagram
+![PatientBook - UC](images/UseCaseDiagram.PNG)
+
 ---
 
 **Use case: View appointment in PatientBook**
@@ -283,6 +286,8 @@ Use case ends.
   2a. No appointment in this patient 
   
 Use case ends.
+
+![PatientBook - AD](images/ViewAppActivityDiagram.PNG)
 
 ---
 
