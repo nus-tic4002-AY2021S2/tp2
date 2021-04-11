@@ -17,8 +17,8 @@ This app helps to manage their investigative cases by having people’s detailed
 ### Enhancements implemented:
 * Find by field[#42](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/42)
 * Advance find[#43](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/43)
-* Add new send commmand[#45](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/55),[#55](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/55),[#61](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/61)
-* Add follow up command[#52](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/97)
+* Add new send commmand[#45](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/45),[#55](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/55),[#61](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/61)
+* Add follow up command[#52](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/52)
 * Send email to the person in the list[#61](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/61),[#97](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/97),[#98](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/98)
 * bugfixing[#135](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/135)
 
@@ -39,6 +39,19 @@ Creating the fork, editing the UG by replace it into a new formate, update UserG
 
 ### Community:
 * PRs reviewed (with non-trivial review comments): [#6](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/6),[#39](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/39),[40](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/40),[#41](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/64),[#63](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/63),[#104](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/104)
+
+* **New Feature**: Improve on the current find feature [\#43](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/43)
+  * What it does: It allow user to find any keywork in the database
+  * Justification: If the police office want to find the people stay in the same area. To view to total crime rate in the area.
+  
+* **New Feature**: Added the Send field [\#45](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/45)
+  * What it does: It allow police office to send email to others or the person in the contact.
+  * Justification: If the police office called the person but he didn't pick up the call. The officer can send him a email with message. 
+  
+* **New Feature**: Added the followUp field [\#52](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/52)
+  * What it does: Shows a red exclamation icon with a "Call Today!" message beside it.
+  * Justification: When the report date + follow-up days = today's date, it is time for the officer to make the scheduled follow-up call with the person in the case.
+
 
 #### Tools:
 * User sonarqube to find the bugs we have in the code.
