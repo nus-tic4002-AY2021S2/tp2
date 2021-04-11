@@ -16,7 +16,7 @@ It is designed to help them manage their investigation cases better by reminding
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-1. Download the latest `TIC4002-F18-1.PoliceAddressBook.jar`.
+1. Download the latest `TIC4002-F18-1.PoliceAddressBook.jar` [here](https://github.com/AY2021S2-TIC4002-F18-1/tp2/releases/tag/v1.4).
 
 1. Copy the file to the folder you want to use as the _home folder_ for your Police Address Book.
 
