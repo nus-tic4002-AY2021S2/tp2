@@ -26,34 +26,22 @@ This app helps to manage their investigative cases by having people’s detailed
 ### Contribution to Documentation:
 #### User Guide:
 Creating the fork, editing the UG by replace it into a new formate, update UserGuide and aboutme, update photo. [#1](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/1),[#14](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/14),[#30](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/30),[#38](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/38),[#64](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/64)
-#### Developer Guide:
-* Update ModelClassDiagram, BetterModelClassDiagram[#83](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/83/files),[#91](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/91/files)
-* Add AddCommandActivityDIagram,AddCommandSequenceDiagram [#83](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/83/files),[#91](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/91/files)
-* Add Implementation for add feature and all documents for addCommand feature.
-* Add Design consideration regarding how to add command executes and how to delete command executes [#91](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/91/files)
-* Add some of the user stories [#47](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/47/files)
-* Add use case for delete a person, edit a person and send email to the person[#63](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/63/files)
-* Did cosmetic tweaks to existing documentation.
+
 
 ### Contributions to team-based tasks:
-* Setting up tools e.g., Github webpage, assertion-enabled in build.gradle
-* Maintaining the issue tracker to create issue in version 1.1, 1.3, 1.4 and  close issue tacker in version 1.1, 1.2, 1.2b, 1.3, and put a label on it.
-* Maintaining the milestone to create milestone with deadline in version 1.2, 1,3, 1.4 and close the milestone in version 1.1, 1.2, 1.3.
-* Updating developer docs that are not specific to a feature such as. documenting some user stories, use case for delete a person, edit a person and send email to person
-* Updating developer docs that are not specific to a feature such as command summary
-* Delete irrelevant picture(png) in our project
+* setting up the fork. 
+* guiding teammate how to correctly fork and clone to individual repo.
+* Maintainig the issue tracker, create issue and close issues.
+* Update developer guide.
+* Giving idea on the project and relevant user storys.
+* Help teammate on the review and suggestion if they face any issue.
+
 
 ### Community:
-* PRs reviewed (with non-trivial review comments): [#107](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/107), [#18](https://github.com/AY2021S2-TIC4002-F18-1/tp2/issues/18), [#36](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/36)
-* Reported bugs and suggestions: [#129](https://github.com/AY2021S2-TIC4002-F18-1/tp2/issues/129),[#128](https://github.com/AY2021S2-TIC4002-F18-1/tp2/issues/128),[#127](https://github.com/AY2021S2-TIC4002-F18-1/tp2/issues/127),[#126](https://github.com/AY2021S2-TIC4002-F18-1/tp2/issues/126),[#124](https://github.com/AY2021S2-TIC4002-F18-1/tp2/issues/124)
+* PRs reviewed (with non-trivial review comments): [#6](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/6),[#39](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/39),[40](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/40),[#41](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/64),[#63](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/63),[#104](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/104)
 
-### Contributions to the Developer Guide (Extracts):
-
-* [Structure of the Model Component](https://github.com/linqing42/tp2/blob/master/docs/images/ModelClassDiagram.png)
-* [BetterModelClassDiagram](https://github.com/linqing42/tp2/blob/master/docs/images/BetterModelClassDiagram.pngg)
-
-#### Add feature:
-The `AddCommand` feature allows the user to add a new person and save it to the address book.
+#### Find feature:
+The `find` feature allows the user to add a new person and save it to the address book.
 
 ##### Implementation
 Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("add n/John Doe d/22-02-2021 i/S2731125H p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 de/This man stole 3 times r/shop theft t/NeverCalled")` API call.
