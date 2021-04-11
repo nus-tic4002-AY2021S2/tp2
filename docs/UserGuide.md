@@ -16,7 +16,7 @@ Through a simple and intuitive graphical user interface, business owners can rec
 1. Ensure you have Java `11` or above installed in your Computer.
 2. Download the latest `employeetracker.jar` [here](https://github.com/AY2021S2-TIC4002-F18-2/tp2/releases).
 3. Copy `employeetracker.jar` to the folder you want to use as the home folder for Employee Tracker.
-4. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.
+4. Double-click the file to start the app. The GUI similar to the one below should appear in a few seconds. Note that the app contains some sample data.
    ![Ui](images/Ui.png)
 6. Type the command in the command box and press `Enter` to execute it.
    <br>Some example commands you can try:
@@ -72,7 +72,7 @@ Format: `add n/NAME r/ROLE p/PHONE_NUMBER e/EMAIL a/ADDRESS b/DATE_OF_BIRTH j/DA
 * `NAME` must only contain alphanumeric characters and spaces. E.g. `John Doe`.
 * `PHONE_NUMBER` must be a number that is at least 3-digit long. E.g. `98714821`, `67617361`.
 * `EMAIL` must be in local-part@domain format. E.g. `andy@example.com`.
-* `DATE_OF_BIRTH` must be in yyyy-MM-dd format. E.g. `1990-12-25`.
+* `DATE_OF_BIRTH` must be in yyyy-MM-dd format and must not be in the future. E.g. `1990-12-25`.
 * `DATE_OF_JOINING` must be in yyyy-MM-dd format. E.g. `2020-09-01`.
 * `SALARY` must be a positive integer. E.g. `4000`, `3000`.
 * `TAG` must be alphanumeric. E.g. `Founder`, `l33tCoder`.
