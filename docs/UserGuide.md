@@ -5,7 +5,7 @@ title: User Guide
 
 **Police Address Book (PAB)** is a desktop app meant for Police Investigation Officers, optimized for use via a Command Line Interface (CLI) with a Graphical User Interface (GUI).
 
-It is designed to help them manage their investigation cases better by reminding them on which people to call, automatically rescheduling follow up calls and assisting in sending case detail emails to colleagues or call notification emails to people in the contact list.
+It is designed to help them manage their investigation cases better by reminding them on which people to call, automatically rescheduling follow-up calls and assisting in sending case detail emails to colleagues or call notification emails to people in the contact list.
 
 * Table of Contents
   {:toc}
@@ -16,11 +16,11 @@ It is designed to help them manage their investigation cases better by reminding
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-1. Download the latest `PoliceAddressBook.jar`.
+1. Download the latest `[TIC4002-F18-1][PoliceAddressBook].jar`.
 
 1. Copy the file to the folder you want to use as the _home folder_ for your Police Address Book.
 
-1. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
+1. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Notice that the app contains some sample data.<br>
    ![Ui](images/Ui.png)
 
 1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
@@ -48,7 +48,7 @@ It is designed to help them manage their investigation cases better by reminding
   e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
 
 * Items in square brackets are optional.<br>
-  e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
+  e.g. `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
 
 * Items with `…`​ after them can be used multiple times including zero times.<br>
   e.g. `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
@@ -125,7 +125,7 @@ Format `followUp INDEX f/FOLLOWUP`
 
 * A red exclamation icon will appear with a "Call Today!" message when the last day of the follow-up date is the same as today.
 * You can stop the follow-up by setting it to 0.
-* The follow up days must be between 0 to 365;
+* The follow-up days must be between 0 and 365;
 
 Examples:
 
@@ -147,7 +147,7 @@ Format: `edit INDEX [n/NAME] [d/DATE] [i/NRIC] [p/PHONE] [e/EMAIL] [a/ADDRESS] [
 * Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
-* When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
+* When editing tags, the existing tags of the person will be removed i.e. adding of tags is not cumulative.
 * You can remove all the person’s tags by typing `t/` without specifying any tags after it.
 * You can remove the remark by typing `r/` without specifying any remark after it.
 
@@ -197,11 +197,11 @@ Format:
 `find [n/MORE_KEYWORDS] [d/DATE] [i/NRIC] [p/PHONE] [e/EMAIL] [a/ADDRESS] [de/DESCRIPTION] [r/REMARK] [t/TAG]…`
 
 
-* The search is case-insensitive. e.g `n/hans` will match `Hans`
+* The search is case-insensitive. e.g. `n/hans` will match `Hans`
 * The order of the keywords does not matter. e.g. `n\Hans` will match `Bo Hans`
 * The search applies on all the fields.
 * The default find command is finding the name field: e.g. `find john`
-* Only find one filed at a time. Mutilple find input does not support. `find n\john`
+* Only find one filed at a time. Multiple find input is not supported. `find n\john`
 
 Examples:
 * `find n/alex bernice` returns `Alex Yeoh`, `Bernice Yu`<br>
@@ -247,7 +247,7 @@ Format:
 * The email format will be validated.
 * The index must be numeric and within the list size.
 * Any email address with empty space after e\ will treat as invalid email.
-* Any empty space between email format will treated as MESSAGE.
+* Any empty space between email format will be regarded as a MESSAGE.
 
 
 Examples:

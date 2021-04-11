@@ -22,8 +22,7 @@ public class RemoveTagCommand extends Command {
     public static final String COMMAND_WORD = "removeTag";
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Remove the tag of the person identified "
             + "by the index number used in the last person listing.\n"
-            + "Tag name should not contain spaces in between.\n"
-            + "Tag name cannot be empty.\n"
+            + "Tag name cannot be empty and should not contain space in between.\n"
             + "Parameters: INDEX (must be a positive integer) "
             + PREFIX_REMOVETAG + "[TAG]\n"
             + "Example: " + COMMAND_WORD + " 1 "
@@ -57,8 +56,7 @@ public class RemoveTagCommand extends Command {
 
         if (personToEdit.getTags().isEmpty()) {
             throw new CommandException("The tag is empty, please add tag(s) if needed.");
-        }
-        else if (!personToEdit.getTags().contains(tag)) {
+        } else if (!personToEdit.getTags().contains(tag)) {
             throw new CommandException("No tag name is matched, please enter a correct tag name.");
         } else {
             Set<Tag> oldTags = personToEdit.getTags();

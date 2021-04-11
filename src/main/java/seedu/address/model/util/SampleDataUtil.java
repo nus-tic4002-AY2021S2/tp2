@@ -28,7 +28,7 @@ public class SampleDataUtil {
     public static Person[] getSamplePersons() {
         return new Person[] {
             new Person(new Name("Alex Yeoh"),
-                new Date("17-03-2021"),
+                new Date("02-04-2021"),
                 new FollowUp("7"),
                 new Nric("S1234567A"),
                 new Phone("87438807"),
@@ -61,7 +61,7 @@ public class SampleDataUtil {
                 EMPTY_REMARK,
                 getTagSet("LowPriority", "NeverCalled")),
             new Person(new Name("Irfan Ibrahim"),
-                new Date("20-03-2021"),
+                new Date("19-03-2021"),
                 new FollowUp("7"),
                 new Nric("S2456752E"),
                 new Phone("92492021"),
@@ -72,7 +72,7 @@ public class SampleDataUtil {
                 new Remark("He claims that Roy bumped into the plant while walking past."),
                 getTagSet("LowPriority", "CalledOnce")),
             new Person(new Name("Roy Balakrishnan"),
-                new Date("20-03-2021"),
+                new Date("19-03-2021"),
                 new FollowUp("7"),
                 new Nric("S2486752F"),
                 new Phone("92624417"),
