@@ -1,4 +1,4 @@
-# Olivier Cheah’s Project Portfolio Page
+## Olivier Cheah’s Project Portfolio Page
 
 ## Project: Patient Book 
 Patient Book is an app for managing patient's information including personal details, appointment details and  medical histories, optimized for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI).
@@ -32,7 +32,7 @@ Patient Book is an app for managing patient's information including personal det
     * Updated the FAQ portion. ([#63](https://github.com/AY2021S2-TIC4002-F18-4/tp2/pull/63))
     * Developer Guide:
       * Added user cases for List and Find Appointments ([#42](https://github.com/AY2021S2-TIC4002-F18-4/tp2/pull/42))
-      
+      * Added add appointment sequence diagram ([#116](https://github.com/AY2021S2-TIC4002-F18-4/tp2/pull/117))
 * Community:
   * Our application was developed using a combination of pair-programming and adhoc coding sessions. During each session lasting between an hour to four or more, all group members sat in a meeting session while coding/ implementing their assigned components. If a concern was raised or support was needed, they shared their screen via the meeting session and everyone participated or assisted to clear the obstacle. Using this method we've successfully cleared v1.0 to v3.0 of our project milestones. 
   * Help to resolve some of the bugs in the issue tracker with pair programming.
