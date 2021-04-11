@@ -2,7 +2,7 @@
 start
 :User executes add command;
 if () then ([Valid add command format])
-    if () then ([Employee name does not exist in model])
+    if () then ([Employee with same name and date of birth does not exist in model])
         :Adds employee to model;
         :Displays information of newly-added employee;
     else ([Else])
