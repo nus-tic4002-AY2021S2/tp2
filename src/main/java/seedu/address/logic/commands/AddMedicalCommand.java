@@ -17,9 +17,9 @@ public class AddMedicalCommand extends Command {
     public static final String COMMAND_WORD = "addMed";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": To add medical history to patient, please enter"
-            + " the id of the person you want to add \nmedical history, and follow by '\\d +  history description'"
+            + " the id of the person you want to add \nmedical history, and follow by '/d +  history description'"
             + " For example : \n"
-            + "usage 'addMed 1 \\d Two month of Panandol'";
+            + "usage 'addMed 1 /d Two month of Panadol'";
 
     public static final String SUCCESS_MESSAGE_USAGE = COMMAND_WORD + ": Medical history has been successfully added"
             + " to this patient.";
