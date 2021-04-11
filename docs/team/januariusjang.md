@@ -44,7 +44,7 @@ ACTION | SYNTAX / Format
 
 * **Community**:
   * PRs reviewed (with non-trivial review comments)
-  * Reported bugs and suggestions for other teams in the class
+  * Reported bugs and suggestions for other project team members
   * Participated in Team discussions and coding sessions.
   * Brain storming sessions with teammates .
   * Created issues for the bugs reported. 
