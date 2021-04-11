@@ -325,7 +325,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 1. The app should work on any mainstream OS with Java `11` or above installed.
 2. The response time for each command should not exceed `3` seconds.
-3. A user with average typing speed should be able to enter any one command within `12` seconds.
+3. A user with average typing speed should be able to enter any one command within `20` seconds.
 4. After using each command for at least `5` times, a user with no cognitive disability should be able to
    use all the app features without having to reference the user guide.
 
@@ -378,13 +378,13 @@ testers are expected to do more *exploratory* testing.
        Expected: A new employee record is be added to the end of the list.
        
     1. Test case (Duplicate employee): Repeat the same command used in the previous test case.<br>
-       Expected: No employee is added. Error details are shown in the command box.
+       Expected: No employee is added. Error details are shown in the result display box.
        
     1. Test case (Missing mandatory field): `add n/Rachel Lee r/Designer e/rachel@example.com a/BLK 730 Woodlands Road #15-150 b/1988-01-02 j/2020-09-01 s/8000 t/Founder t/l33tCoder`<br>
-       Expected: No employee is added. Error details are shown in the command box.
+       Expected: No employee is added. Error details are shown in the result display box.
 
     1. Test case (Invalid value): `add n/Rachel Lee r/Designer p/91648917 e/rachel@example.com a/BLK 730 Woodlands Road #15-150 b/1988/01/02 j/2020-09-01 s/8000 t/Founder t/l33tCoder`<br>
-       Expected: No employee is added. Error details are shown in the command box.
+       Expected: No employee is added. Error details are shown in the result display box.
        
 ### Listing all employee records
 
@@ -404,13 +404,13 @@ testers are expected to do more *exploratory* testing.
        Expected: Employee records with `David` and/or `Bernice` in its role is displayed.
        
     1. Test case (Invalid value): `find n/`<br>
-       Expected: List of employee records is not updated. Error details are shown in the command box.
+       Expected: List of employee records is not updated. Error details are shown in the result display box.
        
     1. Test case (Missing `TYPE` parameter): `find David Bernice`<br>
-       Expected: List of employee records is not updated. Error details are shown in the command box.
+       Expected: List of employee records is not updated. Error details are shown in the result display box.
        
     1. Test case (Missing `TYPE` parameter and value): `find`<br>
-       Expected: List of employee records is not updated. Error details are shown in the command box.
+       Expected: List of employee records is not updated. Error details are shown in the result display box.
 
 1. Finding employee records by role
 
@@ -418,37 +418,37 @@ testers are expected to do more *exploratory* testing.
        Expected: Employee records with `Developer` in its role are displayed.
        
     1. Test case (Invalid value): `find r/`<br>
-       Expected: List of employee records is not updated. Error details are shown in the command box.
+       Expected: List of employee records is not updated. Error details are shown in the result display box.
        
 ### Editing an employee record
 
 1. Editing an employee record while all employee records are being shown
    
-    1. Prerequisites: List all employees using the `list` command. Ensure that there is at least one employee record in the list.
+    1. Prerequisites: List all employee records using the `list` command. Ensure that there is at least one employee record in the list.
     
     1. Test case: `edit 1 p/91821748 s/9000 t/Mentor t/l33tCoder`<br>
        Expected: First employee record is updated with the new phone number, salary and tags.
        
     1. Test case (Invalid value): `edit 1 p/91 s/9000 t/Mentor t/l33tCoder`<br>
-       Expected: No employee is edited. Error details are shown in the command box.
+       Expected: No employee record is edited. Error details are shown in the result display box.
 
-    1. Other incorrect edit commands to try: `edit`, `edit x`, `...` (where x is larger than the list size)<br>
-       Expected: No employee is edited. Error details are shown in the command box.
+    1. Other incorrect edit commands to try: `edit`, `edit x [OTHER_PARAMETERS]…` (where x is larger than the list size)<br>
+       Expected: No employee record is edited. Error details are shown in the result display box.
 
 ### Deleting an employee record
 
 1. Deleting an employee record while all employee records are being shown
    
-    1. Prerequisites: List all employees using the `list` command. Ensure that there is at least one employee record in the list.
+    1. Prerequisites: List all employee records using the `list` command. Ensure that there is at least one employee record in the list.
     
     1. Test case: `delete 1`<br>
-       Expected: First employee record is deleted from the list. Details of the deleted employee is shown in the command box.
+       Expected: First employee record is deleted from the list. Details of the deleted employee is shown in the result display box.
    
     1. Test case (Invalid index): `delete 0`<br>
-       Expected: No employee record is deleted. Error details are shown in the command box.
+       Expected: No employee record is deleted. Error details are shown in the result display box.
    
     1. Other incorrect delete commands to try: `delete`, `delete x` (where x is larger than the list size)<br>
-       Expected: No employee is deleted. Error details are shown in the command box.
+       Expected: No employee record is deleted. Error details are shown in the result display box.
        
 ### Sorting employee records
 
@@ -458,14 +458,54 @@ testers are expected to do more *exploratory* testing.
        Expected: Employee records is sorted based on name in alphabetical order.
        
     1. Test case (Missing `TYPE` parameter): `sort`<br>
-       Expected: List of employee records is not updated. Error details are shown in the command box.
+       Expected: List of employee records is not updated. Error details are shown in the result display box.
 
 ### Viewing summary statistics
 
 1. Displaying summary statistics
    
     1. Test case: `stats`<br>
-       Expected: Summary statistics is shown in the command box.
+       Expected: Summary statistics is shown in the result display box.
 
     1. Test case (Redundant parameter): `stats abc`<br>
-       Expected: Summary statistics is shown in the command box.
+       Expected: Summary statistics is shown in the result display box.
+
+--------------------------------------------------------------------------------------------------------------------
+
+## **Appendix: Effort**
+
+### Difficulty level
+
+The difficulty level of this project is estimated to be around 70 - 80% of the difficulty level of AB-3.
+It is a rough estimation based on the justifications given in the subsequent sections.
+
+### Challenges faced
+ 
+1. Although AB-3 already provided the base architecture and skeleton of the app, it was a non-trivial task to understand the existing 6 KLoC codebase before being confident enough to make changes to it.
+   
+1. The project planning and management had to take into account the drastic differences in terms of commitment among the team members.
+   In order for this project to succeed, the workload had to be carefully distributed so that each member was able to complete the assigned tasks given their individual constraints.
+   In addition, contingency plans had to be made on the fly when assigned tasks were not completed on time.
+   
+### Effort required
+
+1. Refactored various names of packages, classes, methods and variables to make them sound more relevant to the Employee Tracker app.
+   This process was unexpectedly tedious because the team had to manually look through the proposed changes by the IDE to ensure they did not break the app.
+   A significant number of existing test cases had to be modified to take into account the changes made by the refactoring process.
+   
+1. Added new fields, such as role, date of birth and salary, to the `Employee` (previously known as `Person`) component.
+   This made the new `Employee` component much more complex than the existing `Person` component.
+   The addition of new fields broke at least half the existing test cases. These test cases had to be modified in order to accommodate the changes.
+   In addition, many new test cases had to be added to maintain the same level of code coverage for the affected classes.
+   
+1. Added new features such as sort and stats.
+   The implementation of these new features had to take into account how the AB-3 is designed and therefore it was more difficult compared to enhancing our own codebase.
+   Most members added test cases to maintain the code coverage, but not all members managed to do so for their new features before the deadline.
+   
+### Achievements
+
+1. Managed to modify or add more than 3 KLoC (functional and test codes) to the existing AB-3 codebase.
+
+1. Managed to maintain code coverage of test cases at 68%, which is only 4% lower than AB-3.
+
+1. Managed to update the original design section in DG to reflect the modifications made to the original AB-3 architecture.
