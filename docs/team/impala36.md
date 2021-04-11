@@ -65,4 +65,3 @@ Given below are my contributions to the project.
 
 * **Tools**:
   * Integrated SceneBuilder to the project for editing the GUI.
-  
