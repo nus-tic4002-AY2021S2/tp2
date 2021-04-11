@@ -35,15 +35,15 @@ The ***Architecture Diagram*** given above explains the high-level design of the
 
 The rest of the App consists of four components.
 
-* [**`UI`**](#ui-component): The UI of the App.
-* [**`Logic`**](#logic-component): The command executor.
-* [**`Model`**](#model-component): Holds the data of the App in memory.
-* [**`Storage`**](#storage-component): Reads data from, and writes data to, the hard disk.
+* [**`UI`**](#ui-component) The UI of the App.
+* [**`Logic`**](#logic-component) The command executor.
+* [**`Model`**](#model-component) Holds the data of the App in memory.
+* [**`Storage`**](#storage-component) Reads data from, and writes data to, the hard disk.
 
 Each of the four components,
 
 * defines its *API* in an `interface` with the same name as the Component.
-* exposes its functionality using a concrete `{Component Name}Manager` class (which implements the corresponding API `interface` mentioned in the previous point.
+* exposes its functionality using a concrete `{Component Name}Manager` class which implements the corresponding API `interface` mentioned in the previous point.
 
 For example, the `Logic` component (see the class diagram given below) defines its API in the `Logic.java` interface and exposes its functionality using the `LogicManager.java` class which implements the `Logic` interface.
 
@@ -178,7 +178,7 @@ Next, the following object interactions will occur to save the new person inform
 It will return a `CommandResult` to the `LogicManager` that will return to user.
 
 
-### Follow up Calls feature
+### Follow-up Calls feature
 
 #### Implementation
 
@@ -196,7 +196,7 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 This feature provides an alternative way for the uer to add/remove a specified tag.
 The Edit tag feature `edit t/[Tag]` will overwrite the entire set of tags. 
-In other words, if there are few tags, and user only wants to udpate a specified tag, the user will need to re-enter all the tags in the `edit t/[Tag]` command, which is tedious and time consuming.
+In other words, if there are few tags, and user only wants to update a specified tag, the user will need to re-enter all the tags in the `edit t/[Tag]` command, which is tedious and time-consuming.
 With the `Add/Remove Tag feature`, the user will be able to remove a specified tag and add in a new tag, or just simply add in a new tag directly.
 
 #### Implementation
@@ -263,7 +263,7 @@ _{more aspects and alternatives to be added}_
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
 
-**Value proposition**: Helps to remind which people to call, helps to auto reschedule follow up calls, able to update a person's information and add own notes after a call
+**Value proposition**: Helps to remind which people to call, helps to auto reschedule follow-up calls, able to update a person's information and add own notes after a call.
 
 
 ### User stories
@@ -283,7 +283,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | police officer | find a person by field         | easily locate details of persons with any bit of information I can remember |
 | `* * *`  | police officer | have a date for each case         | know when the case occurred |
 | `* * *`  | police officer | have a description for each case      | see the details of the person and the case for follow up in future |
-| `* * *`  | police officer | set time intervals           | be reminded to give a follow up call |
+| `* * *`  | police officer | set follow-up           | be reminded to give a follow-up call |
 | `* *`  | police officer | have no repeated data           | avoid duplicate entries (check by phone number or NRIC) |
 | `* *`  | police officer | have an email field           | still contact the person in another way in case no one answers the phone |
 | `*`    | police officer | have a better GUI display of information           | easily see the details of each person and their case |
@@ -401,7 +401,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 3a1. Police Address Book shows an error message.
 
       Use case resumes at step 2.
-*{More to be added}*
 
 ### Non-Functional Requirements
 

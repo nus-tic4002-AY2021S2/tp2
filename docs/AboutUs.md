@@ -21,7 +21,7 @@ We are a team based in the [School of Computing, National University of Singapor
 <img src="images/impala36.png" width="200px">
 
 [[github](http://github.com/impala36/tp2)]
-[[portfolio](team/zhenquan.md)]
+[[portfolio](team/impala36.md)]
 
 * Role: Team member
 
@@ -39,6 +39,6 @@ We are a team based in the [School of Computing, National University of Singapor
 <img src="images/yiheng0410.png" width="200px">
 
 [[github](https://github.com/Yiheng0410/tp2)]
-[[portfolio](team/yiheng.md)]
+[[portfolio](team/yiheng0410.md)]
 
 * Role: Team member

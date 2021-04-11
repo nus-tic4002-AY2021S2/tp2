@@ -75,7 +75,7 @@ dependencies {
 }
 
 shadowJar {
-    archiveName = 'PoliceAddressBook.jar'
+    archiveName = '[TIC4002-F18-1][PoliceAddressBook].jar'
 }
 
 defaultTasks 'clean', 'test'
