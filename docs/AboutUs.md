@@ -36,7 +36,7 @@ You can reach me at the email `junwen.tay@u.nus.edu`
 <img src="images/januariusjang.png" width="200px">
 
 [[github](https://github.com/JanuariusJang)] 
-[[portfolio](team/JanuariusJang.md)]
+[[portfolio](team/januariusjang.md)]
 
 You can reach me at the email `e0261976@u.nus.edu`
 
