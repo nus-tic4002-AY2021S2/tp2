@@ -106,7 +106,7 @@ It will return a `CommandResult` to the `LogicManager` that will return to user.
 * **Alternative 1 (current choice):** unique NRIC, phone number or email to the entire address book.
   * Pros: Since each person have unique NRIC, phone number or email, it can easily be retrieved from `UniquePersonList`.
   This will reduce coupling when the person is to be updated.
-  * Cons: Every time we retrieve a person using its `Nric`,`phone number` or `email`, we have to search through the whole `UniquePersonList` to find
+  * Cons: Every time we retrieve a person using his `Nric`,`phone number` or `email`, we have to search through the whole `UniquePersonList` to find
           the associated person. As the list gets bigger, this may take more time.
           
 * **Alternative 2 :** unique name to the entire address book
