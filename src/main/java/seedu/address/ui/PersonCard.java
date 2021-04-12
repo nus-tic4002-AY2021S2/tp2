@@ -1,12 +1,18 @@
 package seedu.address.ui;
 
 import java.util.Comparator;
+import java.util.logging.Logger;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
+import seedu.address.commons.core.LogsCenter;
+import seedu.address.commons.util.DateUtil;
+import seedu.address.logic.LogicManager;
 import seedu.address.model.person.Person;
 
 /**
@@ -15,6 +21,7 @@ import seedu.address.model.person.Person;
 public class PersonCard extends UiPart<Region> {
 
     private static final String FXML = "PersonListCard.fxml";
+    private static final String ICON_EXCLAMATION = "/images/exclamation_point_icon.png";
 
     /**
      * Note: Certain keywords such as "location" and "resources" are reserved keywords in JavaFX.
@@ -31,6 +38,10 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label name;
     @FXML
+    private Label date;
+    @FXML
+    private Label nric;
+    @FXML
     private Label id;
     @FXML
     private Label phone;
@@ -39,22 +50,60 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label email;
     @FXML
+    private Label description;
+    @FXML
+    private Label remarkTitle;
+    @FXML
+    private Label remark;
+    @FXML
+    private Label followUp;
+    @FXML
+    private Label callMessage;
+    @FXML
     private FlowPane tags;
+    @FXML
+    private ImageView displayIcon;
 
     /**
-     * Creates a {@code PersonCode} with the given {@code Person} and index to display.
+     * Constructs a {@code PersonCard}.
+     *
+     * @param person Represents a Person in the address book.
+     * @param displayedIndex The index of the Person.
      */
     public PersonCard(Person person, int displayedIndex) {
         super(FXML);
         this.person = person;
         id.setText(displayedIndex + ". ");
         name.setText(person.getName().fullName);
+        date.setText(person.getDate().value);
+        nric.setText(person.getNric().value);
         phone.setText(person.getPhone().value);
         address.setText(person.getAddress().value);
+        address.setWrapText(true);
         email.setText(person.getEmail().value);
+        email.setWrapText(true);
+        description.setText(person.getDescription().value);
+        description.setWrapText(true);
+        remark.setText(person.getRemark().value);
+        remark.setWrapText(true);
+        followUp.setText(person.getFollowUp().value + " days");
+        remarkTitle.setText("");
+        callMessage.setText("");
+
+        if (new DateUtil(person.getFollowUp().value, person.getDate().value).isLastDay()
+            && !person.getFollowUp().value.equals("0")) {
+            displayIcon.setImage(new Image(ICON_EXCLAMATION));
+            callMessage.setText("Call Today!");
+        }
+
+        if (!person.getRemark().value.equals("")) {
+            final Logger logger = LogsCenter.getLogger(LogicManager.class);
+            logger.info("Remark present; remarkTitle will be displayed");
+            remarkTitle.setText("Officer's Remark");
+        }
         person.getTags().stream()
-                .sorted(Comparator.comparing(tag -> tag.tagName))
-                .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
+            .sorted(Comparator.comparing(tag -> tag.tagName))
+            .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
     }
 
     @Override
@@ -72,6 +121,6 @@ public class PersonCard extends UiPart<Region> {
         // state check
         PersonCard card = (PersonCard) other;
         return id.getText().equals(card.id.getText())
-                && person.equals(card.person);
+            && person.equals(card.person);
     }
 }

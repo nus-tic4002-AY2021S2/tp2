@@ -1,0 +1,78 @@
+@startuml
+!include style.puml
+
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
+participant ":AddTagCommandParser" as AddTagCommandParser LOGIC_COLOR
+participant "a:AddTagCommand" as AddTagCommand LOGIC_COLOR
+participant ":CommandResult" as CommandResult LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant ":Model" as Model MODEL_COLOR
+end box
+
+[-> LogicManager : execute("addTag 1 at/CalledOnce")
+activate LogicManager
+
+LogicManager -> AddressBookParser : parseCommand("addTag 1 at/CalledOnc")
+activate AddressBookParser
+
+create AddTagCommandParser
+AddressBookParser -> AddTagCommandParser
+activate AddTagCommandParser
+
+AddTagCommandParser --> AddressBookParser
+deactivate AddTagCommandParser
+
+AddressBookParser -> AddTagCommandParser : parse("addTag 1 at/CalledOnce")
+activate AddTagCommandParser
+
+create AddTagCommand
+AddTagCommandParser -> AddTagCommand
+activate AddTagCommand
+
+AddTagCommand --> AddTagCommandParser : a
+deactivate AddTagCommand
+
+AddTagCommandParser --> AddressBookParser : a
+deactivate AddTagCommandParser
+'Hidden arrow to position the destroy marker below the end of the activation bar.
+AddTagCommandParser -[hidden]-> AddressBookParser
+destroy AddTagCommandParser
+
+AddressBookParser --> LogicManager : a
+deactivate AddressBookParser
+
+LogicManager -> AddTagCommand : execute()
+activate AddTagCommand
+
+AddTagCommand -> Model : New personToEdit
+activate Model
+
+AddTagCommand -> Model : New editedPerson
+activate Model
+
+Model --> AddTagCommand
+deactivate Model
+
+AddTagCommand -> Model : setPerson(personToEdit, editedPerson)
+activate Model
+
+Model --> AddTagCommand
+deactivate Model
+
+create CommandResult
+AddTagCommand -> CommandResult
+activate CommandResult
+
+CommandResult --> AddTagCommand
+deactivate CommandResult
+
+AddTagCommand --> LogicManager : result
+deactivate AddTagCommand
+
+[<--LogicManager
+deactivate LogicManager
+@enduml
