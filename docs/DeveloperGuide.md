@@ -447,6 +447,9 @@ Use case ends.
 
 Use case ends.
 
+![PatientBook - AD](images/deleteMed.PNG)
+
+
 ---
 
 *Use case: Add medical records in PatientBook*
