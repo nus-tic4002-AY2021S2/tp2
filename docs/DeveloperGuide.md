@@ -560,3 +560,30 @@ testers are expected to do more *exploratory* testing.
    1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
 
 1. _{ more test cases …​ }_
+
+## **Appendix: Effort**
+
+
+### Difficulty level
+We felt the difficulty level was sharply increased compared to our previous TP project where we designed, developed and tested our own project implementation.
+
+
+### Challenges faced
+1. Even with the guides and tutorial for AB-3's codebase, we still found it quite daunting and hard to fully trace and follow the code in order to understand when and where to apply our modifications.
+
+2. Planning the contribution and allocation of workload among team members was also quite tough as we found most of the codebase to be tightly coupled, therefore requiring team members to find time to code together and check each other's contributions.
+   We often had to hold many adhoc sessions in order to explain and show each other on how to modify the codebase to fit our use cases.
+
+
+### Effort required
+1. The process of adding new classes, modifying the UI and adding new variables was very tedious and required much manual work(IDE refactoring was not very helpful).
+
+2. Adding test cases was also difficult as the tests would often break across PRs and contributions if they were overly complex.
+
+
+### Achievements
+1. We managed to hit a final code coverage of 72%. 
+
+2. We also were able to add and modify some of the diagrams in the developer guide to reflect the modifications made.
+
+3. We managed to add more than 3 additional functions on top of the existing AB-3 Codebase.
