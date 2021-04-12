@@ -26,7 +26,7 @@ Given below are my contributions to the project.
 * **Enhancements to existing features**:
   * Enhanced the add function by adding in a date field to indicate the data of case reported.
    * Updated and wrote additional tests for existing features and new features (Pull requests [\#50](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/50/files/a4259fa796bf14a28eaa2855b4380226a38a7d90))
-   * Fixed Date validation bug (Pull requests [\#75](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/75))
+   * Fixed date validation bug (Pull requests [\#75](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/75))
    * Fixed bug to check if set<Tag> is empty before removing (Pull requests [\#105](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/140/files/300a8d2a3285602a576a329ca4fcf294309b0527))
    * Fixed add/remove tag bug (Pull requests [\#140](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/105/commits/97e2cb505ce307f68cd6a1784dce03b435dab16b))
    
