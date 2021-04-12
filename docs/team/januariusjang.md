@@ -1,6 +1,6 @@
 
 
-## Januarius Jang's Project Portfolio page
+## Januarius Jang's Project Portfolio Page
 
 #### Address book (NS edition)
 
