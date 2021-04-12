@@ -86,7 +86,11 @@ The `UI` component,
 
 Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("addApp /d Heart Checkup /t 2021-04-12 10:00:00")` API call.
 
-![Interactions Inside the Logic Component for the `delete 1` Command](images/AddAppointmentSequenceDiagram.png)
+![Interactions Inside the Logic Component for the `execute("addApp /d Heart Checkup /t 2021-04-12 10:00:00")` Command](images/AddAppointmentSequenceDiagram.png)
+
+Given below is the Object Diagram for the interactions and parameters within the `Logic` component for the `execute("addApp 2 /d Check-up /t 2021-03-18 10:00:00")` API call.
+
+![Interactions Inside the Logic Component for the `execute("addApp 2 /d Check-up /t 2021-03-18 10:00:00")` Command](images/AddAppointmentObjectDiagram.png)
 
 ### Model component
 
@@ -447,7 +451,9 @@ Use case ends.
 
 Use case ends.
 
-![PatientBook - AD](images/deleteMed.PNG)
+Given below is the Object Diagram for the interactions and parameters within the `Logic` component for the `execute("deleteMed 1 1")` API call and delete medical records use case.
+
+![PatientBook - AD](images/DeleteMedicalHistoryObjectDiagram.png)
 
 
 ---
@@ -474,6 +480,10 @@ Use case ends.
       Use case resumes at step 2.
 
 Use case ends.
+
+Given below is the Activity Diagram for interactions within Patient Book for the Add Medical records Use case.
+
+![Add medical records in PatientBook](images/AddMedicalHistoryActivityDiagram.png)
 
 ---
 
