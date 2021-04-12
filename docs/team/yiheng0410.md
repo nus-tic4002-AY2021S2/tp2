@@ -41,6 +41,7 @@ Given below are my contributions to the project.
 * **Community**:
   * Attended team's weekly meetings and discussions. 
   * Reviewed and approved team's PRs.
+    * (Pull requests [\#72](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/72), [\#73](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/73), [\#74](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/74), [\#99](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/99), [\#139](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/139))
   * Reported bugs, suggestions for improvement.
 
 
