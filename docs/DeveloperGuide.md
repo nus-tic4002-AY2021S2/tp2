@@ -456,6 +456,10 @@ Given below is the Object Diagram for the interactions and parameters within the
 ![PatientBook - AD](images/DeleteMedicalHistoryObjectDiagram.png)
 
 
+Given below is the Sequence Diagram for the interactions of deleting a Medical Records within the `Logic` component for the `execute("deleteMed 1 1")` API call and delete medical records use case.
+
+![PatientBook - AD](images/DeleteMedicalHistorySequenceDiagram.png)
+
 ---
 
 *Use case: Add medical records in PatientBook*
