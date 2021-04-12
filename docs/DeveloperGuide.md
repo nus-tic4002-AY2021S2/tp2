@@ -253,7 +253,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user                                       | add tags onto a patient's data    | search using the tag                                                         |
 | `* * *`  | user                                       | add a new appointment             | insert appointment entries into the PatientBook                              |
 | `* * *`  | user                                       | view the lists of appointments    | shows a list of all appointments a patient has in the PatientBook            |
-| `* * *`  | user                                       | delete appointments               | delete appointments a patient has in the PatientBook                         |            
+| `* * *`  | user                                       | delete appointments               | delete appointments a patient has in the PatientBook                         |
 | `* * *`  | user                                       | add a new medical records         | insert medical records entries into the PatientBook                          |
 | `* * *`  | user                                       | view the lists of medical records | shows a list of medical records a patient has in the PatientBook             |
 | `* * *`  | user                                       | delete medical records            | delete medical records of a patient has in the PatientBook                   |
@@ -286,9 +286,9 @@ Use case ends.
 
 * 1a. View a non existing perons's appointment.
     Use case go back to step1 and restart by key in the correct name
-    
-  2a. No appointment in this patient 
   
+  2a. No appointment in this patient
+
 Use case ends.
 
 ![PatientBook - AD](images/ViewAppActivityDiagram.PNG)
@@ -306,7 +306,7 @@ Use case ends.
 
 **Extensions**
 
-* 2a. The PatientBook is empty. 
+* 2a. The PatientBook is empty.
 
 Use case ends.
 
@@ -325,7 +325,7 @@ Use case ends.
 
 * 1a. The keywords do not match any patient.
   2a. The PatientBook will not list any records. Return to step 1 to enter new keywords.
-  
+
 Use case ends.
 
 ---
@@ -351,7 +351,7 @@ Use case ends.
     * 3a1. PatientBook shows an error message.
 
       Use case resumes at step 2.
-      
+
 Use case ends.
 
 ---
