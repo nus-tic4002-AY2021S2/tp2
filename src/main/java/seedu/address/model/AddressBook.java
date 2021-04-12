@@ -2,9 +2,12 @@ package seedu.address.model;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javafx.collections.ObservableList;
+import seedu.address.model.group.Group;
+import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.UniquePersonList;
 
@@ -15,6 +18,7 @@ import seedu.address.model.person.UniquePersonList;
 public class AddressBook implements ReadOnlyAddressBook {
 
     private final UniquePersonList persons;
+
 
     /*
      * The 'unusual' code block below is a non-static initialization block, sometimes used to avoid duplication
@@ -83,6 +87,37 @@ public class AddressBook implements ReadOnlyAddressBook {
         requireNonNull(editedPerson);
 
         persons.setPerson(target, editedPerson);
+    }
+
+    /**
+     * Get the person with given name
+     */
+    public Person getPerson(Name name) {
+        requireNonNull(name);
+
+        for (Person person : persons) {
+            if (person.getName().equals(name)) {
+                return person;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Get the list of person that is in the given Group
+     */
+    public ArrayList<Person> getPersonListInThisGroup(Group group) {
+        requireNonNull(group);
+        ArrayList<Person> personArrayList = new ArrayList<Person>();
+
+        for (Person person : persons) {
+            if (person.getGroup().equals(group)) {
+                personArrayList.add(person);
+            }
+        }
+
+        return personArrayList;
     }
 
     /**

@@ -7,6 +7,9 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+import seedu.address.model.group.Group;
+import seedu.address.model.group.GroupList;
+import seedu.address.model.group.exceptions.GroupNotFoundException;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -23,17 +26,24 @@ public class Person {
     // Data fields
     private final Address address;
     private final Set<Tag> tags = new HashSet<>();
+    private Group group = new Group();
 
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
-        requireAllNonNull(name, phone, email, address, tags);
+    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags, Group group)
+            throws GroupNotFoundException {
+        requireAllNonNull(name, phone, email, address, tags, group);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
         this.tags.addAll(tags);
+        if (!GroupList.hasGroup(group) && !group.toString().equals("N/A")) {
+            throw new GroupNotFoundException("The group is not exist");
+        }
+        assert GroupList.hasGroup(group) || group.toString().equals("N/A");
+        this.group.setGroupName(group.toString());
     }
 
     public Name getName() {
@@ -50,6 +60,14 @@ public class Person {
 
     public Address getAddress() {
         return address;
+    }
+
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group.setGroupName(group.toString());
     }
 
     /**
@@ -92,13 +110,14 @@ public class Person {
                 && otherPerson.getPhone().equals(getPhone())
                 && otherPerson.getEmail().equals(getEmail())
                 && otherPerson.getAddress().equals(getAddress())
-                && otherPerson.getTags().equals(getTags());
+                && otherPerson.getTags().equals(getTags())
+                && otherPerson.getGroup().equals(getGroup());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, tags);
+        return Objects.hash(name, phone, email, address, tags, group);
     }
 
     @Override
@@ -117,6 +136,8 @@ public class Person {
             builder.append("; Tags: ");
             tags.forEach(builder::append);
         }
+        builder.append("; Group: ")
+                .append(getGroup().toString());
         return builder.toString();
     }
 

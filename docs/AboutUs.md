@@ -3,57 +3,55 @@ layout: page
 title: About Us
 ---
 
-We are a team based in the [School of Computing, National University of Singapore](http://www.comp.nus.edu.sg).
-
-You can reach us at the email `seer[at]comp.nus.edu.sg`
+We are a team based in the [School of Continuing And Lifelong Education, National University of Singapore](https://scale.nus.edu.sg/).
 
 ## Project team
 
-### John Doe
+### Hong Jian Cheng
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/hongjiancheng.png" width="200px">
 
-[[homepage](http://www.comp.nus.edu.sg/~damithch)]
-[[github](https://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](https://github.com/HongJiancheng)]
+[[portfolio](team/hongjiancheng.md)]
 
-* Role: Project Advisor
-
-### Jane Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
-
-* Role: Team Lead
-* Responsibilities: UI
-
-### Johnny Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[github](http://github.com/johndoe)] [[portfolio](team/johndoe.md)]
+You can reach me at the email `e0264456@u.nus.edu`
 
 * Role: Developer
-* Responsibilities: Data
+* Responsibilities: Development
 
-### Jean Doe
+### Tay Jun Wen
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/tototto.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](https://github.com/tototto)]
+[[portfolio](team/tototto.md)]
 
-* Role: Developer
-* Responsibilities: Dev Ops + Threading
-
-### James Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+You can reach me at the email `junwen.tay@u.nus.edu`
 
 * Role: Developer
-* Responsibilities: UI
+* Responsibilities: Development
+
+### Januarius Jang
+
+<img src="images/januariusjang.png" width="200px">
+
+[[github](https://github.com/JanuariusJang)] 
+[[portfolio](team/januariusjang.md)]
+
+You can reach me at the email `e0261976@u.nus.edu`
+
+* Role: Developer
+* Responsibilities: Development
+
+### Zheng Shi Jie
+
+<img src="images/zhengshijienus.png" width="200px">
+
+[[github](https://github.com/ZhengShijieNUS)]
+[[portfolio](team/zhengshijienus.md)]
+
+You can reach me at the email `e0263963@u.nus.edu`
+
+* Role: Developer
+* Responsibilities: Development
+

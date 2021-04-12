@@ -1,0 +1,92 @@
+{
+  "persons" : [ {
+    "name" : "Alice Yeoh",
+    "phone" : "87438807",
+    "email" : "alexyeoh@example.com",
+    "address" : "Blk 30 Lorong 3 Serangoon Gardens, #07-18",
+    "tagged" : [ "friends" ],
+    "group" : "N/A"
+  }, {
+    "name" : "Bernice Yu",
+    "phone" : "99272758",
+    "email" : "berniceyu@example.com",
+    "address" : "Blk 30 Lorong 3 Serangoon Gardens, #07-18",
+    "tagged" : [ "colleagues", "friends" ],
+    "group" : "N/A"
+  }, {
+    "name" : "Charlotte Oliveiro",
+    "phone" : "93210283",
+    "email" : "charlotte@example.com",
+    "address" : "Blk 11 Ang Mo Kio Street 74, #11-04",
+    "tagged" : [ "neighbours" ],
+    "group" : "N/A"
+  }, {
+    "name" : "David Li",
+    "phone" : "91031282",
+    "email" : "lidavid@example.com",
+    "address" : "Blk 436 Serangoon Gardens Street 26, #16-43",
+    "tagged" : [ "family" ],
+    "group" : "N/A"
+  }, {
+    "name" : "Irfan Ibrahim",
+    "phone" : "92492021",
+    "email" : "irfan@example.com",
+    "address" : "Blk 47 Tampines Street 20, #17-35",
+    "tagged" : [ "classmates" ],
+    "group" : "N/A"
+  }, {
+    "name" : "Roy Balakrishnan",
+    "phone" : "92624417",
+    "email" : "royb@example.com",
+    "address" : "Blk 45 Aljunied Street 85, #11-31",
+    "tagged" : [ "colleagues" ],
+    "group" : "N/A"
+  }, {
+    "name" : "John Doe",
+    "phone" : "98765432",
+    "email" : "johnd@example.com",
+    "address" : "John street, block 123, #01-01",
+    "tagged" : [ ],
+    "group" : "N/A"
+  }, {
+    "name" : "John Poh",
+    "phone" : "98765432",
+    "email" : "johnd@example.com",
+    "address" : "John street, block 123, #01-01",
+    "tagged" : [ ],
+    "group" : "N/A"
+  }, {
+    "name" : "Pokky Chan",
+    "phone" : "1234567",
+    "email" : "betsycrowe@example.com",
+    "address" : "Newgate Prison",
+    "tagged" : [ "friend", "criminal" ],
+    "group" : "A"
+  }, {
+    "name" : "Betsy Crowe",
+    "phone" : "1234567",
+    "email" : "betsycrowe@example.com",
+    "address" : "Newgate Prison",
+    "tagged" : [ ],
+    "group" : "N/A"
+  } ],
+  "groups" : [ {
+    "group" : "N/A"
+  }, {
+    "group" : "A"
+  }, {
+    "group" : "B"
+  }, {
+    "group" : "C"
+  }, {
+    "group" : "D"
+  }, {
+    "group" : "K"
+  }, {
+    "group" : "P"
+  }, {
+    "group" : "J"
+  }, {
+    "group" : "N/A"
+  } ]
+}

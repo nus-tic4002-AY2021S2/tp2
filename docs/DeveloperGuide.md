@@ -4,7 +4,7 @@ title: Developer Guide
 ---
 * Table of Contents
 {:toc}
-
+Work in progress
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Setting up, getting started**
@@ -112,6 +112,12 @@ The `Model`,
 
 </div>
 
+Given below is the Sequence Diagram for the `execute("Edit")` API call.
+
+![Interactions Inside the Model Component for the `Edit` Command](images/EditSequenceDiagram.png)
+
+<div markdown="span" class="alert alert-info">:information_source: **Note:** New Person will be created once the data has been edited.
+</div>
 
 ### Storage component
 
@@ -237,23 +243,30 @@ _{Explain here how the data archiving feature will be implemented}_
 **Target user profile**:
 
 * has a need to manage a significant number of contacts
+* has a need to carry out the task alone
 * prefer desktop apps over other types
-* can type fast
-* prefers typing to mouse interactions
-* is reasonably comfortable using CLI apps
+* prefers GUI
 
-**Value proposition**: manage contacts faster than a typical mouse/GUI driven app
+**Value proposition**: manage contacts with ability to create group and add contact into the group
 
 
 ### User stories
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                     | So that I can…​                                                        |
+| Priority | As a …​                                    | I want to …​                   | So that I can…​                                                        |
 | -------- | ------------------------------------------ | ------------------------------ | ---------------------------------------------------------------------- |
 | `* * *`  | new user                                   | see usage instructions         | refer to instructions when I forget how to use the App                 |
 | `* * *`  | user                                       | add a new person               |                                                                        |
 | `* * *`  | user                                       | delete a person                | remove entries that I no longer need                                   |
+| `* * *`  | user                                       | update a person                | update entries that has changed information                            |
+| `* * *`  | user                                       | create a new group             | classify soldiers by the groups for different purposes                 |
+| `* * *`  | user                                       | delete a group                 | remove the groups that I no longer need                                |
+| `* * *`  | user                                       | assign a person to group                 | change the group that the person belongs to                                |
+| `* * *`  | user                                       | rename a group                 | change the group name without making migration in the group people                               |
+| `* * *`  | user                                       | list all groups                | keep track of what has been created in the system                      |
+| `* * *`  | user                                       | list all persons in a group    | give a punishment or a reward to soldiers in the specific group        |
+| `* * *`  | user                                       | load groups from json file     | the previous record will be maintained                                 |
 | `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
 | `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                |
 | `*`      | user with many persons in the address book | sort persons by name           | locate a person easily                                                 |
@@ -264,14 +277,114 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 (For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
 
-**Use case: Delete a person**
+**Use case: Create a group**
 
 **MSS**
 
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
+1.  User wants to create a group
+2.  User enter the create group command
+3.  NS Addressbook create group
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The create group name is empty.
+
+    * 2a1. AddressBook shows an error message.
+    
+* 2b. The create group function is used wrongly.
+
+    * 2b1. AddressBook shows an error message.
+
+* 2c. The group aready exists.
+
+    * 2c1. AddressBook shows an error message.
+
+**Use case: Show all group**
+
+**MSS**
+
+1.  User requests to list all groups
+2.  AddressBook shows a list of groups
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.   
+
+**Use case: Delete a group**
+
+**MSS**
+
+1.  User requests to list groups
+2.  AddressBook shows a list of groups
+3.  User requests to delete a specific group in the list
+4.  AddressBook deletes the group
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+
+* 3a. The given index is invalid.
+
+    * 3a1. AddressBook shows an error message.
+
+      Use case resumes at step 2.
+      
+**Use case: List all persons from a group**
+
+**MSS**
+
+1.  User requests to list all groups
+2.  AddressBook shows a list of groups
+3.  User requests to list all persons from a specific group.
+4.  AddressBook shows the persons from this group.
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The group is not exist.
+    * 2a1. AddressBook shows an error message.
+
+  Use case ends.    
+
+**Use case: Delete all person from group**
+
+**MSS**
+
+1.  User requests to list groups
+2.  AddressBook shows a list of groups
+3.  user request to delete all person in that group
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list of all group is empty.
+
+  Use case ends.
+
+* 3a. No one is assigned to that group.
+
+  Use case ends.
+
+**Use case: rename a group**
+
+**MSS**
+
+1.  User requests to list group
+2.  AddressBook shows a list of groups
+3.  User requests to rename a specific group in the list by using the group index 
+4.  AddressBook rename the group
 
     Use case ends.
 
@@ -287,12 +400,35 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case resumes at step 2.
 
+**Use case: assign a person to group**
+
+**MSS**
+
+1.  User requests to list group
+2.  AddressBook shows a list of groups
+3.  User requests to assign a specific person to group in the list by using the person name and group name
+4.  AddressBook assign the person to the group
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+
+* 3a. The given person name or group name is invalid.
+
+    * 3a1. AddressBook shows an error message.
+
+      Use case resumes at step 2.
+
 *{More to be added}*
 
 ### Non-Functional Requirements
 
 1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
-2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
+2.  Should be able to hold up to 1000 persons and 100 groups without a noticeable sluggishness in performance for typical usage.
 3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
 
 *{More to be added}*
