@@ -84,12 +84,13 @@ The `UI` component,
 1. The result of the command execution is encapsulated as a `CommandResult` object which is passed back to the `Ui`.
 1. In addition, the `CommandResult` object can also instruct the `Ui` to perform certain actions, such as displaying help to the user.
 
-Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("delete 1")` API call.
+Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("addApp /d Heart Checkup /t 2021-04-12 10:00:00")` API call.
 
-![Interactions Inside the Logic Component for the `delete 1` Command](images/DeleteSequenceDiagram.png)
+![Interactions Inside the Logic Component for the `execute("addApp /d Heart Checkup /t 2021-04-12 10:00:00")` Command](images/AddAppointmentSequenceDiagram.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-</div>
+Given below is the Object Diagram for the interactions and parameters within the `Logic` component for the `execute("addApp 2 /d Check-up /t 2021-03-18 10:00:00")` API call.
+
+![Interactions Inside the Logic Component for the `execute("addApp 2 /d Check-up /t 2021-03-18 10:00:00")` Command](images/AddAppointmentObjectDiagram.png)
 
 ### Model component
 
@@ -252,7 +253,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user                                       | add tags onto a patient's data    | search using the tag                                                         |
 | `* * *`  | user                                       | add a new appointment             | insert appointment entries into the PatientBook                              |
 | `* * *`  | user                                       | view the lists of appointments    | shows a list of all appointments a patient has in the PatientBook            |
-| `* * *`  | user                                       | delete appointments               | delete appointments a patient has in the PatientBook                         |            
+| `* * *`  | user                                       | delete appointments               | delete appointments a patient has in the PatientBook                         |
 | `* * *`  | user                                       | add a new medical records         | insert medical records entries into the PatientBook                          |
 | `* * *`  | user                                       | view the lists of medical records | shows a list of medical records a patient has in the PatientBook             |
 | `* * *`  | user                                       | delete medical records            | delete medical records of a patient has in the PatientBook                   |
@@ -265,6 +266,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 ### Use cases
 
 (For all use cases below, the **System** is the `PatientBook` and the **Actor** is the `Staff`, unless specified otherwise)
+
+###### Use Case Diagram
+![PatientBook - UC](images/UseCaseDiagram.PNG)
 
 ---
 
@@ -282,10 +286,12 @@ Use case ends.
 
 * 1a. View a non existing perons's appointment.
     Use case go back to step1 and restart by key in the correct name
-    
-  2a. No appointment in this patient 
   
+  2a. No appointment in this patient
+
 Use case ends.
+
+![PatientBook - AD](images/ViewAppActivityDiagram.PNG)
 
 ---
 
@@ -300,7 +306,7 @@ Use case ends.
 
 **Extensions**
 
-* 2a. The PatientBook is empty. 
+* 2a. The PatientBook is empty.
 
 Use case ends.
 
@@ -319,7 +325,7 @@ Use case ends.
 
 * 1a. The keywords do not match any patient.
   2a. The PatientBook will not list any records. Return to step 1 to enter new keywords.
-  
+
 Use case ends.
 
 ---
@@ -345,7 +351,7 @@ Use case ends.
     * 3a1. PatientBook shows an error message.
 
       Use case resumes at step 2.
-      
+
 Use case ends.
 
 ---
@@ -445,6 +451,11 @@ Use case ends.
 
 Use case ends.
 
+Given below is the Object Diagram for the interactions and parameters within the `Logic` component for the `execute("deleteMed 1 1")` API call and delete medical records use case.
+
+![PatientBook - AD](images/DeleteMedicalHistoryObjectDiagram.png)
+
+
 ---
 
 *Use case: Add medical records in PatientBook*
@@ -469,6 +480,10 @@ Use case ends.
       Use case resumes at step 2.
 
 Use case ends.
+
+Given below is the Activity Diagram for interactions within Patient Book for the Add Medical records Use case.
+
+![Add medical records in PatientBook](images/AddMedicalHistoryActivityDiagram.png)
 
 ---
 

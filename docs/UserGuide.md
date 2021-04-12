@@ -27,7 +27,7 @@ PatientBook is a **desktop app for managing contacts and appointments. It also h
    * **`list`** : Lists all contacts.
 
    * **`add`**`n/John Doe p/98765432 e/johnd@example.com
-    
+
     a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the patient book.
 
    * **`edit`**`3 n/John Doe e/johnd@example.com a/John street, block 123, #01-01` : Edit `Charlotte` contact to `John Doe` to the PatientBook.
@@ -66,7 +66,7 @@ PatientBook is a **desktop app for managing contacts and appointments. It also h
 * Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
-* Do note that for viewApp and viewMed related commands, 2nd index is referring to the patient list and 3rd index is referring to the "appointment" or "medical history" list. 
+* Do note that for viewApp and viewMed related commands, 2nd index is referring to the patient list and 3rd index is referring to the "appointment" or "medical history" list.
   e.g if you want to delete the 2nd appointment from the first person in the list `deleteApp 1 2`. The parameter is **FIXED**
 </div>
 
@@ -184,7 +184,7 @@ Deletes the specified appointment from specified patient from the Patient book.
 Format: `deleteApp USERINDEX APPOINTMENTINDEX`
 
 * Deletes an appointment at specified `APPOINTMENT_INDEX` from specified patient at the specified `USER_INDEX`.
-* Delete will only be valid after viewing the specified patient from the Patient Book. 
+* Delete will only be valid after viewing the specified patient from the Patient Book.
 * The userIndex refers to the index number shown in the displayed patient list.
 * The appointmentIndex refers to the index number of the appointment of the specified patient.
 * The userIndex and appointmentIndex **must be a positive integer** 1, 2, 3, …​
