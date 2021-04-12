@@ -12,7 +12,7 @@ We are a team based in the [School of Continuing And Lifelong Education, Nationa
 <img src="images/hongjiancheng.png" width="200px">
 
 [[github](https://github.com/HongJiancheng)]
-[[portfolio](team/hongJiancheng.md)]
+[[portfolio](team/hongjiancheng.md)]
 
 You can reach me at the email `e0264456@u.nus.edu`
 
