@@ -84,12 +84,9 @@ The `UI` component,
 1. The result of the command execution is encapsulated as a `CommandResult` object which is passed back to the `Ui`.
 1. In addition, the `CommandResult` object can also instruct the `Ui` to perform certain actions, such as displaying help to the user.
 
-Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("delete 1")` API call.
+Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("addApp /d Heart Checkup /t 2021-04-12 10:00:00")` API call.
 
-![Interactions Inside the Logic Component for the `delete 1` Command](images/DeleteSequenceDiagram.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-</div>
+![Interactions Inside the Logic Component for the `delete 1` Command](images/AddAppointmentSequenceDiagram.png)
 
 ### Model component
 
@@ -266,6 +263,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 (For all use cases below, the **System** is the `PatientBook` and the **Actor** is the `Staff`, unless specified otherwise)
 
+###### Use Case Diagram
+![PatientBook - UC](images/UseCaseDiagram.PNG)
+
 ---
 
 **Use case: View appointment in PatientBook**
@@ -286,6 +286,8 @@ Use case ends.
   2a. No appointment in this patient 
   
 Use case ends.
+
+![PatientBook - AD](images/ViewAppActivityDiagram.PNG)
 
 ---
 
