@@ -1,4 +1,7 @@
-# Adi Kesava Das' - Project Portfolio Page
+---
+layout: page
+title: Adi Kesava Das' - Project Portfolio Page
+---
 
 ## Project: Patient Book
 Patient Book is an app for managing patient's information including personal details, appointment details and  medical histories, optimized for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI).
