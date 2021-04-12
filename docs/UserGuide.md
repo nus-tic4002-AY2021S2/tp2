@@ -197,13 +197,13 @@ Format:
 `find [n/MORE_KEYWORDS] [d/DATE] [i/NRIC] [p/PHONE] [e/EMAIL] [a/ADDRESS] [de/DESCRIPTION] [r/REMARK] [t/TAG]…`
 
 
-* The search is case-insensitive. e.g. `n/hans` will match `Hans`
-* The order of the keywords does not matter. e.g. `n\Hans` will match `Bo Hans`
+* The search is case-insensitive. e.g. `bernice` will match `Bernice`
+* The order of the keywords does not matter. e.g. `Yu` will match `Bernice Yu`
 * The search applies on all the fields.
 * The default find command is finding the name field: e.g. `find john`
-* Only find one filed at a time. Multiple find input is not supported. `find n\john`
+* Only find one field at a time. Multiple find input is not supported. `find n\john`
 
-Examples:
+Examples (Assuming none of the fields were changed):
 * `find n/alex bernice` returns `Alex Yeoh`, `Bernice Yu`<br>
 * `find d/-02-` returns `Bernice Yu`, `Charlotte Oliveiro`
 * `find f/7` returns `Alex Yeoh`, `Irfan Ibrahim`, `Roy Balakrishnan`
