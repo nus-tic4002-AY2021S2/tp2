@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import seedu.address.commons.core.index.Index;
@@ -13,6 +14,8 @@ import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.appointment.Appointment;
+import seedu.address.model.person.medical.MedicalHistory;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -25,6 +28,7 @@ public class ParserUtil {
     /**
      * Parses {@code oneBasedIndex} into an {@code Index} and returns it. Leading and trailing whitespaces will be
      * trimmed.
+     *
      * @throws ParseException if the specified index is invalid (not non-zero unsigned integer).
      */
     public static Index parseIndex(String oneBasedIndex) throws ParseException {
@@ -111,6 +115,36 @@ public class ParserUtil {
     }
 
     /**
+     * Parses a {@code String tag} into a {@code Tag}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code tag} is invalid.
+     */
+    public static Appointment parseAppointment(String appointment) throws ParseException {
+        requireNonNull(appointment);
+        String trimmedApp = appointment.trim();
+        if (!Appointment.isValidAppointmentDescription(trimmedApp)) {
+            throw new ParseException(Appointment.MESSAGE_CONSTRAINTS);
+        }
+        return new Appointment(trimmedApp);
+    }
+
+    /**
+     * Parses a {@code String tag} into a {@code Tag}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code tag} is invalid.
+     */
+    public static MedicalHistory parseMedicalHistory(String medicalHistory, Integer index) throws ParseException {
+        requireNonNull(medicalHistory);
+        String trimmedMed = medicalHistory.trim();
+        if (!MedicalHistory.isValidMedicalHistoryDescription(trimmedMed)) {
+            throw new ParseException(Appointment.MESSAGE_CONSTRAINTS);
+        }
+        return new MedicalHistory(trimmedMed, index);
+    }
+
+    /**
      * Parses {@code Collection<String> tags} into a {@code Set<Tag>}.
      */
     public static Set<Tag> parseTags(Collection<String> tags) throws ParseException {
@@ -120,5 +154,29 @@ public class ParserUtil {
             tagSet.add(parseTag(tagName));
         }
         return tagSet;
+    }
+
+    /**
+     * Parses {@code Collection<String> appointments} into a {@code Set<appointments>}.
+     */
+    public static Set<Appointment> parseAppointments(Collection<String> appointments) throws ParseException {
+        requireNonNull(appointments);
+        final Set<Appointment> appointmentSet = new HashSet<>();
+        for (String appointment : appointments) {
+            appointmentSet.add(parseAppointment(appointment));
+        }
+        return appointmentSet;
+    }
+
+    /**
+     * Parses {@code Collection<String> appointments} into a {@code Set<appointments>}.
+     */
+    public static Set<MedicalHistory> parseMedicalHistories(Map<Integer, String> medicalHistory) throws ParseException {
+        requireNonNull(medicalHistory);
+        final Set<MedicalHistory> medicalHistoryHashSet = new HashSet<>();
+        for (Map.Entry<Integer, String> entry : medicalHistory.entrySet()) {
+            medicalHistoryHashSet.add(parseMedicalHistory(entry.getValue(), entry.getKey()));
+        }
+        return medicalHistoryHashSet;
     }
 }

@@ -38,6 +38,15 @@ public class LogicManager implements Logic {
     }
 
     @Override
+    public boolean isMedicalHistoryRelated(String commandText) {
+        boolean isViewMed = false;
+        if (commandText.startsWith("viewMed")) {
+            isViewMed = true;
+        }
+        return isViewMed;
+    }
+
+    @Override
     public CommandResult execute(String commandText) throws CommandException, ParseException {
         logger.info("----------------[USER COMMAND][" + commandText + "]");
 
@@ -53,6 +62,8 @@ public class LogicManager implements Logic {
 
         return commandResult;
     }
+
+
 
     @Override
     public ReadOnlyAddressBook getAddressBook() {
@@ -78,4 +89,7 @@ public class LogicManager implements Logic {
     public void setGuiSettings(GuiSettings guiSettings) {
         model.setGuiSettings(guiSettings);
     }
+
+
+
 }

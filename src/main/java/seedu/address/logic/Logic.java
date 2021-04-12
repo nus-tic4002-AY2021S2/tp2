@@ -14,6 +14,8 @@ import seedu.address.model.person.Person;
  * API of the Logic component
  */
 public interface Logic {
+
+    boolean isMedicalHistoryRelated(String commandText);
     /**
      * Executes the command and returns the result.
      * @param commandText The command as entered by the user.
@@ -23,8 +25,9 @@ public interface Logic {
      */
     CommandResult execute(String commandText) throws CommandException, ParseException;
 
+
     /**
-     * Returns the AddressBook.
+     * Returns the PatientBook.
      *
      * @see seedu.address.model.Model#getAddressBook()
      */
@@ -34,7 +37,7 @@ public interface Logic {
     ObservableList<Person> getFilteredPersonList();
 
     /**
-     * Returns the user prefs' address book file path.
+     * Returns the user prefs' patient book file path.
      */
     Path getAddressBookFilePath();
 
@@ -47,4 +50,6 @@ public interface Logic {
      * Set the user prefs' GUI settings.
      */
     void setGuiSettings(GuiSettings guiSettings);
+
+
 }

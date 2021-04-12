@@ -3,6 +3,7 @@ package seedu.address;
 import javafx.application.Application;
 
 /**
+ * NUS Expenses Tracker Main Launcher.
  * The main entry point to the application.
  *
  * This is a workaround for the following error when MainApp is made the
