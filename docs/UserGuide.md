@@ -236,6 +236,8 @@ Clears all entries from the Police Address Book.
 
 Format: `clear`
 
+To restore the sample data, simply delete addressbook.json in the folder called data, which was created in the same directory.
+
 ### Sending email : `send`
 
 sending email to user.
