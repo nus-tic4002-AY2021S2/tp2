@@ -1,4 +1,3 @@
-
 ---
 layout: page
 title: Yiheng's Project Portfolio Page
@@ -25,12 +24,14 @@ Given below are my contributions to the project.
 
 * **Enhancements to existing features**:
   * Enhanced the add function by adding in a date field to indicate the data of case reported.
-  * Updated and wrote additional tests for existing features and new features (Pull requests [\#50](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/50/files/a4259fa796bf14a28eaa2855b4380226a38a7d90))
-  * Fixed Date validation bug (Pull requests [\#75](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/75))
-
+   * Updated and wrote additional tests for existing features and new features (Pull requests [\#50](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/50/files/a4259fa796bf14a28eaa2855b4380226a38a7d90))
+   * Fixed date validation bug (Pull requests [\#75](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/75))
+   * Fixed bug to check if set<Tag> is empty before removing (Pull requests [\#105](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/140/files/300a8d2a3285602a576a329ca4fcf294309b0527))
+   * Fixed add/remove tag bug (Pull requests [\#140](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/105/commits/97e2cb505ce307f68cd6a1784dce03b435dab16b))
+   
 * **Documentation**:
   * User Guide: Updated the user guide based on new features and enhanced existing features.
-  * (Pull requests [\#32](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/32/commits/9f7726fcda8941a744f4a1d30eb7b22c419bfa8e), [\#56](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/56/commits/e41d9064af9fcedf3b23db0340cfe0a4f5d2f67a), [\#105](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/75/commits/0e49537cb32e08b0cf923f229bcf9259902774b8))
+    * (Pull requests [\#32](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/32/commits/9f7726fcda8941a744f4a1d30eb7b22c419bfa8e), [\#56](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/56/commits/e41d9064af9fcedf3b23db0340cfe0a4f5d2f67a), [\#105](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/75/commits/0e49537cb32e08b0cf923f229bcf9259902774b8))
   
 
   * Developer Guide: Updated the developer guide based on new features and enhanced existing features.
@@ -39,6 +40,7 @@ Given below are my contributions to the project.
 * **Community**:
   * Attended team's weekly meetings and discussions. 
   * Reviewed and approved team's PRs.
+    * (Pull requests [\#72](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/72), [\#73](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/73), [\#74](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/74), [\#99](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/99), [\#139](https://github.com/AY2021S2-TIC4002-F18-1/tp2/pull/139))
   * Reported bugs, suggestions for improvement.
 
 
