@@ -1,6 +1,7 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -68,7 +69,7 @@ public class SendCommand extends Command {
                 message = model.getFilteredPersonList().get(number - 1).toString();
             }
             if (email.equals("") && message.equals("")) {
-                return new CommandResult(String.format(MESSAGE_USAGE));
+                return new CommandResult(String.format(MESSAGE_INVALID_COMMAND_FORMAT, MESSAGE_USAGE));
             } else {
 
                 new SendEmail(email, message);
