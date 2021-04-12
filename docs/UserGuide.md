@@ -248,13 +248,15 @@ Format:
         
 * The email format will be validated.
 * The index must be numeric and within the list size.
-* Any email address with empty space after e\ will treat as invalid email.
+* Any email address with empty space after e/ will treat as invalid email.
 * Any empty space between email format will be regarded as a MESSAGE.
+* When the input matches the email formate e/hello@kitty.com, it will treat as send the data to this email. The rest input will be discard.
 
 
 Examples:
 * `send 1 e/hellokitty@hotmail.com` sending the first data in the printed list to the user.
 * `send 1 I am not able to contact you, please call me` the message will send to the reporter's email address in the list number 1.
+* `send 1 hello e/hello@kitty.com world` the first data in the list will send to hello@kitty.com.
 
 ### Exiting the program : `exit`
 
