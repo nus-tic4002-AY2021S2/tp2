@@ -86,7 +86,11 @@ The `UI` component,
 
 Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("addApp /d Heart Checkup /t 2021-04-12 10:00:00")` API call.
 
-![Interactions Inside the Logic Component for the `delete 1` Command](images/AddAppointmentSequenceDiagram.png)
+![Interactions Inside the Logic Component for the `execute("addApp /d Heart Checkup /t 2021-04-12 10:00:00")` Command](images/AddAppointmentSequenceDiagram.png)
+
+Given below is the Object Diagram for the interactions and parameters within the `Logic` component for the `execute("addApp 2 /d Check-up /t 2021-03-18 10:00:00")` API call.
+
+![Interactions Inside the Logic Component for the `execute("addApp 2 /d Check-up /t 2021-03-18 10:00:00")` Command](images/AddAppointmentObjectDiagram.png)
 
 ### Model component
 
@@ -249,7 +253,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user                                       | add tags onto a patient's data    | search using the tag                                                         |
 | `* * *`  | user                                       | add a new appointment             | insert appointment entries into the PatientBook                              |
 | `* * *`  | user                                       | view the lists of appointments    | shows a list of all appointments a patient has in the PatientBook            |
-| `* * *`  | user                                       | delete appointments               | delete appointments a patient has in the PatientBook                         |            
+| `* * *`  | user                                       | delete appointments               | delete appointments a patient has in the PatientBook                         |
 | `* * *`  | user                                       | add a new medical records         | insert medical records entries into the PatientBook                          |
 | `* * *`  | user                                       | view the lists of medical records | shows a list of medical records a patient has in the PatientBook             |
 | `* * *`  | user                                       | delete medical records            | delete medical records of a patient has in the PatientBook                   |
@@ -282,9 +286,9 @@ Use case ends.
 
 * 1a. View a non existing perons's appointment.
     Use case go back to step1 and restart by key in the correct name
-    
-  2a. No appointment in this patient 
   
+  2a. No appointment in this patient
+
 Use case ends.
 
 ![PatientBook - AD](images/ViewAppActivityDiagram.PNG)
@@ -302,7 +306,7 @@ Use case ends.
 
 **Extensions**
 
-* 2a. The PatientBook is empty. 
+* 2a. The PatientBook is empty.
 
 Use case ends.
 
@@ -321,7 +325,7 @@ Use case ends.
 
 * 1a. The keywords do not match any patient.
   2a. The PatientBook will not list any records. Return to step 1 to enter new keywords.
-  
+
 Use case ends.
 
 ---
@@ -347,7 +351,7 @@ Use case ends.
     * 3a1. PatientBook shows an error message.
 
       Use case resumes at step 2.
-      
+
 Use case ends.
 
 ---
@@ -447,7 +451,9 @@ Use case ends.
 
 Use case ends.
 
-![PatientBook - AD](images/deleteMed.PNG)
+Given below is the Object Diagram for the interactions and parameters within the `Logic` component for the `execute("deleteMed 1 1")` API call and delete medical records use case.
+
+![PatientBook - AD](images/DeleteMedicalHistoryObjectDiagram.png)
 
 
 ---
@@ -474,6 +480,10 @@ Use case ends.
       Use case resumes at step 2.
 
 Use case ends.
+
+Given below is the Activity Diagram for interactions within Patient Book for the Add Medical records Use case.
+
+![Add medical records in PatientBook](images/AddMedicalHistoryActivityDiagram.png)
 
 ---
 

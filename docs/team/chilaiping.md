@@ -15,7 +15,7 @@ Patient Book is an app for managing patient's information including personal det
     * What it does: Allows the user to add appointment to the patient using the command given.
     * Justification: This feature will allow user to add appointment they their have.
     * Credits: N/A
-    
+
 * Code contributed: [RepoSense Link](https://nus-tic4002-ay2021s2.github.io/tp-dashboard/?search=&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code~other&since=)
 
 * Project management
@@ -32,14 +32,14 @@ Patient Book is an app for managing patient's information including personal det
         * Added documentation for the features View Medical Records ([#56](https://github.com/AY2021S2-TIC4002-F18-4/tp2/pull/56))
         * Added documentation for the features Delete Medical Records ([#56](https://github.com/AY2021S2-TIC4002-F18-4/tp2/pull/56))
         * Added documentation for the features view Appointment on Today ([#56](https://github.com/AY2021S2-TIC4002-F18-4/tp2/pull/56))
-        
+  
     * Developer Guide:
         * Added user stories for Add/View/Delete Medical Records ([#56](https://github.com/AY2021S2-TIC4002-F18-4/tp2/pull/56))
         * Added documentation for the features Add Medical Records ([#56](https://github.com/AY2021S2-TIC4002-F18-4/tp2/pull/56))
         * Added documentation for the features View Medical Records ([#56](https://github.com/AY2021S2-TIC4002-F18-4/tp2/pull/56))
         * Added documentation for the features Delete Medical Records ([#56](https://github.com/AY2021S2-TIC4002-F18-4/tp2/pull/56))
         * Added documentation for the glossary section ([#30](https://github.com/AY2021S2-TIC4002-F18-4/tp2/pull/30))
-        
+
 
 * Community:
-    * Our application was developed using a combination of pair-programming and adhoc coding sessions. During each session lasting between an hour to four or more, all group members sat in a meeting session while coding/ implementing their assigned components. If a concern was raised or support was needed, they shared their screen via the meeting session and everyone participated or assisted to clear the obstacle. Using this method we've successfully cleared v1.0 to v3.0 of our project milestones. 
+    * Our application was developed using a combination of pair-programming and adhoc coding sessions. During each session lasting between an hour to four or more, all group members sat in a meeting session while coding/ implementing their assigned components. If a concern was raised or support was needed, they shared their screen via the meeting session and everyone participated or assisted to clear the obstacle. Using this method we've successfully cleared v1.0 to v3.0 of our project milestones.
