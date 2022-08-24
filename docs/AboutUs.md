@@ -3,57 +3,40 @@ layout: page
 title: About Us
 ---
 
-We are a team based in the [School of Computing, National University of Singapore](http://www.comp.nus.edu.sg).
-
-You can reach us at the email `seer[at]comp.nus.edu.sg`
-
 ## Project team
 
-### John Doe
+### Weizhong
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/e0260222.png" width="200px">
 
-[[homepage](http://www.comp.nus.edu.sg/~damithch)]
-[[github](https://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
-
-* Role: Project Advisor
-
-### Jane Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](https://github.com/e0260222)]
+[[portfolio](team/e0260222.md)]
 
 * Role: Team Lead
-* Responsibilities: UI
 
-### Johnny Doe
+### Lin Tong
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/dgc5213.png" width="200px">
 
-[[github](http://github.com/johndoe)] [[portfolio](team/johndoe.md)]
-
-* Role: Developer
-* Responsibilities: Data
-
-### Jean Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](http://github.com/dgc5213)]
+[[portfolio](team/dgc5213.md)]
 
 * Role: Developer
-* Responsibilities: Dev Ops + Threading
 
-### James Doe
+### Dai Wei
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/daiweinus.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](http://github.com/daiweinus)]
+[[portfolio](team/daiweinus.md)]
 
 * Role: Developer
-* Responsibilities: UI
+
+### Chen Duo
+
+<img src="images/chenduo1412.png" width="200px">
+
+[[github](http://github.com/chenduo1412)]
+[[portfolio](team/chenduo1412.md)]
+
+* Role: Developer
