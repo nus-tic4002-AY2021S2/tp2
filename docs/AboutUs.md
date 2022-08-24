@@ -5,7 +5,7 @@ title: About Us
 
 ## Project team
 
-### Chan Weizhong
+### Weizhong
 
 <img src="images/e0260222.png" width="200px">
 
